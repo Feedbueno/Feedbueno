@@ -56,18 +56,18 @@ version="2.0">
 
 <item>
 <title>
-<![CDATA[ Titulo del Capítulo1]]>
+<![CDATA[ Capítulo de prueba ]]>
 </title>
 <om:sec>001</om:sec> 
-<link>https://omrey86.neocities.org/imetal/feed.xml#000</link>
-<enclosure url="https://archive.org/download/danaps_202503/imetal-trailer-loquendo.mp3" type="audio/mpeg" length="181400"/>
+<link>https://feedbueno.es/imetal/feed.xml#s1e1</link>
+<enclosure url="https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="181400"/>
 <description>
 <![CDATA[<p> Próximamente </p>
-<img src="https://omrey86.neocities.org/imetal/marco.png" alt="ep1" /> 
+<img src="https://feedbueno.es/imetal/marco.png" alt="ep1" /> 
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /> 
-<p> Si no ves las imágenes accede a <a href="http://www.feedbueno.es/imetal#s1e1">texto</a></p> 
+<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/imetal/feed.xml#s1e1">https://feedbueno.es/imetal/feed.xml#s1e1</a></p> 
 <p id=cap1> Episodio de prueba</p> 
-<p>Iniciativa Podgaming vuelve con una nueva Iniciativa </p>
+<p>ejemplo de imagen</p>
 <img src="https://www.aceroymagia.com/Images/articulo/metal-gear-solid-busto-11-solid-snake-56-cm/01-Metal-Gear-Solid-Busto-11-Solid-Snake-56-cm.jpg" />]]>
 </description>
 <pubDate>Mon, 21 Nov 2022 16:00:00 +0200</pubDate>
@@ -76,7 +76,7 @@ version="2.0">
 <itunes:season>1</itunes:season>
 <itunes:episode>1</itunes:episode> 
 <itunes:episodeType>full</itunes:episodeType>
-<itunes:image href="https://omrey86.neocities.org/imetal/marco.png"/>
+<itunes:image href="https://feedbueno.es/imetal/marco.png"/>
 </item>
 
 <item>
@@ -84,20 +84,22 @@ version="2.0">
 <title>
 <![CDATA[ Próximamente ]]>
 </title>
-<link>https://omrey86.neocities.org/imetal/feed.xml#000</link>
+<link>https://feedbueno.es/imetal/feed.xml#trailer1</link>
 <enclosure url="https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="825408"/>
 <description>
 <![CDATA[<p> Próximamente </p>
-<img src="https://omrey86.neocities.org/imetal/trailer.png" alt="trailer" /> 
+<img src="https://feedbueno.es/imetal/trailer.png" alt="trailer" /> 
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
-<p id=trailer> Iniciativa Podgaming vuelve con una nueva Iniciativa </p>]]>
+<p id=trailer> Iniciativa Podgaming vuelve con una nueva Iniciativa </p>
+<p>ejemplo de imagen:</p>
+<img src="https://www.aceroymagia.com/Images/articulo/metal-gear-solid-busto-11-solid-snake-56-cm/01-Metal-Gear-Solid-Busto-11-Solid-Snake-56-cm.jpg" />]]>
 </description>
-<pubDate>Mon, 14 Nov 2022 16:00:00 +0200</pubDate>
+<pubDate>Mon, 6 Nov 2022 16:00:00 +0200</pubDate>
 <itunes:duration>22:06</itunes:duration>
 <guid>trailer</guid>
 <itunes:season>1</itunes:season>
 <itunes:episodeType>trailer</itunes:episodeType>
-<itunes:image href="https://omrey86.neocities.org/imetal/trailer.png"/>
+<itunes:image href="https://feedbueno.es/imetal/trailer.png"/>
 </item>
 
 https://ia802608.us.archive.org/2/items/IniciativaPodMas/ipmb.jpg
