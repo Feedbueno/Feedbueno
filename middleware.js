@@ -5,13 +5,13 @@ export function middleware(req) {
   const originalPath = url.pathname;
   const lowerPath = originalPath.toLowerCase();
 
-  // Si la ruta tiene mayúsculas, redirige a minúsculas
+  // Redirigir a minúsculas si es necesario
   if (originalPath !== lowerPath) {
     url.pathname = lowerPath;
-    return NextResponse.redirect(url, 308); // 308 = redirect permanente
+    return NextResponse.redirect(url, 308);
   }
 
-  // Si la ruta es de primer nivel (ej: /imetal) y no termina en feed.xml, redirige
+  // Redirigir /xxx a /xxx/feed.xml
   if (
     lowerPath !== '/' &&
     !lowerPath.endsWith('/feed.xml') &&
