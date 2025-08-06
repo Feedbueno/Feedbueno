@@ -2,13 +2,6 @@
   "redirects": [
     {
       "source": "/:dir",
-      "has": [
-        {
-          "type": "header",
-          "key": "host",
-          "value": "(?i)feedbueno\\.es"
-        }
-      ],
       "destination": "/:dir/feed.xml",
       "permanent": true
     }
