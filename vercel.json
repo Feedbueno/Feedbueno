@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/:dir",
-      "destination": "/:dir/feed.xml",
-      "permanent": true
-    }
-  ]
-}
