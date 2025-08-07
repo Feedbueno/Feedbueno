@@ -6,7 +6,7 @@ xmlns:content="http://purl.org/rss/1.0/modules/content/"
 xmlns:dc="http://purl.org/dc/elements/1.1/" 
 xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
 xmlns:media="http://search.yahoo.com/mrss/" 
-xmlns:om="https://omrey86.neocities.org/" 
+xmlns:om="https://omrey86.neocities.org/"
 version="2.0"> 
 <channel>
 	         <title><![CDATA[Iniciativa Metal Gear]]></title>
@@ -18,13 +18,13 @@ version="2.0">
 	<om:cti>#2980b9</om:cti>
 	<om:autor>Iniciativa Podgaming</om:autor>
 <om:suscripciones>
-	<om:ivoox>https://omrey86.neocities.org/imetal/logo.png</om:ivoox>
-	<om:apple>https://omrey86.neocities.org/imetal/logo.png</om:apple>
-	<om:spotify>https://omrey86.neocities.org/img/spotify.png</om:spotify>
-	<om:youtube>https://omrey86.neocities.org/img/youtube.png</om:youtube>
-	<om:pocketcasts>https://omrey86.neocities.org/img/pocketcast.png</om:pocketcasts>
+	<om:ivoox>https://feedbueno.es/imetal/logo.jpeg</om:ivoox>
+	<om:apple>https://feedbueno.es/imetal/logo.jpeg</om:apple>
+	<om:spotify>https://feedbueno.es/img/spotify.png</om:spotify>
+	<om:youtube>https://feedbueno.es/img/youtube.png</om:youtube>
+	<om:pocketcasts>https://feedbueno.es/img/pocketcast.png</om:pocketcasts>
 	<om:amazon></om:amazon>
-	<om:opml>https://omrey86.neocities.org/img/opml.png</om:opml>
+	<om:opml>https://feedbueno.es/img/opml.png</om:opml>
 </om:suscripciones>
 <om:like>yes</om:like>
     <om:x></om:x>
@@ -33,20 +33,20 @@ version="2.0">
 	<om:bluesky></om:bluesky>
 	<om:whatsapp></om:whatsapp>
 	<om:telegram></om:telegram>
-	<om:discord>https://omrey86.neocities.org/img/discord.png</om:discord>
+	<om:discord>https://feedbueno.es/img/discord.png</om:discord>
 <itunes:author>Iniciativa Podgaming</itunes:author>
 <copyright>Iniciativa Podgaming</copyright>
 <link>https://t.me/IniciativaPodMas</link>
 <language>es</language>
 <description><![CDATA[Iniciativa Metal Gear es un proyecto colaborativo entre varios podcasts en español que, durante el mes de agosto, se unen para rendir homenaje a la legendaria saga de videojuegos Metal Gear. A través de episodios temáticos, análisis, debates y retrospectivas, cada programa abordará diferentes aspectos del universo creado por Hideo Kojima. La iniciativa invita a la audiencia a revivir la historia, filosofía y personajes de esta icónica franquicia. En cada episodio encontrarás enlaces para seguir a los podcasts participantes y no perderte ningún contenido de esta misión especial.]]></description>
 <generator>FEEDBUENO</generator>
-       <image><url>https://omrey86.neocities.org/imetal/logo.png</url>
+       <image><url>https://feedbueno.es/imetal/logo.jpeg</url>
         <title><![CDATA[Iniciativa Metal Gear]]></title>
 <link>feed.xml</link>
 </image>
 <atom:link href="feed.xml" rel="self" type="application/rss+xml"/>
 <itunes:explicit>no</itunes:explicit>
-        <itunes:image href="https://omrey86.neocities.org/imetal/logo.png"/>
+        <itunes:image href="https://feedbueno.es/imetal/logo.jpeg"/>
 <itunes:type>episodic</itunes:type>
          <itunes:keywords>series,peliculas,radio,cine,tv</itunes:keywords>
          <itunes:category text="Leisure">
@@ -88,7 +88,7 @@ version="2.0">
 <enclosure url="https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="825408"/>
 <description>
 <![CDATA[<p> Próximamente </p>
-<img src="https://feedbueno.es/imetal/trailer.png" alt="trailer" /> 
+<img src="https://feedbueno.es/imetal/logo.jpeg" alt="trailer" /> 
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
 <p id=trailer> Iniciativa Podgaming vuelve con una nueva Iniciativa </p>
 <p>ejemplo de imagen:</p>
@@ -99,7 +99,7 @@ version="2.0">
 <guid>trailer</guid>
 <itunes:season>1</itunes:season>
 <itunes:episodeType>trailer</itunes:episodeType>
-<itunes:image href="https://feedbueno.es/imetal/trailer.png"/>
+<itunes:image href="https://feedbueno.es/imetal/logo.jpeg"/>
 </item>
 
 https://ia802608.us.archive.org/2/items/IniciativaPodMas/ipmb.jpg
