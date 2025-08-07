@@ -253,7 +253,10 @@ Width="70%"/>
   	<div class="subscribe-buttons">
   <!-- Mail -->
 <xsl:if test="normalize-space(/rss/channel/itunes:owner/itunes:email) != ''"> 
-  <a class="subscribe-button" href="mailto:{/rss/channel/itunes:owner/itunes:email}">
+  <a class="subscribe-button">
+    <xsl:attribute name="href">
+      <xsl:value-of select="concat('mailto:', normalize-space(/rss/channel/itunes:owner/itunes:email))"/>
+    </xsl:attribute>
     <img src="../img/mail.png" alt="Mail" />
   </a>
 </xsl:if>
