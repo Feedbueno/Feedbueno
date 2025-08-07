@@ -36,7 +36,7 @@ version="2.0">
 	<om:discord>https://feedbueno.es/img/discord.png</om:discord>
 <itunes:author>Iniciativa Podgaming</itunes:author>
 <copyright>Iniciativa Podgaming</copyright>
-<link>https://t.me/IniciativaPodMas</link>
+<link>https://feedbueno.es/imetal/feed.xml</link>
 <language>es</language>
 <description><![CDATA[Iniciativa Metal Gear es un proyecto colaborativo entre varios podcasts en español que, durante el mes de agosto, se unen para rendir homenaje a la legendaria saga de videojuegos Metal Gear. A través de episodios temáticos, análisis, debates y retrospectivas, cada programa abordará diferentes aspectos del universo creado por Hideo Kojima. La iniciativa invita a la audiencia a revivir la historia, filosofía y personajes de esta icónica franquicia. En cada episodio encontrarás enlaces para seguir a los podcasts participantes y no perderte ningún contenido de esta misión especial.]]></description>
 <generator>FEEDBUENO</generator>
@@ -53,6 +53,7 @@ version="2.0">
   <itunes:category text="Video Games"/>
 </itunes:category>
 <itunes:owner><itunes:email>omrey86@gmail.com</itunes:email></itunes:owner>
+<op3>https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/</op3>
 
 <item>
 <title>
@@ -65,14 +66,14 @@ version="2.0">
 <![CDATA[<p> Próximamente </p>
 <img src="https://feedbueno.es/imetal/s1e0.jpeg" alt="ep1" /> 
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /> 
-<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/imetal/feed.xml#s1e1">https://feedbueno.es/imetal/feed.xml#s1e1</a></p> 
+<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/imetal/feed.xml#s1e0">https://feedbueno.es/imetal/feed.xml#s1e0</a></p> 
 <p id=cap1> Episodio de prueba</p> 
 <p>ejemplo de imagen</p>
 <img src="https://www.aceroymagia.com/Images/articulo/metal-gear-solid-busto-11-solid-snake-56-cm/01-Metal-Gear-Solid-Busto-11-Solid-Snake-56-cm.jpg" />]]>
 </description>
 <pubDate>Mon, 4 Aug 2025 17:00:00 +0200</pubDate>
 <itunes:duration>22:06</itunes:duration>
-<guid>s01e01</guid>
+<guid>s01e00</guid>
 <itunes:season>1</itunes:season>
 <itunes:episode>0</itunes:episode> 
 <itunes:episodeType>full</itunes:episodeType>
@@ -82,18 +83,15 @@ version="2.0">
 <item>
 	<om:sec>trailer1</om:sec>
 <title>
-<![CDATA[ Próximamente ]]>
+<![CDATA[ Trailer Iniciativa Metal Gear ]]>
 </title>
 <link>https://feedbueno.es/imetal/feed.xml#trailer1</link>
-<enclosure url="https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="825408"/>
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="825408"/>
 <description>
 <![CDATA[<p> Próximamente </p>
 <img src="https://feedbueno.es/imetal/trailer.jpeg" alt="trailer" /> 
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
-<p id=trailer> Iniciativa Podgaming vuelve con una nueva Iniciativa </p>
-<p>ejemplo de imagen:</p>
-<img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2025/05/todos-juegos-metal-gear-ordenados-peor-mejor-cual-mejor-orden-jugarlos-4327978.jpg?tf=3840x" />]]>
-</description>
+<p id=trailer> Iniciativa Metal Gear es un proyecto colaborativo entre varios podcasts en español que, durante el mes de agosto, se unen para rendir homenaje a la legendaria saga de videojuegos Metal Gear. A través de episodios temáticos, análisis, debates y retrospectivas, cada programa abordará diferentes aspectos del universo creado por Hideo Kojima. La iniciativa invita a la audiencia a revivir la historia, filosofía y personajes de esta icónica franquicia. En cada episodio encontrarás enlaces para seguir a los podcasts participantes y no perderte ningún contenido de esta misión especial. </p>]]></description>
 <pubDate>Mon, 4 Aug 2025 16:00:00 +0200</pubDate>
 <itunes:duration>22:06</itunes:duration>
 <guid>trailer</guid>
@@ -101,9 +99,6 @@ version="2.0">
 <itunes:episodeType>trailer</itunes:episodeType>
 <itunes:image href="https://feedbueno.es/imetal/trailer.jpeg"/>
 </item>
-
-https://ia802608.us.archive.org/2/items/IniciativaPodMas/ipmb.jpg
-
 
 </channel>
 </rss>
