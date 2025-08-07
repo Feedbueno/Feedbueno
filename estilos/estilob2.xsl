@@ -347,7 +347,7 @@ Width="70%"/>
                 	<xsl:if test="itunes:episode">
                 	  <xsl:text>s</xsl:text><xsl:value-of select="itunes:season"/>
   <xsl:text>e</xsl:text><xsl:value-of select="itunes:episode"/>
-</xsl:if> <xsl:value-of select="pubDate"/>
+</xsl:if> - <xsl:value-of select="pubDate"/>
                 </div>
 
   <audio controls="enabled" preload="none">
