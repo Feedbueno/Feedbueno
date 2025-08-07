@@ -260,7 +260,16 @@ Width="70%"/>
 
   <!-- Like -->
 <xsl:if test="normalize-space(/rss/channel/itunes:owner/itunes:email) != '' and normalize-space(/rss/channel/om:like) = 'yes'"> 
-  <a class="subscribe-button" href="mailto:{/rss/channel/itunes:owner/itunes:email}?subject=Like%20%E2%9D%A4%EF%B8%8F&amp;body=Me%20gusta%20mucho%20tu%20podcast%20{/rss/channel/title}.%0A%0AEnviado%20desde%20Feedbueno.">
+  <a class="subscribe-button">
+    <xsl:attribute name="href">
+      <xsl:value-of select="concat(
+        'mailto:', 
+        normalize-space(/rss/channel/itunes:owner/itunes:email),
+        '?subject=Like%20%E2%9D%A4%EF%B8%8F',
+        '&amp;body=Me%20gusta%20mucho%20tu%20podcast%20',
+        normalize-space(/rss/channel/title),
+        '.%0A%0AEnviado%20desde%20Feedbueno.')"/>
+    </xsl:attribute>
     <img src="../img/like.png" alt="like" />
   </a>
 </xsl:if>
