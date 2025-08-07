@@ -331,10 +331,11 @@ Width="70%"/>
 
   
         <xsl:for-each select="rss/channel/item">
-          <div class="item">
+         <div id="s{itunes:season}e{itunes:episode}"><div id="{om:sec}"></div></div>
+ <div class="item">
           	<div class="item-content">
           	<div class="item-title">
-          	<div id="s{itunes:season}e{itunes:episode}"><div id="{om:sec}"></div><xsl:value-of select="title"/></div>
+          	<div><xsl:value-of select="title"/></div>
           	
                 </div>
                 
