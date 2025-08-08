@@ -25,7 +25,7 @@ version="2.0">
 	<om:pocketcasts></om:pocketcasts>
 	<om:amazon></om:amazon>
 	<om:index>https://podcastindex.org/podcast/7439362</om:index>
-	<om:opml>opml.opml</om:opml>
+	<om:opml>imetal.opml</om:opml>
 </om:suscripciones>
 <om:like>yes</om:like>
     <om:x></om:x>
