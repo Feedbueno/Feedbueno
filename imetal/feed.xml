@@ -62,9 +62,9 @@ version="2.0">
 </title>
 <om:sec>s01e00</om:sec> 
 <link>https://feedbueno.es/imetal/feed.xml#s1e1</link>
-<enclosure url="https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="181400"/>
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="181400"/>
 <description>
-<![CDATA[<p> Próximamente </p>
+<![CDATA[<p>  Capítulo de prueba </p>
 <img src="https://feedbueno.es/imetal/s1e0.jpeg" alt="ep1" /> 
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /> 
 <p> Si no ves las imágenes accede a <a href="https://feedbueno.es/imetal/feed.xml#s1e0">https://feedbueno.es/imetal/feed.xml#s1e0</a></p> 

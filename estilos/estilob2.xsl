@@ -243,7 +243,7 @@ Width="70%"/>
 
 <!-- OPML -->
 <xsl:if test="normalize-space(/rss/channel/om:suscripciones/om:opml) != ''">
-  <a class="subscribe-button" href="{/rss/channel/om:suscripciones/om:opml}">
+  <a class="subscribe-button" href="{/rss/channel/om:suscripciones/om:opml}" download="Iniciativa Metal Gear.opml">
     <img src="../img/opml.png" alt="OPML" />
   </a>
 </xsl:if>
