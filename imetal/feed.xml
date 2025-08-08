@@ -18,11 +18,11 @@ version="2.0">
 	<om:cti>#2980b9</om:cti>
 	<om:autor>Iniciativa Podgaming</om:autor>
 <om:suscripciones>
-	<om:ivoox></om:ivoox>
+	<om:ivoox>https://www.ivoox.com/iniciativa-metal-gear_bk_list_11304347_1.html</om:ivoox>
 	<om:apple>https://podcasts.apple.com/us/podcast/iniciativa-metal-gear/id1831779840</om:apple>
 	<om:spotify></om:spotify>
 	<om:youtube></om:youtube>
-	<om:pocketcasts></om:pocketcasts>
+	<om:pocketcasts>https://pocketcasts.com/podcasts/d417df80-54af-013e-81c8-0afff9dbf725</om:pocketcasts>
 	<om:amazon></om:amazon>
 	<om:index>https://podcastindex.org/podcast/7439362</om:index>
 	<om:opml>https://feedbueno.es/imetal/imetal.opml</om:opml>
@@ -56,50 +56,21 @@ version="2.0">
 <itunes:owner><itunes:email>omrey86@gmail.com</itunes:email></itunes:owner>
 <op3>https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/</op3>
 
-<item>
-<title>
-<![CDATA[ Capítulo de prueba ]]>
-</title>
-<om:sec>s01e00</om:sec> 
-<link>https://feedbueno.es/imetal/feed.xml#s1e1</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="181400"/>
-<description>
-<![CDATA[<p>  Capítulo de prueba </p>
-<img src="https://feedbueno.es/imetal/s1e0.jpeg" alt="ep1" /> 
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /> 
-<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/imetal/feed.xml#s1e0">https://feedbueno.es/imetal/feed.xml#s1e0</a></p> 
-<p id=cap1> Episodio de prueba</p> 
-<p>ejemplo de imagen</p>
-<img src="https://www.aceroymagia.com/Images/articulo/metal-gear-solid-busto-11-solid-snake-56-cm/01-Metal-Gear-Solid-Busto-11-Solid-Snake-56-cm.jpg" />]]>
-</description>
-<pubDate>Mon, 4 Aug 2025 17:00:00 +0200</pubDate>
-<itunes:duration>22:06</itunes:duration>
-<guid>s01e00</guid>
+
+
+<item><om:sec>trailer1</om:sec><title><![CDATA[Iniciativa Metal Gear - Intro]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-intro-audios-mp3_rf_154999198_1.html</link>
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-intro_mf_154999198_feed_1.mp3" type="audio/mpeg"  length="826723"/>
+<description><![CDATA[Iniciativa Metal Gear - Intro
+<img src="https://static-1.ivoox.com/audios/0/0/4/8/0048d0707e81b172f1d7a34196e01b0d_XXL.jpg" />
+<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<p> 🎙 Iniciativa Metal Gear es un evento colaborativo que reúne a varios creadores de contenido para rendir homenaje a una de las sagas más influyentes de la historia de los videojuegos. </p> 
+<p>Con motivo del lanzamiento de Metal Gear Solid Δ: Snake Eater este agosto, repasaremos junto a voces expertas y apasionadas cada entrega de la obra maestra de Hideo Kojima.</p> 
+<p>Anécdotas, curiosidades, impacto cultural y todo el legado de Metal Gear, contado desde diferentes perspectivas, en un viaje sonoro que celebra más de tres décadas de espionaje, sigilo y narrativa inolvidable.</p> ]]></description><pubDate>Fri, 08 Aug 2025 11:56:08 +0200</pubDate><itunes:duration>00:51</itunes:duration>
 <itunes:season>1</itunes:season>
-<itunes:episode>0</itunes:episode> 
-<itunes:episodeType>full</itunes:episodeType>
-<itunes:image href="https://feedbueno.es/imetal/s1e0.jpeg"/>
+<itunes:episodeType>trailer</itunes:episodeType><guid>https://www.ivoox.com/154999198</guid>
+<itunes:image href="https://static-1.ivoox.com/audios/0/0/4/8/0048d0707e81b172f1d7a34196e01b0d_XXL.jpg"/>
 </item>
 
-<item>
-	<om:sec>trailer1</om:sec>
-<title>
-<![CDATA[ Trailer Iniciativa Metal Gear ]]>
-</title>
-<link>https://feedbueno.es/imetal/feed.xml#trailer1</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://ia801202.us.archive.org/33/items/danaps_202503/trailer_imetal.mp3" type="audio/mpeg" length="825408"/>
-<description>
-<![CDATA[<p> Próximamente </p>
-<img src="https://feedbueno.es/imetal/trailer.jpeg" alt="trailer" /> 
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
-<p id=trailer> Iniciativa Metal Gear es un proyecto colaborativo entre varios podcasts en español que, durante el mes de agosto, se unen para rendir homenaje a la legendaria saga de videojuegos Metal Gear. A través de episodios temáticos, análisis, debates y retrospectivas, cada programa abordará diferentes aspectos del universo creado por Hideo Kojima. La iniciativa invita a la audiencia a revivir la historia, filosofía y personajes de esta icónica franquicia. En cada episodio encontrarás enlaces para seguir a los podcasts participantes y no perderte ningún contenido de esta misión especial. </p>]]></description>
-<pubDate>Mon, 4 Aug 2025 16:00:00 +0200</pubDate>
-<itunes:duration>22:06</itunes:duration>
-<guid>trailer</guid>
-<itunes:season>1</itunes:season>
-<itunes:episodeType>trailer</itunes:episodeType>
-<itunes:image href="https://feedbueno.es/imetal/trailer.jpeg"/>
-</item>
 
 </channel>
 </rss>
