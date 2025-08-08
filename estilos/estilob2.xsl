@@ -206,6 +206,13 @@ Width="70%"/>
   </a>
 </xsl:if>
 
+<!-- Podcasts Index -->
+<xsl:if test="normalize-space(/rss/channel/om:suscripciones/om:index) != ''">
+  <a class="subscribe-button" href="{/rss/channel/om:suscripciones/om:index}">
+    <img src="../img/index.jpg" alt="Podcasts Index" />
+  </a>
+</xsl:if>
+
 <!-- Spotify -->
 <xsl:if test="normalize-space(/rss/channel/om:suscripciones/om:spotify) != ''">
   <a class="subscribe-button" href="{/rss/channel/om:suscripciones/om:spotify}">

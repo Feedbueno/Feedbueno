@@ -18,13 +18,14 @@ version="2.0">
 	<om:cti>#2980b9</om:cti>
 	<om:autor>Iniciativa Podgaming</om:autor>
 <om:suscripciones>
-	<om:ivoox>https://feedbueno.es/imetal/logo.jpeg</om:ivoox>
-	<om:apple>https://feedbueno.es/imetal/logo.jpeg</om:apple>
-	<om:spotify>https://feedbueno.es/img/spotify.png</om:spotify>
-	<om:youtube>https://feedbueno.es/img/youtube.png</om:youtube>
-	<om:pocketcasts>https://feedbueno.es/img/pocketcast.png</om:pocketcasts>
+	<om:ivoox></om:ivoox>
+	<om:apple>https://podcasts.apple.com/us/podcast/iniciativa-metal-gear/id1831779840</om:apple>
+	<om:spotify></om:spotify>
+	<om:youtube></om:youtube>
+	<om:pocketcasts></om:pocketcasts>
 	<om:amazon></om:amazon>
-	<om:opml>https://feedbueno.es/img/opml.png</om:opml>
+	<om:index>https://podcastindex.org/podcast/7439362</om:index>
+	<om:opml>opml.opml</om:opml>
 </om:suscripciones>
 <om:like>yes</om:like>
     <om:x></om:x>
