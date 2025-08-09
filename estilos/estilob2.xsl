@@ -394,7 +394,7 @@ Width="70%"/>
         </xsl:for-each>
         <div style="text-align: center;">
         <p>Powered by: </p>
-      <p><img width="80%" src="../feedbueno.png" /></p>
+      <p><img width="25%" src="../feedbueno.png" /></p>
         </div> 
       
       <button id="scrollTopBtn" title="Subir arriba">↑</button>
