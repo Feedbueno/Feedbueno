@@ -6,7 +6,7 @@ export default function Home() {
     </div>
   );
     if (typeof window !== 'undefined') {
-    window.location.href = '/index.html';
+    window.location.href = '/web/web.html';
   }
   return null;
 }
