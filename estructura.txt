@@ -1,0 +1,15 @@
+feeds_project/
+│
+├── middleware.js
+├── package.json
+├── INSTRUCCIONES.txt
+│
+├── pages/
+│   └── index.js
+│
+└── public/
+    ├── imetal/
+    │   └── feed.xml
+    │
+    └── isouls/
+        └── feed.xml

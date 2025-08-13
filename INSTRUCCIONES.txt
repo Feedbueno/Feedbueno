@@ -1,0 +1,31 @@
+INSTRUCCIONES PARA SUBIR A VERCEL
+
+1. Requisitos:
+   - Tener instalado Node.js (>=18)
+   - Tener instalado Vercel CLI (`npm i -g vercel`)
+
+2. Estructura:
+   /public/imetal/feed.xml
+   /public/isouls/feed.xml
+   middleware.js
+   package.json
+   pages/index.js
+
+3. Middleware.js:
+   - Convierte todas las rutas a minúsculas.
+   - Si la URL es solo una carpeta, redirige automáticamente a feed.xml.
+
+4. Subir a Vercel:
+   - Abre la terminal en la carpeta del proyecto.
+   - Ejecuta: npm install
+   - Ejecuta: vercel --prod
+
+5. Pruebas:
+   - https://tudominio.com/IMETAL -> redirige a /imetal/feed.xml
+   - https://tudominio.com/imetal -> redirige a /imetal/feed.xml
+   - https://tudominio.com/isouls -> redirige a /isouls/feed.xml
+
+6. Añadir más feeds:
+   - Crea una carpeta en /public con el nombre del feed.
+   - Añade feed.xml dentro.
+   - No necesitas tocar nada más.
