@@ -1,6 +1,11 @@
-// pages/index.js
 export default function Home() {
-  if (typeof window !== 'undefined') {
+  return (
+    <div>
+      <h1>Feeds Project</h1>
+      <p>Este sitio sirve feeds en /imetal/feed.xml y /isouls/feed.xml</p>
+    </div>
+  );
+    if (typeof window !== 'undefined') {
     window.location.href = '/index.html';
   }
   return null;
