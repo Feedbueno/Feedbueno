@@ -70,6 +70,7 @@ xmlns:om="https://omrey86.neocities.org/" >
   word-wrap: break-word;
   word-break: break-word;
   line-height: 1.6;
+  color: <xsl:value-of select="/rss/channel/om:ctii"/>;
 }
 
 .item-description a {

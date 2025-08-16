@@ -15,7 +15,8 @@ version="2.0">
 	<om:cfb2>#8b0000</om:cfb2>
 	<om:cfi>Blue</om:cfi>
 	<om:ch1>yellow</om:ch1>
-		<om:cti>#D3D3D3</om:cti>
+		<om:cti>yellow</om:cti>
+		<om:ctii>LightGray</om:ctii>
 	<om:clink>#90EE90</om:clink>
 	<om:autor>Iniciativa Podgaming</om:autor>
 <om:suscripciones>
@@ -68,7 +69,7 @@ version="2.0">
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
 <p> Si no ves las imágenes accede a <a href="https://feedbueno.es/imario/feed.xml#s1e1">https://feedbueno.es/imario/feed.xml#s1e1</a> o a <a href="https://feedbueno.es/imario/feed.xml#trailer1">https://feedbueno.es/imario/feed.xml#trailer1</a></p>
 <hr/>
-<p> 🎙 Este es un episodio de prueba 1. </p> ]]></description><pubDate>Fri, 08 Aug 2025 11:56:08 +0200</pubDate><itunes:duration>00:51</itunes:duration>
+<p> 🎙 Este es un episodio de prueba. </p> ]]></description><pubDate>Fri, 08 Aug 2025 11:56:08 +0200</pubDate><itunes:duration>00:51</itunes:duration>
 <itunes:season>1</itunes:season>
 <itunes:episode>1</itunes:episode> 
 <itunes:episodeType>trailer</itunes:episodeType><guid>https://www.ivoox.com/154999198</guid>
