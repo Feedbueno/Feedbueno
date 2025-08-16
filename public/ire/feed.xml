@@ -10,7 +10,7 @@ xmlns:om="https://omrey86.neocities.org/"
 version="2.0"> 
 <channel>
 	         <title><![CDATA[Iniciativa Residente Evil]]></title>
-	<om:name>NOMBRE</om:name>
+	<om:name>ire</om:name>
 <om:cfb1></om:cfb1>
 	<om:cfb2></om:cfb2>
 	<om:cfi></om:cfi>
@@ -37,17 +37,17 @@ version="2.0">
 	<om:discord></om:discord>
 <itunes:author>AUTOR</itunes:author>
 <copyright>AUTOR</copyright>
-<link>https://feedbueno.es/NOMBRE/feed.xml</link>
+<link>https://feedbueno.es/ire/feed.xml</link>
 <language>es</language>
 <description><![CDATA[DESCRIPCIÓN]]></description>
 <generator>FEEDBUENO</generator>
-       <image><url>https://feedbueno.es/NOMBRE/logo.jpeg</url>
+       <image><url>https://feedbueno.es/ire/logo.jpeg</url>
         <title><![CDATA[Iniciativa Residente Evil]]></title>
-<link>https://feedbueno.es/NOMBRE /feed.xml</link>
+<link>https://feedbueno.es/ire/feed.xml</link>
 </image>
-<atom:link href="https://feedbueno.es/NOMBRE/feed.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="https://feedbueno.es/ire/feed.xml" rel="self" type="application/rss+xml"/>
 <itunes:explicit>no</itunes:explicit>
-        <itunes:image href="https://feedbueno.es/NOMBRE/logo.jpeg"/>
+        <itunes:image href="https://feedbueno.es/ire/logo.jpeg"/>
 <itunes:type>episodic</itunes:type>
          <itunes:keywords>videojuegos, series,peliculas,radio,cine,tv</itunes:keywords>
          <itunes:category text="Leisure">
@@ -63,15 +63,15 @@ version="2.0">
 <title><![CDATA[Capítulo de prueba]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-intro-audios-mp3_rf_154999198_1.html</link>
 <enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-intro_mf_154999198_feed_1.mp3" type="audio/mpeg"  length="826723"/>
 <description><![CDATA[Iniciativa Metal Gear - Intro
-<img src="https://feedbueno.es/NOMBRE/trailer.jpeg" />
+<img src="https://feedbueno.es/ire/trailer.jpeg" />
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
-<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/NOMBRE/feed.xml#s1e1">https://feedbueno.es/NOMBRE/feed.xml#s1e1</a> o a <a href="https://feedbueno.es/NOMBRE/feed.xml#trailer1">https://feedbueno.es/NOMBRE/feed.xml#trailer1</a></p>
+<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/ire/feed.xml#s1e1">https://feedbueno.es/ire/feed.xml#s1e1</a> o a <a href="https://feedbueno.es/ire/feed.xml#trailer1">https://feedbueno.es/ire/feed.xml#trailer1</a></p>
 <hr/>
 <p> 🎙 Este es un episodio de prueba. </p> ]]></description><pubDate>Fri, 08 Aug 2025 11:56:08 +0200</pubDate><itunes:duration>00:51</itunes:duration>
 <itunes:season>1</itunes:season>
 <itunes:episode>1</itunes:episode> 
 <itunes:episodeType>trailer</itunes:episodeType><guid>https://www.ivoox.com/154999198</guid>
-<itunes:image href="https://feedbueno.es/NOMBRE/trailer.jpeg"/>
+<itunes:image href="https://feedbueno.es/ire/trailer.jpeg"/>
 </item>
 
 
