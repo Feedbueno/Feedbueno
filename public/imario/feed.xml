@@ -15,9 +15,9 @@ version="2.0">
 	<om:cfb2>#8b0000</om:cfb2>
 	<om:cfi>Blue</om:cfi>
 	<om:ch1>yellow</om:ch1>
-		<om:cti>yellow</om:cti>
-		<om:ctii>LightGray</om:ctii>
-	<om:clink>lime</om:clink>
+		<om:cti>#ffd700</om:cti>
+		<om:ctii>AliceBlue</om:ctii>
+	<om:clink>#00ffff</om:clink>
 	<om:autor>Iniciativa Podgaming</om:autor>
 <om:suscripciones>
 	<om:ivoox></om:ivoox>
@@ -67,7 +67,7 @@ version="2.0">
 <description><![CDATA[Iniciativa Metal Gear - Intro
 <img src="https://feedbueno.es/imario/trailer.jpeg" />
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
-<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/imario/feed.xml#s1e1">https://feedbueno.es/imario/feed.xml#s1e1</a> o a <a href="https://feedbueno.es/imario/feed.xml#trailer1">https://feedbueno.es/imario/feed.xml#trailer1</a></p>
+<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/imario/feed.xml#s1e1">https://feedbueno.es/imario#s1e1</a> o a <a href="https://feedbueno.es/imario/feed.xml#trailer1">https://feedbueno.es/imario#trailer1</a></p>
 <hr/>
 <p> 🎙 Este es un episodio de prueba 2.</p> ]]></description><pubDate>Fri, 08 Aug 2025 11:56:08 +0200</pubDate><itunes:duration>00:51</itunes:duration>
 <itunes:season>1</itunes:season>
