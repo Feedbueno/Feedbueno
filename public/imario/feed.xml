@@ -15,7 +15,7 @@ version="2.0">
 	<om:cfb2>#8b0000</om:cfb2>
 	<om:cfi>Blue</om:cfi>
 	<om:ch1>yellow</om:ch1>
-	<om:cti></om:cti>
+	<om:clink>green</om:clink>
 	<om:autor>Iniciativa Podgaming</om:autor>
 <om:suscripciones>
 	<om:ivoox></om:ivoox>

@@ -32,6 +32,13 @@ xmlns:om="https://omrey86.neocities.org/" >
             font-size: 14px;
             margin: auto;
           }
+          
+          a {
+  color: <xsl:value-of select="/rss/channel/om:clink"/>;
+  text-decoration: underline;
+  word-break: break-all; /* Rompe enlaces si son muy largos */
+}
+
           h1 {
             color: <xsl:value-of select="/rss/channel/om:ch1"/>;
             border-bottom: 2px solid <xsl:value-of select="/rss/channel/om:ch1"/>;
@@ -66,7 +73,7 @@ xmlns:om="https://omrey86.neocities.org/" >
 }
 
 .item-description a {
-  color: #007BFF;
+  color: <xsl:value-of select="/rss/channel/om:clink"/>;
   text-decoration: underline;
   word-break: break-all; /* Rompe enlaces si son muy largos */
 }
