@@ -429,7 +429,7 @@ xmlns:om="https://omrey86.neocities.org/" >
     <!-- Columna derecha -->
     <div style="width:15%;text-align:center;">
       <a href="{enclosure/@url}" target="_blank">
-        <img src="play.jpg" alt="Reproducir episodio" style="width:100%;max-width:60px;height:auto;"/>
+        <img src="../img/play.png" alt="Reproducir episodio" style="width:100%;max-width:60px;height:auto;"/>
       </a>
       <div style="font-size:0.8em;color:#555;margin-top:5px;">
         <xsl:value-of select="itunes:duration"/>
