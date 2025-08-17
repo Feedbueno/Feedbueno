@@ -28,11 +28,11 @@ version="2.0">
 	<om:opml>https://feedbueno.es/imetal/imetal.opml</om:opml>
 </om:suscripciones>
 <om:like>yes</om:like>
-    <om:x></om:x>
+    <om:x>https://x.com/Podgaming_</om:x>
 	<om:facebook></om:facebook>
-	<om:instagram></om:instagram>
-	<om:bluesky></om:bluesky>
-	<om:whatsapp></om:whatsapp>
+	<om:instagram>https://www.instagram.com/podgaming_/</om:instagram>
+	<om:bluesky>https://web-cdn.bsky.app/profile/did:plc:3faxumg6fshyjwlvdeotj53c</om:bluesky>
+	<om:whatsapp>https://whatsapp.com/channel/0029Va9gqDyDJ6H5xJkJiX27</om:whatsapp>
 	<om:telegram></om:telegram>
 	<om:discord></om:discord>
 <itunes:author>Iniciativa Podgaming</itunes:author>

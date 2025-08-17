@@ -404,7 +404,7 @@ xmlns:om="https://omrey86.neocities.org/" >
    
    
    <xsl:for-each select="rss/channel/item">
-  <div style="background:White;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ccc;padding:10px 0;">
+  <div style="background:White;color:Black;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ccc;padding:10px 0;">
 
     <!-- Columna izquierda -->
     <div style="width:20%;">
