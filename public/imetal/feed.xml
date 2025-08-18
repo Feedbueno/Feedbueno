@@ -28,14 +28,13 @@ version="2.0">
 	<om:opml>https://feedbueno.es/imetal/imetal.opml</om:opml>
 </om:suscripciones>
 <om:like>yes</om:like>
-    <om:x>https://x.com/Podgaming_</om:x>
-	<om:facebook>https://www.facebook.com/groups/144645519077614/</om:facebook>
-	<om:instagram>https://www.instagram.com/podgaming_/</om:instagram>
-	<om:bluesky>https://web-cdn.bsky.app/profile/did:plc:3faxumg6fshyjwlvdeotj53c</om:bluesky>
-	<om:whatsapp>https://whatsapp.com/channel/0029Va9gqDyDJ6H5xJkJiX27</om:whatsapp>
+    <om:x></om:x>
+	<om:facebook></om:facebook>
+	<om:instagram></om:instagram>
+	<om:bluesky></om:bluesky>
+	<om:whatsapp></om:whatsapp>
 	<om:telegram></om:telegram>
 	<om:discord></om:discord>
-	<om:linkedin>https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://es.linkedin.com/company/iniciativa-podgaming&ved=2ahUKEwitle3jtJKPAxXmTaQEHVdFKBIQjJEMegQIBBAE&usg=AOvVaw3BTSs4VEU75EYnp9WwXYGt</om:linkedin>
 <itunes:author>Iniciativa Podgaming</itunes:author>
 <copyright>Iniciativa Podgaming</copyright>
 <link>https://feedbueno.es/imetal/feed.xml</link>
@@ -46,7 +45,7 @@ version="2.0">
         <title><![CDATA[Iniciativa Metal Gear]]></title>
 <link>feed.xml</link>
 </image>
-<atom:link href="https://feedbueno.es/imetal/feed.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="feed.xml" rel="self" type="application/rss+xml"/>
 <itunes:explicit>no</itunes:explicit>
         <itunes:image href="https://feedbueno.es/imetal/logo.jpeg"/>
 <itunes:type>episodic</itunes:type>
