@@ -2,7 +2,8 @@
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-xmlns:om="https://omrey86.neocities.org/" >
+xmlns:om="https://omrey86.neocities.org/" 
+xmlns:atom="http://www.w3.org/2005/Atom" >
 
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
@@ -260,7 +261,7 @@ Width="80%"/>
 </div>
 
   <p>
-        <br/>Busca "<span style="color: {/rss/channel/om:ch1}; font-weight: bold;"><xsl:value-of select="rss/channel/title"/></span>" en tu aplicación de podcast preferida o copia y pega <xsl:value-of select="rss/channel/atom:link @href"/> en su buscador.
+        Busca "<span style="color: {/rss/channel/om:ch1}; font-weight: bold;"><xsl:value-of select="rss/channel/title"/></span>" en tu aplicación de podcast preferida o copia y pega <xsl:value-of select="rss/channel/atom:link/@href"/> en su buscador.
   </p>
   
   <div style="text-align: center;">
