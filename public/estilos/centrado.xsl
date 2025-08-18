@@ -196,7 +196,7 @@ xmlns:om="https://omrey86.neocities.org/" >
 <div style="text-align: center;">
   <img src="{rss/channel/image/url}" 
      alt="{rss/channel/image/title}"
-Width="70%"/>
+Width="80%"/>
 <xsl:if test="rss/channel/om:suscripciones/*[normalize-space(.) != '']">
   <p>Suscríbete en:</p>
   	<div class="subscribe-buttons">
@@ -260,7 +260,7 @@ Width="70%"/>
 </div>
 
   <p>
-        <br/>Busca "<span style="color: {/rss/channel/om:ch1}; font-weight: bold;"><xsl:value-of select="rss/channel/title"/></span>" en tu aplicación de podcast preferida.
+        <br/>Busca "<span style="color: {/rss/channel/om:ch1}; font-weight: bold;"><xsl:value-of select="rss/channel/title"/></span>" en tu aplicación de podcast preferida o copia y pega <xsl:value-of select="rss/channel/atom:link @href"/> en su buscador.
   </p>
   
   <div style="text-align: center;">
@@ -331,6 +331,13 @@ Width="70%"/>
 <xsl:if test="normalize-space(/rss/channel/om:telegram) != ''"> 
   <a class="subscribe-button" href="{/rss/channel/om:telegram}">
     <img src="../img/telegram.png" alt="telegram" />
+  </a>
+</xsl:if>
+
+<!-- linkedin  -->
+<xsl:if test="normalize-space(/rss/channel/om:linkedin) != ''"> 
+  <a class="subscribe-button" href="{/rss/channel/om:linkedin}">
+    <img src="../img/linkedin.png" alt="linkedin" />
   </a>
 </xsl:if>
 
