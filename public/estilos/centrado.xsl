@@ -261,7 +261,7 @@ Width="80%"/>
 </div>
 
   <p>
-        Busca "<span style="color: {/rss/channel/om:ch1}; font-weight: bold;"><xsl:value-of select="rss/channel/title"/></span>" en tu aplicación de podcast preferida o copia y pega <xsl:value-of select="rss/channel/atom:link/@href"/> en su buscador.
+        Busca "<span style="color: {/rss/channel/om:ch1}; font-weight: bold;"><xsl:value-of select="rss/channel/title"/></span>" en tu aplicación de podcast preferida o copia y pega <a href="<xsl:value-of select="rss/channel/atom:link/@href"/>"><xsl:value-of select="rss/channel/atom:link/@href"/></a> en su buscador.
   </p>
   
   <div style="text-align: center;">
@@ -290,6 +290,13 @@ Width="80%"/>
         '.%0A%0AEnviado%20desde%20Feedbueno.')"/>
     </xsl:attribute>
     <img src="../img/like.png" alt="like" />
+  </a>
+</xsl:if>
+
+<!-- Web -->
+<xsl:if test="normalize-space(/rss/channel/om:web) != ''"> 
+  <a class="subscribe-button" href="{/rss/channel/om:web}">
+    <img src="../img/web.png" alt="web" />
   </a>
 </xsl:if>
 
