@@ -87,7 +87,7 @@ version="2.0">
 </ul>
 
 <p><strong>Lista completa de episodios:</strong></p>
-<ol>
+<ol start="0">
   <li>Iniciativa Podgaming - Introducción</li>
   <li>Chaydgam Corps - Snatcher</li>
   <li>El Conclilio del Píxel - Metal Gear</li>
