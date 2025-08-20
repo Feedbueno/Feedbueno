@@ -58,7 +58,8 @@ version="2.0">
 
 
 
-<item><title><![CDATA[Iniciativa Metal Gear #02 // El Concilio del Pixel - Tertulia #9 - Metal Gear (MSX)]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del-audios-mp3_rf_155863829_1.html</link><enclosure url="https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del_mf_155863829_feed_1.mp3" type="audio/mpeg"  length="32369893"/>
+<item><title><![CDATA[Iniciativa Metal Gear #02 // El Concilio del Pixel - Tertulia #9 - Metal Gear (MSX)]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del-audios-mp3_rf_155863829_1.html</link>
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del_mf_155863829_feed_1.mp3" type="audio/mpeg"  length="32369893"/>
 <description><![CDATA[
 <h2>Iniciativa Metal Gear #02 // El Concilio del Pixel - Tertulia #9 - Metal Gear (MSX)</h2>
 <a href="https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del-audios-mp3_rf_155863829_1.html">
@@ -85,7 +86,7 @@ version="2.0">
 </ul>
 
 <p><strong>Lista completa de episodios:</strong></p>
-<ol start= "0">
+<ol start="0">
   <li>Iniciativa Podgaming - Introducción</li>
   <li>Chaydgam Corps - Snatcher</li>
   <li>El Conclilio del Píxel - Metal Gear</li>
@@ -109,7 +110,8 @@ version="2.0">
 <p><img width="100%" src="https://cdn.mobygames.com/screenshots/9572343-metal-gear-msx-three-trucks-i-wonder-what-is-inside.png" /></p> ]>
 </description>
 <itunes:season>1</itunes:season>
-<itunes:episode>2</itunes:episode> <pubDate>Wed, 20 Aug 2025 07:22:29 +0200</pubDate><itunes:duration>01:07:26</itunes:duration><itunes:episodeType>full</itunes:episodeType><guid>https://www.ivoox.com/155863829</guid><itunes:image href="https://static-1.ivoox.com/audios/4/d/3/b/4d3bb784c41bcc273a8e01c587b99b41_XXL.jpg"/></item>
+<itunes:episode>2</itunes:episode><pubDate>Wed, 20 Aug 2025 07:22:29 +0200</pubDate><itunes:duration>01:07:26</itunes:duration><itunes:episodeType>full</itunes:episodeType><guid>https://www.ivoox.com/155863829</guid><itunes:image href="https://static-1.ivoox.com/audios/4/d/3/b/4d3bb784c41bcc273a8e01c587b99b41_XXL.jpg"/>
+</item>
 
 
 <item><title><![CDATA[Iniciativa Metal Gear #1 - Snatcher]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-1-snatcher-audios-mp3_rf_155819306_1.html</link>
