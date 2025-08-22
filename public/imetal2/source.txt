@@ -1,1 +1,2 @@
 https://feedbueno.es/imetal
+https://feedbueno.es/imetal/feed3.xml
