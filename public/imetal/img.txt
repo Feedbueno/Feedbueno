@@ -6,9 +6,6 @@ MGS
 MGS2 
 
 MGS3
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/9555248aaa.jpg" /></p> 
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/9998491aaa.jpg" /></p> 
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/4326823aaa.jpg" /></p> 
 
 MGS4
 <p><img width="100%" src="https://www.vgchartz.com/games/pics/2557698aaa.jpg" /></p> 
