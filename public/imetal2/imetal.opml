@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<opml version="1.0">
+  <head>
+    <title>Iniciativa Metal Gear</title>
+  </head>
+  <body>
+    <outline type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f159110_filtro_1.xml" />
+    <outline type="rss" xmlUrl="https://feeds.feedburner.com/chaydgamcorps" />
+    <outline type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f12485045_filtro_1.xml" />
+    <outline type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f1446764_filtro_1.xml" />
+    <outline type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f11327342_filtro_1.xml" />
+    <outline type="rss" xmlUrl="https://anchor.fm/s/5a5fdbb0/podcast/rss" />
+    <outline type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f150922_filtro_1.xml" />
+    <outline type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f159110_filtro_1.xml" />
+    <outline type="rss" xmlUrl="https://anchor.fm/s/6a058808/podcast/rss" />
+    <outline type="rss" xmlUrl="https://www.ivoox.com/podcast-reino-de-neverland-podcast_fg_f150436_filtro_1.xml" />
+    <outline type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f1587235_filtro_1.xml" />
+    <outline type="rss" xmlUrl="https://feeds.feedburner.com/rocquimendaciones" />
+        <outline type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f12261100_filtro_1.xml" />
+<outline type="rss" xmlUrl="https://feedbueno.es/imetal/feed.xml" />
+  </body>
+</opml>
