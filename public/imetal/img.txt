@@ -8,41 +8,45 @@ MGS2
 MGS3
 
 MGS4
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/2557698aaa.jpg" /></p> 
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/9449644aaa.jpg" /></p> 
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/1705573aaa.jpg" /></p> 
 
-MGS Peacewalker + un poco del 5
+S-T - MGS Peacewalker + un poco del 5
+<p><b>Metal Gear Solid Peace walker</b></p> 
+<p><img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS89q3bSRLnFPGPzymKEUwfonAD1AgTjZWlXg&s" /></p> 
+<p><img width="100%" src="https://ps3media.ign.com/ps3/image/article/117/1173522/metal-gear-solid-hd-collection-20110607102004345_640w.jpg" /></p> 
+<p><b>Metal Gear Solid 5 </b></p> 
+<p><img width="100%" src="https://live.staticflickr.com/2897/33055616100_10e1dfbeb7_h.jpg" /></p> 
+<p><img width="100%" src="https://www.newgamenetwork.com/images/uploads/gallery/MGS5PP/MGS5PP09.jpg" /></p> 
+
+D-M - Kojima visionario / PT
+<p><b>Kojima</b></p>
+<p><img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXDYrLRlVyd-gP7lF7gzQaXy9M0Ef7LnNcOQ&s" /></p> 
+<p><b>Silent Hill - Playable Teaser</b></p>
+<p><img width="100%" src="https://d.ibtimes.co.uk/en/full/1436262/pt-silent-hills.jpg" /></p> 
+
+D-T - MGS 3 Delta
+<p><img width="100%" src="https://assets-prd.ignimgs.com/2023/10/26/comparisonign-1698362661201.jpg" /></p> 
+<p><img width="100%" src="https://cdn.mos.cms.futurecdn.net/EpNhFwN9A7r7Gtc26w7MYJ.jpg" /></p> 
+<p><img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVOMpjjUj555SMBWevFl6cWmJ1011RifVQLg&s" /></p> 
+
+L-M - "La familia ""Culebras"": (BigBoss, Raiden, Solid Snake, etc.). Biografías y relaciones entre ellos"
+<p><b>BigBoss</b></p>
+<p><img width="100%" src="link" /></p>
+<p><b>Raiden</b></p>
+<p><img width="100%" src="link" /></p>
+<p><b>Solid Snake</b></p>
+<p><img width="100%" src="link" /></p>
+
+L-T - Solid Snake
 <p><img width="100%" src="link" /></p> 
 <p><img width="100%" src="link" /></p> 
 <p><img width="100%" src="link" /></p> 
 
-Kojima visionario / PT
+M-T - """El gen de la creatividad"" (libro)"
 <p><img width="100%" src="link" /></p> 
 <p><img width="100%" src="link" /></p> 
 <p><img width="100%" src="link" /></p> 
 
-MGS 3 Delta
-<p><img width="100%" src="link" /></p> 
-<p><img width="100%" src="link" /></p> 
-<p><img width="100%" src="link" /></p> 
-
-"La familia ""Culebras"": (BigBoss, Raiden, Solid Snake, etc.). Biografías y relaciones entre ellos"
-<p><img width="100%" src="link" /></p> 
-<p><img width="100%" src="link" /></p> 
-<p><img width="100%" src="link" /></p> 
-
-Solid Snake
-<p><img width="100%" src="link" /></p> 
-<p><img width="100%" src="link" /></p> 
-<p><img width="100%" src="link" /></p> 
-
-"""El gen de la creatividad"" (libro)"
-<p><img width="100%" src="link" /></p> 
-<p><img width="100%" src="link" /></p> 
-<p><img width="100%" src="link" /></p> 
-
-Entrevista Alfonso Vallés
+X-T - Entrevista Alfonso Vallés
 <p><img width="100%" src="link" /></p> 
 <p><img width="100%" src="link" /></p> 
 <p><img width="100%" src="link" /></p> 
