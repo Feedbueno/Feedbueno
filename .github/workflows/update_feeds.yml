@@ -2,7 +2,7 @@ name: Update Feeds
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # cada 6 horas
+    - cron: "0 0 1 * *"
   workflow_dispatch:         # ejecutar manualmente
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        run: pip install feedparser
+        run: pip install requests
 
       - name: Run feed updater
         run: python scripts/update_feeds.py
