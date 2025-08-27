@@ -2,8 +2,15 @@ import feedparser
 import os
 import re
 
+def has_rich_html(description):
+    """Detecta si el texto ya contiene HTML enriquecido"""
+    # Buscar solo etiquetas "fuertes"
+    return re.search(r"<(a|img|ul|ol|li|h[1-6])\b", description, flags=re.IGNORECASE) is not None
+
+
 def process_description(title, link, image_url, description):
-    """Transforma la descripción según tus reglas"""
+    """Transforma la descripción solo si no tiene HTML enriquecido"""
+
     html = ""
 
     # Título
@@ -17,12 +24,19 @@ def process_description(title, link, image_url, description):
     # Separador
     html += '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />\n'
 
+    # --- Nueva condición ---
+    if has_rich_html(description):
+        # Ya tiene HTML enriquecido → lo dejamos tal cual
+        html += description
+        return f"<![CDATA[{html}]]>"
+
+    # --- Caso normal: procesamos el texto ---
     # Emails → mailto:
     description = re.sub(
         r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})',
         r'<a href="mailto:\1">\1</a>', description)
 
-    # Enlaces a imágenes → <img>
+    # Enlaces a imágenes
     description = re.sub(
         r'(https?://\S+\.(?:jpg|jpeg|png|gif))',
         r'<a href="\1"><img src="\1" /></a>', description)
@@ -32,11 +46,11 @@ def process_description(title, link, image_url, description):
         r'(https?://[^\s<]+)',
         r'<a href="\1">\1</a>', description)
 
-    # Listas no ordenadas con "-"
+    # Listas con "-"
     if "-" in description:
         description = re.sub(r"(?:^|\n)- (.*)", r"<ul><li>\1</li></ul>", description)
 
-    # Listas ordenadas con números "1."
+    # Listas numeradas "1."
     if re.search(r"(?:^|\n)\d+\.", description):
         description = re.sub(r"(?:^|\n)(\d+)\. (.*)", r"<ol><li>\2</li></ol>", description)
 
@@ -45,7 +59,6 @@ def process_description(title, link, image_url, description):
     description = "\n".join(paragraphs)
 
     html += description
-
     return f"<![CDATA[{html}]]>"
 
 def update_feed(podcast_dir):
