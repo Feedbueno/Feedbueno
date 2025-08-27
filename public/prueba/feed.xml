@@ -1,612 +1,604 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<?xml-stylesheet type="text/xsl" href="../estilos/centrado.xsl"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" 
-xmlns:anchor="https://anchor.fm/xmlns"
-xmlns:content="http://purl.org/rss/1.0/modules/content/" 
-xmlns:dc="http://purl.org/dc/elements/1.1/" 
-xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
-xmlns:media="http://search.yahoo.com/mrss/" 
-xmlns:om="https://omrey86.neocities.org/"
-version="2.0"> 
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns0="https://omrey86.neocities.org/" xmlns:ns1="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:ns2="http://www.w3.org/2005/Atom" version="2.0"> 
 <channel>
-	         <title><![CDATA[PRUEBA]]></title>
-	<om:name>prueba</om:name>
-<om:cfb1>#CBD6DA</om:cfb1>
-	<om:cfb2>#CBD6DA</om:cfb2>
-	<om:cfi>#AFB9BD</om:cfi>
-	<om:ch1>#751E1E</om:ch1>
-	<om:cti>#2980b9</om:cti>
-	<om:autor>Iniciativa Podgaming</om:autor>
-<om:suscripciones>
-	<om:ivoox>https://www.ivoox.com/iniciativa-metal-gear_bk_list_11304347_1.html</om:ivoox>
-	<om:apple>https://podcasts.apple.com/us/podcast/iniciativa-metal-gear/id1831779840</om:apple>
-	<om:spotify>https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL?si=kp5vTInkSuKa5eH-KxTLpQ</om:spotify>
-	<om:youtube>https://www.youtube.com/playlist?list=PLuuSWmpMzKJUIwK-XsEInd6ME7JCUaFdj</om:youtube>
-	<om:pocketcasts>https://pocketcasts.com/podcasts/d417df80-54af-013e-81c8-0afff9dbf725</om:pocketcasts>
-	<om:amazon></om:amazon>
-	<om:index>https://podcastindex.org/podcast/7439362</om:index>
-	<om:opml>https://feedbueno.es/imetal/imetal.opml</om:opml>
-</om:suscripciones>
-<om:like>yes</om:like>
-    <om:x></om:x>
-	<om:facebook></om:facebook>
-	<om:instagram></om:instagram>
-	<om:bluesky></om:bluesky>
-	<om:whatsapp></om:whatsapp>
-	<om:telegram></om:telegram>
-	<om:discord></om:discord>
-<itunes:author>Iniciativa Podgaming</itunes:author>
+	         <title>PRUEBA</title>
+	<ns0:name>prueba</ns0:name>
+<ns0:cfb1>#CBD6DA</ns0:cfb1>
+	<ns0:cfb2>#CBD6DA</ns0:cfb2>
+	<ns0:cfi>#AFB9BD</ns0:cfi>
+	<ns0:ch1>#751E1E</ns0:ch1>
+	<ns0:cti>#2980b9</ns0:cti>
+	<ns0:autor>Iniciativa Podgaming</ns0:autor>
+<ns0:suscripciones>
+	<ns0:ivoox>https://www.ivoox.com/iniciativa-metal-gear_bk_list_11304347_1.html</ns0:ivoox>
+	<ns0:apple>https://podcasts.apple.com/us/podcast/iniciativa-metal-gear/id1831779840</ns0:apple>
+	<ns0:spotify>https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL?si=kp5vTInkSuKa5eH-KxTLpQ</ns0:spotify>
+	<ns0:youtube>https://www.youtube.com/playlist?list=PLuuSWmpMzKJUIwK-XsEInd6ME7JCUaFdj</ns0:youtube>
+	<ns0:pocketcasts>https://pocketcasts.com/podcasts/d417df80-54af-013e-81c8-0afff9dbf725</ns0:pocketcasts>
+	<ns0:amazon />
+	<ns0:index>https://podcastindex.org/podcast/7439362</ns0:index>
+	<ns0:opml>https://feedbueno.es/imetal/imetal.opml</ns0:opml>
+</ns0:suscripciones>
+<ns0:like>yes</ns0:like>
+    <ns0:x />
+	<ns0:facebook />
+	<ns0:instagram />
+	<ns0:bluesky />
+	<ns0:whatsapp />
+	<ns0:telegram />
+	<ns0:discord />
+<ns1:author>Iniciativa Podgaming</ns1:author>
 <copyright>Iniciativa Podgaming</copyright>
 <link>https://feedbueno.es/imetal/feed.xml</link>
 <language>es</language>
-<description><![CDATA[Iniciativa Metal Gear es un proyecto colaborativo entre varios podcasts en español que, durante el mes de agosto, se unen para rendir homenaje a la legendaria saga de videojuegos Metal Gear. A través de episodios temáticos, análisis, debates y retrospectivas, cada programa abordará diferentes aspectos del universo creado por Hideo Kojima. La iniciativa invita a la audiencia a revivir la historia, filosofía y personajes de esta icónica franquicia. En cada episodio encontrarás enlaces para seguir a los podcasts participantes y no perderte ningún contenido de esta misión especial.]]></description>
+<description>Iniciativa Metal Gear es un proyecto colaborativo entre varios podcasts en español que, durante el mes de agosto, se unen para rendir homenaje a la legendaria saga de videojuegos Metal Gear. A través de episodios temáticos, análisis, debates y retrospectivas, cada programa abordará diferentes aspectos del universo creado por Hideo Kojima. La iniciativa invita a la audiencia a revivir la historia, filosofía y personajes de esta icónica franquicia. En cada episodio encontrarás enlaces para seguir a los podcasts participantes y no perderte ningún contenido de esta misión especial.</description>
 <generator>FEEDBUENO</generator>
        <image><url>https://feedbueno.es/imetal/logo.jpeg</url>
-        <title><![CDATA[Iniciativa Metal Gear]]></title>
+        <title>Iniciativa Metal Gear</title>
 <link>feed.xml</link>
 </image>
-<atom:link href="feed.xml" rel="self" type="application/rss+xml"/>
-<itunes:explicit>no</itunes:explicit>
-        <itunes:image href="https://feedbueno.es/imetal/logo.jpeg"/>
-<itunes:type>episodic</itunes:type>
-         <itunes:keywords>series,peliculas,radio,cine,tv</itunes:keywords>
-         <itunes:category text="Leisure">
-  <itunes:category text="Video Games"/>
-</itunes:category>
-<itunes:owner><itunes:email>iniciativapodgaming@gmail.com</itunes:email></itunes:owner>
+<ns2:link href="feed.xml" rel="self" type="application/rss+xml" />
+<ns1:explicit>no</ns1:explicit>
+        <ns1:image href="https://feedbueno.es/imetal/logo.jpeg" />
+<ns1:type>episodic</ns1:type>
+         <ns1:keywords>series,peliculas,radio,cine,tv</ns1:keywords>
+         <ns1:category text="Leisure">
+  <ns1:category text="Video Games" />
+</ns1:category>
+<ns1:owner><ns1:email>iniciativapodgaming@gmail.com</ns1:email></ns1:owner>
 <op3>https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/</op3>
 
 
 
 <item>
-			<title><![CDATA[ Metal Gear Solid: Peace Walker y más allá - Iniciativa Metal Gear #08 // Nuevebits | Metal Gear Saga A Juego Lento 3 - Contra el Establishment]]></title>
-			<description><![CDATA[
-<h2>Iniciativa Metal Gear #08 // Nuevebits - Metal Gear Solid: Peace Walker y más allá | Metal Gear Saga A Juego Lento 3 - Contra el Establishment</h2>
-<a href="https://podcasters.spotify.com/pod/show/nuevebits/episodes/Iniciativa-Metal-Gear-08--Nuevebits---Metal-Gear-Solid-Peace-Walker-y-ms-all--Metal-Gear-Saga-A-Juego-Lento-3---Contra-el-Establishment-e376p9c">
-  <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/17687474/17687474-1755929627953-9fbb696a8179a.jpg" alt="Iniciativa Metal Gear #08" />
-</a>
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
-<p>Metal Gear Solid Portable Ops y Metal Gear Solid: Peace Walker son el siguiente destino de nuestro A Juego Lento en el que recorremos toda la historia de Metal Gear y su lore por orden cronológico. Primero jugamos y luego grabamos podcast. Me acompaña @JulianSuárezM </p>
-<p>-</p>
-<p>Descubre el canal de Julián Suárez: <a href="https://www.youtube.com/@JulianSu%C3%A1rezM/featured">https://www.youtube.com/@JulianSu%C3%A1rezM/featured</a></p>
-<p>-</p>
-<p>Comprar libros de Los Secretos de: <a href="https://t.co/kleUZvQEDf">https://t.co/kleUZvQEDf</a></p>
-<p>-</p>
-<p>Te cuento el master en arte 2D y 3D de videojuegos de UNIR en 3 minutos: <a href="https://www.youtube.com/watch?v=PnYPmNWTssM">https://www.youtube.com/watch?v=PnYPmNWTssM</a></p>
-<p>-</p>
-<p>Te cuento el grado en diseño y desarrollo de videojuegos de UNIR en 4 minutitos: <a href="https://youtu.be/JlveyF0dLJ4?si=Madz3gbhih1_fLUm">https://youtu.be/JlveyF0dLJ4?si=Madz3gbhih1_fLUm</a></p>
-<p><br /></p>
-<p>Descubre los capítulos anteriores y el resto de la serie: <a href="https://open.spotify.com/playlist/0JewtU3oXs8scQZFHv6I2D?si=dcb2218110b2405f">https://open.spotify.com/playlist/0JewtU3oXs8scQZFHv6I2D?si=dcb2218110b2405f</a></p>
-<p><b>Metal Gear Solid Peace walker</b></p> 
-<p><img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS89q3bSRLnFPGPzymKEUwfonAD1AgTjZWlXg&s" /></p> 
-<p><img width="100%" src="https://ps3media.ign.com/ps3/image/article/117/1173522/metal-gear-solid-hd-collection-20110607102004345_640w.jpg" /></p> 
-<p><b>Metal Gear Solid 5 </b></p> 
-<p><img width="100%" src="https://live.staticflickr.com/2897/33055616100_10e1dfbeb7_h.jpg" /></p> 
-<p><img width="100%" src="https://www.newgamenetwork.com/images/uploads/gallery/MGS5PP/MGS5PP09.jpg" /></p> 
-]]></description>
+			<title> Metal Gear Solid: Peace Walker y más allá - Iniciativa Metal Gear #08 // Nuevebits | Metal Gear Saga A Juego Lento 3 - Contra el Establishment</title>
+			<description>
+&lt;h2&gt;Iniciativa Metal Gear #08 // Nuevebits - Metal Gear Solid: Peace Walker y más allá | Metal Gear Saga A Juego Lento 3 - Contra el Establishment&lt;/h2&gt;
+&lt;a href="https://podcasters.spotify.com/pod/show/nuevebits/episodes/Iniciativa-Metal-Gear-08--Nuevebits---Metal-Gear-Solid-Peace-Walker-y-ms-all--Metal-Gear-Saga-A-Juego-Lento-3---Contra-el-Establishment-e376p9c"&gt;
+  &lt;img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/17687474/17687474-1755929627953-9fbb696a8179a.jpg" alt="Iniciativa Metal Gear #08" /&gt;
+&lt;/a&gt;
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
+&lt;p&gt;Metal Gear Solid Portable Ops y Metal Gear Solid: Peace Walker son el siguiente destino de nuestro A Juego Lento en el que recorremos toda la historia de Metal Gear y su lore por orden cronológico. Primero jugamos y luego grabamos podcast. Me acompaña @JulianSuárezM &lt;/p&gt;
+&lt;p&gt;-&lt;/p&gt;
+&lt;p&gt;Descubre el canal de Julián Suárez: &lt;a href="https://www.youtube.com/@JulianSu%C3%A1rezM/featured"&gt;https://www.youtube.com/@JulianSu%C3%A1rezM/featured&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;/p&gt;
+&lt;p&gt;Comprar libros de Los Secretos de: &lt;a href="https://t.co/kleUZvQEDf"&gt;https://t.co/kleUZvQEDf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;/p&gt;
+&lt;p&gt;Te cuento el master en arte 2D y 3D de videojuegos de UNIR en 3 minutos: &lt;a href="https://www.youtube.com/watch?v=PnYPmNWTssM"&gt;https://www.youtube.com/watch?v=PnYPmNWTssM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-&lt;/p&gt;
+&lt;p&gt;Te cuento el grado en diseño y desarrollo de videojuegos de UNIR en 4 minutitos: &lt;a href="https://youtu.be/JlveyF0dLJ4?si=Madz3gbhih1_fLUm"&gt;https://youtu.be/JlveyF0dLJ4?si=Madz3gbhih1_fLUm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;Descubre los capítulos anteriores y el resto de la serie: &lt;a href="https://open.spotify.com/playlist/0JewtU3oXs8scQZFHv6I2D?si=dcb2218110b2405f"&gt;https://open.spotify.com/playlist/0JewtU3oXs8scQZFHv6I2D?si=dcb2218110b2405f&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Metal Gear Solid Peace walker&lt;/b&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS89q3bSRLnFPGPzymKEUwfonAD1AgTjZWlXg&amp;s" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://ps3media.ign.com/ps3/image/article/117/1173522/metal-gear-solid-hd-collection-20110607102004345_640w.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;b&gt;Metal Gear Solid 5 &lt;/b&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://live.staticflickr.com/2897/33055616100_10e1dfbeb7_h.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://www.newgamenetwork.com/images/uploads/gallery/MGS5PP/MGS5PP09.jpg" /&gt;&lt;/p&gt; 
+</description>
 			<link>https://podcasters.spotify.com/pod/show/nuevebits/episodes/Iniciativa-Metal-Gear-08--Nuevebits---Metal-Gear-Solid-Peace-Walker-y-ms-all--Metal-Gear-Saga-A-Juego-Lento-3---Contra-el-Establishment-e376p9c</link>
 			<guid isPermaLink="false">abbc4d19-48b5-4161-98e1-ed917732e659</guid>
-			<dc:creator><![CDATA[Nuevebits]]></dc:creator>
+			<dc:creator>Nuevebits</dc:creator>
 			<pubDate>Sat, 23 Aug 2025 06:22:54 GMT</pubDate>
-			<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://anchor.fm/s/6a058808/podcast/play/107225836/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-23%2F406141490-44100-2-ec501c73f69ff.mp3" length="121771571" type="audio/mpeg"/>
-<itunes:explicit>false</itunes:explicit>
-<itunes:season>1</itunes:season>
-<itunes:episode>8</itunes:episode>
-			<itunes:duration>02:06:50</itunes:duration>
-			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/17687474/17687474-1755929627953-9fbb696a8179a.jpg"/>
-			<itunes:episodeType>full</itunes:episodeType>
+			<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://anchor.fm/s/6a058808/podcast/play/107225836/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-23%2F406141490-44100-2-ec501c73f69ff.mp3" length="121771571" type="audio/mpeg" />
+<ns1:explicit>false</ns1:explicit>
+<ns1:season>1</ns1:season>
+<ns1:episode>8</ns1:episode>
+			<ns1:duration>02:06:50</ns1:duration>
+			<ns1:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/17687474/17687474-1755929627953-9fbb696a8179a.jpg" />
+			<ns1:episodeType>full</ns1:episodeType>
 		</item>
 		
 
 <item>
-<title><![CDATA[Metal Gear Solid 4: Guns of the Patriots - Iniciativa Metal Gear #07 // 4Players Podcast]]></title>
+<title>Metal Gear Solid 4: Guns of the Patriots - Iniciativa Metal Gear #07 // 4Players Podcast</title>
 <link>https://www.ivoox.com/iniciativa-metal-gear-07-4players-podcast-audios-mp3_rf_156068641_1.html</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-07-4players-podcast_mf_156068641_feed_1.mp3" type="audio/mpeg" length="53635030"/>
-<description><![CDATA[
-<h2>Iniciativa Metal Gear #07 // 4Players Podcast - Metal Gear Solid 4: Guns of the Patriots</h2>
-<a href="https://www.ivoox.com/iniciativa-metal-gear-07-4players-podcast-audios-mp3_rf_156068641_1.html">
-  <img src="https://static-1.ivoox.com/audios/6/d/9/9/6d992890ded64c4cc20cce0b408abde7_XXL.jpg" alt="Iniciativa Metal Gear #07" />
-</a>
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-07-4players-podcast_mf_156068641_feed_1.mp3" type="audio/mpeg" length="53635030" />
+<description>
+&lt;h2&gt;Iniciativa Metal Gear #07 // 4Players Podcast - Metal Gear Solid 4: Guns of the Patriots&lt;/h2&gt;
+&lt;a href="https://www.ivoox.com/iniciativa-metal-gear-07-4players-podcast-audios-mp3_rf_156068641_1.html"&gt;
+  &lt;img src="https://static-1.ivoox.com/audios/6/d/9/9/6d992890ded64c4cc20cce0b408abde7_XXL.jpg" alt="Iniciativa Metal Gear #07" /&gt;
+&lt;/a&gt;
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
 
-<p>Volveremos a encontrarnos para celebrar una iniciativa muy especial. Uno de los videojuegos más difíciles de jugar a día de hoy. Hablamos de <b>Metal Gear Solid 4: Guns of the Patriots</b>. El título que nunca salió de la consola Play station 3. Un juego lleno de cinemáticas espectaculares y que quizá no recordemos con tanto cariño su escaso gameplay. Vente con nosotros a repasar sus curiosidades.</p>
+&lt;p&gt;Volveremos a encontrarnos para celebrar una iniciativa muy especial. Uno de los videojuegos más difíciles de jugar a día de hoy. Hablamos de &lt;b&gt;Metal Gear Solid 4: Guns of the Patriots&lt;/b&gt;. El título que nunca salió de la consola Play station 3. Un juego lleno de cinemáticas espectaculares y que quizá no recordemos con tanto cariño su escaso gameplay. Vente con nosotros a repasar sus curiosidades.&lt;/p&gt;
 
-<p>Videojuego</p>
+&lt;p&gt;Videojuego&lt;/p&gt;
 
-<p>Os dejamos los enlaces de la Iniciativa Podgaming: Metal Gear y a nuestros diferentes perfiles:</p>
+&lt;p&gt;Os dejamos los enlaces de la Iniciativa Podgaming: Metal Gear y a nuestros diferentes perfiles:&lt;/p&gt;
 
-<p><b>⏬Todos los programas de la Iniciativa Metal Gear⏬</b> </p>
-<ul>
-  <li>Feed de la Iniciativa: <a href="https://feedbueno.es/imetal/feed.xml">https://feedbueno.es/imetal/feed.xml</a></li>
-  <li>Playlist en iVoox: <a href="https://go.ivoox.com/bk/11304347">https://go.ivoox.com/bk/11304347</a></li>
-  <li>Playlist en Spotify: <a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL">https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL</a></li>
-  <li>Miniaturas por Jaime Brotons</li>
-  <li>Cuña por Iñaki Monteano</li>
-</ul>
+&lt;p&gt;&lt;b&gt;⏬Todos los programas de la Iniciativa Metal Gear⏬&lt;/b&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Feed de la Iniciativa: &lt;a href="https://feedbueno.es/imetal/feed.xml"&gt;https://feedbueno.es/imetal/feed.xml&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Playlist en iVoox: &lt;a href="https://go.ivoox.com/bk/11304347"&gt;https://go.ivoox.com/bk/11304347&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Playlist en Spotify: &lt;a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL"&gt;https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Miniaturas por Jaime Brotons&lt;/li&gt;
+  &lt;li&gt;Cuña por Iñaki Monteano&lt;/li&gt;
+&lt;/ul&gt;
 
-<ol start="0">
-  <li>Iniciativa Podgaming - Introducción</li>
-  <li>Chaydgam Corps - Snatcher</li>
-  <li>El Conclilio del Píxel - Metal Gear</li>
-  <li>ILT Juegos - Metal Gear 2: Solid Snake</li>
-  <li>La Regla del Tres - Metal Gear Solid</li>
-  <li>Insert Coin - Metal Gear Solid: Sons of Liberty</li>
-  <li>GAMELX - Metal Gear Solid 3: Snake Eater</li>
-  <li>4 Players - Metal Gear Solid 4: Guns of the Patriots</li>
-  <li>Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain</li>
-  <li>El Reino de Neverland - Kojima visionario / PT</li>
-  <li>Expediente GX - Entrevista Alfonso Vallés</li>
-  <li>SieteBITS - La familia "Culebras"</li>
-  <li>Gamer's Paradise - Solid Snake</li>
-  <li>Rocquimendaciones - El Gen de la Creatividad</li>
-</ol>
+&lt;ol start="0"&gt;
+  &lt;li&gt;Iniciativa Podgaming - Introducción&lt;/li&gt;
+  &lt;li&gt;Chaydgam Corps - Snatcher&lt;/li&gt;
+  &lt;li&gt;El Conclilio del Píxel - Metal Gear&lt;/li&gt;
+  &lt;li&gt;ILT Juegos - Metal Gear 2: Solid Snake&lt;/li&gt;
+  &lt;li&gt;La Regla del Tres - Metal Gear Solid&lt;/li&gt;
+  &lt;li&gt;Insert Coin - Metal Gear Solid: Sons of Liberty&lt;/li&gt;
+  &lt;li&gt;GAMELX - Metal Gear Solid 3: Snake Eater&lt;/li&gt;
+  &lt;li&gt;4 Players - Metal Gear Solid 4: Guns of the Patriots&lt;/li&gt;
+  &lt;li&gt;Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain&lt;/li&gt;
+  &lt;li&gt;El Reino de Neverland - Kojima visionario / PT&lt;/li&gt;
+  &lt;li&gt;Expediente GX - Entrevista Alfonso Vallés&lt;/li&gt;
+  &lt;li&gt;SieteBITS - La familia "Culebras"&lt;/li&gt;
+  &lt;li&gt;Gamer's Paradise - Solid Snake&lt;/li&gt;
+  &lt;li&gt;Rocquimendaciones - El Gen de la Creatividad&lt;/li&gt;
+&lt;/ol&gt;
 
-<p>Os invitamos a seguirnos: <a href="https://linktr.ee/conciliopixel">https://linktr.ee/conciliopixel</a></p>
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/2557698aaa.jpg" /></p> 
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/9449644aaa.jpg" /></p> 
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/1705573aaa.jpg" /></p> 
-]]></description>
+&lt;p&gt;Os invitamos a seguirnos: &lt;a href="https://linktr.ee/conciliopixel"&gt;https://linktr.ee/conciliopixel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img width="100%" src="https://www.vgchartz.com/games/pics/2557698aaa.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://www.vgchartz.com/games/pics/9449644aaa.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://www.vgchartz.com/games/pics/1705573aaa.jpg" /&gt;&lt;/p&gt; 
+</description>
 <pubDate>Fri, 22 Aug 2025 20:05:14 +0200</pubDate>
-<itunes:duration>55:52</itunes:duration>
-<itunes:season>1</itunes:season>
-<itunes:episode>7</itunes:episode>
+<ns1:duration>55:52</ns1:duration>
+<ns1:season>1</ns1:season>
+<ns1:episode>7</ns1:episode>
 <guid>https://www.ivoox.com/156068641</guid>
-<itunes:episodeType>full</itunes:episodeType>
-<itunes:image href="https://static-1.ivoox.com/audios/6/d/9/9/6d992890ded64c4cc20cce0b408abde7_XXL.jpg"/>
+<ns1:episodeType>full</ns1:episodeType>
+<ns1:image href="https://static-1.ivoox.com/audios/6/d/9/9/6d992890ded64c4cc20cce0b408abde7_XXL.jpg" />
 </item>
 
 
 <item>
-<title><![CDATA[Metal Gear Solid 3: Snake Eater - Iniciativa Metal Gear #06 // GAMELX]]></title>
+<title>Metal Gear Solid 3: Snake Eater - Iniciativa Metal Gear #06 // GAMELX</title>
 <link>https://www.ivoox.com/iniciativa-metal-gear-06-gamelx-metal-audios-mp3_rf_155902550_1.html</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-06-gamelx-metal_mf_155902550_feed_1.mp3?d=1755788382" type="audio/mpeg" length="122257240"/>
-<description><![CDATA[
-<h2>Iniciativa Metal Gear #06 // GAMELX - Metal Gear Solid 3: Snake Eater</h2>
-<a href="https://www.ivoox.com/iniciativa-metal-gear-06-gamelx-metal-audios-mp3_rf_155902550_1.html">
-  <img src="https://static-1.ivoox.com/audios/0/e/b/9/0eb9232e4b995b14619742e08bdaf9ba_XXL.jpg" alt="Iniciativa Metal Gear #06" />
-</a>
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-06-gamelx-metal_mf_155902550_feed_1.mp3?d=1755788382" type="audio/mpeg" length="122257240" />
+<description>
+&lt;h2&gt;Iniciativa Metal Gear #06 // GAMELX - Metal Gear Solid 3: Snake Eater&lt;/h2&gt;
+&lt;a href="https://www.ivoox.com/iniciativa-metal-gear-06-gamelx-metal-audios-mp3_rf_155902550_1.html"&gt;
+  &lt;img src="https://static-1.ivoox.com/audios/0/e/b/9/0eb9232e4b995b14619742e08bdaf9ba_XXL.jpg" alt="Iniciativa Metal Gear #06" /&gt;
+&lt;/a&gt;
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
 
-<p>¡Atención, soldados! Bienvenid@s a un nuevo episodio de la Iniciativa Podgaming. Esta vez dejamos atrás los pasillos grises y nos tiramos de cabeza a la jungla más peligrosa que jamás pisó un héroe de videojuegos: la de <b>METAL GEAR SOLID 3: SNAKE EATER</b>.</p>
+&lt;p&gt;¡Atención, soldados! Bienvenid@s a un nuevo episodio de la Iniciativa Podgaming. Esta vez dejamos atrás los pasillos grises y nos tiramos de cabeza a la jungla más peligrosa que jamás pisó un héroe de videojuegos: la de &lt;b&gt;METAL GEAR SOLID 3: SNAKE EATER&lt;/b&gt;.&lt;/p&gt;
 
-<p>¿Sabías que Snake puede comerse literalmente cualquier cosa que se mueva? Desde serpientes hasta ranas venenosas… ¡y algunas hasta suenan como un ringtone!</p>
+&lt;p&gt;¿Sabías que Snake puede comerse literalmente cualquier cosa que se mueva? Desde serpientes hasta ranas venenosas… ¡y algunas hasta suenan como un ringtone!&lt;/p&gt;
 
-<p>¿Sabías que la intro de Snake Eater se grabó como si fuera una auténtica canción de James Bond, con orquesta completa y todo el glamour posible para un tipo en mallas de camuflaje?</p>
+&lt;p&gt;¿Sabías que la intro de Snake Eater se grabó como si fuera una auténtica canción de James Bond, con orquesta completa y todo el glamour posible para un tipo en mallas de camuflaje?&lt;/p&gt;
 
-<p>¿Sabías que si te disparan en la pierna tienes que sacar la bala, coserte tú mismo y luego seguir la misión como si nada? ¡Realismo made in Kojima!</p>
+&lt;p&gt;¿Sabías que si te disparan en la pierna tienes que sacar la bala, coserte tú mismo y luego seguir la misión como si nada? ¡Realismo made in Kojima!&lt;/p&gt;
 
-<p>En este especial de GAMELX nos ponemos las botas de combate para repasar una de las obras más queridas de Hideo Kojima, con jefazos inolvidables, un villano tan carismático como Volgin y un duelo final contra The Boss que todavía nos hace temblar el pulso.</p>
+&lt;p&gt;En este especial de GAMELX nos ponemos las botas de combate para repasar una de las obras más queridas de Hideo Kojima, con jefazos inolvidables, un villano tan carismático como Volgin y un duelo final contra The Boss que todavía nos hace temblar el pulso.&lt;/p&gt;
 
-<p>Así que ya sabes: súbele el volumen al codec, carga el tranquilizante y busca una rama en la que esconderte. Porque esta operación no es una misión cualquiera, es Snake Eater.</p>
+&lt;p&gt;Así que ya sabes: súbele el volumen al codec, carga el tranquilizante y busca una rama en la que esconderte. Porque esta operación no es una misión cualquiera, es Snake Eater.&lt;/p&gt;
 
-<p>Y si después de escuchar esto te quedas con hambre… tranquilo: siempre puedes probar suerte con un poco de serpiente cruda. Tastes like chicken.</p>
+&lt;p&gt;Y si después de escuchar esto te quedas con hambre… tranquilo: siempre puedes probar suerte con un poco de serpiente cruda. Tastes like chicken.&lt;/p&gt;
 
-<p><b>Han participado:</b><br/><ul>
-<li>Gerard "Gepese" (<a href="https://x.com/metalgerap">@metalgerap</a>)<br/></li>
-  <li> Nacho Gil (<a href="https://x.com/Super90sGames">@Super90sGames</a>)<br/></li>
-  <li>Sergi Gurriz (<a href="https://x.com/Waylis10">@Waylis10</a>)</p></li>
-  </ul>
+&lt;p&gt;&lt;b&gt;Han participado:&lt;/b&gt;&lt;br/&gt;&lt;ul&gt;
+&lt;li&gt;Gerard "Gepese" (&lt;a href="https://x.com/metalgerap"&gt;@metalgerap&lt;/a&gt;)&lt;br/&gt;&lt;/li&gt;
+  &lt;li&gt; Nacho Gil (&lt;a href="https://x.com/Super90sGames"&gt;@Super90sGames&lt;/a&gt;)&lt;br/&gt;&lt;/li&gt;
+  &lt;li&gt;Sergi Gurriz (&lt;a href="https://x.com/Waylis10"&gt;@Waylis10&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+  &lt;/ul&gt;
 
-<p><b>La voz del programa:</b> Henar Hernández (<a href="https://x.com/HenarHAsensio">@HenarHAsensio</a>)</p>
+&lt;p&gt;&lt;b&gt;La voz del programa:&lt;/b&gt; Henar Hernández (&lt;a href="https://x.com/HenarHAsensio"&gt;@HenarHAsensio&lt;/a&gt;)&lt;/p&gt;
 
-<p><b>⏬Todos los programas de la Iniciativa Metal Gear⏬</b></p>
+&lt;p&gt;&lt;b&gt;⏬Todos los programas de la Iniciativa Metal Gear⏬&lt;/b&gt;&lt;/p&gt;
 
-<ul>
-  <li>Feed de la Iniciativa: <a href="https://feedbueno.es/imetal/feed.xml">https://feedbueno.es/imetal/feed.xml</a></li>
-  <li>Playlist en iVoox: <a href="https://go.ivoox.com/bk/11304347">https://go.ivoox.com/bk/11304347</a></li>
-  <li>Playlist en Spotify: <a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL">https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL</a></li>
-</ul>
+&lt;ul&gt;
+  &lt;li&gt;Feed de la Iniciativa: &lt;a href="https://feedbueno.es/imetal/feed.xml"&gt;https://feedbueno.es/imetal/feed.xml&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Playlist en iVoox: &lt;a href="https://go.ivoox.com/bk/11304347"&gt;https://go.ivoox.com/bk/11304347&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Playlist en Spotify: &lt;a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL"&gt;https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-<p>- Miniaturas por Jaime Brotons<br/>
-- Cuña por Iñaki Monteano</p>
+&lt;p&gt;- Miniaturas por Jaime Brotons&lt;br/&gt;
+- Cuña por Iñaki Monteano&lt;/p&gt;
 
-<ol start="0">
-  <li>Iniciativa Podgaming - Introducción</li>
-  <li>Chaydgam Corps - Snatcher</li>
-  <li>El Conclilio del Píxel - Metal Gear</li>
-  <li>ILT Juegos - Metal Gear 2: Solid Snake</li>
-  <li>La Regla del Tres - Metal Gear Solid</li>
-  <li>Insert Coin - Metal Gear Solid: Sons of Liberty</li>
-  <li>GAMELX - Metal Gear Solid 3: Snake Eater</li>
-  <li>4 Players - Metal Gear Solid 4: Guns of the Patriots</li>
-  <li>Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain</li>
-  <li>El Reino de Neverland - Kojima visionario / PT</li>
-  <li>Expediente GX - Entrevista Alfonso Vallés</li>
-  <li>SieteBITS - La familia "Culebras"</li>
-  <li>Gamer's Paradise - Solid Snake</li>
-  <li>Rocquimendaciones - El Gen de la Creatividad</li>
-</ol>
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/9555248aaa.jpg" /></p> 
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/9998491aaa.jpg" /></p> 
-<p><img width="100%" src="https://www.vgchartz.com/games/pics/4326823aaa.jpg" /></p> 
-]]></description>
+&lt;ol start="0"&gt;
+  &lt;li&gt;Iniciativa Podgaming - Introducción&lt;/li&gt;
+  &lt;li&gt;Chaydgam Corps - Snatcher&lt;/li&gt;
+  &lt;li&gt;El Conclilio del Píxel - Metal Gear&lt;/li&gt;
+  &lt;li&gt;ILT Juegos - Metal Gear 2: Solid Snake&lt;/li&gt;
+  &lt;li&gt;La Regla del Tres - Metal Gear Solid&lt;/li&gt;
+  &lt;li&gt;Insert Coin - Metal Gear Solid: Sons of Liberty&lt;/li&gt;
+  &lt;li&gt;GAMELX - Metal Gear Solid 3: Snake Eater&lt;/li&gt;
+  &lt;li&gt;4 Players - Metal Gear Solid 4: Guns of the Patriots&lt;/li&gt;
+  &lt;li&gt;Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain&lt;/li&gt;
+  &lt;li&gt;El Reino de Neverland - Kojima visionario / PT&lt;/li&gt;
+  &lt;li&gt;Expediente GX - Entrevista Alfonso Vallés&lt;/li&gt;
+  &lt;li&gt;SieteBITS - La familia "Culebras"&lt;/li&gt;
+  &lt;li&gt;Gamer's Paradise - Solid Snake&lt;/li&gt;
+  &lt;li&gt;Rocquimendaciones - El Gen de la Creatividad&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img width="100%" src="https://www.vgchartz.com/games/pics/9555248aaa.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://www.vgchartz.com/games/pics/9998491aaa.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://www.vgchartz.com/games/pics/4326823aaa.jpg" /&gt;&lt;/p&gt; 
+</description>
 <pubDate>Fri, 22 Aug 2025 07:00:00 +0200</pubDate>
-<itunes:duration>02:07:21</itunes:duration>
-<itunes:season>1</itunes:season>
-<itunes:episode>6</itunes:episode> 
+<ns1:duration>02:07:21</ns1:duration>
+<ns1:season>1</ns1:season>
+<ns1:episode>6</ns1:episode> 
 <guid>https://www.ivoox.com/155902550</guid>
-<itunes:episodeType>full</itunes:episodeType>
-<itunes:image href="https://static-1.ivoox.com/audios/0/e/b/9/0eb9232e4b995b14619742e08bdaf9ba_XXL.jpg"/>
+<ns1:episodeType>full</ns1:episodeType>
+<ns1:image href="https://static-1.ivoox.com/audios/0/e/b/9/0eb9232e4b995b14619742e08bdaf9ba_XXL.jpg" />
 </item>
 
 
 <item>
-			<title><![CDATA[Metal gear solid 2: Sons of liberty - Iniciativa Metal Gear # 05 | #379]]></title>
-			<description><![CDATA[
-<h2>Iniciativa Metal Gear # 05 | #379 Metal gear solid 2: Sons of liberty</h2>
-<a href="https://podcasters.spotify.com/pod/show/insertcoingames/episodes/Iniciativa-Metal-Gear--05--379-Metal-gear-solid-2-Sons-of-liberty-e36gsss">
-  <img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/15062316/15062316-1755680490989-c5fc8a73358f.jpg" alt="Iniciativa Metal Gear #05" />
-</a>
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+			<title>Metal gear solid 2: Sons of liberty - Iniciativa Metal Gear # 05 | #379</title>
+			<description>
+&lt;h2&gt;Iniciativa Metal Gear # 05 | #379 Metal gear solid 2: Sons of liberty&lt;/h2&gt;
+&lt;a href="https://podcasters.spotify.com/pod/show/insertcoingames/episodes/Iniciativa-Metal-Gear--05--379-Metal-gear-solid-2-Sons-of-liberty-e36gsss"&gt;
+  &lt;img src="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/15062316/15062316-1755680490989-c5fc8a73358f.jpg" alt="Iniciativa Metal Gear #05" /&gt;
+&lt;/a&gt;
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
 
-<p>¡Que pasa locos!</p>
+&lt;p&gt;¡Que pasa locos!&lt;/p&gt;
 
-<p>No podíamos faltar a la invitación de la iniciativa podgaming para hacer homenaje de una de nuestras sagas favoritas. Hideo Kojima nos trajo una de esas sagas que perdura en el tiempo (Con permiso de Konami…) y que mas fans tiene.</p>
+&lt;p&gt;No podíamos faltar a la invitación de la iniciativa podgaming para hacer homenaje de una de nuestras sagas favoritas. Hideo Kojima nos trajo una de esas sagas que perdura en el tiempo (Con permiso de Konami…) y que mas fans tiene.&lt;/p&gt;
 
-<p>Nosotros hemos decidido tirarnos a la piscina y hablar de Metal gear solid 2, posiblemente, uno de los juegos de la saga mas controvertidos.</p>
+&lt;p&gt;Nosotros hemos decidido tirarnos a la piscina y hablar de Metal gear solid 2, posiblemente, uno de los juegos de la saga mas controvertidos.&lt;/p&gt;
 
-<p>¡Si eres equipo Raiden, este es tu sitio y sino….. también!</p>
+&lt;p&gt;¡Si eres equipo Raiden, este es tu sitio y sino….. también!&lt;/p&gt;
 
-<p>¡Esperemos que os guste!</p>
+&lt;p&gt;¡Esperemos que os guste!&lt;/p&gt;
 
-<p><strong>Lista de episodios</strong></p>
-<ol start="0">
-  <li>Iniciativa Podgaming - Introducción</li>
-  <li>Chaydgam Corps - Snatcher</li>
-  <li>El Conclilio del Píxel - Metal Gear</li>
-  <li>ILT Juegos - Metal Gear 2: Solid Snake</li>
-  <li>La Regla del Tres - Metal Gear Solid</li>
-  <li>Insert Coin - Metal Gear Solid: Sons of Liberty</li>
-  <li>GAMELX - Metal Gear Solid 3: Snake Eater</li>
-  <li>4 Players - Metal Gear Solid 4: Guns of the Patriots</li>
-  <li>Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain</li>
-  <li>El Reino de Neverland - Kojima visionario / PT</li>
-  <li>Expediente GX - Entrevista Alfonso Vallés</li>
-  <li>SieteBITS - La familia "Culebras"</li>
-  <li>Gamer's Paradise - Solid Snake</li>
-  <li>Rocquimendaciones - El Gen de la Creatividad</li>
-</ol>
+&lt;p&gt;&lt;strong&gt;Lista de episodios&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start="0"&gt;
+  &lt;li&gt;Iniciativa Podgaming - Introducción&lt;/li&gt;
+  &lt;li&gt;Chaydgam Corps - Snatcher&lt;/li&gt;
+  &lt;li&gt;El Conclilio del Píxel - Metal Gear&lt;/li&gt;
+  &lt;li&gt;ILT Juegos - Metal Gear 2: Solid Snake&lt;/li&gt;
+  &lt;li&gt;La Regla del Tres - Metal Gear Solid&lt;/li&gt;
+  &lt;li&gt;Insert Coin - Metal Gear Solid: Sons of Liberty&lt;/li&gt;
+  &lt;li&gt;GAMELX - Metal Gear Solid 3: Snake Eater&lt;/li&gt;
+  &lt;li&gt;4 Players - Metal Gear Solid 4: Guns of the Patriots&lt;/li&gt;
+  &lt;li&gt;Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain&lt;/li&gt;
+  &lt;li&gt;El Reino de Neverland - Kojima visionario / PT&lt;/li&gt;
+  &lt;li&gt;Expediente GX - Entrevista Alfonso Vallés&lt;/li&gt;
+  &lt;li&gt;SieteBITS - La familia "Culebras"&lt;/li&gt;
+  &lt;li&gt;Gamer's Paradise - Solid Snake&lt;/li&gt;
+  &lt;li&gt;Rocquimendaciones - El Gen de la Creatividad&lt;/li&gt;
+&lt;/ol&gt;
 
-<p>Feed de la Iniciativa: <a href="https://feedbueno.es/imetal/feed.xml">https://feedbueno.es/imetal/feed.xml</a></p>
-<p>Playlist en iVoox: <a href="https://go.ivoox.com/bk/11304347">https://go.ivoox.com/bk/11304347</a></p>
-<p>Playlist en Spotify: <a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL">https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL</a></p>
-<p>Playlist en Youtube: <a href="https://music.youtube.com/playlist?list=PLuuSWmpMzKJVSkjNwBznFV1yGnRpvTWCK">https://music.youtube.com/playlist?list=PLuuSWmpMzKJVSkjNwBznFV1yGnRpvTWCK</a></p>
+&lt;p&gt;Feed de la Iniciativa: &lt;a href="https://feedbueno.es/imetal/feed.xml"&gt;https://feedbueno.es/imetal/feed.xml&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Playlist en iVoox: &lt;a href="https://go.ivoox.com/bk/11304347"&gt;https://go.ivoox.com/bk/11304347&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Playlist en Spotify: &lt;a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL"&gt;https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Playlist en Youtube: &lt;a href="https://music.youtube.com/playlist?list=PLuuSWmpMzKJVSkjNwBznFV1yGnRpvTWCK"&gt;https://music.youtube.com/playlist?list=PLuuSWmpMzKJVSkjNwBznFV1yGnRpvTWCK&lt;/a&gt;&lt;/p&gt;
 
-<p>Miniaturas por Jaime Brotons</p>
-<p>Cuña por Iñaki Monteano</p>
+&lt;p&gt;Miniaturas por Jaime Brotons&lt;/p&gt;
+&lt;p&gt;Cuña por Iñaki Monteano&lt;/p&gt;
 
-<p><strong>NUESTA LISTA DE RECOMENDACIONES</strong></p>
-<ol>
-  <li>Red dead redemption 2</li>
-  <li>Hades</li>
-  <li>The last of us 2</li>
-  <li>Elden ring</li>
-  <li>Mass effect 2</li>
-  <li>Xcom 2</li>
-  <li>World of warcraft</li>
-  <li>Hollow knight</li>
-  <li>Zelda breath of the wild</li>
-  <li>Persona 5 royale</li>
-</ol>
+&lt;p&gt;&lt;strong&gt;NUESTA LISTA DE RECOMENDACIONES&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Red dead redemption 2&lt;/li&gt;
+  &lt;li&gt;Hades&lt;/li&gt;
+  &lt;li&gt;The last of us 2&lt;/li&gt;
+  &lt;li&gt;Elden ring&lt;/li&gt;
+  &lt;li&gt;Mass effect 2&lt;/li&gt;
+  &lt;li&gt;Xcom 2&lt;/li&gt;
+  &lt;li&gt;World of warcraft&lt;/li&gt;
+  &lt;li&gt;Hollow knight&lt;/li&gt;
+  &lt;li&gt;Zelda breath of the wild&lt;/li&gt;
+  &lt;li&gt;Persona 5 royale&lt;/li&gt;
+&lt;/ol&gt;
 
-<p>¡Encuentra tu versión 2.0 con los consejos de Joakin Dead!</p>
+&lt;p&gt;¡Encuentra tu versión 2.0 con los consejos de Joakin Dead!&lt;/p&gt;
 
-<p><a href="https://www.amazon.es/dp/B0BHTZPJMH/ref=cm_sw_r_wa_api_EX5KV44ACRD6C0165XDM">https://www.amazon.es/dp/B0BHTZPJMH/ref=cm_sw_r_wa_api_EX5KV44ACRD6C0165XDM</a></p>
+&lt;p&gt;&lt;a href="https://www.amazon.es/dp/B0BHTZPJMH/ref=cm_sw_r_wa_api_EX5KV44ACRD6C0165XDM"&gt;https://www.amazon.es/dp/B0BHTZPJMH/ref=cm_sw_r_wa_api_EX5KV44ACRD6C0165XDM&lt;/a&gt;&lt;/p&gt;
 
-<p>Aquí tienes tu podido de descuento de Wetaca: <strong>JOAQUINL4097</strong></p>
+&lt;p&gt;Aquí tienes tu podido de descuento de Wetaca: &lt;strong&gt;JOAQUINL4097&lt;/strong&gt;&lt;/p&gt;
 
-<p><strong>InsertCoin Games:</strong></p>
-<p>Grupo de Discord: <a href="https://discord.gg/aJrZFRC">https://discord.gg/aJrZFRC</a></p>
-<p>Youtube: <a href="https://www.youtube.com/channel/UC_TLx2vHlr7AJ4kPgckx68w">https://www.youtube.com/channel/UC_TLx2vHlr7AJ4kPgckx68w</a></p>
-<p>Twitch: <a href="https://www.twitch.tv/insertcoingames">https://www.twitch.tv/insertcoingames</a></p>
-<p>Twitter: @ICGames_ES</p>
-<p>Instagram: insertcoingames_</p>
+&lt;p&gt;&lt;strong&gt;InsertCoin Games:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Grupo de Discord: &lt;a href="https://discord.gg/aJrZFRC"&gt;https://discord.gg/aJrZFRC&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Youtube: &lt;a href="https://www.youtube.com/channel/UC_TLx2vHlr7AJ4kPgckx68w"&gt;https://www.youtube.com/channel/UC_TLx2vHlr7AJ4kPgckx68w&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Twitch: &lt;a href="https://www.twitch.tv/insertcoingames"&gt;https://www.twitch.tv/insertcoingames&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Twitter: @ICGames_ES&lt;/p&gt;
+&lt;p&gt;Instagram: insertcoingames_&lt;/p&gt;
 
-<p>Se os quiere!</p>
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/10158362-metal-gear-solid-2-substance-windows-and-thus-the-game-starts.jpg" /></p> 
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/132793-metal-gear-solid-2-substance-windows-and-heres-our-protagonist-a.jpg" /></p> 
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/10161082-metal-gear-solid-2-substance-windows-and-what-good-is-all-this-s.jpg" /></p> 
-]]></description>
+&lt;p&gt;Se os quiere!&lt;/p&gt;
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/10158362-metal-gear-solid-2-substance-windows-and-thus-the-game-starts.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/132793-metal-gear-solid-2-substance-windows-and-heres-our-protagonist-a.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/10161082-metal-gear-solid-2-substance-windows-and-what-good-is-all-this-s.jpg" /&gt;&lt;/p&gt; 
+</description>
 			<link>https://podcasters.spotify.com/pod/show/insertcoingames/episodes/Iniciativa-Metal-Gear--05--379-Metal-gear-solid-2-Sons-of-liberty-e36gsss</link>
 			<guid isPermaLink="false">ec0a17d6-b063-42fc-809d-0d7a183dfbde</guid>
-			<dc:creator><![CDATA[INSERT COIN GAMES]]></dc:creator>
+			<dc:creator>INSERT COIN GAMES</dc:creator>
 			<pubDate>Thu, 21 Aug 2025 13:00:00 GMT</pubDate>
-			<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://anchor.fm/s/5a5fdbb0/podcast/play/106508636/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-6%2F405202897-44100-2-bd5e628dc098c.m4a" length="85191148" type="audio/x-m4a"/>
-			<itunes:explicit>false</itunes:explicit>
-			<itunes:duration>01:27:47</itunes:duration>
-			<itunes:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/15062316/15062316-1755680490989-c5fc8a73358f.jpg"/>
-<itunes:season>1</itunes:season>
-<itunes:episode>5</itunes:episode>
-			<itunes:episodeType>full</itunes:episodeType>
+			<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://anchor.fm/s/5a5fdbb0/podcast/play/106508636/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-7-6%2F405202897-44100-2-bd5e628dc098c.m4a" length="85191148" type="audio/x-m4a" />
+			<ns1:explicit>false</ns1:explicit>
+			<ns1:duration>01:27:47</ns1:duration>
+			<ns1:image href="https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_episode/15062316/15062316-1755680490989-c5fc8a73358f.jpg" />
+<ns1:season>1</ns1:season>
+<ns1:episode>5</ns1:episode>
+			<ns1:episodeType>full</ns1:episodeType>
 		</item>
 
 
 <item>
-<title><![CDATA[METAL GEAR SOLID - Iniciativa Metal Gear #04 // L3 4x24  (feat. Oriol Vall-llovera)]]></title>
+<title>METAL GEAR SOLID - Iniciativa Metal Gear #04 // L3 4x24  (feat. Oriol Vall-llovera)</title>
 <link>https://www.ivoox.com/iniciativa-metal-gear-04-l3-4x24-audios-mp3_rf_155708113_1.html</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-04-l3-4x24_mf_155708113_feed_1.mp3" type="audio/mpeg" length="252077035"/>
-<description><![CDATA[
-<h2>Iniciativa Metal Gear #04 // L3 4x24 - METAL GEAR SOLID   (feat. Oriol Vall-llovera)</h2>
-<a href="https://www.ivoox.com/iniciativa-metal-gear-04-l3-4x24-audios-mp3_rf_155708113_1.html">
-  <img src="https://static-2.ivoox.com/audios/5/8/6/9/5869a42398aa8a364b176fca1f0666f4_XXL.jpg" alt="Iniciativa Metal Gear #04 // L3 4x24 - METAL GEAR SOLID"/>
-</a>
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-04-l3-4x24_mf_155708113_feed_1.mp3" type="audio/mpeg" length="252077035" />
+<description>
+&lt;h2&gt;Iniciativa Metal Gear #04 // L3 4x24 - METAL GEAR SOLID   (feat. Oriol Vall-llovera)&lt;/h2&gt;
+&lt;a href="https://www.ivoox.com/iniciativa-metal-gear-04-l3-4x24-audios-mp3_rf_155708113_1.html"&gt;
+  &lt;img src="https://static-2.ivoox.com/audios/5/8/6/9/5869a42398aa8a364b176fca1f0666f4_XXL.jpg" alt="Iniciativa Metal Gear #04 // L3 4x24 - METAL GEAR SOLID"/&gt;
+&lt;/a&gt;
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
 
-<p>Para celebrar el inminente lanzamiento de Metal Gear Solid Delta: Snake Eater nos hemos juntado con lo mejorcito del podcasting de videojuegos en español para traeros nuestro particular homenaje a esta maravillosa saga en esta INICIATIVA METAL GEAR.</p>
+&lt;p&gt;Para celebrar el inminente lanzamiento de Metal Gear Solid Delta: Snake Eater nos hemos juntado con lo mejorcito del podcasting de videojuegos en español para traeros nuestro particular homenaje a esta maravillosa saga en esta INICIATIVA METAL GEAR.&lt;/p&gt;
 
-<p>En este contexto tan especial, hemos decidido producir uno de nuestros programas más currados hasta la fecha, un espectacular y ambicioso episodio dedicado a METAL GEAR SOLID en forma de análisis paso a paso de más de 4 horazas de duración en el que detallamos en profundidad todas las claves de uno de los mejores juegos de todos los tiempos: argumento, jefes, secretos... ¿¡Pero qué coño!?</p>
+&lt;p&gt;En este contexto tan especial, hemos decidido producir uno de nuestros programas más currados hasta la fecha, un espectacular y ambicioso episodio dedicado a METAL GEAR SOLID en forma de análisis paso a paso de más de 4 horazas de duración en el que detallamos en profundidad todas las claves de uno de los mejores juegos de todos los tiempos: argumento, jefes, secretos... ¿¡Pero qué coño!?&lt;/p&gt;
 
-<p>Muchas gracias por escucharnos ❤️</p>
+&lt;p&gt;Muchas gracias por escucharnos ❤️&lt;/p&gt;
 
-<p>En este episodio hemos participado:</p>
-<ul>
-  <li>Pablo Sánchez de Rojas</li>
-  <li>Abel Morán</li>
-  <li>Oriol Vall-llovera de Memoria Cósmica</li>
-</ul>
+&lt;p&gt;En este episodio hemos participado:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pablo Sánchez de Rojas&lt;/li&gt;
+  &lt;li&gt;Abel Morán&lt;/li&gt;
+  &lt;li&gt;Oriol Vall-llovera de Memoria Cósmica&lt;/li&gt;
+&lt;/ul&gt;
 
-<p><b>Lista completa de episodios: </b></p>
-<ol start="0">
-  <li>Iniciativa Podgaming - Introducción</li>
-  <li>Chaydgam Corps - Snatcher</li>
-  <li>El Conclilio del Píxel - Metal Gear</li>
-  <li>ILT Juegos - Metal Gear 2: Solid Snake</li>
-  <li>La Regla del Tres - Metal Gear Solid</li>
-  <li>Insert Coin - Metal Gear Solid: Sons of Liberty</li>
-  <li>GAMELX - Metal Gear Solid 3: Snake Eater</li>
-  <li>4 Players - Metal Gear Solid 4: Guns of the Patriots</li>
-  <li>Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain</li>
-  <li>El Reino de Neverland - Kojima visionario / PT</li>
-  <li>Expediente GX - Entrevista Alfonso Vallés</li>
-  <li>SieteBITS - La familia "Culebras"</li>
-  <li>Gamer's Paradise - Solid Snake</li>
-  <li>Rocquimendaciones - El Gen de la Creatividad</li>
-</ol>
-<ul>
-<li>Feed de la Iniciativa: <a href="https://feedbueno.es/imetal/feed.xml">https://feedbueno.es/imetal/feed.xml</a></li>
-<li>Playlist en iVoox: <a href="https://go.ivoox.com/bk/11304347">https://go.ivoox.com/bk/11304347</a></li>
-<li>Playlist en Spotify: <a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL">https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL</a></li>
-</ul>
-<p>Miniaturas por Jaime Brotons<br/>
-Cuña por Iñaki Monteano</p>
+&lt;p&gt;&lt;b&gt;Lista completa de episodios: &lt;/b&gt;&lt;/p&gt;
+&lt;ol start="0"&gt;
+  &lt;li&gt;Iniciativa Podgaming - Introducción&lt;/li&gt;
+  &lt;li&gt;Chaydgam Corps - Snatcher&lt;/li&gt;
+  &lt;li&gt;El Conclilio del Píxel - Metal Gear&lt;/li&gt;
+  &lt;li&gt;ILT Juegos - Metal Gear 2: Solid Snake&lt;/li&gt;
+  &lt;li&gt;La Regla del Tres - Metal Gear Solid&lt;/li&gt;
+  &lt;li&gt;Insert Coin - Metal Gear Solid: Sons of Liberty&lt;/li&gt;
+  &lt;li&gt;GAMELX - Metal Gear Solid 3: Snake Eater&lt;/li&gt;
+  &lt;li&gt;4 Players - Metal Gear Solid 4: Guns of the Patriots&lt;/li&gt;
+  &lt;li&gt;Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain&lt;/li&gt;
+  &lt;li&gt;El Reino de Neverland - Kojima visionario / PT&lt;/li&gt;
+  &lt;li&gt;Expediente GX - Entrevista Alfonso Vallés&lt;/li&gt;
+  &lt;li&gt;SieteBITS - La familia "Culebras"&lt;/li&gt;
+  &lt;li&gt;Gamer's Paradise - Solid Snake&lt;/li&gt;
+  &lt;li&gt;Rocquimendaciones - El Gen de la Creatividad&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Feed de la Iniciativa: &lt;a href="https://feedbueno.es/imetal/feed.xml"&gt;https://feedbueno.es/imetal/feed.xml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Playlist en iVoox: &lt;a href="https://go.ivoox.com/bk/11304347"&gt;https://go.ivoox.com/bk/11304347&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Playlist en Spotify: &lt;a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL"&gt;https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Miniaturas por Jaime Brotons&lt;br/&gt;
+Cuña por Iñaki Monteano&lt;/p&gt;
 
-<p><b> ¡Síguenos aquí! </b><br/>⏬⏬⏬</p>
+&lt;p&gt;&lt;b&gt; ¡Síguenos aquí! &lt;/b&gt;&lt;br/&gt;⏬⏬⏬&lt;/p&gt;
 
-<ul>
-  <li><a href="https://laregladeltres.com/">https://laregladeltres.com/</a></li>
-  <li><a href="https://x.com/LaReglaDelTres">https://x.com/LaReglaDelTres</a></li>
-  <li><a href="https://discord.gg/EwcCSgD32R">https://discord.gg/EwcCSgD32R</a></li>
-  <li><a href="https://linktr.ee/laregladeltres">https://linktr.ee/laregladeltres</a></li>
-</ul>
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://laregladeltres.com/"&gt;https://laregladeltres.com/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://x.com/LaReglaDelTres"&gt;https://x.com/LaReglaDelTres&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://discord.gg/EwcCSgD32R"&gt;https://discord.gg/EwcCSgD32R&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://linktr.ee/laregladeltres"&gt;https://linktr.ee/laregladeltres&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-<p>Gracias a Gabriel Estévez por la sintonía de inicio.</p>
+&lt;p&gt;Gracias a Gabriel Estévez por la sintonía de inicio.&lt;/p&gt;
 
-<p>Gracias también a nuestros mecenas, por hacer posible este programa:</p>
-<ul>
-  <li>Gonzalo Ríos Sanz</li>
-  <li>Tábata</li>
-</ul>
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/10303489-metal-gear-solid-playstation-main-menu.jpg" /></p> 
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/10303492-metal-gear-solid-playstation-a-standard-safe-way-of-conversation.jpg" /></p> 
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/10303498-metal-gear-solid-playstation-nice-effects-such-as-cold-breath-of.jpg" /></p> 
-]]></description>
+&lt;p&gt;Gracias también a nuestros mecenas, por hacer posible este programa:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Gonzalo Ríos Sanz&lt;/li&gt;
+  &lt;li&gt;Tábata&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/10303489-metal-gear-solid-playstation-main-menu.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/10303492-metal-gear-solid-playstation-a-standard-safe-way-of-conversation.jpg" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/10303498-metal-gear-solid-playstation-nice-effects-such-as-cold-breath-of.jpg" /&gt;&lt;/p&gt; 
+</description>
 <pubDate>Thu, 21 Aug 2025 07:00:00 +0200</pubDate>
-<itunes:duration>04:22:34</itunes:duration>
+<ns1:duration>04:22:34</ns1:duration>
 <guid>https://www.ivoox.com/155708113</guid>
-<itunes:season>1</itunes:season>
-<itunes:episode>4</itunes:episode>
-<itunes:episodeType>full</itunes:episodeType>
-<itunes:image href="https://static-2.ivoox.com/audios/5/8/6/9/5869a42398aa8a364b176fca1f0666f4_XXL.jpg"/>
+<ns1:season>1</ns1:season>
+<ns1:episode>4</ns1:episode>
+<ns1:episodeType>full</ns1:episodeType>
+<ns1:image href="https://static-2.ivoox.com/audios/5/8/6/9/5869a42398aa8a364b176fca1f0666f4_XXL.jpg" />
 </item>
 
 
 <item>
-<title><![CDATA[Metal Gear 2: Solid Snake (MSX) - Iniciativa Metal Gear #03 // ILT Juegos]]></title>
+<title>Metal Gear 2: Solid Snake (MSX) - Iniciativa Metal Gear #03 // ILT Juegos</title>
 <link>https://www.ivoox.com/iniciativa-metal-gear-03-ilt-juegos-audios-mp3_rf_155641667_1.html</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-03-ilt-juegos_mf_155641667_feed_1.mp3" type="audio/mpeg" length="107747787"/>
-<description><![CDATA[
-<h2>Iniciativa Metal Gear #03 // ILT Juegos - Metal Gear 2: Solid Snake (MSX)</h2>
-<a href="https://www.ivoox.com/iniciativa-metal-gear-03-ilt-juegos-audios-mp3_rf_155641667_1.html"><img src="https://static-2.ivoox.com/audios/3/b/1/9/3b190f35dd2338c6d4594ab04e777036_XXL.jpg" alt="Iniciativa Metal Gear #03"></a>
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-03-ilt-juegos_mf_155641667_feed_1.mp3" type="audio/mpeg" length="107747787" />
+<description>
+&lt;h2&gt;Iniciativa Metal Gear #03 // ILT Juegos - Metal Gear 2: Solid Snake (MSX)&lt;/h2&gt;
+&lt;a href="https://www.ivoox.com/iniciativa-metal-gear-03-ilt-juegos-audios-mp3_rf_155641667_1.html"&gt;&lt;img src="https://static-2.ivoox.com/audios/3/b/1/9/3b190f35dd2338c6d4594ab04e777036_XXL.jpg" alt="Iniciativa Metal Gear #03"&gt;&lt;/a&gt;
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
 
-<p>¡Bienvenid@s a otro programa de la Iniciativa Podgaming! En esta ocasión, dedicada a otra de las mejores sagas de videojuegos de la historia: METAL GEAR.</p>
+&lt;p&gt;¡Bienvenid@s a otro programa de la Iniciativa Podgaming! En esta ocasión, dedicada a otra de las mejores sagas de videojuegos de la historia: METAL GEAR.&lt;/p&gt;
 
-<p>¿Sabías que Hideo Kojima sacó de McGyver la idea de usar chocolate para anular charcos de ácido?<br/>
-¿Sabías que las partículas Minovski de Gundam son canon en el universo Metal Gear?<br/>
-¿Sabías que Kojima estaba obsesionado con las ballenas mucho antes de MGSV y Death Stranding...?</p>
+&lt;p&gt;¿Sabías que Hideo Kojima sacó de McGyver la idea de usar chocolate para anular charcos de ácido?&lt;br/&gt;
+¿Sabías que las partículas Minovski de Gundam son canon en el universo Metal Gear?&lt;br/&gt;
+¿Sabías que Kojima estaba obsesionado con las ballenas mucho antes de MGSV y Death Stranding...?&lt;/p&gt;
 
-<p>Estas curiosidades y muchísimas más las encontrarás en el especial ILT Juegos de METAL GEAR 2: SOLID SNAKE, el Metal Gear más infravalorado y uno de los juegos más avanzados de su época.</p>
+&lt;p&gt;Estas curiosidades y muchísimas más las encontrarás en el especial ILT Juegos de METAL GEAR 2: SOLID SNAKE, el Metal Gear más infravalorado y uno de los juegos más avanzados de su época.&lt;/p&gt;
 
-<p>Ajústate la bandana y comprueba las pilas de tu camuflaje óptico. Comienza la operación F014.</p>
+&lt;p&gt;Ajústate la bandana y comprueba las pilas de tu camuflaje óptico. Comienza la operación F014.&lt;/p&gt;
 
-<p>Si has llegado aquí, es porque adoras o quieres aprender más sobre Metal Gear. Y pocas veces la cosa fue tan sencilla. Métete en las listas, y ponte a darle como loco al play al resto de programas, porque hay auténtica canela en rama.</p>
+&lt;p&gt;Si has llegado aquí, es porque adoras o quieres aprender más sobre Metal Gear. Y pocas veces la cosa fue tan sencilla. Métete en las listas, y ponte a darle como loco al play al resto de programas, porque hay auténtica canela en rama.&lt;/p&gt;
 
-<p>Y si te ha gustado lo que hemos hecho en este programa... ve abajo del todo, y síguenos en nuestra locura habitual.</p>
+&lt;p&gt;Y si te ha gustado lo que hemos hecho en este programa... ve abajo del todo, y síguenos en nuestra locura habitual.&lt;/p&gt;
 
-<p><strong>⏬Todos los programas de la Iniciativa Metal Gear⏬</strong></p>
+&lt;p&gt;&lt;strong&gt;⏬Todos los programas de la Iniciativa Metal Gear⏬&lt;/strong&gt;&lt;/p&gt;
 
-<ul>
-  <li>Feed de la Iniciativa: <a href="https://feedbueno.es/imetal/feed.xml">https://feedbueno.es/imetal/feed.xml</a></li>
-  <li>Playlist en iVoox: <a href="https://go.ivoox.com/bk/11304347">https://go.ivoox.com/bk/11304347</a></li>
-  <li>Playlist en Spotify: <a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL">https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL</a></li>
-</ul>
+&lt;ul&gt;
+  &lt;li&gt;Feed de la Iniciativa: &lt;a href="https://feedbueno.es/imetal/feed.xml"&gt;https://feedbueno.es/imetal/feed.xml&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Playlist en iVoox: &lt;a href="https://go.ivoox.com/bk/11304347"&gt;https://go.ivoox.com/bk/11304347&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Playlist en Spotify: &lt;a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL"&gt;https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-<ul>
-  <li>Miniaturas por Jaime Brotons</li>
-  <li>Cuña por Iñaki Monteano</li>
-</ul>
+&lt;ul&gt;
+  &lt;li&gt;Miniaturas por Jaime Brotons&lt;/li&gt;
+  &lt;li&gt;Cuña por Iñaki Monteano&lt;/li&gt;
+&lt;/ul&gt;
 
-<ol start="0">
-  <li>Iniciativa Podgaming - Introducción</li>
-  <li>Chaydgam Corps - Snatcher</li>
-  <li>El Conclilio del Píxel - Metal Gear</li>
-  <li>ILT Juegos - Metal Gear 2: Solid Snake</li>
-  <li>La Regla del Tres - Metal Gear Solid</li>
-  <li>Insert Coin - Metal Gear Solid: Sons of Liberty</li>
-  <li>GAMELX - Metal Gear Solid 3: Snake Eater</li>
-  <li>4 Players - Metal Gear Solid 4: Guns of the Patriots</li>
-  <li>Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain</li>
-  <li>El Reino de Neverland - Kojima visionario / PT</li>
-  <li>Expediente GX - Entrevista Alfonso Vallés</li>
-  <li>SieteBITS - La familia "Culebras"</li>
-  <li>Gamer's Paradise - Solid Snake</li>
-  <li>Rocquimendaciones - El Gen de la Creatividad</li>
-</ol>
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/2029054-metal-gear-2-solid-snake-msx-here-you-absolutely-must-smoke-a-ci.png" /></p> 
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/2027524-metal-gear-2-solid-snake-msx-a-red-room-with-computers-and-some-.png" /></p> 
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/2029724-metal-gear-2-solid-snake-msx-can-i-come-out-now-mom.png" /></p> 
+&lt;ol start="0"&gt;
+  &lt;li&gt;Iniciativa Podgaming - Introducción&lt;/li&gt;
+  &lt;li&gt;Chaydgam Corps - Snatcher&lt;/li&gt;
+  &lt;li&gt;El Conclilio del Píxel - Metal Gear&lt;/li&gt;
+  &lt;li&gt;ILT Juegos - Metal Gear 2: Solid Snake&lt;/li&gt;
+  &lt;li&gt;La Regla del Tres - Metal Gear Solid&lt;/li&gt;
+  &lt;li&gt;Insert Coin - Metal Gear Solid: Sons of Liberty&lt;/li&gt;
+  &lt;li&gt;GAMELX - Metal Gear Solid 3: Snake Eater&lt;/li&gt;
+  &lt;li&gt;4 Players - Metal Gear Solid 4: Guns of the Patriots&lt;/li&gt;
+  &lt;li&gt;Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain&lt;/li&gt;
+  &lt;li&gt;El Reino de Neverland - Kojima visionario / PT&lt;/li&gt;
+  &lt;li&gt;Expediente GX - Entrevista Alfonso Vallés&lt;/li&gt;
+  &lt;li&gt;SieteBITS - La familia "Culebras"&lt;/li&gt;
+  &lt;li&gt;Gamer's Paradise - Solid Snake&lt;/li&gt;
+  &lt;li&gt;Rocquimendaciones - El Gen de la Creatividad&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/2029054-metal-gear-2-solid-snake-msx-here-you-absolutely-must-smoke-a-ci.png" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/2027524-metal-gear-2-solid-snake-msx-a-red-room-with-computers-and-some-.png" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/2029724-metal-gear-2-solid-snake-msx-can-i-come-out-now-mom.png" /&gt;&lt;/p&gt; 
  
-<p><strong>⏬¡Síguenos o pasa el rato con nosotros aquí!⏬</strong ></p>
+&lt;p&gt;&lt;strong&gt;⏬¡Síguenos o pasa el rato con nosotros aquí!⏬&lt;/strong &gt;&lt;/p&gt;
 
-<ul>
-  <li>Twitch: <a href="https://twitch.tv/ILTjuegos">https://twitch.tv/ILTjuegos</a></li>
-  <li>YouTube: <a href="https://www.youtube.com/@iltjuegos">https://www.youtube.com/@iltjuegos</a></li>
-  <li>iVoox: <a href="https://www.ivoox.com/podcast-iltjuegos_sq_f1446764_1.html">https://www.ivoox.com/podcast-iltjuegos_sq_f1446764_1.html</a></li>
-  <li>Spotify: <a href="http://spotify.iltjuegos.com">http://spotify.iltjuegos.com</a></li>
-  <li>Apple Podcasts: <a href="http://itunes.iltjuegos.com">http://itunes.iltjuegos.com</a></li>
-  <li>Telegram: <a href="https://t.me/ILTjuegos">https://t.me/ILTjuegos</a></li>
-  <li>Instagram: <a href="https://www.instagram.com/iltjuegos">https://www.instagram.com/iltjuegos</a></li>
-  <li>X (Twitter): <a href="https://x.com/iltjuegos">https://x.com/iltjuegos</a></li>
-  <li>TikTok: <a href="https://www.tiktok.com/@iltjuegos">https://www.tiktok.com/@iltjuegos</a></li>
-</ul>
-]]></description>
+&lt;ul&gt;
+  &lt;li&gt;Twitch: &lt;a href="https://twitch.tv/ILTjuegos"&gt;https://twitch.tv/ILTjuegos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;YouTube: &lt;a href="https://www.youtube.com/@iltjuegos"&gt;https://www.youtube.com/@iltjuegos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;iVoox: &lt;a href="https://www.ivoox.com/podcast-iltjuegos_sq_f1446764_1.html"&gt;https://www.ivoox.com/podcast-iltjuegos_sq_f1446764_1.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spotify: &lt;a href="http://spotify.iltjuegos.com"&gt;http://spotify.iltjuegos.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Apple Podcasts: &lt;a href="http://itunes.iltjuegos.com"&gt;http://itunes.iltjuegos.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Telegram: &lt;a href="https://t.me/ILTjuegos"&gt;https://t.me/ILTjuegos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Instagram: &lt;a href="https://www.instagram.com/iltjuegos"&gt;https://www.instagram.com/iltjuegos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;X (Twitter): &lt;a href="https://x.com/iltjuegos"&gt;https://x.com/iltjuegos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;TikTok: &lt;a href="https://www.tiktok.com/@iltjuegos"&gt;https://www.tiktok.com/@iltjuegos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
 <pubDate>Wed, 20 Aug 2025 15:00:00 +0200</pubDate>
-<itunes:duration>01:52:14</itunes:duration>
-<itunes:season>1</itunes:season>
-<itunes:episode>3</itunes:episode> 
+<ns1:duration>01:52:14</ns1:duration>
+<ns1:season>1</ns1:season>
+<ns1:episode>3</ns1:episode> 
 <guid>https://www.ivoox.com/155641667</guid>
-<itunes:episodeType>full</itunes:episodeType>
-<itunes:image href="https://static-2.ivoox.com/audios/3/b/1/9/3b190f35dd2338c6d4594ab04e777036_XXL.jpg"/>
+<ns1:episodeType>full</ns1:episodeType>
+<ns1:image href="https://static-2.ivoox.com/audios/3/b/1/9/3b190f35dd2338c6d4594ab04e777036_XXL.jpg" />
 </item>
 
 
-<item><title><![CDATA[Metal Gear (MSX) - Iniciativa Metal Gear #02 // El Concilio del Pixel - Tertulia #9]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del-audios-mp3_rf_155863829_1.html</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del_mf_155863829_feed_1.mp3" type="audio/mpeg"  length="32369893"/>
-<description><![CDATA[
-<h2>Iniciativa Metal Gear #02 // El Concilio del Pixel - Tertulia #9 - Metal Gear (MSX)</h2>
+<item><title>Metal Gear (MSX) - Iniciativa Metal Gear #02 // El Concilio del Pixel - Tertulia #9</title><link>https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del-audios-mp3_rf_155863829_1.html</link>
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del_mf_155863829_feed_1.mp3" type="audio/mpeg" length="32369893" />
+<description>
+&lt;h2&gt;Iniciativa Metal Gear #02 // El Concilio del Pixel - Tertulia #9 - Metal Gear (MSX)&lt;/h2&gt;
 
-<a href="https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del-audios-mp3_rf_155863829_1.html">
-  <img src="https://static-1.ivoox.com/audios/4/d/3/b/4d3bb784c41bcc273a8e01c587b99b41_XXL.jpg" alt="Iniciativa Metal Gear #02" style="max-width:100%;height:auto;" />
-</a>
+&lt;a href="https://www.ivoox.com/iniciativa-metal-gear-02-el-concilio-del-audios-mp3_rf_155863829_1.html"&gt;
+  &lt;img src="https://static-1.ivoox.com/audios/4/d/3/b/4d3bb784c41bcc273a8e01c587b99b41_XXL.jpg" alt="Iniciativa Metal Gear #02" style="max-width:100%;height:auto;" /&gt;
+&lt;/a&gt;
 
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
 
-<p>Bienvenidos a una nueva tertulia de El Concilio del Pixel. Esta vez nos hemos unido a la Iniciativa Podgaming de METAL GEAR para celebrar el lanzamiento de Metal Gear Solid Delta: Snake Eater.</p>
+&lt;p&gt;Bienvenidos a una nueva tertulia de El Concilio del Pixel. Esta vez nos hemos unido a la Iniciativa Podgaming de METAL GEAR para celebrar el lanzamiento de Metal Gear Solid Delta: Snake Eater.&lt;/p&gt;
 
-<p>En este segundo episodio de la Iniciativa (nuestra novena tertulia), hablaremos del primer juego de la saga: METAL GEAR (MSX), que fue dirigido por Hideo Kojima y publicado por Konami en 1987 para MSX 2; valorando lo que supuso en su momento, como ha envejecido, y de pasada, comentaremos puntos en común con otros títulos más recientes de la saga y cómo ha influido en ellos, ya que otros compañeros entrarán más a fondo en sus análisis. En nuestro caso, lo comentaremos entre tres personas y, una de ellas, ¡no había jugado ningún juego de la saga!, con lo que tenemos anécdotas y curiosidades importantes. Además, hacemos un debate (una vez más sin entrar en mucho detalle), sobre lo que suponen los juegos de Kojima y cómo ha influido el cine en él y sus videojuegos.</p>
+&lt;p&gt;En este segundo episodio de la Iniciativa (nuestra novena tertulia), hablaremos del primer juego de la saga: METAL GEAR (MSX), que fue dirigido por Hideo Kojima y publicado por Konami en 1987 para MSX 2; valorando lo que supuso en su momento, como ha envejecido, y de pasada, comentaremos puntos en común con otros títulos más recientes de la saga y cómo ha influido en ellos, ya que otros compañeros entrarán más a fondo en sus análisis. En nuestro caso, lo comentaremos entre tres personas y, una de ellas, ¡no había jugado ningún juego de la saga!, con lo que tenemos anécdotas y curiosidades importantes. Además, hacemos un debate (una vez más sin entrar en mucho detalle), sobre lo que suponen los juegos de Kojima y cómo ha influido el cine en él y sus videojuegos.&lt;/p&gt;
 
-<p>Desde El Concilio del Pixel, os invitamos a seguir la Iniciativa Podgaming: Metal Gear y a escuchar cada uno de los episodios y, además, seguirnos a nosotros en redes sociales y uniros a nuestro discord, donde cada mes jugamos y comentamos un videojuego distinto elegido por la comunidad.</p>
+&lt;p&gt;Desde El Concilio del Pixel, os invitamos a seguir la Iniciativa Podgaming: Metal Gear y a escuchar cada uno de los episodios y, además, seguirnos a nosotros en redes sociales y uniros a nuestro discord, donde cada mes jugamos y comentamos un videojuego distinto elegido por la comunidad.&lt;/p&gt;
 
-<p>Os dejamos los enlaces de la Iniciativa Podgaming: Metal Gear y a nuestros diferentes perfiles:</p>
+&lt;p&gt;Os dejamos los enlaces de la Iniciativa Podgaming: Metal Gear y a nuestros diferentes perfiles:&lt;/p&gt;
 
-<p><strong>⏬Todos los programas de la Iniciativa Metal Gear⏬</strong></p>
+&lt;p&gt;&lt;strong&gt;⏬Todos los programas de la Iniciativa Metal Gear⏬&lt;/strong&gt;&lt;/p&gt;
 
-<ul>
-  <li>Feed de la Iniciativa: <a href="https://feedbueno.es/imetal/feed.xml">https://feedbueno.es/imetal/feed.xml</a></li>
-  <li>Playlist en iVoox: <a href="https://go.ivoox.com/bk/11304347">https://go.ivoox.com/bk/11304347</a></li>
-  <li>Playlist en Spotify: <a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL">https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL</a></li>
-  <li>Miniaturas por Jaime Brotons</li>
-  <li>Cuña por Iñaki Monteano</li>
-</ul>
+&lt;ul&gt;
+  &lt;li&gt;Feed de la Iniciativa: &lt;a href="https://feedbueno.es/imetal/feed.xml"&gt;https://feedbueno.es/imetal/feed.xml&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Playlist en iVoox: &lt;a href="https://go.ivoox.com/bk/11304347"&gt;https://go.ivoox.com/bk/11304347&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Playlist en Spotify: &lt;a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL"&gt;https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Miniaturas por Jaime Brotons&lt;/li&gt;
+  &lt;li&gt;Cuña por Iñaki Monteano&lt;/li&gt;
+&lt;/ul&gt;
 
-<ol>
-  <li>Iniciativa Podgaming - Introducción</li>
-  <li>Chaydgam Corps - Snatcher</li>
-  <li>El Conclilio del Píxel - Metal Gear</li>
-  <li>ILT Juegos - Metal Gear 2: Solid Snake</li>
-  <li>La Regla del Tres - Metal Gear Solid</li>
-  <li>Insert Coin - Metal Gear Solid: Sons of Liberty</li>
-  <li>GAMELX - Metal Gear Solid 3: Snake Eater</li>
-  <li>4 Players - Metal Gear Solid 4: Guns of the Patriots</li>
-  <li>Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain</li>
-  <li>El Reino de Neverland - Kojima visionario / PT</li>
-  <li>Expediente GX - Entrevista Alfonso Vallés</li>
-  <li>SieteBITS - La familia "Culebras"</li>
-  <li>Gamer's Paradise - Solid Snake</li>
-  <li>Rocquimendaciones - El Gen de la Creatividad</li>
-</ol>
+&lt;ol&gt;
+  &lt;li&gt;Iniciativa Podgaming - Introducción&lt;/li&gt;
+  &lt;li&gt;Chaydgam Corps - Snatcher&lt;/li&gt;
+  &lt;li&gt;El Conclilio del Píxel - Metal Gear&lt;/li&gt;
+  &lt;li&gt;ILT Juegos - Metal Gear 2: Solid Snake&lt;/li&gt;
+  &lt;li&gt;La Regla del Tres - Metal Gear Solid&lt;/li&gt;
+  &lt;li&gt;Insert Coin - Metal Gear Solid: Sons of Liberty&lt;/li&gt;
+  &lt;li&gt;GAMELX - Metal Gear Solid 3: Snake Eater&lt;/li&gt;
+  &lt;li&gt;4 Players - Metal Gear Solid 4: Guns of the Patriots&lt;/li&gt;
+  &lt;li&gt;Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain&lt;/li&gt;
+  &lt;li&gt;El Reino de Neverland - Kojima visionario / PT&lt;/li&gt;
+  &lt;li&gt;Expediente GX - Entrevista Alfonso Vallés&lt;/li&gt;
+  &lt;li&gt;SieteBITS - La familia "Culebras"&lt;/li&gt;
+  &lt;li&gt;Gamer's Paradise - Solid Snake&lt;/li&gt;
+  &lt;li&gt;Rocquimendaciones - El Gen de la Creatividad&lt;/li&gt;
+&lt;/ol&gt;
 
-<p>Os invitamos a seguirnos: <a href="https://linktr.ee/conciliopixel">https://linktr.ee/conciliopixel</a></p>
-<p><img width="100%" src="https://www.researchgate.net/profile/Ryan-Wasser/publication/337915648/figure/fig2/AS:835423341391873@1576191854624/Screenshot-of-the-original-Metal-Gear-taken-by-Ryan-Wasser-Metal-Gear.ppm" /></p> 
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/9572201-metal-gear-msx-starting-location-different-from-nes-version.png" /></p> 
-<p><img width="100%" src="https://cdn.mobygames.com/screenshots/9572343-metal-gear-msx-three-trucks-i-wonder-what-is-inside.png" /></p> 
-]]></description><itunes:season>1</itunes:season>
-<itunes:episode>2</itunes:episode><pubDate>Wed, 20 Aug 2025 07:22:29 +0200</pubDate><itunes:duration>01:07:26</itunes:duration><itunes:episodeType>full</itunes:episodeType><guid>https://www.ivoox.com/155863829</guid><itunes:image href="https://static-1.ivoox.com/audios/4/d/3/b/4d3bb784c41bcc273a8e01c587b99b41_XXL.jpg"/>
+&lt;p&gt;Os invitamos a seguirnos: &lt;a href="https://linktr.ee/conciliopixel"&gt;https://linktr.ee/conciliopixel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img width="100%" src="https://www.researchgate.net/profile/Ryan-Wasser/publication/337915648/figure/fig2/AS:835423341391873@1576191854624/Screenshot-of-the-original-Metal-Gear-taken-by-Ryan-Wasser-Metal-Gear.ppm" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/9572201-metal-gear-msx-starting-location-different-from-nes-version.png" /&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img width="100%" src="https://cdn.mobygames.com/screenshots/9572343-metal-gear-msx-three-trucks-i-wonder-what-is-inside.png" /&gt;&lt;/p&gt; 
+</description><ns1:season>1</ns1:season>
+<ns1:episode>2</ns1:episode><pubDate>Wed, 20 Aug 2025 07:22:29 +0200</pubDate><ns1:duration>01:07:26</ns1:duration><ns1:episodeType>full</ns1:episodeType><guid>https://www.ivoox.com/155863829</guid><ns1:image href="https://static-1.ivoox.com/audios/4/d/3/b/4d3bb784c41bcc273a8e01c587b99b41_XXL.jpg" />
 </item>
 
 
 
-<item><title><![CDATA[Snatcher - Iniciativa Metal Gear #1]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-1-snatcher-audios-mp3_rf_155819306_1.html</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-1-snatcher_mf_155819306_feed_1.mp3" type="audio/mpeg"  length="527004933"/>
-<description><![CDATA[
-<h2>Iniciativa Metal Gear #1 - Snatcher</h2>
+<item><title>Snatcher - Iniciativa Metal Gear #1</title><link>https://www.ivoox.com/iniciativa-metal-gear-1-snatcher-audios-mp3_rf_155819306_1.html</link>
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-1-snatcher_mf_155819306_feed_1.mp3" type="audio/mpeg" length="527004933" />
+<description>
+&lt;h2&gt;Iniciativa Metal Gear #1 - Snatcher&lt;/h2&gt;
 
-<a href="https://www.ivoox.com/iniciativa-metal-gear-1-snatcher-audios-mp3_rf_155819306_1.html">
-  <img src="https://static-1.ivoox.com/audios/0/a/b/2/0ab2140d80811d3072a9ce9f2aeab14b_XXL.jpg" alt="Iniciativa Metal Gear #1 - Snatcher" />
-</a>
+&lt;a href="https://www.ivoox.com/iniciativa-metal-gear-1-snatcher-audios-mp3_rf_155819306_1.html"&gt;
+  &lt;img src="https://static-1.ivoox.com/audios/0/a/b/2/0ab2140d80811d3072a9ce9f2aeab14b_XXL.jpg" alt="Iniciativa Metal Gear #1 - Snatcher" /&gt;
+&lt;/a&gt;
 
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
 
-<p>Chaydgam Corps se enorgullece de presentaros una de sus mayores producciones hasta la fecha, un especial dedicado a una de las obras más tempranas y desconocidas de Hideo Kojima: Snatcher. Como parte de la Iniciativa Metal Gear (organizada por la Iniciativa Podgaming), en este episodio escucharéis un extenso análisis del juego, seguido de la narración completa de toda su historia. Acompañando a todo esto sumamos una cantidad ingente de datos, curiosidades, reflexiones, y conexiones con la saga Metal Gear. Pero no podía ser un especial con todas las letras si no habláramos de Sdatcher, el radio drama de Suda51 que actúa como precuela del original, y al que damos el mismo tratamiento que al juego principal. Además contamos con invitados de auténtico lujo, como Nocker de Acceso Precipitado, y Kiniela de Jugadores Anónimos. Más de 9 horas de podcast que esperamos que disfrutéis junto a una buena pizza al estilo Neo Kobe.</p>
+&lt;p&gt;Chaydgam Corps se enorgullece de presentaros una de sus mayores producciones hasta la fecha, un especial dedicado a una de las obras más tempranas y desconocidas de Hideo Kojima: Snatcher. Como parte de la Iniciativa Metal Gear (organizada por la Iniciativa Podgaming), en este episodio escucharéis un extenso análisis del juego, seguido de la narración completa de toda su historia. Acompañando a todo esto sumamos una cantidad ingente de datos, curiosidades, reflexiones, y conexiones con la saga Metal Gear. Pero no podía ser un especial con todas las letras si no habláramos de Sdatcher, el radio drama de Suda51 que actúa como precuela del original, y al que damos el mismo tratamiento que al juego principal. Además contamos con invitados de auténtico lujo, como Nocker de Acceso Precipitado, y Kiniela de Jugadores Anónimos. Más de 9 horas de podcast que esperamos que disfrutéis junto a una buena pizza al estilo Neo Kobe.&lt;/p&gt;
 
-<p>Encuéntranos en todos los sitios donde estamos presentes desde aquí:<br/>
-<a href="https://linktr.ee/chaydgamcorps">https://linktr.ee/chaydgamcorps</a></p>
+&lt;p&gt;Encuéntranos en todos los sitios donde estamos presentes desde aquí:&lt;br/&gt;
+&lt;a href="https://linktr.ee/chaydgamcorps"&gt;https://linktr.ee/chaydgamcorps&lt;/a&gt;&lt;/p&gt;
 
-<p><strong>Capítulos:</strong></p>
-<ul>
-  <li>00:00:00 - Intro y presentaciones</li>
-  <li>00:07:19 - Antecedentes y estructura</li>
-  <li>00:34:22 - Snatcher: Análisis</li>
-  <li>01:52:36 - Snatcher: Historia, Acto 1</li>
-  <li>04:31:58 - Snatcher: Historia, Acto 2</li>
-  <li>07:00:44 - Snatcher: Historia, Acto 3</li>
-  <li>08:22:35 - Snatcher: Análisis e historia</li>
-  <li>09:04:45 - Despedida y cierre</li>
-</ul>
+&lt;p&gt;&lt;strong&gt;Capítulos:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;00:00:00 - Intro y presentaciones&lt;/li&gt;
+  &lt;li&gt;00:07:19 - Antecedentes y estructura&lt;/li&gt;
+  &lt;li&gt;00:34:22 - Snatcher: Análisis&lt;/li&gt;
+  &lt;li&gt;01:52:36 - Snatcher: Historia, Acto 1&lt;/li&gt;
+  &lt;li&gt;04:31:58 - Snatcher: Historia, Acto 2&lt;/li&gt;
+  &lt;li&gt;07:00:44 - Snatcher: Historia, Acto 3&lt;/li&gt;
+  &lt;li&gt;08:22:35 - Snatcher: Análisis e historia&lt;/li&gt;
+  &lt;li&gt;09:04:45 - Despedida y cierre&lt;/li&gt;
+&lt;/ul&gt;
 
-<p><strong>Lista completa de episodios:</strong></p>
-<ol start="0">
-  <li>Iniciativa Podgaming - Introducción</li>
-  <li>Chaydgam Corps - Snatcher</li>
-  <li>El Conclilio del Píxel - Metal Gear</li>
-  <li>ILT Juegos - Metal Gear 2: Solid Snake</li>
-  <li>La Regla del Tres - Metal Gear Solid</li>
-  <li>Insert Coin - Metal Gear Solid: Sons of Liberty</li>
-  <li>GAMELX - Metal Gear Solid 3: Snake Eater</li>
-  <li>4 Players - Metal Gear Solid 4: Guns of the Patriots</li>
-  <li>Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain</li>
-  <li>El Reino de Neverland - Kojima visionario / PT</li>
-  <li>Expediente GX - Entrevista Alfonso Vallés</li>
-  <li>SieteBITS - La familia "Culebras"</li>
-  <li>Gamer's Paradise - Solid Snake</li>
-  <li>Rocquimendaciones - El Gen de la Creatividad</li>
-</ol>
+&lt;p&gt;&lt;strong&gt;Lista completa de episodios:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start="0"&gt;
+  &lt;li&gt;Iniciativa Podgaming - Introducción&lt;/li&gt;
+  &lt;li&gt;Chaydgam Corps - Snatcher&lt;/li&gt;
+  &lt;li&gt;El Conclilio del Píxel - Metal Gear&lt;/li&gt;
+  &lt;li&gt;ILT Juegos - Metal Gear 2: Solid Snake&lt;/li&gt;
+  &lt;li&gt;La Regla del Tres - Metal Gear Solid&lt;/li&gt;
+  &lt;li&gt;Insert Coin - Metal Gear Solid: Sons of Liberty&lt;/li&gt;
+  &lt;li&gt;GAMELX - Metal Gear Solid 3: Snake Eater&lt;/li&gt;
+  &lt;li&gt;4 Players - Metal Gear Solid 4: Guns of the Patriots&lt;/li&gt;
+  &lt;li&gt;Nuevebits - Metal Gear Solid: Peace Walker + The Phantom Pain&lt;/li&gt;
+  &lt;li&gt;El Reino de Neverland - Kojima visionario / PT&lt;/li&gt;
+  &lt;li&gt;Expediente GX - Entrevista Alfonso Vallés&lt;/li&gt;
+  &lt;li&gt;SieteBITS - La familia "Culebras"&lt;/li&gt;
+  &lt;li&gt;Gamer's Paradise - Solid Snake&lt;/li&gt;
+  &lt;li&gt;Rocquimendaciones - El Gen de la Creatividad&lt;/li&gt;
+&lt;/ol&gt;
 
-<p><strong>Feed de la Iniciativa:</strong> <a href="https://feedbueno.es/imetal/feed.xml">https://feedbueno.es/imetal/feed.xml</a></p>
-<p><strong>Playlist en iVoox:</strong> <a href="https://go.ivoox.com/bk/11304347">https://go.ivoox.com/bk/11304347</a></p>
-<p><strong>Playlist en Spotify:</strong> <a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL">https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL</a></p>
-<p><strong>Playlist en Youtube:</strong> TBD</p>
+&lt;p&gt;&lt;strong&gt;Feed de la Iniciativa:&lt;/strong&gt; &lt;a href="https://feedbueno.es/imetal/feed.xml"&gt;https://feedbueno.es/imetal/feed.xml&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Playlist en iVoox:&lt;/strong&gt; &lt;a href="https://go.ivoox.com/bk/11304347"&gt;https://go.ivoox.com/bk/11304347&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Playlist en Spotify:&lt;/strong&gt; &lt;a href="https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL"&gt;https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Playlist en Youtube:&lt;/strong&gt; TBD&lt;/p&gt;
 
-<p>Miniaturas por Jaime Brotons<br/>
-Cuña por Iñaki Monteano</p>
-<img width="100%" src="https://cakescorner.me/wp-content/uploads/2020/08/screenshot1.jpg?w=400&h=350" />
-<img width="100%" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Snatcher_screenshot.png/250px-Snatcher_screenshot.png" />
-<img width="100%" src="https://lparchive.org/Snatcher-(Screenshot)/Update%208/5SNATCHER_000.jpg" />
-]]></description><pubDate>Tue, 19 Aug 2025 15:00:00 +0200</pubDate><itunes:duration>09:08:43</itunes:duration>
-<itunes:season>1</itunes:season><itunes:episode>1</itunes:episode><itunes:episodeType>full</itunes:episodeType><guid>ahttps://www.ivoox.com/155819306</guid><itunes:image href="https://static-1.ivoox.com/audios/0/a/b/2/0ab2140d80811d3072a9ce9f2aeab14b_XXL.jpg"/></item>
+&lt;p&gt;Miniaturas por Jaime Brotons&lt;br/&gt;
+Cuña por Iñaki Monteano&lt;/p&gt;
+&lt;img width="100%" src="https://cakescorner.me/wp-content/uploads/2020/08/screenshot1.jpg?w=400&amp;h=350" /&gt;
+&lt;img width="100%" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Snatcher_screenshot.png/250px-Snatcher_screenshot.png" /&gt;
+&lt;img width="100%" src="https://lparchive.org/Snatcher-(Screenshot)/Update%208/5SNATCHER_000.jpg" /&gt;
+</description><pubDate>Tue, 19 Aug 2025 15:00:00 +0200</pubDate><ns1:duration>09:08:43</ns1:duration>
+<ns1:season>1</ns1:season><ns1:episode>1</ns1:episode><ns1:episodeType>full</ns1:episodeType><guid>ahttps://www.ivoox.com/155819306</guid><ns1:image href="https://static-1.ivoox.com/audios/0/a/b/2/0ab2140d80811d3072a9ce9f2aeab14b_XXL.jpg" /></item>
 
 
-<item><om:sec>trailer1</om:sec><title><![CDATA[Iniciativa Metal Gear - Intro]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-intro-audios-mp3_rf_154999198_1.html</link>
-<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-intro_mf_154999198_feed_1.mp3" type="audio/mpeg"  length="826723"/>
-<description><![CDATA[Iniciativa Metal Gear - Intro
-<img src="https://static-1.ivoox.com/audios/0/0/4/8/0048d0707e81b172f1d7a34196e01b0d_XXL.jpg" />
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
-<p> 🎙 Iniciativa Metal Gear es un evento colaborativo que reúne a varios creadores de contenido para rendir homenaje a una de las sagas más influyentes de la historia de los videojuegos. </p> 
-<p>Con motivo del lanzamiento de Metal Gear Solid Δ: Snake Eater este agosto, repasaremos junto a voces expertas y apasionadas cada entrega de la obra maestra de Hideo Kojima.</p> 
-<p>Anécdotas, curiosidades, impacto cultural y todo el legado de Metal Gear, contado desde diferentes perspectivas, en un viaje sonoro que celebra más de tres décadas de espionaje, sigilo y narrativa inolvidable.</p> ]]></description><pubDate>Fri, 08 Aug 2025 11:56:08 +0200</pubDate><itunes:duration>00:51</itunes:duration>
-<itunes:season>1</itunes:season>
-<itunes:episodeType>trailer</itunes:episodeType><guid>https://www.ivoox.com/154999198</guid>
-<itunes:image href="https://static-1.ivoox.com/audios/0/0/4/8/0048d0707e81b172f1d7a34196e01b0d_XXL.jpg"/>
+<item><ns0:sec>trailer1</ns0:sec><title>Iniciativa Metal Gear - Intro</title><link>https://www.ivoox.com/iniciativa-metal-gear-intro-audios-mp3_rf_154999198_1.html</link>
+<enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-intro_mf_154999198_feed_1.mp3" type="audio/mpeg" length="826723" />
+<description>Iniciativa Metal Gear - Intro
+&lt;img src="https://static-1.ivoox.com/audios/0/0/4/8/0048d0707e81b172f1d7a34196e01b0d_XXL.jpg" /&gt;
+&lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
+&lt;p&gt; 🎙 Iniciativa Metal Gear es un evento colaborativo que reúne a varios creadores de contenido para rendir homenaje a una de las sagas más influyentes de la historia de los videojuegos. &lt;/p&gt; 
+&lt;p&gt;Con motivo del lanzamiento de Metal Gear Solid Δ: Snake Eater este agosto, repasaremos junto a voces expertas y apasionadas cada entrega de la obra maestra de Hideo Kojima.&lt;/p&gt; 
+&lt;p&gt;Anécdotas, curiosidades, impacto cultural y todo el legado de Metal Gear, contado desde diferentes perspectivas, en un viaje sonoro que celebra más de tres décadas de espionaje, sigilo y narrativa inolvidable.&lt;/p&gt; </description><pubDate>Fri, 08 Aug 2025 11:56:08 +0200</pubDate><ns1:duration>00:51</ns1:duration>
+<ns1:season>1</ns1:season>
+<ns1:episodeType>trailer</ns1:episodeType><guid>https://www.ivoox.com/154999198</guid>
+<ns1:image href="https://static-1.ivoox.com/audios/0/0/4/8/0048d0707e81b172f1d7a34196e01b0d_XXL.jpg" />
 </item>
 
 
