@@ -79,7 +79,7 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str, des
         url = m.group(1)
         return f"__IMG__{url}__ENDIMG__"
     body = re.sub(
-        r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:\?[^\s<>"\']*)?)',
+        r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:[^\s<>"\']*)?)',
         repl_image, body)
 
     # 3) Enlaces normales (ignora los marcados como imagen)
