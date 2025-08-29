@@ -74,63 +74,36 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str, des
         r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})',
         r'<a href="mailto:\1">\1</a>', body)
 
-    # 2) Enlaces a imágenes → <img> clicable
+    # 2) Enlaces a imágenes → marcadores únicos
+    img_urls = []
+
     def repl_image(m):
         url = m.group(1)
-        return f'<a href="{url}"><img src="{url}" /></a>'
+        idx = len(img_urls)
+        img_urls.append(url)
+        return f"§§IMG{idx}§§"
+
     body = re.sub(
-        r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:\?[^\s<>"\']*)?)',
+        r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:[^\s<>"\']*)?)',
         repl_image, body)
 
-    # 3) Enlaces normales (ignora imágenes ya convertidas)
+    # 3) Enlaces normales (ya sin imágenes)
     def repl_link(m):
         url = m.group(1)
         return f'<a href="{url}">{url}</a>'
+
     body = re.sub(
         r'(?<!href=")(https?://[^\s<>"\']+)',
         repl_link, body)
 
-    # 4) Párrafos y listas
-    lines = [ln.rstrip() for ln in body.splitlines() if ln.strip()]
-    html_lines = []
-    i = 0
-    while i < len(lines):
-        line = lines[i]
+    # 4) Restaurar marcadores de imágenes
+    for i, url in enumerate(img_urls):
+        img_html = f'<a href="{url}"><img src="{url}" /></a>'
+        body = body.replace(f"§§IMG{i}§§", img_html)
 
-        # Lista desordenada
-        if re.match(r'^[-*+]\s+', line):
-            items = []
-            while i < len(lines) and re.match(r'^[-*+]\s+', lines[i]):
-                items.append(re.sub(r'^[-*+]\s+', '', lines[i]).strip())
-                i += 1
-            block = "<ul>\n" + "\n".join(f"<li>{it}</li>" for it in items) + "\n</ul>"
-            html_lines.append(block)
-            continue
-
-        # Lista ordenada
-        m = re.match(r'^(\d+)[\.\)\-]\s+', line)
-        if m:
-            items = []
-            numbers = []
-            while i < len(lines):
-                m2 = re.match(r'^(\d+)[\.\)\-]\s+', lines[i])
-                if not m2:
-                    break
-                num = int(m2.group(1))
-                txt = re.sub(r'^\d+[\.\)\-]\s+', '', lines[i]).strip()
-                items.append(txt)
-                numbers.append(num)
-                i += 1
-            start_attr = f' start="{numbers[0]}"' if numbers else ""
-            block = f"<ol{start_attr}>\n" + "\n".join(f"<li>{it}</li>" for it in items) + "\n</ol>"
-            html_lines.append(block)
-            continue
-
-        # Párrafo normal
-        html_lines.append(f"<p>{line.strip()}</p>")
-        i += 1
-
-    body = "\n".join(html_lines)
+    # 5) Párrafos básicos
+    lines = [ln.strip() for ln in body.splitlines() if ln.strip()]
+    body = "\n".join(f"<p>{ln}</p>" for ln in lines)
 
     final_html = header + body
     return enc_cdata(final_html)
