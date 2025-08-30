@@ -52,62 +52,6 @@ def has_rich_html(text: str) -> bool:
         return False
     return re.search(r"<(a|img|ul|ol|li|h[1-6]|p|br)\b", text, flags=re.IGNORECASE) is not None
 
-# -------------- detección de listas en texto plano --------------
-
-def detect_lists_and_paragraphs(text: str) -> str:
-    """
-    Detecta bloques de listas (ul/ol) y párrafos en `text`.
-    Soporta:
-      - ul: líneas que empiezan con -, * o +
-      - ol: líneas que empiezan con:
-          1. n.  (ej. 1. texto)
-          2. n)  (ej. 1) texto)
-          3. n-  (ej. 1- texto)
-          4. n - (ej. 1 - texto)  <-- añadido por petición
-    Para ol siempre se pone start="N" donde N es el primer número del bloque.
-    """
-    lines_raw = text.splitlines()
-    # conservamos líneas no vacías; esto es intencional para agrupar bloques contiguos
-    lines = [ln for ln in (ln.rstrip() for ln in lines_raw) if ln.strip() != ""]
-    out_blocks = []
-    i = 0
-    while i < len(lines):
-        line = lines[i].lstrip()  # quitamos indent izquierdo para detectar el prefijo
-        # Lista desordenada: - , * , +
-        if re.match(r'^[-*+]\s+', line):
-            items = []
-            while i < len(lines) and re.match(r'^\s*[-*+]\s+', lines[i]):
-                txt = re.sub(r'^\s*[-*+]\s+', '', lines[i]).strip()
-                items.append(txt)
-                i += 1
-            block = "<ul>\n" + "\n".join(f"  <li>{it}</li>" for it in items) + "\n</ul>"
-            out_blocks.append(block)
-            continue
-
-        # Lista ordenada: manejamos varias variantes, incluido "n - "
-        m = re.match(r'^\s*(\d+)\s*(?:[.\)\-])\s+(.*)', line)  # detecta 1.  1)  1-  y 1 - (porque \s* antes de [-])
-        if m:
-            items = []
-            numbers = []
-            while i < len(lines):
-                m2 = re.match(r'^\s*(\d+)\s*(?:[.\)\-])\s+(.*)', lines[i])
-                if not m2:
-                    break
-                numbers.append(int(m2.group(1)))
-                items.append(m2.group(2).strip())
-                i += 1
-            start_num = numbers[0] if numbers else 1
-            start_attr = f' start="{start_num}"'
-            block = f"<ol{start_attr}>\n" + "\n".join(f"  <li>{it}</li>" for it in items) + "\n</ol>"
-            out_blocks.append(block)
-            continue
-
-        # Ninguna lista: párrafo normal
-        out_blocks.append(f"<p>{line.strip()}</p>")
-        i += 1
-
-    return "\n".join(out_blocks)
-
 # -------------- construcción de la descripción --------------
 
 def process_description_block(title_txt: str, link_txt: str, image_url: str, description_inner: str) -> str:
@@ -120,52 +64,73 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str, des
 
     body = strip_cdata(description_inner or "")
 
-    # Si ya trae HTML "fuerte", lo dejamos tal cual (preservamos)
     if has_rich_html(body):
         final_html = header + body
         return enc_cdata(final_html)
 
-    # Caso "texto plano": aplicar transformaciones en este orden:
+    # Caso "texto plano": aplicar transformaciones
     # 1) Emails → mailto:
     body = re.sub(
         r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})',
-        r'<a href="mailto:\1">\1</a>',
-        body
-    )
+        r'<a href="mailto:\1">\1</a>', body)
 
-    # 2) Enlaces a imágenes → marcadores únicos (capturamos sufijos /revision/... y ?params)
-    img_urls = []
-
+    # 2) Enlaces a imágenes → <img> clicable
     def repl_image(m):
         url = m.group(1)
-        idx = len(img_urls)
-        img_urls.append(url)
-        return f"§§IMG{idx}§§"
-
+        return f'<a href="{url}"><img src="{url}" /></a>'
     body = re.sub(
-        r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:[^\s<>"\']*)?)',
-        repl_image,
-        body
-    )
+        r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:\?[^\s<>"\']*)?)',
+        repl_image, body)
 
-    # 3) Enlaces normales (ya sin imágenes)
+    # 3) Enlaces normales (ignora imágenes ya convertidas)
     def repl_link(m):
         url = m.group(1)
         return f'<a href="{url}">{url}</a>'
-
     body = re.sub(
         r'(?<!href=")(https?://[^\s<>"\']+)',
-        repl_link,
-        body
-    )
+        repl_link, body)
 
-    # 4) Restaurar marcadores de imágenes por HTML final
-    for i, url in enumerate(img_urls):
-        img_html = f'<a href="{url}"><img src="{url}" /></a>'
-        body = body.replace(f"§§IMG{i}§§", img_html)
+    # 4) Párrafos y listas
+    lines = [ln.rstrip() for ln in body.splitlines() if ln.strip()]
+    html_lines = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
 
-    # 5) Detectar listas y párrafos (soporte para "n - " ya incluido)
-    body = detect_lists_and_paragraphs(body)
+        # Lista desordenada
+        if re.match(r'^[-*+]\s+', line):
+            items = []
+            while i < len(lines) and re.match(r'^[-*+]\s+', lines[i]):
+                items.append(re.sub(r'^[-*+]\s+', '', lines[i]).strip())
+                i += 1
+            block = "<ul>\n" + "\n".join(f"<li>{it}</li>" for it in items) + "\n</ul>"
+            html_lines.append(block)
+            continue
+
+        # Lista ordenada
+        m = re.match(r'^(\d+)[\.\)\-]\s+', line)
+        if m:
+            items = []
+            numbers = []
+            while i < len(lines):
+                m2 = re.match(r'^(\d+)[\.\)\-]\s+', lines[i])
+                if not m2:
+                    break
+                num = int(m2.group(1))
+                txt = re.sub(r'^\d+[\.\)\-]\s+', '', lines[i]).strip()
+                items.append(txt)
+                numbers.append(num)
+                i += 1
+            start_attr = f' start="{numbers[0]}"' if numbers else ""
+            block = f"<ol{start_attr}>\n" + "\n".join(f"<li>{it}</li>" for it in items) + "\n</ol>"
+            html_lines.append(block)
+            continue
+
+        # Párrafo normal
+        html_lines.append(f"<p>{line.strip()}</p>")
+        i += 1
+
+    body = "\n".join(html_lines)
 
     final_html = header + body
     return enc_cdata(final_html)
