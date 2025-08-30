@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="../estilos/centrado.xsl"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" 
+xmlns:anchor="https://anchor.fm/xmlns"
+xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
+xmlns:media="http://search.yahoo.com/mrss/" 
+xmlns:om="https://omrey86.neocities.org/"
+version="2.0"> 
+<channel>
+	         <title><![CDATA[Iniciativa Metal Gear 2]]></title>
+	<om:name>imetal2</om:name>
+<om:cfb1>#CBD6DA</om:cfb1>
+	<om:cfb2>#CBD6DA</om:cfb2>
+	<om:cfi>#AFB9BD</om:cfi>
+	<om:ch1>#751E1E</om:ch1>
+	<om:cti>#2980b9</om:cti>
+	<om:autor>Iniciativa Podgaming</om:autor>
+<om:suscripciones>
+	<om:ivoox>https://www.ivoox.com/iniciativa-metal-gear_bk_list_11304347_1.html</om:ivoox>
+	<om:apple>https://podcasts.apple.com/us/podcast/iniciativa-metal-gear/id1831779840</om:apple>
+	<om:spotify>https://open.spotify.com/playlist/6sWNPFs10zi9DAwo3I0KGL?si=kp5vTInkSuKa5eH-KxTLpQ</om:spotify>
+	<om:youtube>https://www.youtube.com/playlist?list=PLuuSWmpMzKJUIwK-XsEInd6ME7JCUaFdj</om:youtube>
+	<om:pocketcasts>https://pocketcasts.com/podcasts/d417df80-54af-013e-81c8-0afff9dbf725</om:pocketcasts>
+	<om:amazon></om:amazon>
+	<om:index>https://podcastindex.org/podcast/7439362</om:index>
+	<om:opml>https://feedbueno.es/imetal2/imetal2.opml</om:opml>
+</om:suscripciones>
+<om:like>yes</om:like>
+    <om:x></om:x>
+	<om:facebook></om:facebook>
+	<om:instagram></om:instagram>
+	<om:bluesky></om:bluesky>
+	<om:whatsapp></om:whatsapp>
+	<om:telegram></om:telegram>
+	<om:discord></om:discord>
+<itunes:author>Iniciativa Podgaming</itunes:author>
+<copyright>Iniciativa Podgaming</copyright>
+<link>https://feedbueno.es/imetal2/feed.xml</link>
+<language>es</language>
+<description><![CDATA[Iniciativa Metal Gear 2 es un proyecto colaborativo entre varios podcasts en español que, durante el mes de agosto, se unen para rendir homenaje a la legendaria saga de videojuegos Metal Gear. A través de episodios temáticos, análisis, debates y retrospectivas, cada programa abordará diferentes aspectos del universo creado por Hideo Kojima. La iniciativa invita a la audiencia a revivir la historia, filosofía y personajes de esta icónica franquicia. En cada episodio encontrarás enlaces para seguir a los podcasts participantes y no perderte ningún contenido de esta misión especial.]]></description>
+<generator>FEEDBUENO</generator>
+       <image><url>https://feedbueno.es/imetal2/logo.jpeg</url>
+        <title><![CDATA[Iniciativa Metal Gear 2]]></title>
+<link>feed.xml</link>
+</image>
+<atom:link href="feed.xml" rel="self" type="application/rss+xml"/>
+<itunes:explicit>no</itunes:explicit>
+        <itunes:image href="https://feedbueno.es/imetal2/logo.jpeg"/>
+<itunes:type>episodic</itunes:type>
+         <itunes:keywords>series,peliculas,radio,cine,tv</itunes:keywords>
+         <itunes:category text="Leisure">
+  <itunes:category text="Video Games"/>
+</itunes:category>
+<itunes:owner><itunes:email>iniciativapodgaming@gmail.com</itunes:email></itunes:owner>
+<om:git>https://github.com/Feedbueno/Feedbueno/tree/main/public/imetal2</om:git>
+<op3>https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/</op3>
+
+
+
+<item> </item> 
+
+</channel>
+</rss>
