@@ -11,8 +11,8 @@ version="2.0">
 <channel>
 	         <title><![CDATA[Iniciativa Metal Gear 2]]></title>
 	<om:name>imetal2</om:name>
-<om:cfb1>Blue</om:cfb1>
-	<om:cfb2>orange</om:cfb2>
+<om:cfb1>orange</om:cfb1>
+	<om:cfb2>Blue</om:cfb2>
 	<om:cfi>#AFB9BD</om:cfi>
 	<om:ch1>#751E1E</om:ch1>
 	<om:cti>#2980b9</om:cti>
@@ -62,4 +62,5 @@ version="2.0">
 <item> </item> 
 
 </channel>
+
 </rss>
