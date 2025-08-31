@@ -1,0 +1,64 @@
+┌───────────── minuto (0 - 59)
+│ ┌───────────── hora (0 - 23, en UTC)
+│ │ ┌───────────── día del mes (1 - 31)
+│ │ │ ┌───────────── mes (1 - 12)
+│ │ │ │ ┌───────────── día de la semana (0 - 7, donde 0 y 7 = domingo)
+│ │ │ │ │
+* * * * *
+
+Basta con sustituir la línea del cron en tu workflow:
+
+
+---
+
+⏱️ Ejemplos de cron
+
+on:
+  schedule:
+    # Cada 6 horas (ejemplo que ya usas ahora)
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+🔹 Cada 12 horas (00:00 y 12:00 UTC)
+
+- cron: "0 */12 * * *"
+
+🔹 Una vez al día (medianoche UTC)
+
+- cron: "0 0 * * *"
+
+🔹 Una vez cada 2 días (medianoche UTC)
+
+- cron: "0 0 */2 * *"
+
+🔹 Una vez a la semana (domingo a medianoche UTC)
+
+- cron: "0 0 * * 0"
+
+🔹 Una vez al mes (día 1 a medianoche UTC)
+
+- cron: "0 0 1 * *"
+
+
+---
+
+📌 Notas importantes
+
+Zona horaria: siempre es UTC.
+Si quieres adaptarlo a tu hora local, tienes que calcular la diferencia.
+Ej: medianoche en Madrid (CET = UTC+1 / CEST = UTC+2) → pon 22:00 UTC del día anterior.
+
+Múltiples horarios: puedes tener más de una línea cron si quieres varias ejecuciones en momentos distintos.
+Ejemplo:
+
+schedule:
+  - cron: "0 6 * * *"   # cada día a las 06:00 UTC
+  - cron: "0 18 * * *"  # cada día a las 18:00 UTC
+
+
+
+---
+
+🚀 Consejillo
+
+Como dices que ahora prefieres manual, podrías dejarlo en 1 vez al día y ejecutar manualmente cuando quieras antes de que toque. Así no se llena tu repo de commits innecesarios.

@@ -1,0 +1,34 @@
+name: Update iniciativas feeds
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Run update Iniciativa Metal Gear
+        run: python scripts/update_iniciativas.py --text "Iniciativa Metal Gear" --source imetal.txt
+
+      - name: Run update Iniciativa Mario
+        run: python scripts/update_iniciativas.py --text "Iniciativa Mario" --source imario.txt
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add public/*/feed.xml
+          git commit -m "Update iniciativas feeds" || echo "No changes"
+          git push

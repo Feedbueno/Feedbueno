@@ -1,0 +1,34 @@
+name: Update Feeds
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:         # para lanzarlo manualmente
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run feed updater
+        run: python scripts/update_feeds.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public
+          git diff --cached --quiet || git commit -m "Auto-update feeds"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
