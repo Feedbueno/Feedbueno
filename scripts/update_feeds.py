@@ -1,3 +1,5 @@
+# scripts/update_feeds.py
+
 import os
 import re
 import requests
@@ -45,82 +47,139 @@ def replace_description(item_xml: str, new_desc_html_cdata: str) -> str:
             flags=re.IGNORECASE | re.DOTALL
         )
 
-# -------------- detección de HTML "fuerte" --------------
+# -------------- helpers HTML mixto --------------
 
-def has_html(text: str) -> bool:
-    if not text:
-        return False
-    return re.search(r"<(a|img|ul|ol|li|h[1-6]|p|br)\b", text, flags=re.IGNORECASE) is not None
+TOKEN_RE = re.compile(r"\[\[BLOCK(\d+)\]\]")
 
-# -------------- transformaciones de bloques planos --------------
+def protect_blocks(html_text: str):
+    """
+    Sustituye bloques HTML que no queremos tocar por tokens temporales.
+    Protegemos: <ol>...</ol>, <ul>...</ul>, <a>...</a>, <pre>...</pre>, <code>...</code>
+    """
+    tokens = []
 
-def transform_plain_block(text: str) -> str:
-    """Transforma un bloque de texto plano en HTML enriquecido"""
+    def _store(m):
+        tokens.append(m.group(0))
+        return f"[[BLOCK{len(tokens)-1}]]"
 
+    t = html_text
+    # Orden importa: listas antes que <a> (para no trocear enlaces dentro de listas)
+    t = re.sub(r"<ol\b[^>]*>.*?</ol>", _store, t, flags=re.IGNORECASE | re.DOTALL)
+    t = re.sub(r"<ul\b[^>]*>.*?</ul>", _store, t, flags=re.IGNORECASE | re.DOTALL)
+    t = re.sub(r"<a\b[^>]*>.*?</a>", _store, t, flags=re.IGNORECASE | re.DOTALL)
+    t = re.sub(r"<pre\b[^>]*>.*?</pre>", _store, t, flags=re.IGNORECASE | re.DOTALL)
+    t = re.sub(r"<code\b[^>]*>.*?</code>", _store, t, flags=re.IGNORECASE | re.DOTALL)
+    return t, tokens
+
+def unprotect_blocks(text: str, tokens):
+    def replace_token(m):
+        idx = int(m.group(1))
+        return tokens[idx] if 0 <= idx < len(tokens) else m.group(0)
+    return TOKEN_RE.sub(replace_token, text)
+
+# -------------- enriquecidos inline --------------
+
+IMG_URL_RE = re.compile(
+    r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp)(?:\?[^\s<>"\']*)?)',
+    flags=re.IGNORECASE
+)
+LINK_URL_RE = re.compile(
+    r'(?<!href=")(https?://[^\s<>"\']+)',
+    flags=re.IGNORECASE
+)
+EMAIL_RE = re.compile(
+    r'(?<![>\w@])([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})'
+)
+
+def transform_inline(text: str) -> str:
     # Emails → mailto:
-    text = re.sub(
-        r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})',
-        r'<a href="mailto:\1">\1</a>', text)
+    text = EMAIL_RE.sub(r'<a href="mailto:\1">\1</a>', text)
 
-    # Imágenes → <a><img>
+    # Enlaces a imágenes → <a><img></a>
     def repl_image(m):
         url = m.group(1)
         return f'<a href="{url}"><img src="{url}" /></a>'
-    text = re.sub(
-        r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:\?[^\s<>"\']*)?)',
-        repl_image, text)
+    text = IMG_URL_RE.sub(repl_image, text)
 
-    # Enlaces normales (ignora imágenes ya convertidas)
+    # Enlaces normales (evita los que ya tienen href="")
     def repl_link(m):
         url = m.group(1)
         return f'<a href="{url}">{url}</a>'
-    text = re.sub(
-        r'(?<!href=")(https?://[^\s<>"\']+)',
-        repl_link, text)
+    text = LINK_URL_RE.sub(repl_link, text)
 
     return text
 
-def detect_lists(lines: list[str]) -> str:
-    """Detecta y convierte listas en <ol> o <ul>"""
-    result = []
+# -------------- detección de listas --------------
+
+NUM_LIST_LINE = re.compile(r"^(\d+)\s*([)\.\-])\s+(.*)$")  # soporta "n)", "n.", "n-"/"n -"
+UL_LIST_LINE = re.compile(r"^[-*•]\s+(.*)$")
+
+def detect_lists_from_lines(lines):
+    """
+    Convierte secuencias de líneas en <ol>/<ul>.
+    - Permite líneas en blanco entre ítems.
+    - <ol start="N"> se fija con el primer número detectado.
+    - Las líneas que sean solo [[BLOCK#]] se insertan tal cual.
+    """
+    out = []
     i = 0
     while i < len(lines):
-        line = lines[i]
+        stripped = (lines[i] or "").strip()
 
-        # Lista ordenada tipo "n. texto" o "n - texto"
-        m = re.match(r"^(\d+)[\.\-]\s+(.*)", line)
+        # Si es un bloque protegido, lo añadimos tal cual
+        if TOKEN_RE.fullmatch(stripped):
+            out.append(stripped)
+            i += 1
+            continue
+
+        # Lista ordenada
+        m = NUM_LIST_LINE.match(stripped)
         if m:
             start_num = int(m.group(1))
-            ol_items = []
+            items = [f"<li>{transform_inline(m.group(3))}</li>"]
+            i += 1
             while i < len(lines):
-                mm = re.match(r"^(\d+)[\.\-]\s+(.*)", lines[i])
+                nxt = (lines[i] or "").strip()
+                if not nxt:
+                    i += 1
+                    continue
+                mm = NUM_LIST_LINE.match(nxt)
                 if not mm:
                     break
-                ol_items.append(f"<li>{transform_plain_block(mm.group(2))}</li>")
+                items.append(f"<li>{transform_inline(mm.group(3))}</li>")
                 i += 1
-            result.append(f'<ol start="{start_num}">' + "".join(ol_items) + "</ol>")
+            out.append(f'<ol start="{start_num}">' + "".join(items) + "</ol>")
             continue
 
-        # Lista desordenada tipo "- texto"
-        m = re.match(r"^[-*]\s+(.*)", line)
+        # Lista desordenada
+        m = UL_LIST_LINE.match(stripped)
         if m:
-            ul_items = []
+            items = [f"<li>{transform_inline(m.group(1))}</li>"]
+            i += 1
             while i < len(lines):
-                mm = re.match(r"^[-*]\s+(.*)", lines[i])
+                nxt = (lines[i] or "").strip()
+                if not nxt:
+                    i += 1
+                    continue
+                mm = UL_LIST_LINE.match(nxt)
                 if not mm:
                     break
-                ul_items.append(f"<li>{transform_plain_block(mm.group(1))}</li>")
+                items.append(f"<li>{transform_inline(mm.group(1))}</li>")
                 i += 1
-            result.append("<ul>" + "".join(ul_items) + "</ul>")
+            out.append("<ul>" + "".join(items) + "</ul>")
             continue
 
-        # Si no es lista, párrafo normal
-        result.append(f"<p>{transform_plain_block(line)}</p>")
+        # Párrafo normal (si hay texto)
+        if stripped:
+            out.append(f"<p>{transform_inline(stripped)}</p>")
         i += 1
 
-    return "\n".join(result)
+    return "\n".join(out)
+
+# -------------- construcción de la descripción (modo mixto robusto) --------------
 
 def process_description_block(title_txt: str, link_txt: str, image_url: str, description_inner: str) -> str:
+    # Cabecera
     header = ""
     if title_txt:
         header += f"<h3>{title_txt}</h3>\n"
@@ -130,28 +189,25 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str, des
 
     body = strip_cdata(description_inner or "")
 
-    # Dividir en bloques <p> o similares
-    parts = re.split(r"(<[^>]+>)", body)
-    rebuilt = []
-    buffer_plain = []
+    # 1) Proteger bloques HTML que ya vienen bien formados
+    protected, tokens = protect_blocks(body)
 
-    def flush_plain():
-        nonlocal buffer_plain
-        if buffer_plain:
-            lines = [ln.strip() for ln in buffer_plain if ln.strip()]
-            if lines:
-                rebuilt.append(detect_lists(lines))
-        buffer_plain = []
+    # 2) Pasar <p> y <br> a saltos de línea; quitar tags <p>
+    protected = re.sub(r"</p\s*>", "\n", protected, flags=re.IGNORECASE)
+    protected = re.sub(r"<p\b[^>]*>", "", protected, flags=re.IGNORECASE)
+    protected = re.sub(r"<br\s*/?>", "\n", protected, flags=re.IGNORECASE)
 
-    for part in parts:
-        if part.strip().startswith("<"):
-            flush_plain()
-            rebuilt.append(part)
-        else:
-            buffer_plain.append(part)
+    # 3) Asegurar que los tokens queden en líneas separadas (para no envolverlos en <p>)
+    protected = re.sub(r"(\[\[BLOCK\d+\]\])", r"\n\1\n", protected)
 
-    flush_plain()
-    final_html = header + "".join(rebuilt)
+    # 4) Partir a líneas y convertir a HTML con listas y párrafos
+    lines = protected.splitlines()
+    rebuilt = detect_lists_from_lines(lines)
+
+    # 5) Restaurar bloques protegidos
+    rebuilt = unprotect_blocks(rebuilt, tokens)
+
+    final_html = header + rebuilt
     return enc_cdata(final_html)
 
 # -------------- claves para deduplicar --------------
