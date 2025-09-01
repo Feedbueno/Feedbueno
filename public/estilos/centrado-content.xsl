@@ -406,7 +406,7 @@ Width="80%"/>
   <xsl:choose>
     <xsl:when test="contains($desc, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')">
       <xsl:variable name="visible" select="substring-after($desc, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')"/>
-      <xsl:copy-of select="$visible" disable-output-escaping="yes"/>
+      <xsl:copy-of select="$visible" />
     </xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="$desc" disable-output-escaping="yes"/>
