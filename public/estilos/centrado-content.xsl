@@ -401,11 +401,11 @@ Width="80%"/>
 
                
                 
-                <div class="item-description">
+<div class="item-description">
   <xsl:variable name="desc" select="content:encoded"/>
   <xsl:choose>
-    <xsl:when test="contains($desc, '&lt;hr')">
-      <xsl:variable name="visible" select="substring-after($desc, '&lt;hr')"/>
+    <xsl:when test="contains($desc, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')">
+      <xsl:variable name="visible" select="substring-after($desc, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')"/>
       <xsl:value-of select="$visible" disable-output-escaping="yes"/>
     </xsl:when>
     <xsl:otherwise>
@@ -413,7 +413,6 @@ Width="80%"/>
     </xsl:otherwise>
   </xsl:choose>
 </div>
-
             </div>
           </div>
         </xsl:for-each>
