@@ -402,7 +402,7 @@ Width="80%"/>
                
                 
                 <div class="item-description">
-<xsl:variable name="desc" select="description" disable-output-escaping="yes"/>
+<xsl:variable name="desc" select="description"/>
 <xsl:choose>
   <xsl:when test="contains($desc, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')">
     <xsl:variable name="visible" select="substring-after($desc, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')"/>
