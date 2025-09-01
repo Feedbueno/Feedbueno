@@ -1,8 +1,7 @@
-# scripts/update_feeds.py
-
 import os
 import re
 import requests
+import uuid
 
 # -------------- utilidades de texto --------------
 
@@ -31,183 +30,114 @@ def find_attr(xml: str, tag: str, attr: str):
     m = re.search(rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"[^>]*/?>", xml, flags=re.IGNORECASE | re.DOTALL)
     return m.group(1) if m else ""
 
-def replace_description(item_xml: str, new_desc_html_cdata: str) -> str:
-    if re.search(r"<description\b", item_xml, flags=re.IGNORECASE):
+def replace_tag(item_xml: str, tag: str, new_content: str) -> str:
+    if re.search(rf"<{tag}\b", item_xml, flags=re.IGNORECASE):
         return re.sub(
-            r"<description\b[^>]*>.*?</description>",
-            f"<description>{new_desc_html_cdata}</description>",
+            rf"<{tag}\b[^>]*>.*?</{tag}>",
+            f"<{tag}>{new_content}</{tag}>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
     else:
         return re.sub(
             r"</item>\s*$",
-            f"<description>{new_desc_html_cdata}</description>\n</item>",
+            f"<{tag}>{new_content}</{tag}>\n</item>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
 
-# -------------- helpers HTML mixto --------------
+# -------------- detección de HTML "fuerte" --------------
 
-TOKEN_RE = re.compile(r"\[\[BLOCK(\d+)\]\]")
+def has_rich_html(text: str) -> bool:
+    if not text:
+        return False
+    return re.search(r"<(a|img|ul|ol|li|h[1-6]|p|br)\b", text, flags=re.IGNORECASE) is not None
 
-def protect_blocks(html_text: str):
-    """
-    Sustituye bloques HTML que no queremos tocar por tokens temporales.
-    Protegemos: <ol>...</ol>, <ul>...</ul>, <a>...</a>, <pre>...</pre>, <code>...</code>
-    """
-    tokens = []
+# -------------- construcción de la descripción --------------
 
-    def _store(m):
-        tokens.append(m.group(0))
-        return f"[[BLOCK{len(tokens)-1}]]"
-
-    t = html_text
-    # Orden importa: listas antes que <a> (para no trocear enlaces dentro de listas)
-    t = re.sub(r"<ol\b[^>]*>.*?</ol>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    t = re.sub(r"<ul\b[^>]*>.*?</ul>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    t = re.sub(r"<a\b[^>]*>.*?</a>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    t = re.sub(r"<pre\b[^>]*>.*?</pre>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    t = re.sub(r"<code\b[^>]*>.*?</code>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    return t, tokens
-
-def unprotect_blocks(text: str, tokens):
-    def replace_token(m):
-        idx = int(m.group(1))
-        return tokens[idx] if 0 <= idx < len(tokens) else m.group(0)
-    return TOKEN_RE.sub(replace_token, text)
-
-# -------------- enriquecidos inline --------------
-
-IMG_URL_RE = re.compile(
-    r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp)(?:\?[^\s<>"\']*)?)',
-    flags=re.IGNORECASE
-)
-LINK_URL_RE = re.compile(
-    r'(?<!href=")(https?://[^\s<>"\']+)',
-    flags=re.IGNORECASE
-)
-EMAIL_RE = re.compile(
-    r'(?<![>\w@])([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})'
-)
-
-def transform_inline(text: str) -> str:
-    # Emails → mailto:
-    text = EMAIL_RE.sub(r'<a href="mailto:\1">\1</a>', text)
-
-    # Enlaces a imágenes → <a><img></a>
-    def repl_image(m):
-        url = m.group(1)
-        return f'<a href="{url}"><img src="{url}" /></a>'
-    text = IMG_URL_RE.sub(repl_image, text)
-
-    # Enlaces normales (evita los que ya tienen href="")
-    def repl_link(m):
-        url = m.group(1)
-        return f'<a href="{url}">{url}</a>'
-    text = LINK_URL_RE.sub(repl_link, text)
-
-    return text
-
-# -------------- detección de listas --------------
-
-NUM_LIST_LINE = re.compile(r"^(\d+)\s*([)\.\-])\s+(.*)$")  # soporta "n)", "n.", "n-"/"n -"
-UL_LIST_LINE = re.compile(r"^[-*•]\s+(.*)$")
-
-def detect_lists_from_lines(lines):
-    """
-    Convierte secuencias de líneas en <ol>/<ul>.
-    - Permite líneas en blanco entre ítems.
-    - <ol start="N"> se fija con el primer número detectado.
-    - Las líneas que sean solo [[BLOCK#]] se insertan tal cual.
-    """
-    out = []
-    i = 0
-    while i < len(lines):
-        stripped = (lines[i] or "").strip()
-
-        # Si es un bloque protegido, lo añadimos tal cual
-        if TOKEN_RE.fullmatch(stripped):
-            out.append(stripped)
-            i += 1
-            continue
-
-        # Lista ordenada
-        m = NUM_LIST_LINE.match(stripped)
-        if m:
-            start_num = int(m.group(1))
-            items = [f"<li>{transform_inline(m.group(3))}</li>"]
-            i += 1
-            while i < len(lines):
-                nxt = (lines[i] or "").strip()
-                if not nxt:
-                    i += 1
-                    continue
-                mm = NUM_LIST_LINE.match(nxt)
-                if not mm:
-                    break
-                items.append(f"<li>{transform_inline(mm.group(3))}</li>")
-                i += 1
-            out.append(f'<ol start="{start_num}">' + "".join(items) + "</ol>")
-            continue
-
-        # Lista desordenada
-        m = UL_LIST_LINE.match(stripped)
-        if m:
-            items = [f"<li>{transform_inline(m.group(1))}</li>"]
-            i += 1
-            while i < len(lines):
-                nxt = (lines[i] or "").strip()
-                if not nxt:
-                    i += 1
-                    continue
-                mm = UL_LIST_LINE.match(nxt)
-                if not mm:
-                    break
-                items.append(f"<li>{transform_inline(mm.group(1))}</li>")
-                i += 1
-            out.append("<ul>" + "".join(items) + "</ul>")
-            continue
-
-        # Párrafo normal (si hay texto)
-        if stripped:
-            out.append(f"<p>{transform_inline(stripped)}</p>")
-        i += 1
-
-    return "\n".join(out)
-
-# -------------- construcción de la descripción (modo mixto robusto) --------------
-
-def process_description_block(title_txt: str, link_txt: str, image_url: str, description_inner: str) -> str:
-    # Cabecera
+def process_description_block(title_txt: str, link_txt: str, image_url: str,
+                              description_inner: str, feed_img: str, atom_link: str, om_sec: str) -> str:
     header = ""
     if title_txt:
         header += f"<h3>{title_txt}</h3>\n"
-    if image_url and link_txt:
+
+    # Imagen solo si es distinta de la del feed
+    if image_url and link_txt and (not feed_img or image_url != feed_img):
         header += f'<a href="{link_txt}"><img src="{image_url}" /></a>\n'
+
+    # Aviso de imágenes
+    header += f'<p>Si no ves las imágenes, entra en {atom_link}#{om_sec}</p>\n'
+
     header += '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />\n'
 
     body = strip_cdata(description_inner or "")
 
-    # 1) Proteger bloques HTML que ya vienen bien formados
-    protected, tokens = protect_blocks(body)
+    if has_rich_html(body):
+        final_html = header + body
+        return enc_cdata(final_html)
 
-    # 2) Pasar <p> y <br> a saltos de línea; quitar tags <p>
-    protected = re.sub(r"</p\s*>", "\n", protected, flags=re.IGNORECASE)
-    protected = re.sub(r"<p\b[^>]*>", "", protected, flags=re.IGNORECASE)
-    protected = re.sub(r"<br\s*/?>", "\n", protected, flags=re.IGNORECASE)
+    # Caso "texto plano": aplicar transformaciones
 
-    # 3) Asegurar que los tokens queden en líneas separadas (para no envolverlos en <p>)
-    protected = re.sub(r"(\[\[BLOCK\d+\]\])", r"\n\1\n", protected)
+    # 1) Emails → mailto:
+    body = re.sub(
+        r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})',
+        r'<a href="mailto:\1">\1</a>', body)
 
-    # 4) Partir a líneas y convertir a HTML con listas y párrafos
-    lines = protected.splitlines()
-    rebuilt = detect_lists_from_lines(lines)
+    # 2) Enlaces a imágenes → <img> clicable
+    def repl_image(m):
+        url = m.group(1)
+        return f'<a href="{url}"><img src="{url}" /></a>'
+    body = re.sub(
+        r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:\?[^\s<>"\']*)?)',
+        repl_image, body)
 
-    # 5) Restaurar bloques protegidos
-    rebuilt = unprotect_blocks(rebuilt, tokens)
+    # 3) Enlaces normales (ignora imágenes ya convertidas)
+    def repl_link(m):
+        url = m.group(1)
+        return f'<a href="{url}">{url}</a>'
+    body = re.sub(
+        r'(?<!href=")(https?://[^\s<>"\']+)',
+        repl_link, body)
 
-    final_html = header + rebuilt
+    # 4) Listas ordenadas tipo "n - texto" o "n. texto"
+    lines = body.splitlines()
+    out_lines = []
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        m = re.match(r"^(\d+)\s*[-.]?\s+(.*)", line)
+        if m:
+            start = int(m.group(1))
+            ol_block = [f"<li>{m.group(2)}</li>"]
+            i += 1
+            while i < len(lines):
+                m2 = re.match(r"^(\d+)\s*[-.]?\s+(.*)", lines[i].strip())
+                if m2:
+                    ol_block.append(f"<li>{m2.group(2)}</li>")
+                    i += 1
+                else:
+                    break
+            out_lines.append(f"<ol start=\"{start}\">" + "".join(ol_block) + "</ol>")
+        else:
+            m = re.match(r"^[-*]\s+(.*)", line)
+            if m:
+                ul_block = [f"<li>{m.group(1)}</li>"]
+                i += 1
+                while i < len(lines):
+                    m2 = re.match(r"^[-*]\s+(.*)", lines[i].strip())
+                    if m2:
+                        ul_block.append(f"<li>{m2.group(1)}</li>")
+                        i += 1
+                    else:
+                        break
+                out_lines.append("<ul>" + "".join(ul_block) + "</ul>")
+            else:
+                if line:
+                    out_lines.append(f"<p>{line}</p>")
+                i += 1
+    body = "\n".join(out_lines)
+
+    final_html = header + body
     return enc_cdata(final_html)
 
 # -------------- claves para deduplicar --------------
@@ -262,12 +192,23 @@ def update_feed_dir(feed_dir: str):
     existing = existing_keys_from_feed(dest_xml)
     new_items = []
 
+    # Leer atom:link del feed destino
+    atom_link = find_attr(dest_xml, "atom:link", "href") or ""
+
+    # Imagen del feed
+    feed_img = find_attr(dest_xml, "itunes:image", "href") or ""
+
+    # op3 del feed
+    op3_prefix = find_tag_text(dest_xml, "op3")
+
     for url in source_urls:
         try:
             for raw_item in fetch_source_items(url):
                 key = item_key_from_xml(raw_item)
                 if key in existing:
                     continue
+
+                om_sec = uuid.uuid4().hex[:8]
 
                 title_inner = find_tag_text(raw_item, "title")
                 link_inner  = find_tag_text(raw_item, "link")
@@ -281,9 +222,30 @@ def update_feed_dir(feed_dir: str):
                     strip_cdata(title_inner),
                     strip_cdata(link_inner),
                     img,
-                    desc_inner
+                    desc_inner,
+                    feed_img,
+                    atom_link,
+                    om_sec
                 )
-                new_item = replace_description(raw_item, new_desc)
+
+                # description y content:encoded
+                new_item = replace_tag(raw_item, "description", new_desc)
+                new_item = replace_tag(new_item, "content:encoded", new_desc)
+
+                # Añadir om:sec
+                new_item = replace_tag(new_item, "om:sec", om_sec)
+
+                # Modificar enclosure si hay op3
+                if op3_prefix:
+                    m = re.search(r'<enclosure\b[^>]*url="([^"]+)"', new_item)
+                    if m:
+                        orig_url = m.group(1)
+                        new_url = op3_prefix + orig_url
+                        new_item = re.sub(
+                            r'(<enclosure\b[^>]*url=")([^"]+)(")',
+                            r'\1' + new_url + r'\3',
+                            new_item
+                        )
 
                 new_items.append(new_item)
                 existing.add(key)
