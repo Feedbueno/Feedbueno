@@ -60,6 +60,13 @@ def update_feed_dir_iniciativas(feed_dir: str, search_text: str, source_filename
     existing = existing_keys_from_feed(dest_xml)
     new_items = []
 
+    # Datos del feed destino
+    atom_link = find_attr(dest_xml, "atom:link", "href") or ""
+    feed_image = find_attr(dest_xml, "itunes:image", "href") or ""
+    op3_prefix = find_tag_text(dest_xml, "op3")
+
+    om_counter = 1
+
     for url in source_urls:
         try:
             for raw_item in fetch_source_items(url):
@@ -81,15 +88,37 @@ def update_feed_dir_iniciativas(feed_dir: str, search_text: str, source_filename
                     or ""
                 )
                 desc_inner = find_tag_text(raw_item, "description")
+
+                om_sec = str(om_counter)
+                om_counter += 1
+
                 new_desc = process_description_block(
                     strip_cdata(title_inner),
                     strip_cdata(link_inner),
                     img,
-                    desc_inner
+                    desc_inner,
+                    atom_link,
+                    om_sec,
+                    feed_image
                 )
-                new_item = replace_description(raw_item, new_desc)
-                new_item = ensure_itunes_tags(new_item, title_txt)
+                new_item = replace_description(raw_item, new_desc, new_desc, om_sec)
 
+                # prefijo OP3 en enclosure
+                if op3_prefix:
+                    def repl_enclosure(m):
+                        url = m.group(1)
+                        length = m.group(2)
+                        type_ = m.group(3)
+                        new_url = op3_prefix + url
+                        return f'<enclosure url="{new_url}" length="{length}" type="{type_}"/>'
+                    new_item = re.sub(
+                        r'<enclosure url="([^"]+)" length="([^"]+)" type="([^"]+)"/>',
+                        repl_enclosure,
+                        new_item,
+                        flags=re.IGNORECASE
+                    )
+
+                new_item = ensure_itunes_tags(new_item, title_txt)
                 new_items.append(new_item)
                 existing.add(key)
         except Exception as e:
@@ -104,7 +133,7 @@ def update_feed_dir_iniciativas(feed_dir: str, search_text: str, source_filename
     first_item = re.search(r"<item\b", dest_xml, flags=re.IGNORECASE)
     if first_item:
         insert_pos = first_item.start()
-        updated_xml = dest_xml[:insert_pos] + insertion_block + "\n" + dest_xml[insert_pos:]
+        updated_xml = dest_xml[:insert_pos] + insertion_block + "\n" + dest_xml[first_item.start():]
     else:
         updated_xml = re.sub(r"</channel>\s*$", insertion_block + "\n</channel>",
                              dest_xml, flags=re.IGNORECASE | re.DOTALL)
