@@ -30,21 +30,46 @@ def find_attr(xml: str, tag: str, attr: str):
     m = re.search(rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"[^>]*/?>", xml, flags=re.IGNORECASE | re.DOTALL)
     return m.group(1) if m else ""
 
-def replace_tag(item_xml: str, tag: str, new_content: str) -> str:
-    if re.search(rf"<{tag}\b", item_xml, flags=re.IGNORECASE):
-        return re.sub(
-            rf"<{tag}\b[^>]*>.*?</{tag}>",
-            f"<{tag}>{new_content}</{tag}>",
+def replace_description(item_xml: str, new_desc_html_cdata: str, new_content_html_cdata: str, om_sec: str) -> str:
+    # description
+    if re.search(r"<description\b", item_xml, flags=re.IGNORECASE):
+        item_xml = re.sub(
+            r"<description\b[^>]*>.*?</description>",
+            f"<description>{new_desc_html_cdata}</description>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
     else:
-        return re.sub(
+        item_xml = re.sub(
             r"</item>\s*$",
-            f"<{tag}>{new_content}</{tag}>\n</item>",
+            f"<description>{new_desc_html_cdata}</description>\n</item>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
+    # content:encoded
+    if re.search(r"<content:encoded\b", item_xml, flags=re.IGNORECASE):
+        item_xml = re.sub(
+            r"<content:encoded\b[^>]*>.*?</content:encoded>",
+            f"<content:encoded>{new_content_html_cdata}</content:encoded>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+    else:
+        item_xml = re.sub(
+            r"</item>\s*$",
+            f"<content:encoded>{new_content_html_cdata}</content:encoded>\n</item>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+    # om:sec
+    if not re.search(r"<om:sec>", item_xml, flags=re.IGNORECASE):
+        item_xml = re.sub(
+            r"</item>\s*$",
+            f"<om:sec>{om_sec}</om:sec>\n</item>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+    return item_xml
 
 # -------------- detección de HTML "fuerte" --------------
 
@@ -56,18 +81,17 @@ def has_rich_html(text: str) -> bool:
 # -------------- construcción de la descripción --------------
 
 def process_description_block(title_txt: str, link_txt: str, image_url: str,
-                              description_inner: str, feed_img: str, atom_link: str, om_sec: str) -> str:
+                              description_inner: str, atom_link: str, om_sec: str,
+                              feed_image: str) -> str:
     header = ""
     if title_txt:
         header += f"<h3>{title_txt}</h3>\n"
-
-    # Imagen solo si es distinta de la del feed
-    if image_url and link_txt and (not feed_img or image_url != feed_img):
+    if image_url and image_url != feed_image and link_txt:
         header += f'<a href="{link_txt}"><img src="{image_url}" /></a>\n'
 
-    # Aviso de imágenes
-    header += f'<p>Si no ves las imágenes, entra en {atom_link}#{om_sec}</p>\n'
-
+    # aviso antes del hr
+    aviso = f'<p>Si no ves las imágenes, entra en {atom_link}#{om_sec}</p>\n'
+    header += aviso
     header += '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />\n'
 
     body = strip_cdata(description_inner or "")
@@ -77,7 +101,6 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str,
         return enc_cdata(final_html)
 
     # Caso "texto plano": aplicar transformaciones
-
     # 1) Emails → mailto:
     body = re.sub(
         r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})',
@@ -91,7 +114,7 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str,
         r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif)(?:\?[^\s<>"\']*)?)',
         repl_image, body)
 
-    # 3) Enlaces normales (ignora imágenes ya convertidas)
+    # 3) Enlaces normales
     def repl_link(m):
         url = m.group(1)
         return f'<a href="{url}">{url}</a>'
@@ -99,43 +122,31 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str,
         r'(?<!href=")(https?://[^\s<>"\']+)',
         repl_link, body)
 
-    # 4) Listas ordenadas tipo "n - texto" o "n. texto"
-    lines = body.splitlines()
-    out_lines = []
+    # 4) Listas
+    lines = [ln.strip() for ln in body.splitlines() if ln.strip()]
+    new_body_lines = []
     i = 0
     while i < len(lines):
-        line = lines[i].strip()
-        m = re.match(r"^(\d+)\s*[-.]?\s+(.*)", line)
-        if m:
-            start = int(m.group(1))
-            ol_block = [f"<li>{m.group(2)}</li>"]
-            i += 1
-            while i < len(lines):
-                m2 = re.match(r"^(\d+)\s*[-.]?\s+(.*)", lines[i].strip())
-                if m2:
-                    ol_block.append(f"<li>{m2.group(2)}</li>")
-                    i += 1
-                else:
-                    break
-            out_lines.append(f"<ol start=\"{start}\">" + "".join(ol_block) + "</ol>")
+        # lista no ordenada
+        if re.match(r"^[-*]\s+", lines[i]):
+            ul = []
+            while i < len(lines) and re.match(r"^[-*]\s+", lines[i]):
+                ul.append("<li>" + re.sub(r"^[-*]\s+", "", lines[i]) + "</li>")
+                i += 1
+            new_body_lines.append("<ul>" + "".join(ul) + "</ul>")
+        # lista ordenada 1. o 1 -
+        elif re.match(r"^\d+\s*[-\.]\s+", lines[i]):
+            ol = []
+            start_num = int(re.match(r"^(\d+)", lines[i]).group(1))
+            while i < len(lines) and re.match(r"^\d+\s*[-\.]\s+", lines[i]):
+                txt = re.sub(r"^\d+\s*[-\.]\s+", "", lines[i])
+                ol.append("<li>" + txt + "</li>")
+                i += 1
+            new_body_lines.append(f"<ol start=\"{start_num}\">" + "".join(ol) + "</ol>")
         else:
-            m = re.match(r"^[-*]\s+(.*)", line)
-            if m:
-                ul_block = [f"<li>{m.group(1)}</li>"]
-                i += 1
-                while i < len(lines):
-                    m2 = re.match(r"^[-*]\s+(.*)", lines[i].strip())
-                    if m2:
-                        ul_block.append(f"<li>{m2.group(1)}</li>")
-                        i += 1
-                    else:
-                        break
-                out_lines.append("<ul>" + "".join(ul_block) + "</ul>")
-            else:
-                if line:
-                    out_lines.append(f"<p>{line}</p>")
-                i += 1
-    body = "\n".join(out_lines)
+            new_body_lines.append("<p>" + lines[i] + "</p>")
+            i += 1
+    body = "\n".join(new_body_lines)
 
     final_html = header + body
     return enc_cdata(final_html)
@@ -192,14 +203,12 @@ def update_feed_dir(feed_dir: str):
     existing = existing_keys_from_feed(dest_xml)
     new_items = []
 
-    # Leer atom:link del feed destino
+    # datos del feed destino
     atom_link = find_attr(dest_xml, "atom:link", "href") or ""
-
-    # Imagen del feed
-    feed_img = find_attr(dest_xml, "itunes:image", "href") or ""
-
-    # op3 del feed
+    feed_image = find_attr(dest_xml, "itunes:image", "href") or ""
     op3_prefix = find_tag_text(dest_xml, "op3")
+
+    om_counter = 1
 
     for url in source_urls:
         try:
@@ -207,8 +216,6 @@ def update_feed_dir(feed_dir: str):
                 key = item_key_from_xml(raw_item)
                 if key in existing:
                     continue
-
-                om_sec = uuid.uuid4().hex[:8]
 
                 title_inner = find_tag_text(raw_item, "title")
                 link_inner  = find_tag_text(raw_item, "link")
@@ -218,34 +225,35 @@ def update_feed_dir(feed_dir: str):
                     or ""
                 )
                 desc_inner = find_tag_text(raw_item, "description")
+
+                om_sec = str(om_counter)
+                om_counter += 1
+
                 new_desc = process_description_block(
                     strip_cdata(title_inner),
                     strip_cdata(link_inner),
                     img,
                     desc_inner,
-                    feed_img,
                     atom_link,
-                    om_sec
+                    om_sec,
+                    feed_image
                 )
+                new_item = replace_description(raw_item, new_desc, new_desc, om_sec)
 
-                # description y content:encoded
-                new_item = replace_tag(raw_item, "description", new_desc)
-                new_item = replace_tag(new_item, "content:encoded", new_desc)
-
-                # Añadir om:sec
-                new_item = replace_tag(new_item, "om:sec", om_sec)
-
-                # Modificar enclosure si hay op3
+                # prefijo OP3 en enclosure
                 if op3_prefix:
-                    m = re.search(r'<enclosure\b[^>]*url="([^"]+)"', new_item)
-                    if m:
-                        orig_url = m.group(1)
-                        new_url = op3_prefix + orig_url
-                        new_item = re.sub(
-                            r'(<enclosure\b[^>]*url=")([^"]+)(")',
-                            r'\1' + new_url + r'\3',
-                            new_item
-                        )
+                    def repl_enclosure(m):
+                        url = m.group(1)
+                        length = m.group(2)
+                        type_ = m.group(3)
+                        new_url = op3_prefix + url
+                        return f'<enclosure url="{new_url}" length="{length}" type="{type_}"/>'
+                    new_item = re.sub(
+                        r'<enclosure url="([^"]+)" length="([^"]+)" type="([^"]+)"/>',
+                        repl_enclosure,
+                        new_item,
+                        flags=re.IGNORECASE
+                    )
 
                 new_items.append(new_item)
                 existing.add(key)
