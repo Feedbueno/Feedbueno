@@ -3,6 +3,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
 xmlns:om="https://omrey86.neocities.org/" 
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
 xmlns:atom="http://www.w3.org/2005/Atom" >
 
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
@@ -401,7 +402,7 @@ Width="80%"/>
                
                 
                 <div class="item-description">
-<xsl:variable name="desc" select="description"/>
+<xsl:variable name="desc" select="description" disable-output-escaping="yes"/>
 <xsl:choose>
   <xsl:when test="contains($desc, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')">
     <xsl:variable name="visible" select="substring-after($desc, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')"/>
