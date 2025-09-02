@@ -403,15 +403,17 @@ Width="80%"/>
                 
 <div class="item-description">
   <xsl:variable name="desc-fragment">
-    <xsl:value-of select="description"/>
+    <xsl:value-of select="content:encoded"/>
   </xsl:variable>
 
   <xsl:choose>
     <xsl:when test="contains($desc-fragment, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')">
-      <xsl:value-of select="substring-after($desc-fragment, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')" disable-output-escaping="yes"/>
+      <xsl:value-of 
+        select="substring-after($desc-fragment, '&lt;hr style=&quot;border:0;border-top:1px dashed #ccc;margin:20px 0;&quot; /&gt;')" 
+        disable-output-escaping="yes"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:value-of select="description" disable-output-escaping="yes"/>
+      <xsl:value-of select="content:encoded" disable-output-escaping="yes"/>
     </xsl:otherwise>
   </xsl:choose>
 </div>
