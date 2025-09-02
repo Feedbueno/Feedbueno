@@ -31,54 +31,70 @@ def find_attr(xml: str, tag: str, attr: str):
     m = re.search(rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"[^>]*/?>", xml, flags=re.IGNORECASE | re.DOTALL)
     return m.group(1) if m else ""
 
+# -------------- utilidades para content:encoded --------------
+
+def escape_for_xml(s: str) -> str:
+    """Escapa &, <, > para poner HTML dentro de XML sin CDATA"""
+    if s is None: return ""
+    return (
+        s.replace("&", "&amp;")
+         .replace("<", "&lt;")
+         .replace(">", "&gt;")
+    )
+
+# -------------- modificación de replace_description --------------
+
 def replace_description(item_xml: str, new_desc_html_cdata: str, sec_id: str, atom_link: str) -> str:
     """
-    Reemplaza <description>, añade <content:encoded> y <om:sec>.
-    También inyecta el aviso de 'Si no ves las imágenes...' con enlace.
+    Reemplaza <description> con CDATA y <content:encoded> con HTML escapado (sin CDATA).
+    También añade <om:sec> y el aviso 'Si no ves las imágenes...'.
     """
-    link = f"{atom_link}#{sec_id}"
-    desc_html = strip_cdata(new_desc_html_cdata)
-    desc_html = desc_html.replace(
+    link = f"{atom_link}#{sec_id}" if atom_link else f"#{sec_id}"
+    inner_html = strip_cdata(new_desc_html_cdata)
+    # Aviso antes del <hr>
+    inner_html_with_aviso = inner_html.replace(
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />',
         f'<p>Si no ves las imágenes, entra en <a href="{link}">{link}</a></p>\n'
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
     )
-    desc_html_cdata = enc_cdata(desc_html)
 
-    # Reemplazar <description>
+    # description con CDATA
+    desc_cdata = enc_cdata(inner_html_with_aviso)
     if re.search(r"<description\b", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
             r"<description\b[^>]*>.*?</description>",
-            f"<description>{desc_html_cdata}</description>",
+            f"<description>{desc_cdata}</description>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
     else:
         item_xml = re.sub(
             r"</item>\s*$",
-            f"<description>{desc_html_cdata}</description>\n</item>",
+            f"<description>{desc_cdata}</description>\n</item>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
 
-    # Añadir <content:encoded>
+    # content:encoded con HTML escapado (sin CDATA)
+    content_text = escape_for_xml(inner_html_with_aviso)
+    content_tag = f'<content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">{content_text}</content:encoded>'
     if re.search(r"<content:encoded\b", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
             r"<content:encoded\b[^>]*>.*?</content:encoded>",
-            f"<content:encoded>{desc_html_cdata}</content:encoded>",
+            content_tag,
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
     else:
         item_xml = re.sub(
             r"</item>\s*$",
-            f"<content:encoded>{desc_html_cdata}</content:encoded>\n</item>",
+            f"{content_tag}\n</item>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
 
-    # Añadir <om:sec>
-    if not re.search(r"<om:sec>", item_xml):
+    # añadir om:sec si no existe
+    if not re.search(r"<om:sec>", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
             r"</item>\s*$",
             f"<om:sec>{sec_id}</om:sec>\n</item>",
@@ -176,6 +192,10 @@ def detect_lists_from_lines(lines):
 
 def process_description_block(title_txt: str, link_txt: str, image_url: str,
                               description_inner: str, feed_img: str) -> str:
+    """
+    Devuelve el HTML combinado (header + body) como cadena sin CDATA,
+    para que replace_description se encargue de generar description y content:encoded.
+    """
     header = ""
     if title_txt: header += f"<h3>{title_txt}</h3>\n"
     if image_url and link_txt and image_url != feed_img:
@@ -192,7 +212,7 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str,
     rebuilt = detect_lists_from_lines(lines)
     rebuilt = unprotect_blocks(rebuilt, tokens)
 
-    return enc_cdata(header + rebuilt)
+    return header + rebuilt
 
 # -------------- claves / fetch --------------
 
