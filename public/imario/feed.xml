@@ -78,6 +78,7 @@ version="2.0">
 <itunes:episode>1</itunes:episode> 
 <itunes:episodeType>trailer</itunes:episodeType><guid>https://feedbueno.es/imetal#trailer1</guid>
 <itunes:image href="https://feedbueno.es/imario/logo.jpeg"/>
+
 <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">&lt;h3&gt;Iniciativa Mario - Trailer&lt;/h3&gt;
 &lt;p&gt;Si no ves las imágenes, entra en &lt;a href="https://feedbueno.es/imario/feed.xml#1"&gt;https://feedbueno.es/imario/feed.xml#1&lt;/a&gt;&lt;/p&gt;
 &lt;hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" /&gt;
@@ -86,7 +87,6 @@ version="2.0">
 &lt;p&gt;Con voces expertas y apasionadas, contaremos anécdotas, curiosidades y el impacto cultural de Mario, Luigi, Peach, Bowser y Yoshi; su música, su diseño de niveles y cómo sus juegos cambiaron la industria.&lt;/p&gt;
 &lt;p&gt;Un recorrido sonoro por cuatro décadas de saltos, estrellas y banderines. Sumégete en la Iniciativa Super Mario… ¡y que empiece la aventura! 🎧⭐️&lt;/p&gt;</content:encoded>
 </item>
-<item> </item>
 
 </channel>
 </rss>
