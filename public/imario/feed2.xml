@@ -63,7 +63,20 @@ version="2.0">
 
 
 
-<item> </item>
+<item>
+<om:sec>trailer1</om:sec>
+<title><![CDATA[Iniciativa Mario - Trailer]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-intro-audios-mp3_rf_154999198_1.html</link>
+<enclosure url="https://archive.org/download/audios-ini-pg/iniciativa%20mario.mp3" type="audio/mpeg"  length="826723"/>
+<description><![CDATA[<p>🍄 Iniciativa Super Mario es un evento colaborativo que reúne a creadores y podcasters para celebrar 40 años del fontanero más famoso del mundo.
+</p> <p>Con motivo del 40º aniversario de la franquicia de Nintendo, viajaremos desde el debut de Super Mario Bros. hasta sus aventuras en 3D y sus últimas entregas, repasando etapas, mecánicas y mundos que marcaron generaciones: del Reino Champiñón a las galaxias, de los warp pipes a los speedruns, de los power-ups clásicos a las ideas más recientes.
+</p> <p>Con voces expertas y apasionadas, contaremos anécdotas, curiosidades y el impacto cultural de Mario, Luigi, Peach, Bowser y Yoshi; su música, su diseño de niveles y cómo sus juegos cambiaron la industria.
+</p> <p>Un recorrido sonoro por cuatro décadas de saltos, estrellas y banderines. Sumégete en la Iniciativa Super Mario… ¡y que empiece la aventura! 🎧⭐️</p> ]]></description><pubDate>Fri, 08 Aug 2025 11:56:08 +0200</pubDate><itunes:duration>00:51</itunes:duration>
+<itunes:season>1</itunes:season>
+<itunes:episode>1</itunes:episode> 
+<itunes:episodeType>trailer</itunes:episodeType><guid>https://feedbueno.es/imetal#trailer1</guid>
+<itunes:image href="https://feedbueno.es/imario/logo.jpeg"/>
+</item>
+
 
 </channel>
 </rss>
