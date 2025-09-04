@@ -2,7 +2,7 @@ name: Update iniciativas feeds
 
 on:
   schedule:
-    - cron: "0 0 1 * *"
+  - cron: "0 6,9,12,14 8-12 9 *"
   workflow_dispatch:
 
 jobs:
@@ -31,4 +31,5 @@ jobs:
           git config user.email "actions@github.com"
           git add public/*/feed.xml
           git commit -m "Update iniciativas feeds" || echo "No changes"
+
           git push
