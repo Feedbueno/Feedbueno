@@ -2,7 +2,8 @@ name: Update iniciativas feeds
 
 on:
   schedule:
-  - cron: "0 6,9,12,14 8-12 9 *"
+    - cron: "0 6,9,12,14 8-12 9 *"
+    - cron: "0 0 1 * *"
   workflow_dispatch:
 
 jobs:
@@ -25,11 +26,13 @@ jobs:
       - name: Run update Iniciativa Mario
         run: python scripts/update_iniciativas.py --text "Iniciativa Mario" --source imario.txt
 
+      - name: Run update Iniciativa Super Mario
+        run: python scripts/update_iniciativas.py --text "Iniciativa Super Mario" --source imario.txt
+        
       - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add public/*/feed.xml
           git commit -m "Update iniciativas feeds" || echo "No changes"
-
           git push
