@@ -48,21 +48,20 @@ def update_feed_dir_with_image(feed_dir: str):
 
     # 2. Sustituir <itunes:image .../> del episodio por la del feed
     if feed_img:
-        items = re.findall(r"<item\b[^>]*>.*?</item>", xml, flags=re.IGNORECASE | re.DOTALL)
-        for item in items:
-            new_item = re.sub(
-                r"<itunes:image\b[^>]*/>",
-                f'<itunes:image href="{feed_img}" />',
-                item,
-                flags=re.IGNORECASE
-            )
-            if new_item != item:
-                xml = xml.replace(item, new_item)
+        def replace_item_image(m):
+            item = m.group(0)
+            # eliminamos cualquier itunes:image original del episodio
+            item = re.sub(r"<itunes:image\b[^>]*/>", "", item, flags=re.IGNORECASE)
+            # insertamos la del feed (justo antes de </item>)
+            item = item.replace("</item>", f'<itunes:image href="{feed_img}" />\n</item>')
+            return item
+
+        xml = re.sub(r"<item\b[^>]*>.*?</item>", replace_item_image, xml, flags=re.IGNORECASE | re.DOTALL)
 
     with open(dest_file, "w", encoding="utf-8") as f:
         f.write(xml)
 
-    print(f"✨ {feed_dir}: postprocesado con imagen en descripción y reemplazo a imagen del feed")
+    print(f"✨ {feed_dir}: imagen original copiada en descripción y reemplazada por la del feed en <itunes:image>")
 
 
 def main():
