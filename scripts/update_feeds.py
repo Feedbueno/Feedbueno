@@ -237,6 +237,32 @@ def fetch_source_items(url: str) -> list:
     r.raise_for_status()
     return findall_items(r.text)
 
+# -------------- generación de om:sec --------------
+
+def extract_unique_sec_id(item_xml: str, dest_xml: str, fallback_counter: int) -> str:
+    # 1. Si hay season y episode
+    season = strip_cdata(find_tag_text(item_xml, "itunes:season"))
+    episode = strip_cdata(find_tag_text(item_xml, "itunes:episode"))
+    if season and episode:
+        candidate = f"s{season}e{episode}"
+    else:
+        # 2. Buscar número en título o descripción
+        title = strip_cdata(find_tag_text(item_xml, "title"))
+        desc = strip_cdata(find_tag_text(item_xml, "description"))
+        m = re.search(r"\d+", title or "") or re.search(r"\d+", desc or "")
+        candidate = m.group(0) if m else None
+
+    # 3. Si no hay nada, inventar número
+    if not candidate:
+        candidate = str(fallback_counter)
+
+    # Evitar colisiones con otros <om:sec>
+    existing_secs = set(re.findall(r"<om:sec>(.*?)</om:sec>", dest_xml, flags=re.IGNORECASE))
+    while candidate in existing_secs:
+        candidate = str(int(candidate) + 1) if candidate.isdigit() else candidate + "_x"
+
+    return candidate
+
 # -------------- actualización --------------
 
 def update_feed_dir(feed_dir: str):
@@ -276,7 +302,9 @@ def update_feed_dir(feed_dir: str):
                     desc_inner,
                     feed_img
                 )
-                new_item = replace_description(raw_item, new_desc, str(sec_counter), atom_link)
+
+                sec_id = extract_unique_sec_id(raw_item, dest_xml, sec_counter)
+                new_item = replace_description(raw_item, new_desc, sec_id, atom_link)
 
                 # Prefix OP3
                 if op3_prefix:
