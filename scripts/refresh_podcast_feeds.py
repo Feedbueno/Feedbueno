@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import os
 from pathlib import Path
 from lxml import etree
 
@@ -47,12 +46,17 @@ def refresh_feed(feed0_path: Path, feed_path: Path):
 
 def main():
     for podcast_dir in BASE_DIR.iterdir():
-        feed0 = podcast_dir / "archivos" / "feed0.xml"
-        feed = podcast_dir / "archivos" / "feed.xml"
+        if not podcast_dir.is_dir():
+            continue
+
+        feed0 = podcast_dir / "feed0.xml"
+        feed = podcast_dir / "feed.xml"
 
         if feed0.exists() and feed.exists():
             print(f"Refrescando {feed} con {feed0}")
             refresh_feed(feed0, feed)
+            # Opcional: borrar feed0.xml después de usarlo
+            # feed0.unlink()
         else:
             print(f"Omitido {podcast_dir}: no se encontró feed0.xml o feed.xml")
 
