@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="../estilos/centrado-content.xsl"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" 
+xmlns:anchor="https://anchor.fm/xmlns"
+xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
+xmlns:media="http://search.yahoo.com/mrss/" 
+xmlns:om="https://omrey86.neocities.org/"
+	 xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	 xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	 xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	 xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
+	 xmlns:podcast="https://podcastindex.org/namespace/1.0"
+ version="2.0"> 
+<channel>
+	         <title><![CDATA[Al otro lado del micrófono]]></title>
+	<om:name>alotroladodelmicrofono</om:name>
+<om:cfb1>#E6F0FA</om:cfb1>
+	<om:cfb2>#14273D</om:cfb2>
+	<om:cfi>#E6F0FA</om:cfi>
+	<om:ch1>#FF6B35</om:ch1>
+	<om:ct>#5FA8D3</om:ct>
+	<om:autor>Eove Productora</om:autor>
+<om:suscripciones>
+	<om:ivoox>https://www.ivoox.com/podcast-al-otro-lado-del-microfono_sq_f1756373_1.html</om:ivoox>
+	<om:apple>https://podcasts.apple.com/podcast/id1478239610</om:apple>
+	<om:spotify>https://open.spotify.com/show/3QmCkWpy6LO7OfIcZ4deTo</om:spotify>
+	<om:youtube>https://www.youtube.com/channel/UC6TMdZfgMgaYOt_beU5emUA</om:youtube>
+	<om:pocketcasts>https://pca.st/uIqypL</om:pocketcasts>
+	<om:index></om:index>
+	<om:opml></om:opml>
+	<om:addict>https://podcastaddict.com/podcast/al-otro-lado-del-microfono/2459191 </om:addict>
+	<om:rss>https://www.spreaker.com/show/3681678/episodes/feed</om:rss>
+</om:suscripciones>
+<om:like></om:like>
+    <om:x>https://twitter.com/eove</om:x>
+	<om:facebook></om:facebook>
+	<om:instagram></om:instagram>
+	<om:bluesky></om:bluesky>
+	<om:whatsapp></om:whatsapp>
+	<om:telegram>https://t.me/alotroladodelmicrofono</om:telegram>
+	<om:discord></om:discord>
+	<category>Technology</category>
+<itunes:author>Jorge Marín Nieto</itunes:author>
+    <copyright>Eove Productora</copyright>
+<link>https://feedbueno.es/alotroladodelmicrofono</link>
+<language>es</language>
+<description><![CDATA[¿Buscas metapodcasting en pequeñas dosis? Pasa Al otro lado del micrófono y conoce este programa diario dedicado a impulsar el podcasting reseñando noticias, eventos, herramientas o experiencias personales relacionadas con este medio.]]></description>
+<generator>FEEDBUENO</generator>
+       <image><url>https://static.feedpress.com/logo/alotroladodelmicrofono-5e8ef6d64e20c.jpg</url>
+        <title><![CDATA[Al otro lado del micrófono]]></title>
+<link>https://feedbueno.es/alotroladodelmicrofono/</link>
+</image>
+<atom:link href="https://feedbueno.es/alotroladodelmicrofono" rel="self" type="application/rss+xml"/>
+<itunes:explicit>clean</itunes:explicit>
+        <itunes:image href="https://static.feedpress.com/logo/alotroladodelmicrofono-5e8ef6d64e20c.jpg"/>
+<itunes:type>episodic</itunes:type>
+         <itunes:keywords>videojuegos, series,peliculas,radio,cine,tv</itunes:keywords>
+    <itunes:category text="Technology"/>
+    <itunes:category text="News">
+      <itunes:category text="Tech News"/>
+    </itunes:category>
+    <itunes:category text="Business">
+      <itunes:category text="Marketing"/>
+    </itunes:category>
+    <itunes:owner>
+      <itunes:name>Eove Productora</itunes:name>
+      <itunes:email>podcast@eove.es</itunes:email>
+    </itunes:owner>
+<op3></op3>
+
+
+
+<item>
+</item>
+
+
+</channel>
+</rss>
