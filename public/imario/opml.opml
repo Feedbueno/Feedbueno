@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<opml version="2.0">
+  <head>
+    <title>Iniciativa Super Mario</title>
+  </head>
+  <body>
+    <outline text="Iniciativa Super Mario">
+      <outline type="rss" text="https://feedbueno.es/imario" xmlUrl="https://feedbueno.es/imario"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f11805734_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f11805734_filtro_1.xml"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f159110_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f159110_filtro_1.xml"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f1446764_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f1446764_filtro_1.xml"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f11355645_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f11355645_filtro_1.xml"/>
+      <outline type="rss" text="https://anchor.fm/s/6a058808/podcast/rss" xmlUrl="https://anchor.fm/s/6a058808/podcast/rss"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f11327342_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f11327342_filtro_1.xml"/>
+      <outline type="rss" text="https://www.ivoox.com/podcast-nintenradio-podcast_sq_f1677610_1.html" xmlUrl="https://www.ivoox.com/podcast-nintenradio-podcast_sq_f1677610_1.html"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f1461123_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f1461123_filtro_1.xml"/>
+      <outline type="rss" text="https://anchor.fm/s/102332dd8/podcast/rss" xmlUrl="https://anchor.fm/s/102332dd8/podcast/rss"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f1587235_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f1587235_filtro_1.xml"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f150922_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f150922_filtro_1.xml"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f1805076_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f1805076_filtro_1.xml"/>
+      <outline type="rss" text="https://anchor.fm/s/3a023a34/podcast/rss" xmlUrl="https://anchor.fm/s/3a023a34/podcast/rss"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f11761764_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f11761764_filtro_1.xml"/>
+      <outline type="rss" text="https://www.ivoox.com/feed_fg_f150922_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f150922_filtro_1.xml"/>
+      <outline type="rss" text="https://www.ivoox.com/podcast-guarida-del-sith_fg_f131122_filtro_1.xml" xmlUrl="https://www.ivoox.com/feed_fg_f150922_filtro_1.xml"/>
+    </outline>
+  </body>
+</opml>
