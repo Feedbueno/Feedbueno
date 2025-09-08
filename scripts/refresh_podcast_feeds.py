@@ -1,89 +1,92 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Refresca feeds: copia TODO desde el inicio de feed0.xml hasta ANTES del primer <item>
+y lo pega delante de los <item> existentes en feed.xml (sin eliminar los items de feed.xml).
+Crea una copia de seguridad de feed.xml antes de sobrescribir.
+"""
 from pathlib import Path
-from lxml import etree
-import copy
+from datetime import datetime
+import re
+import shutil
+import sys
 
+# Ajusta si tu estructura es diferente
 BASE_DIR = Path(__file__).resolve().parent.parent / "public"
 
-def _localname(elem):
-    return etree.QName(elem).localname
+# Busca la primera etiqueta <item (ignora mayúsc/minúsc)
+ITEM_RE = re.compile(r"<\s*item\b", re.IGNORECASE)
 
-def _find_channel(root):
-    for child in root:
-        if _localname(child) == "channel":
-            return child
-    return None
 
-def refresh_feed(feed0_path: Path, feed_path: Path):
-    parser = etree.XMLParser(remove_blank_text=True)
+def _read_text(path: Path) -> str:
+    return path.read_text(encoding="utf-8")
 
-    feed0_tree = etree.parse(str(feed0_path), parser)
-    feed_tree = etree.parse(str(feed_path), parser)
 
-    feed0_root = feed0_tree.getroot()
-    feed_root = feed_tree.getroot()
+def _write_text(path: Path, text: str) -> None:
+    path.write_text(text, encoding="utf-8")
 
-    # --- Reemplazar xml-stylesheet processing-instruction ---
-    # eliminar PIs existentes en el feed destino
-    for pi in feed_tree.xpath("//processing-instruction('xml-stylesheet')"):
-        parent = pi.getparent()
-        if parent is not None:
-            parent.remove(pi)
-    # añadir PI(s) de feed0 antes del root
-    for pi in feed0_tree.xpath("//processing-instruction('xml-stylesheet')"):
-        feed_root.addprevious(etree.ProcessingInstruction("xml-stylesheet", pi.text))
 
-    # --- Reemplazar atributos de <rss> completamente ---
-    feed_root.attrib.clear()
-    for k, v in feed0_root.attrib.items():
-        feed_root.set(k, v)
+def _backup(path: Path) -> Path:
+    ts = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    bak = path.with_name(f"{path.name}.bak.{ts}")
+    shutil.copy2(path, bak)
+    return bak
 
-    # --- Reemplazar todo lo que esté en <channel> ANTES del primer <item> ---
-    channel0 = _find_channel(feed0_root)
-    channel = _find_channel(feed_root)
 
-    if channel0 is not None and channel is not None:
-        # obtener los nodos de channel0 hasta (pero sin incluir) el primer <item>
-        pre_items_from_feed0 = []
-        for child in channel0:
-            if _localname(child) == "item":
-                break
-            pre_items_from_feed0.append(copy.deepcopy(child))
+def refresh_feed(feed0_path: Path, feed_path: Path, dry_run: bool = False) -> None:
+    feed0_txt = _read_text(feed0_path)
+    feed_txt = _read_text(feed_path)
 
-        # encontrar índice del primer <item> en el channel actual
-        first_item_index = None
-        for idx, child in enumerate(list(channel)):
-            if _localname(child) == "item":
-                first_item_index = idx
-                break
-        if first_item_index is None:
-            # no hay items -> consideramos final del channel
-            first_item_index = len(channel)
+    # Extraer encabezado EXACTO de feed0 (todo hasta justo antes del primer <item)
+    m0 = ITEM_RE.search(feed0_txt)
+    header_end = m0.start() if m0 else len(feed0_txt)
+    header_from_feed0 = feed0_txt[:header_end]
 
-        # eliminar todo lo que esté antes del primer <item>
-        for _ in range(first_item_index):
-            channel.remove(channel[0])
+    # Extraer la parte de items / resto de feed (desde el primer <item> de feed)
+    m1 = ITEM_RE.search(feed_txt)
+    if m1:
+        items_and_trailer = feed_txt[m1.start():]
+    else:
+        # Si feed.xml no tiene items, intentamos usar el cierre existente en feed.xml
+        close_pos = feed_txt.find("</channel>")
+        if close_pos != -1:
+            items_and_trailer = feed_txt[close_pos:]
+        else:
+            # Fallback: añadimos cierres estándar para que el XML quede bien formado
+            items_and_trailer = "\n</channel>\n</rss>\n"
 
-        # insertar los nodos copiados de feed0 (en el mismo orden) antes de los items existentes
-        for i, new_child in enumerate(pre_items_from_feed0):
-            channel.insert(i, new_child)
+    new_content = header_from_feed0 + items_and_trailer
 
-    # Guardar respetando la declaración XML
-    feed_tree.write(str(feed_path), encoding="utf-8", xml_declaration=True, pretty_print=True)
+    print(f"-> Preparando actualizar: {feed_path}")
+    if dry_run:
+        print("DRY RUN activado: no se sobrescribe nada.")
+        return
+
+    bak = _backup(feed_path)
+    print(f"   Copia de seguridad creada: {bak}")
+
+    _write_text(feed_path, new_content)
+    print(f"   Feed actualizado correctamente: {feed_path}")
+
 
 def main():
-    for podcast_dir in BASE_DIR.iterdir():
+    if not BASE_DIR.exists():
+        print(f"ERROR: BASE_DIR no existe: {BASE_DIR}", file=sys.stderr)
+        return
+
+    for podcast_dir in sorted(BASE_DIR.iterdir()):
         if not podcast_dir.is_dir():
             continue
-
         feed0 = podcast_dir / "feed0.xml"
         feed = podcast_dir / "feed.xml"
-
         if feed0.exists() and feed.exists():
-            print(f"Refrescando {feed} con {feed0}")
-            refresh_feed(feed0, feed)
+            try:
+                refresh_feed(feed0, feed, dry_run=False)
+            except Exception as exc:
+                print(f"ERROR procesando {podcast_dir}: {exc}", file=sys.stderr)
         else:
-            print(f"Omitido {podcast_dir}: no se encontró feed0.xml o feed.xml")
+            print(f"Omitido {podcast_dir}: falta feed0.xml o feed.xml")
+
 
 if __name__ == "__main__":
     main()
