@@ -44,19 +44,34 @@ def update_feed_dir_with_image(feed_dir: str):
             1
         )
 
-    xml = re.sub(r"(<description><!\[CDATA\[.*?\]\]></description>)", add_image_to_description, xml, flags=re.DOTALL)
+    xml = re.sub(
+        r"(<description><!\[CDATA\[.*?\]\]></description>)",
+        add_image_to_description,
+        xml,
+        flags=re.DOTALL
+    )
 
     # 2. Sustituir <itunes:image .../> del episodio por la del feed
     if feed_img:
         def replace_item_image(m):
             item = m.group(0)
-            # eliminamos cualquier itunes:image original del episodio
-            item = re.sub(r"<itunes:image\b[^>]*/>", "", item, flags=re.IGNORECASE)
-            # insertamos la del feed (justo antes de </item>)
-            item = item.replace("</item>", f'<itunes:image href="{feed_img}" />\n</item>')
+            # Quitar cualquier <itunes:image .../>
+            item = re.sub(r"<itunes:image\b[^>]*/>\s*", "", item, flags=re.IGNORECASE)
+            # Insertar la del feed justo antes de </item>
+            item = re.sub(
+                r"</item>",
+                f'<itunes:image href="{feed_img}" />\n</item>',
+                item,
+                flags=re.IGNORECASE
+            )
             return item
 
-        xml = re.sub(r"<item\b[^>]*>.*?</item>", replace_item_image, xml, flags=re.IGNORECASE | re.DOTALL)
+        xml = re.sub(
+            r"<item\b[^>]*>.*?</item>",
+            replace_item_image,
+            xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
 
     with open(dest_file, "w", encoding="utf-8") as f:
         f.write(xml)
