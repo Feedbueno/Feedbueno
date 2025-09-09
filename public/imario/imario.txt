@@ -7,7 +7,7 @@ https://www.ivoox.com/feed_fg_f150922_filtro_1.xml
 https://www.ivoox.com/feed_fg_f1587235_filtro_1.xml
 https://anchor.fm/s/102332dd8/podcast/rss
 https://www.ivoox.com/feed_fg_f1461123_filtro_1.xml
-https://www.ivoox.com/podcast-nintenradio-podcast_sq_f1677610_1.html
+https://www.ivoox.com/feed_fg_f1677610_filtro_1.xml
 https://www.ivoox.com/feed_fg_f11327342_filtro_1.xml
 https://anchor.fm/s/6a058808/podcast/rss
 https://www.ivoox.com/feed_fg_f11355645_filtro_1.xml
