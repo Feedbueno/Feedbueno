@@ -3,6 +3,7 @@ import re
 import requests
 import hashlib
 import string
+import itertools
 
 ITEM_RE = re.compile(r"<item\b[^>]*>.*?</item>", re.IGNORECASE | re.DOTALL)
 
@@ -60,6 +61,15 @@ def extract_channel_link(xml_text):
 
 # ---------------- OM:SEC -----------------
 
+def suffix_generator():
+    """Genera A, B, ..., Z, AA, AB, ..., infinitamente."""
+    alphabet = string.ascii_uppercase
+    n = 1
+    while True:
+        for comb in itertools.product(alphabet, repeat=n):
+            yield "".join(comb)
+        n += 1
+
 def generate_sec_number(title, desc, used_numbers):
     text_candidates = [desc or "", title or ""]
     num = None
@@ -76,9 +86,9 @@ def generate_sec_number(title, desc, used_numbers):
             candidate += 1
         num = str(candidate)
 
-    # Si ya está usado, añadir letras
+    # Si ya está usado, añadir sufijos A, B, C...
     base = num
-    suffix_iter = (string.ascii_uppercase[i] for i in range(1000))
+    suffix_iter = suffix_generator()
     while num in used_numbers:
         num = base + next(suffix_iter)
 
@@ -153,7 +163,7 @@ def rewrite_description(item_xml, sec_num, atom_link, original_image):
 
 def update_one_feed(podcast_dir):
     base = os.path.join("public", podcast_dir)
-    source_file = os.path.join(base, "imagen.txt")
+    source_file = os.path.join(base, "copy.txt")
     dest_file   = os.path.join(base, "feed.xml")
 
     if not os.path.exists(source_file) or not os.path.exists(dest_file):
