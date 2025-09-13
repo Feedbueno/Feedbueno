@@ -143,8 +143,8 @@ def rewrite_description(item_xml, sec_num, atom_link, original_image):
     link_html = f'<a href="{sec_url}">{sec_url}</a>'
 
     new_desc_parts = [
-        title,
-        f"Si no ves la imagen entra en {link_html}",
+        f"<p>{title}</p>",
+        f"<p>Si no ves la imagen entra en {link_html}</p>",
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />',
         f'<img src="{original_image}"/>' if original_image else "",
         desc
@@ -163,18 +163,18 @@ def rewrite_description(item_xml, sec_num, atom_link, original_image):
 
 def update_one_feed(podcast_dir):
     base = os.path.join("public", podcast_dir)
-    source_file = os.path.join(base, "imagen.txt")
+    source_file = os.path.join(base, "imagen.txt")   # 👈 ahora usa imagen.txt
     dest_file   = os.path.join(base, "feed.xml")
 
     if not os.path.exists(source_file) or not os.path.exists(dest_file):
-        print(f"⚠️  {podcast_dir}: falta source.txt o feed.xml — se omite")
+        print(f"⚠️  {podcast_dir}: falta imagen.txt o feed.xml — se omite")
         return
 
     with open(source_file, "r", encoding="utf-8") as f:
         sources = [ln.strip() for ln in f if ln.strip()]
 
     if not sources:
-        print(f"ℹ️  {podcast_dir}: source.txt vacío — se omite")
+        print(f"ℹ️  {podcast_dir}: imagen.txt vacío — se omite")
         return
 
     dest_xml = read_text(dest_file)
