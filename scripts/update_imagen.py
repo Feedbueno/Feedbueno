@@ -163,7 +163,7 @@ def rewrite_description(item_xml, sec_num, atom_link, original_image):
 
 def update_one_feed(podcast_dir):
     base = os.path.join("public", podcast_dir)
-    source_file = os.path.join(base, "copy.txt")
+    source_file = os.path.join(base, "imagen.txt")
     dest_file   = os.path.join(base, "feed.xml")
 
     if not os.path.exists(source_file) or not os.path.exists(dest_file):
