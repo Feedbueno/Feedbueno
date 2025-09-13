@@ -19,8 +19,8 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run update_imagen
-        run: python update_imagen.py
+- name: Run update_imagen
+  run: python scripts/update_imagen.py
 
       - name: Commit changes
         run: |
