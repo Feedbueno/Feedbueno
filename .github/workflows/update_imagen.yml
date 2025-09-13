@@ -3,7 +3,7 @@ name: update_imagen
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/30 * * * *"   # cada 30 minutos, puedes ajustar
 
 jobs:
   build:
@@ -19,13 +19,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-- name: Run update_imagen
-  run: python scripts/update_imagen.py
+      - name: Run update_imagen
+        run: python scripts/update_imagen.py
 
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public
-          git commit -m "update_imagen: feeds updated" || echo "No changes"
+          git commit -m "update_imagen: feeds updated with om:sec and description changes" || echo "No changes"
           git push
