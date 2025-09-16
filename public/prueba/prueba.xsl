@@ -402,7 +402,7 @@ Width="80%"/>
                
                 
                 <div class="item-description">
-    1<xsl:copy-of select="description"/>
+    2<xsl:copy-of disable-output-escaping="yes" select="description"/>
 </div>
             </div>
           </div>
@@ -434,3 +434,4 @@ Width="80%"/>
   </xsl:template>
 
 </xsl:stylesheet>
+
