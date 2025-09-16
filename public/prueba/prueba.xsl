@@ -402,7 +402,7 @@ Width="80%"/>
                
                 
                 <div class="item-description">
-    <xsl:value-of select="description"/>
+    1<xsl:copy-of select="description"/>
 </div>
             </div>
           </div>
@@ -432,4 +432,5 @@ Width="80%"/>
 </body>
     </html>
   </xsl:template>
+
 </xsl:stylesheet>
