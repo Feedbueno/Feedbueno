@@ -1,0 +1,27 @@
+name: Add om:sec
+
+on:
+  workflow_dispatch: # Solo manual
+
+jobs:
+  update-feeds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Ejecutar script
+        run: python add_omdes.py
+
+      - name: Commit y push cambios
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/*/feed.xml
+          git commit -m "Añadir/Actualizar etiquetas <om:des> en feeds" || echo "No hay cambios"
+          git push
