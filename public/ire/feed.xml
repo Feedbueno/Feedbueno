@@ -72,7 +72,12 @@ version="2.0">
 <itunes:episode>1</itunes:episode> 
 <itunes:episodeType>trailer</itunes:episodeType><guid>https://www.ivoox.com/154999198</guid>
 <itunes:image href="https://feedbueno.es/ire/trailer.jpeg"/>
-</item>
+<om:des>Iniciativa Metal Gear - Intro
+<img src="https://feedbueno.es/ire/trailer.jpeg" />
+<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/ire/feed.xml#s1e1">https://feedbueno.es/ire/feed.xml#s1e1</a> o a <a href="https://feedbueno.es/ire/feed.xml#trailer1">https://feedbueno.es/ire/feed.xml#trailer1</a></p>
+<hr/>
+<p> 🎙 Este es un episodio de prueba. </p> </om:des></item>
 
 
 </channel>
