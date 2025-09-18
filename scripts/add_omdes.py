@@ -1,37 +1,47 @@
 import os
 import glob
-import xml.etree.ElementTree as ET
+import re
 
-BASE_PATH = "public/*/feed.xml"
+# Ruta a los feeds (subimos un nivel desde /scripts/)
+BASE_PATH = os.path.join(os.path.dirname(__file__), "../public/*/feed.xml")
 
 def process_feed(feed_path):
     print(f"Procesando {feed_path}")
-    tree = ET.parse(feed_path)
-    root = tree.getroot()
+    with open(feed_path, "r", encoding="utf-8") as f:
+        content = f.read()
 
-    # Detectar namespace (RSS suele tenerlo)
-    nsmap = {}
-    for elem in root.iter():
-        if elem.tag[0] == "{":
-            uri, _, tag = elem.tag[1:].partition("}")
-            nsmap[uri] = True
+    # Regex para encontrar cada <item>...</item>
+    def repl_item(match):
+        item = match.group(0)
 
-    # Buscar items
-    for item in root.findall(".//item"):
-        desc = item.find("description")
-        if desc is None or desc.text is None:
-            continue
+        # Buscar <description>...</description>
+        desc_match = re.search(r"<description>(.*?)</description>", item, re.DOTALL)
+        if not desc_match:
+            return item
 
-        # Eliminar CDATA si existiera (ET lo maneja como texto)
-        desc_text = desc.text.strip()
+        desc_content = desc_match.group(1)
+        # Eliminar CDATA si existe
+        desc_clean = re.sub(r"^<!\[CDATA\[|\]\]>$", "", desc_content.strip())
 
-        # Buscar si ya existe om:des
-        omdes = item.find("om:des")
-        if omdes is None:
-            omdes = ET.SubElement(item, "om:des")
-        omdes.text = desc_text
+        # Construir etiqueta om:des
+        omdes_tag = f"<om:des>{desc_clean}</om:des>"
 
-    tree.write(feed_path, encoding="utf-8", xml_declaration=True)
+        if "<om:des>" in item:
+            # Reemplazar si ya existe
+            item = re.sub(r"<om:des>.*?</om:des>", omdes_tag, item, flags=re.DOTALL)
+        else:
+            # Insertar justo antes de </item>
+            item = item.replace("</item>", f"{omdes_tag}</item>")
+
+        return item
+
+    # Reemplazar todos los items
+    new_content = re.sub(r"<item\b.*?</item>", repl_item, content, flags=re.DOTALL)
+
+    # Solo sobrescribir si hay cambios
+    if new_content != content:
+        with open(feed_path, "w", encoding="utf-8") as f:
+            f.write(new_content)
 
 def main():
     feeds = glob.glob(BASE_PATH)
