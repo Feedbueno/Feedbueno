@@ -159,11 +159,35 @@ def rewrite_description(item_xml, sec_num, atom_link, original_image):
         flags=re.IGNORECASE | re.DOTALL
     )
 
+# ---------------- OM:DES -----------------
+
+def insert_om_des(item_xml):
+    """Crea o reemplaza <om:des> con el contenido limpio de <description>"""
+    desc_match = re.search(r"<description\b[^>]*>(.*?)</description>", item_xml, re.IGNORECASE | re.DOTALL)
+    if not desc_match:
+        return item_xml
+
+    desc_content = desc_match.group(1).strip()
+    # Quitar CDATA si existe
+    if desc_content.startswith("<![CDATA[") and desc_content.endswith("]]>"):
+        desc_content = desc_content[len("<![CDATA["):-len("]]>")].strip()
+
+    omdes_tag = f"<om:des>{desc_content}</om:des>"
+
+    if "<om:des>" in item_xml:
+        # Reemplazar existente
+        item_xml = re.sub(r"<om:des>.*?</om:des>", omdes_tag, item_xml, flags=re.DOTALL)
+    else:
+        # Insertar justo antes de </item>
+        item_xml = item_xml.replace("</item>", f"{omdes_tag}</item>")
+
+    return item_xml
+
 # ---------------- MAIN -----------------
 
 def update_one_feed(podcast_dir):
     base = os.path.join("public", podcast_dir)
-    source_file = os.path.join(base, "imagen.txt")   # 👈 ahora usa imagen.txt
+    source_file = os.path.join(base, "imagen.txt")
     dest_file   = os.path.join(base, "feed.xml")
 
     if not os.path.exists(source_file) or not os.path.exists(dest_file):
@@ -226,6 +250,9 @@ def update_one_feed(podcast_dir):
 
                 # Reescribir descripción
                 it = rewrite_description(it, sec_num, atom_link, original_image)
+
+                # Añadir/actualizar om:des
+                it = insert_om_des(it)
 
                 new_blocks.append(it)
                 existing_keys.add(k)
