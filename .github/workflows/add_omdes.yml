@@ -16,7 +16,7 @@ jobs:
           python-version: '3.x'
 
       - name: Ejecutar script
-        run: python add_omdes.py
+        run: python scripts/add_omdes.py
 
       - name: Commit y push cambios
         run: |
