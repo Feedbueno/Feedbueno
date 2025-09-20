@@ -4,7 +4,7 @@ import requests
 import hashlib
 
 # --- Configuración ---
-OMDES_SKIP_LINES = 3  # Número de líneas a excluir al crear <om:des>
+OMDES_SKIP_LINES = 5  # Número de líneas a excluir al crear <om:des>
 
 # --- Utilidades ---
 
@@ -143,4 +143,5 @@ def main():
             update_one_feed(entry)
 
 if __name__ == "__main__":
+
     main()
