@@ -34,6 +34,14 @@ def extract_tag_text(item_xml, tag):
         val = val[len("<![CDATA["):-len("]]>")].strip()
     return val
 
+def clean_for_omdes(text: str) -> str:
+    """Limpia el texto para om:des: elimina <br>, escapa &, conserva lo demás."""
+    # Eliminar <br> y variantes
+    text = re.sub(r"<br\s*/?>", "", text, flags=re.IGNORECASE)
+    # Reemplazar & que no sean parte de entidades (&amp; &lt; &gt; &quot; etc.)
+    text = re.sub(r"&(?!(amp;|lt;|gt;|quot;|apos;))", "&amp;", text)
+    return text.strip()
+
 def replace_or_insert_omdes(item_xml):
     """Crea o actualiza <om:des> basado en <description>, buscando HR_MARKER."""
     desc = extract_tag_text(item_xml, "description")
@@ -52,7 +60,11 @@ def replace_or_insert_omdes(item_xml):
     if new_text is None:
         new_text = desc.strip()
 
-    omdes_block = f"<om:des><div>{new_text}</div></om:des>"
+    # Limpiar y escapar
+    cleaned = clean_for_omdes(new_text)
+
+    # Construir bloque
+    omdes_block = f"<om:des><div>{cleaned}</div></om:des>"
 
     if re.search(r"<om:des\b[^>]*>.*?</om:des>", item_xml, re.IGNORECASE | re.DOTALL):
         return re.sub(
