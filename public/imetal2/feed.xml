@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<?xml-stylesheet type="text/xsl" href="prueba.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../estilos/centrado.xsl"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" 
 xmlns:anchor="https://anchor.fm/xmlns"
 xmlns:content="http://purl.org/rss/1.0/modules/content/" 
@@ -56,8 +56,6 @@ version="2.0">
 <itunes:owner><itunes:email>iniciativapodgaming@gmail.com</itunes:email></itunes:owner>
 <om:git>https://github.com/Feedbueno/Feedbueno/tree/main/public/imetal</om:git>
 <op3>https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/</op3>
-
-
 
 
 </channel>
