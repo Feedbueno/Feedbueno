@@ -4,7 +4,7 @@ import requests
 import hashlib
 
 # --- Configuración ---
-OMDES_SKIP_LINES = 5  # Número de líneas a excluir al crear <om:des>
+HR_MARKER = '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
 
 # --- Utilidades ---
 
@@ -35,14 +35,24 @@ def extract_tag_text(item_xml, tag):
     return val
 
 def replace_or_insert_omdes(item_xml):
-    """Crea o actualiza <om:des> basado en <description>, quitando OMDES_SKIP_LINES primeras líneas."""
+    """Crea o actualiza <om:des> basado en <description>, buscando HR_MARKER."""
     desc = extract_tag_text(item_xml, "description")
     if not desc:
         return item_xml
 
+    # Partir en líneas para buscar el marcador
     lines = desc.splitlines()
-    new_text = "\n".join(lines[OMDES_SKIP_LINES:]).strip()
-    omdes_block = f"<om:des>\n{new_text}\n</om:des>"
+    new_text = None
+    for i, line in enumerate(lines):
+        if line.strip() == HR_MARKER:
+            new_text = "\n".join(lines[i+1:]).strip()
+            break
+
+    # Si no se encontró el marcador, copiar todo
+    if new_text is None:
+        new_text = desc.strip()
+
+    omdes_block = f"<om:des><div>{new_text}</div></om:des>"
 
     if re.search(r"<om:des\b[^>]*>.*?</om:des>", item_xml, re.IGNORECASE | re.DOTALL):
         return re.sub(
@@ -143,5 +153,4 @@ def main():
             update_one_feed(entry)
 
 if __name__ == "__main__":
-
     main()
