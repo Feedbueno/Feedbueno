@@ -1,0 +1,31 @@
+name: alotroladodelmicrofono
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6-12 * * 1-5"
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run alotroladodelmicrofono
+        run: python scripts/alotroladodelmicrofono.py
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public
+          git commit -m "alotroladodelmicrofono: feeds updated with om:sec and om:des changes" || echo "No changes"
+          git push
