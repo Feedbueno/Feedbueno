@@ -27,39 +27,39 @@ def find_tag_text(xml: str, tag: str):
     m = re.search(rf"<{tag}\b[^>]*>(.*?)</{tag}>", xml, flags=re.IGNORECASE | re.DOTALL)
     return m.group(1) if m else ""
 
-def find_attr(xml: str, tag: str, attr: str):
-    m = re.search(rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"[^>]*/?>", xml, flags=re.IGNORECASE | re.DOTALL)
-    return m.group(1) if m else ""
+# -------------- utilidades para om:des --------------
 
-# -------------- utilidades para content:encoded --------------
-
-def escape_for_xml(s: str) -> str:
-    """Escapa &, <, > para poner HTML dentro de XML sin CDATA"""
-    if s is None: return ""
-    return (
-        s.replace("&", "&amp;")
-         .replace("<", "&lt;")
-         .replace(">", "&gt;")
-    )
+def escape_text_but_keep_tags(s: str) -> str:
+    """Escapa texto plano pero respeta las etiquetas HTML básicas."""
+    if not s:
+        return ""
+    s = s.replace("&", "&amp;")
+    s = s.replace("<", "&lt;").replace(">", "&gt;")
+    # revertir etiquetas simples
+    s = re.sub(r"&lt;(/?\w+[^&]*)&gt;", r"<\1>", s)
+    return s
 
 # -------------- modificación de replace_description --------------
 
-def replace_description(item_xml: str, new_desc_html_cdata: str, sec_id: str, atom_link: str) -> str:
+def replace_description(item_xml: str, sec_id: str, atom_link: str) -> str:
     """
-    Reemplaza <description> con CDATA y <content:encoded> con HTML escapado (sin CDATA).
-    También añade <om:sec> y el aviso 'Si no ves las imágenes...'.
+    Modifica <description>, añade o reemplaza <om:des> y <om:sec>.
+    Respeta <content:encoded> si ya existe en el feed de origen.
     """
     link = f"{atom_link}#{sec_id}" if atom_link else f"#{sec_id}"
-    inner_html = strip_cdata(new_desc_html_cdata)
-    # Aviso antes del <hr>
-    inner_html_with_aviso = inner_html.replace(
+
+    # 1) Obtener contenido de <description>
+    desc_inner = strip_cdata(find_tag_text(item_xml, "description"))
+
+    # 2) Insertar aviso antes del <hr>
+    desc_with_aviso = desc_inner.replace(
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />',
         f'<p>Si no ves las imágenes, entra en <a href="{link}">{link}</a></p>\n'
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
     )
 
-    # description con CDATA
-    desc_cdata = enc_cdata(inner_html_with_aviso)
+    # 3) Reemplazar <description>
+    desc_cdata = enc_cdata(desc_with_aviso)
     if re.search(r"<description\b", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
             r"<description\b[^>]*>.*?</description>",
@@ -75,26 +75,36 @@ def replace_description(item_xml: str, new_desc_html_cdata: str, sec_id: str, at
             flags=re.IGNORECASE | re.DOTALL
         )
 
-    # content:encoded con HTML escapado (sin CDATA)
-    content_text = escape_for_xml(inner_html_with_aviso)
-    content_tag = f'<content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">{content_text}</content:encoded>'
-    if re.search(r"<content:encoded\b", item_xml, flags=re.IGNORECASE):
+    # 4) Extraer parte después del <hr> y crear <om:des>
+    parts = desc_inner.split('<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />', 1)
+    extra_part = parts[1] if len(parts) > 1 else ""
+    extra_part_escaped = escape_text_but_keep_tags(extra_part.strip())
+    om_des_tag = f"<om:des><div>{extra_part_escaped}</div></om:des>"
+
+    if re.search(r"<om:des>", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
-            r"<content:encoded\b[^>]*>.*?</content:encoded>",
-            content_tag,
+            r"<om:des\b[^>]*>.*?</om:des>",
+            om_des_tag,
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
     else:
         item_xml = re.sub(
             r"</item>\s*$",
-            f"{content_tag}\n</item>",
+            f"{om_des_tag}\n</item>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
 
-    # añadir om:sec si no existe
-    if not re.search(r"<om:sec>", item_xml, flags=re.IGNORECASE):
+    # 5) Añadir o reemplazar <om:sec>
+    if re.search(r"<om:sec>", item_xml, flags=re.IGNORECASE):
+        item_xml = re.sub(
+            r"<om:sec\b[^>]*>.*?</om:sec>",
+            f"<om:sec>{sec_id}</om:sec>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+    else:
         item_xml = re.sub(
             r"</item>\s*$",
             f"<om:sec>{sec_id}</om:sec>\n</item>",
@@ -104,246 +114,95 @@ def replace_description(item_xml: str, new_desc_html_cdata: str, sec_id: str, at
 
     return item_xml
 
-# -------------- helpers HTML mixto --------------
-
-TOKEN_RE = re.compile(r"\[\[BLOCK(\d+)\]\]")
-
-def protect_blocks(html_text: str):
-    tokens = []
-    def _store(m):
-        tokens.append(m.group(0))
-        return f"[[BLOCK{len(tokens)-1}]]"
-    t = html_text
-    t = re.sub(r"<ol\b[^>]*>.*?</ol>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    t = re.sub(r"<ul\b[^>]*>.*?</ul>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    t = re.sub(r"<a\b[^>]*>.*?</a>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    t = re.sub(r"<pre\b[^>]*>.*?</pre>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    t = re.sub(r"<code\b[^>]*>.*?</code>", _store, t, flags=re.IGNORECASE | re.DOTALL)
-    return t, tokens
-
-def unprotect_blocks(text: str, tokens):
-    def replace_token(m):
-        idx = int(m.group(1))
-        return tokens[idx] if 0 <= idx < len(tokens) else m.group(0)
-    return TOKEN_RE.sub(replace_token, text)
-
-# -------------- enriquecidos inline --------------
-
-IMG_URL_RE = re.compile(
-    r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp)(?:\?[^\s<>"\']*)?)',
-    flags=re.IGNORECASE
-)
-LINK_URL_RE = re.compile(
-    r'(?<!href=")(https?://[^\s<>"\']+)',
-    flags=re.IGNORECASE
-)
-EMAIL_RE = re.compile(
-    r'(?<![>\w@])([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})'
-)
-
-def transform_inline(text: str) -> str:
-    text = EMAIL_RE.sub(r'<a href="mailto:\1">\1</a>', text)
-    def repl_image(m): return f'<a href="{m.group(1)}"><img src="{m.group(1)}" /></a>'
-    text = IMG_URL_RE.sub(repl_image, text)
-    def repl_link(m): return f'<a href="{m.group(1)}">{m.group(1)}</a>'
-    text = LINK_URL_RE.sub(repl_link, text)
-    return text
-
-# -------------- listas --------------
-
-NUM_LIST_LINE = re.compile(r"^(\d+)\s*([)\.\-])\s+(.*)$")
-UL_LIST_LINE = re.compile(r"^[-*•]\s+(.*)$")
-
-def detect_lists_from_lines(lines):
-    out, i = [], 0
-    while i < len(lines):
-        stripped = (lines[i] or "").strip()
-        if TOKEN_RE.fullmatch(stripped):
-            out.append(stripped); i += 1; continue
-        m = NUM_LIST_LINE.match(stripped)
-        if m:
-            start_num = int(m.group(1))
-            items = [f"<li>{transform_inline(m.group(3))}</li>"]
-            i += 1
-            while i < len(lines):
-                nxt = (lines[i] or "").strip()
-                mm = NUM_LIST_LINE.match(nxt) if nxt else None
-                if not mm: break
-                items.append(f"<li>{transform_inline(mm.group(3))}</li>"); i += 1
-            out.append(f'<ol start="{start_num}">' + "".join(items) + "</ol>")
-            continue
-        m = UL_LIST_LINE.match(stripped)
-        if m:
-            items = [f"<li>{transform_inline(m.group(1))}</li>"]
-            i += 1
-            while i < len(lines):
-                nxt = (lines[i] or "").strip()
-                mm = UL_LIST_LINE.match(nxt) if nxt else None
-                if not mm: break
-                items.append(f"<li>{transform_inline(mm.group(1))}</li>"); i += 1
-            out.append("<ul>" + "".join(items) + "</ul>")
-            continue
-        if stripped:
-            out.append(f"<p>{transform_inline(stripped)}</p>")
-        i += 1
-    return "\n".join(out)
-
-# -------------- descripción híbrida --------------
-
-def process_description_block(title_txt: str, link_txt: str, image_url: str,
-                              description_inner: str, feed_img: str) -> str:
-    """
-    Devuelve el HTML combinado (header + body) como cadena sin CDATA,
-    para que replace_description se encargue de generar description y content:encoded.
-    """
-    header = ""
-    if title_txt: header += f"<h3>{title_txt}</h3>\n"
-    if image_url and link_txt and image_url != feed_img:
-        header += f'<a href="{link_txt}"><img src="{image_url}" /></a>\n'
-    header += '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />\n'
-
-    body = strip_cdata(description_inner or "")
-    protected, tokens = protect_blocks(body)
-    protected = re.sub(r"</p\s*>", "\n", protected, flags=re.IGNORECASE)
-    protected = re.sub(r"<p\b[^>]*>", "", protected, flags=re.IGNORECASE)
-    protected = re.sub(r"<br\s*/?>", "\n", protected, flags=re.IGNORECASE)
-    protected = re.sub(r"(\[\[BLOCK\d+\]\])", r"\n\1\n", protected)
-    lines = protected.splitlines()
-    rebuilt = detect_lists_from_lines(lines)
-    rebuilt = unprotect_blocks(rebuilt, tokens)
-
-    return header + rebuilt
-
-# -------------- claves / fetch --------------
-
-def normalize_inner(t: str) -> str:
-    t = strip_cdata(t or "")
-    return re.sub(r"\s+", " ", t).strip().lower()
-
-def item_key_from_xml(item_xml: str) -> str:
-    guid = normalize_inner(find_tag_text(item_xml, "guid"))
-    if guid: return "guid:" + guid
-    link = normalize_inner(find_tag_text(item_xml, "link"))
-    if link: return "link:" + link
-    title = normalize_inner(find_tag_text(item_xml, "title"))
-    pub = normalize_inner(find_tag_text(item_xml, "pubDate"))
-    return "tp:" + title + "|" + pub
-
-def existing_keys_from_feed(xml: str) -> set:
-    return {item_key_from_xml(it) for it in findall_items(xml)}
-
-def fetch_source_items(url: str) -> list:
-    r = requests.get(url, timeout=20, headers={"User-Agent": "FeedbuenoUpdater/1.0"})
-    r.raise_for_status()
-    return findall_items(r.text)
-
 # -------------- generación de om:sec --------------
 
 def extract_unique_sec_id(item_xml: str, dest_xml: str, fallback_counter: int) -> str:
-    # 1. Si hay season y episode
-    season = strip_cdata(find_tag_text(item_xml, "itunes:season"))
-    episode = strip_cdata(find_tag_text(item_xml, "itunes:episode"))
-    if season and episode:
-        candidate = f"s{season}e{episode}"
+    # 0. Respetar si ya existe om:sec en el ítem de origen
+    existing_sec = strip_cdata(find_tag_text(item_xml, "om:sec"))
+    if existing_sec:
+        candidate = existing_sec
     else:
-        # 2. Buscar número en título o descripción
-        title = strip_cdata(find_tag_text(item_xml, "title"))
-        desc = strip_cdata(find_tag_text(item_xml, "description"))
-        m = re.search(r"\d+", title or "") or re.search(r"\d+", desc or "")
-        candidate = m.group(0) if m else None
+        # 1. Usar season y episode si existen
+        season = strip_cdata(find_tag_text(item_xml, "itunes:season"))
+        episode = strip_cdata(find_tag_text(item_xml, "itunes:episode"))
+        if season and episode:
+            candidate = f"s{season}e{episode}"
+        else:
+            # 2. Buscar número en título o descripción
+            title = strip_cdata(find_tag_text(item_xml, "title"))
+            desc = strip_cdata(find_tag_text(item_xml, "description"))
+            m = re.search(r"\d+", title or "") or re.search(r"\d+", desc or "")
+            candidate = m.group(0) if m else str(fallback_counter)
 
-    # 3. Si no hay nada, inventar número
-    if not candidate:
-        candidate = str(fallback_counter)
-
-    # Evitar colisiones con otros <om:sec>
+    # 3. Evitar colisiones
     existing_secs = set(re.findall(r"<om:sec>(.*?)</om:sec>", dest_xml, flags=re.IGNORECASE))
     while candidate in existing_secs:
-        candidate = str(int(candidate) + 1) if candidate.isdigit() else candidate + "_x"
+        if candidate.isdigit():
+            candidate = str(int(candidate) + 1)
+        else:
+            candidate = candidate + "_x"
 
     return candidate
 
-# -------------- actualización --------------
+# -------------------- utilidades de feed --------------------
 
-def update_feed_dir(feed_dir: str):
-    source_file = os.path.join(feed_dir, "source.txt")
-    dest_file   = os.path.join(feed_dir, "feed.xml")
+def item_key_from_xml(item_xml: str) -> str:
+    guid = strip_cdata(find_tag_text(item_xml, "guid"))
+    return guid or strip_cdata(find_tag_text(item_xml, "link")) or strip_cdata(find_tag_text(item_xml, "title"))
 
-    if not (os.path.exists(source_file) and os.path.exists(dest_file)):
-        print(f"⏭️  Omitido {feed_dir}: falta source.txt o feed.xml"); return
+def existing_keys_from_feed(xml: str) -> set:
+    return {item_key_from_xml(x) for x in findall_items(xml)}
 
-    with open(source_file, "r", encoding="utf-8") as f:
-        source_urls = [ln.strip() for ln in f if ln.strip()]
-    if not source_urls: print(f"ℹ️  {feed_dir}: source.txt vacío"); return
+def fetch_source_items(url: str):
+    try:
+        r = requests.get(url, timeout=20)
+        r.raise_for_status()
+        return findall_items(r.text)
+    except Exception as e:
+        print(f"[ERROR] No pude obtener {url}: {e}")
+        return []
 
-    with open(dest_file, "r", encoding="utf-8") as f:
-        dest_xml = f.read()
+def update_feed_dir(dir_path: str):
+    meta_file = os.path.join(dir_path, "feed_source.txt")
+    dest_file = os.path.join(dir_path, "feed.xml")
 
-    atom_link = find_attr(dest_xml, "atom:link", "href") or ""
-    feed_img  = find_attr(dest_xml, "itunes:image", "href") or ""
-    op3_prefix = find_tag_text(dest_xml, "op3")
+    if not os.path.exists(meta_file):
+        print(f"[WARN] No hay feed_source.txt en {dir_path}")
+        return
 
-    existing = existing_keys_from_feed(dest_xml)
-    new_items, sec_counter = [], 1
+    source_url = open(meta_file).read().strip()
+    if not source_url:
+        return
 
-    for url in source_urls:
-        try:
-            for raw_item in fetch_source_items(url):
-                key = item_key_from_xml(raw_item)
-                if key in existing: continue
-                title_inner = find_tag_text(raw_item, "title")
-                link_inner  = find_tag_text(raw_item, "link")
-                img = find_attr(raw_item, "itunes:image", "href") or find_attr(raw_item, "media:thumbnail", "url") or ""
-                desc_inner  = find_tag_text(raw_item, "description")
-                new_desc = process_description_block(
-                    strip_cdata(title_inner),
-                    strip_cdata(link_inner),
-                    img,
-                    desc_inner,
-                    feed_img
-                )
+    print(f"[INFO] Actualizando {dir_path} desde {source_url}")
 
-                sec_id = extract_unique_sec_id(raw_item, dest_xml, sec_counter)
-                new_item = replace_description(raw_item, new_desc, sec_id, atom_link)
+    # cargar destino
+    dest_xml = open(dest_file).read() if os.path.exists(dest_file) else "<rss><channel></channel></rss>"
 
-                # Prefix OP3
-                if op3_prefix:
-                    m = re.search(r'<enclosure\b([^>]*)url="([^"]+)"([^>]*)/>', new_item, flags=re.IGNORECASE)
-                    if m:
-                        new_url = op3_prefix.strip() + m.group(2)
-                        new_item = re.sub(
-                            r'(<enclosure\b[^>]*url=")[^"]+(")',
-                            rf'\1{new_url}\2',
-                            new_item, flags=re.IGNORECASE
-                        )
+    dest_items = findall_items(dest_xml)
+    existing_keys = {item_key_from_xml(x) for x in dest_items}
 
-                new_items.append(new_item)
-                existing.add(key)
-                sec_counter += 1
-        except Exception as e:
-            print(f"⚠️  Error leyendo {url}: {e}")
+    source_items = fetch_source_items(source_url)
 
-    if not new_items: print(f"= {feed_dir}: sin nuevos episodios"); return
+    counter = 1
+    for src_item in source_items:
+        key = item_key_from_xml(src_item)
+        if key in existing_keys:
+            continue
+        sec_id = extract_unique_sec_id(src_item, dest_xml, counter)
+        counter += 1
+        src_item = replace_description(src_item, sec_id, source_url)
+        dest_xml = re.sub(r"</channel>", src_item + "\n</channel>", dest_xml, flags=re.IGNORECASE)
 
-    insertion_block = "\n".join(new_items)
-    first_item = re.search(r"<item\b", dest_xml, flags=re.IGNORECASE)
-    updated_xml = (
-        dest_xml[:first_item.start()] + insertion_block + "\n" + dest_xml[first_item.start():]
-        if first_item else
-        re.sub(r"</channel>\s*$", insertion_block + "\n</channel>", dest_xml, flags=re.IGNORECASE | re.DOTALL)
-    )
-
-    with open(dest_file, "w", encoding="utf-8") as f: f.write(updated_xml)
-    print(f"✅ {feed_dir}: añadidos {len(new_items)} episodios nuevos")
-
-# -------------- main --------------
+    with open(dest_file, "w") as f:
+        f.write(dest_xml)
 
 def main():
-    base = os.path.join(os.getcwd(), "public")
-    if not os.path.isdir(base): print("❌ No existe la carpeta 'public'"); return
-    for name in os.listdir(base):
-        path = os.path.join(base, name)
-        if os.path.isdir(path): update_feed_dir(path)
+    base = os.getcwd()
+    for entry in os.listdir(base):
+        path = os.path.join(base, entry)
+        if os.path.isdir(path):
+            update_feed_dir(path)
 
 if __name__ == "__main__":
     main()
