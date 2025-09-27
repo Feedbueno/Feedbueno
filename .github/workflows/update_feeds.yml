@@ -2,7 +2,7 @@ name: Update Feeds
 
 on:
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: "0 0 26 * *"
   workflow_dispatch:         # para lanzarlo manualmente
 
 jobs:
@@ -31,4 +31,5 @@ jobs:
           git diff --cached --quiet || git commit -m "Auto-update feeds"
           git push
         env:
+
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
