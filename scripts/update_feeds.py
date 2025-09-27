@@ -34,13 +34,9 @@ def find_attr(xml: str, tag: str, attr: str):
 # -------------- utilidades para om:des --------------
 
 def escape_text_but_keep_tags(s: str) -> str:
-    """Escapa solo el texto, dejando intactas las etiquetas HTML."""
+    """Escapa solo el carácter &, dejando < y > tal cual (aunque no estén en etiquetas)."""
     def repl(m):
-        return (m.group(0)
-                .replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;"))
-    # Escapamos solo texto FUERA de etiquetas
+        return m.group(0).replace("&", "&amp;")
     return re.sub(r"([^<]+)(?=(?:[^<]*<|$))", lambda m: repl(m), s or "")
 
 def build_om_des(description_html: str) -> str:
