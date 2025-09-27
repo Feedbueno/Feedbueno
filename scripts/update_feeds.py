@@ -34,12 +34,13 @@ def find_attr(xml: str, tag: str, attr: str):
 # -------------- utilidades para om:des --------------
 
 def escape_text_but_keep_tags(s: str) -> str:
-    """Escapa solo el texto plano, manteniendo etiquetas HTML intactas."""
+    """Escapa solo el texto, dejando intactas las etiquetas HTML."""
     def repl(m):
         return (m.group(0)
                 .replace("&", "&amp;")
                 .replace("<", "&lt;")
                 .replace(">", "&gt;"))
+    # Escapamos solo texto FUERA de etiquetas
     return re.sub(r"([^<]+)(?=(?:[^<]*<|$))", lambda m: repl(m), s or "")
 
 def build_om_des(description_html: str) -> str:
@@ -48,29 +49,26 @@ def build_om_des(description_html: str) -> str:
     """
     inner = strip_cdata(description_html or "")
     parts = inner.split('<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />', 1)
-    if len(parts) == 2:
-        after_hr = parts[1]
-    else:
-        after_hr = inner
+    after_hr = parts[1] if len(parts) == 2 else inner
     escaped = escape_text_but_keep_tags(after_hr.strip())
     return f"<om:des><div>{escaped}</div></om:des>"
 
 # -------------- modificación de replace_description --------------
 
-def replace_description(item_xml: str, new_desc_html_cdata: str, sec_id: str, atom_link: str) -> str:
+def replace_description(item_xml: str, new_desc_html: str, sec_id: str, atom_link: str) -> str:
     """
     Reemplaza <description>, copia <content:encoded> si existe, añade/actualiza <om:des> y <om:sec>.
     """
     link = f"{atom_link}#{sec_id}" if atom_link else f"#{sec_id}"
-    inner_html = strip_cdata(new_desc_html_cdata)
-    # Insertar aviso antes del <hr>
-    inner_html_with_aviso = inner_html.replace(
+
+    # Añadir aviso en HTML puro
+    inner_html_with_aviso = new_desc_html.replace(
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />',
         f'<p>Si no ves las imágenes, entra en <a href="{link}">{link}</a></p>\n'
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
     )
 
-    # --- description con CDATA ---
+    # --- description con CDATA, sin escapar nada ---
     desc_cdata = enc_cdata(inner_html_with_aviso)
     if re.search(r"<description\b", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
@@ -90,10 +88,9 @@ def replace_description(item_xml: str, new_desc_html_cdata: str, sec_id: str, at
     # --- content:encoded ---
     orig_content = find_tag_text(item_xml, "content:encoded")
     if orig_content:
-        # se conserva tal cual del origen
+        # conservar tal cual
         pass
     else:
-        # si no existía, se asegura de no dejar rastro
         item_xml = re.sub(
             r"<content:encoded\b[^>]*>.*?</content:encoded>",
             "",
@@ -175,10 +172,8 @@ EMAIL_RE = re.compile(
 
 def transform_inline(text: str) -> str:
     text = EMAIL_RE.sub(r'<a href="mailto:\1">\1</a>', text)
-    def repl_image(m): return f'<a href="{m.group(1)}"><img src="{m.group(1)}" /></a>'
-    text = IMG_URL_RE.sub(repl_image, text)
-    def repl_link(m): return f'<a href="{m.group(1)}">{m.group(1)}</a>'
-    text = LINK_URL_RE.sub(repl_link, text)
+    text = IMG_URL_RE.sub(lambda m: f'<a href="{m.group(1)}"><img src="{m.group(1)}" /></a>', text)
+    text = LINK_URL_RE.sub(lambda m: f'<a href="{m.group(1)}">{m.group(1)}</a>', text)
     return text
 
 # -------------- listas --------------
