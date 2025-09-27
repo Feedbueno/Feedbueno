@@ -27,6 +27,19 @@ def find_tag_text(xml: str, tag: str):
     m = re.search(rf"<{tag}\b[^>]*>(.*?)</{tag}>", xml, flags=re.IGNORECASE | re.DOTALL)
     return m.group(1) if m else ""
 
+def find_attr(xml: str, tag: str, attr: str):
+    """
+    Busca un atributo dentro de una etiqueta en un XML.
+    Ejemplo: <atom:link href="https://ejemplo.com" />
+    find_attr(xml, "atom:link", "href") -> "https://ejemplo.com"
+    """
+    m = re.search(
+        rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"[^>]*/?>",
+        xml,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+    return m.group(1) if m else ""
+
 # -------------- utilidades para om:des --------------
 
 def escape_text_but_keep_tags(s: str) -> str:
