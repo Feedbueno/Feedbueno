@@ -175,45 +175,65 @@ def fetch_source_items(url: str):
         print(f"[ERROR] No pude obtener {url}: {e}")
         return []
 
-def update_feed_dir(dir_path: str):
-    meta_file = os.path.join(dir_path, "feed_source.txt")
-    dest_file = os.path.join(dir_path, "feed.xml")
+def update_feed_dir(feed_dir: str):
+    source_file = os.path.join(feed_dir, "source.txt")
+    dest_file   = os.path.join(feed_dir, "feed.xml")
 
-    if not os.path.exists(meta_file):
-        print(f"[WARN] No hay feed_source.txt en {dir_path}")
+    if not (os.path.exists(source_file) and os.path.exists(dest_file)):
+        print(f"⏭️  Omitido {feed_dir}: falta source.txt o feed.xml")
         return
 
-    source_url = open(meta_file).read().strip()
-    if not source_url:
+    with open(source_file, "r", encoding="utf-8") as f:
+        source_urls = [ln.strip() for ln in f if ln.strip()]
+    if not source_urls:
+        print(f"ℹ️  {feed_dir}: source.txt vacío")
         return
 
-    print(f"[INFO] Actualizando {dir_path} desde {source_url}")
+    with open(dest_file, "r", encoding="utf-8") as f:
+        dest_xml = f.read()
 
-    # cargar destino
-    dest_xml = open(dest_file).read() if os.path.exists(dest_file) else "<rss><channel></channel></rss>"
+    atom_link = find_attr(dest_xml, "atom:link", "href") or ""
+    existing = existing_keys_from_feed(dest_xml)
+    new_items, sec_counter = [], 1
 
-    dest_items = findall_items(dest_xml)
-    existing_keys = {item_key_from_xml(x) for x in dest_items}
+    for url in source_urls:
+        try:
+            for raw_item in fetch_source_items(url):
+                key = item_key_from_xml(raw_item)
+                if key in existing:
+                    continue
+                sec_id = extract_unique_sec_id(raw_item, dest_xml, sec_counter)
+                sec_counter += 1
+                new_item = replace_description(raw_item, sec_id, atom_link)
+                new_items.append(new_item)
+                existing.add(key)
+        except Exception as e:
+            print(f"⚠️  Error leyendo {url}: {e}")
 
-    source_items = fetch_source_items(source_url)
+    if not new_items:
+        print(f"= {feed_dir}: sin nuevos episodios")
+        return
 
-    counter = 1
-    for src_item in source_items:
-        key = item_key_from_xml(src_item)
-        if key in existing_keys:
-            continue
-        sec_id = extract_unique_sec_id(src_item, dest_xml, counter)
-        counter += 1
-        src_item = replace_description(src_item, sec_id, source_url)
-        dest_xml = re.sub(r"</channel>", src_item + "\n</channel>", dest_xml, flags=re.IGNORECASE)
+    insertion_block = "\n".join(new_items)
+    first_item = re.search(r"<item\b", dest_xml, flags=re.IGNORECASE)
+    updated_xml = (
+        dest_xml[:first_item.start()] + insertion_block + "\n" + dest_xml[first_item.start():]
+        if first_item else
+        re.sub(r"</channel>\s*$", insertion_block + "\n</channel>", dest_xml, flags=re.IGNORECASE | re.DOTALL)
+    )
 
-    with open(dest_file, "w") as f:
-        f.write(dest_xml)
+    with open(dest_file, "w", encoding="utf-8") as f:
+        f.write(updated_xml)
+
+    print(f"✅ {feed_dir}: añadidos {len(new_items)} episodios nuevos")
 
 def main():
-    base = os.getcwd()
-    for entry in os.listdir(base):
-        path = os.path.join(base, entry)
+    base = os.path.join(os.getcwd(), "public")
+    if not os.path.isdir(base):
+        print("❌ No existe la carpeta 'public'")
+        return
+    for name in os.listdir(base):
+        path = os.path.join(base, name)
         if os.path.isdir(path):
             update_feed_dir(path)
 
