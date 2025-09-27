@@ -28,17 +28,115 @@ def find_tag_text(xml: str, tag: str):
     return m.group(1) if m else ""
 
 def find_attr(xml: str, tag: str, attr: str):
-    """
-    Busca atributo en una etiqueta, p.ej. find_attr(xml, "atom:link", "href")
-    """
-    m = re.search(
-        rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"[^>]*/?>",
-        xml,
-        flags=re.IGNORECASE | re.DOTALL
-    )
+    m = re.search(rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"[^>]*/?>", xml, flags=re.IGNORECASE | re.DOTALL)
     return m.group(1) if m else ""
 
-# -------------- helpers para mantener HTML mixto --------------
+# -------------- utilidades para om:des --------------
+
+def escape_text_but_keep_tags(s: str) -> str:
+    """Escapa solo el texto plano, manteniendo etiquetas HTML intactas."""
+    def repl(m):
+        return (m.group(0)
+                .replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;"))
+    return re.sub(r"([^<]+)(?=(?:[^<]*<|$))", lambda m: repl(m), s or "")
+
+def build_om_des(description_html: str) -> str:
+    """
+    Extrae contenido desde el <hr .../> en adelante y lo mete en <om:des><div>...</div></om:des>.
+    """
+    inner = strip_cdata(description_html or "")
+    parts = inner.split('<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />', 1)
+    if len(parts) == 2:
+        after_hr = parts[1]
+    else:
+        after_hr = inner
+    escaped = escape_text_but_keep_tags(after_hr.strip())
+    return f"<om:des><div>{escaped}</div></om:des>"
+
+# -------------- modificación de replace_description --------------
+
+def replace_description(item_xml: str, new_desc_html_cdata: str, sec_id: str, atom_link: str) -> str:
+    """
+    Reemplaza <description>, copia <content:encoded> si existe, añade/actualiza <om:des> y <om:sec>.
+    """
+    link = f"{atom_link}#{sec_id}" if atom_link else f"#{sec_id}"
+    inner_html = strip_cdata(new_desc_html_cdata)
+    # Insertar aviso antes del <hr>
+    inner_html_with_aviso = inner_html.replace(
+        '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />',
+        f'<p>Si no ves las imágenes, entra en <a href="{link}">{link}</a></p>\n'
+        '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
+    )
+
+    # --- description con CDATA ---
+    desc_cdata = enc_cdata(inner_html_with_aviso)
+    if re.search(r"<description\b", item_xml, flags=re.IGNORECASE):
+        item_xml = re.sub(
+            r"<description\b[^>]*>.*?</description>",
+            f"<description>{desc_cdata}</description>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+    else:
+        item_xml = re.sub(
+            r"</item>\s*$",
+            f"<description>{desc_cdata}</description>\n</item>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+
+    # --- content:encoded ---
+    orig_content = find_tag_text(item_xml, "content:encoded")
+    if orig_content:
+        # se conserva tal cual del origen
+        pass
+    else:
+        # si no existía, se asegura de no dejar rastro
+        item_xml = re.sub(
+            r"<content:encoded\b[^>]*>.*?</content:encoded>",
+            "",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+
+    # --- om:des ---
+    om_des = build_om_des(inner_html_with_aviso)
+    if re.search(r"<om:des>", item_xml, flags=re.IGNORECASE):
+        item_xml = re.sub(
+            r"<om:des\b[^>]*>.*?</om:des>",
+            om_des,
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+    else:
+        item_xml = re.sub(
+            r"</item>\s*$",
+            f"{om_des}\n</item>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+
+    # --- om:sec ---
+    if re.search(r"<om:sec>", item_xml, flags=re.IGNORECASE):
+        item_xml = re.sub(
+            r"<om:sec\b[^>]*>.*?</om:sec>",
+            f"<om:sec>{sec_id}</om:sec>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+    else:
+        item_xml = re.sub(
+            r"</item>\s*$",
+            f"<om:sec>{sec_id}</om:sec>\n</item>",
+            item_xml,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+
+    return item_xml
+
+# -------------- helpers HTML mixto --------------
 
 TOKEN_RE = re.compile(r"\[\[BLOCK(\d+)\]\]")
 
@@ -47,7 +145,7 @@ def protect_blocks(html_text: str):
     def _store(m):
         tokens.append(m.group(0))
         return f"[[BLOCK{len(tokens)-1}]]"
-    t = html_text or ""
+    t = html_text
     t = re.sub(r"<ol\b[^>]*>.*?</ol>", _store, t, flags=re.IGNORECASE | re.DOTALL)
     t = re.sub(r"<ul\b[^>]*>.*?</ul>", _store, t, flags=re.IGNORECASE | re.DOTALL)
     t = re.sub(r"<a\b[^>]*>.*?</a>", _store, t, flags=re.IGNORECASE | re.DOTALL)
@@ -61,7 +159,7 @@ def unprotect_blocks(text: str, tokens):
         return tokens[idx] if 0 <= idx < len(tokens) else m.group(0)
     return TOKEN_RE.sub(replace_token, text)
 
-# -------------- transformaciones inline --------------
+# -------------- enriquecidos inline --------------
 
 IMG_URL_RE = re.compile(
     r'(?<!href=")(https?://[^\s<>"\']+\.(?:jpg|jpeg|png|gif|webp)(?:\?[^\s<>"\']*)?)',
@@ -76,8 +174,6 @@ EMAIL_RE = re.compile(
 )
 
 def transform_inline(text: str) -> str:
-    if not text:
-        return ""
     text = EMAIL_RE.sub(r'<a href="mailto:\1">\1</a>', text)
     def repl_image(m): return f'<a href="{m.group(1)}"><img src="{m.group(1)}" /></a>'
     text = IMG_URL_RE.sub(repl_image, text)
@@ -85,7 +181,7 @@ def transform_inline(text: str) -> str:
     text = LINK_URL_RE.sub(repl_link, text)
     return text
 
-# -------------- listas / reconstrucción --------------
+# -------------- listas --------------
 
 NUM_LIST_LINE = re.compile(r"^(\d+)\s*([)\.\-])\s+(.*)$")
 UL_LIST_LINE = re.compile(r"^[-*•]\s+(.*)$")
@@ -124,23 +220,18 @@ def detect_lists_from_lines(lines):
         i += 1
     return "\n".join(out)
 
-# -------------- process_description_block (compatible con variantes) --------------
+# -------------- descripción híbrida --------------
 
 def process_description_block(title_txt: str, link_txt: str, image_url: str,
-                              description_inner: str, feed_img: str = None) -> str:
+                              description_inner: str, feed_img: str) -> str:
     """
-    Devuelve el HTML combinado (header + body) como cadena sin CDATA.
-    Esta firma es la esperada por update_iniciativas.py; update_iniciativas
-    usa try_call para intentar variantes y mantener compatibilidad.
+    Devuelve el HTML combinado (header + body) como cadena sin CDATA,
+    para que replace_description se encargue de generar description y om:des.
     """
     header = ""
     if title_txt: header += f"<h3>{title_txt}</h3>\n"
-    if image_url and link_txt and feed_img is not None and image_url != feed_img:
+    if image_url and link_txt and image_url != feed_img:
         header += f'<a href="{link_txt}"><img src="{image_url}" /></a>\n'
-    elif image_url and link_txt and feed_img is None:
-        # variante donde no se pasa feed_img: igualmente añadimos la imagen
-        header += f'<a href="{link_txt}"><img src="{image_url}" /></a>\n'
-
     header += '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />\n'
 
     body = strip_cdata(description_inner or "")
@@ -155,206 +246,59 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str,
 
     return header + rebuilt
 
-# -------------- util para om:des --------------
+# -------------- claves / fetch --------------
 
-def escape_text_but_keep_tags(s: str) -> str:
-    """Escapa &, <, > pero intenta no romper etiquetas simples."""
-    if not s:
-        return ""
-    s = s.replace("&", "&amp;")
-    s = s.replace("<", "&lt;").replace(">", "&gt;")
-    # revertir etiquetas simples <tag ...> y </tag>
-    s = re.sub(r"&lt;(/?\w+[^&]*)&gt;", r"<\1>", s)
-    return s
-
-# -------------- replace_description (compatible con múltiples firmas) --------------
-
-def replace_description(item_xml: str, *args):
-    """
-    Flexible:
-      - replace_description(item_xml, new_desc_html, sec_id, atom_link)
-      - replace_description(item_xml, new_desc_html)
-      - replace_description(item_xml, sec_id, atom_link)
-    Detecta qué se le pasó y actúa:
-      - Si recibe new_desc (parece HTML), lo usa para reemplazar <description>.
-      - Si no recibe new_desc, usa la descripción original del item.
-    No crea content:encoded; respeta el content:encoded existente.
-    """
-    # interpretar args
-    new_desc = None
-    sec_id = None
-    atom_link = ""
-
-    # heurística: si el segundo argumento contiene '<' o 'hr' lo tratamos como new_desc
-    if len(args) == 0:
-        # nada pasado: no modificamos
-        return item_xml
-    if len(args) == 1:
-        a = args[0]
-        # si parece HTML -> new_desc; si parece sec_id -> sec_id
-        if isinstance(a, str) and ("<" in a or "hr" in a or "<h" in a or "<p" in a):
-            new_desc = a
-        else:
-            sec_id = str(a)
-    elif len(args) == 2:
-        a, b = args
-        # caso probable: (new_desc, sec_id) OR (sec_id, atom_link)
-        if isinstance(a, str) and ("<" in a or "hr" in a or "<h" in a or "<p" in a):
-            new_desc = a
-            sec_id = str(b)
-        else:
-            sec_id = str(a)
-            atom_link = str(b) if b is not None else ""
-    elif len(args) >= 3:
-        a, b, c = args[:3]
-        if isinstance(a, str) and ("<" in a or "hr" in a or "<h" in a or "<p" in a):
-            new_desc = a
-            sec_id = str(b)
-            atom_link = str(c) if c is not None else ""
-        else:
-            # fallback: assume (sec_id, atom_link, ...)
-            sec_id = str(a)
-            atom_link = str(b) if b is not None else ""
-
-    # Si sec_id sigue siendo None, intentar extraer om:sec del item
-    if not sec_id:
-        existing = strip_cdata(find_tag_text(item_xml, "om:sec"))
-        sec_id = existing or ""
-
-    link = f"{atom_link}#{sec_id}" if atom_link else f"#{sec_id}" if sec_id else "#"
-
-    # si new_desc está dado, usarlo; si no, usar la descripción original del item
-    if new_desc:
-        inner_html = strip_cdata(new_desc)
-    else:
-        inner_html = strip_cdata(find_tag_text(item_xml, "description"))
-
-    # Aviso antes del <hr>
-    inner_html_with_aviso = inner_html.replace(
-        '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />',
-        f'<p>Si no ves las imágenes, entra en <a href="{link}">{link}</a></p>\n'
-        '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
-    )
-
-    # Reemplazar <description> con CDATA del inner_html_with_aviso
-    desc_cdata = enc_cdata(inner_html_with_aviso)
-    if re.search(r"<description\b", item_xml, flags=re.IGNORECASE):
-        item_xml = re.sub(
-            r"<description\b[^>]*>.*?</description>",
-            f"<description>{desc_cdata}</description>",
-            item_xml,
-            flags=re.IGNORECASE | re.DOTALL
-        )
-    else:
-        item_xml = re.sub(
-            r"</item>\s*$",
-            f"<description>{desc_cdata}</description>\n</item>",
-            item_xml,
-            flags=re.IGNORECASE | re.DOTALL
-        )
-
-    # Extraer la parte después del <hr> para om:des (usamos inner_html original, no el aviso)
-    parts = inner_html.split('<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />', 1)
-    extra_part = parts[1] if len(parts) > 1 else ""
-    extra_part_escaped = escape_text_but_keep_tags(extra_part.strip())
-    om_des_tag = f"<om:des><div>{extra_part_escaped}</div></om:des>"
-
-    if re.search(r"<om:des\b", item_xml, flags=re.IGNORECASE):
-        item_xml = re.sub(
-            r"<om:des\b[^>]*>.*?</om:des>",
-            om_des_tag,
-            item_xml,
-            flags=re.IGNORECASE | re.DOTALL
-        )
-    else:
-        item_xml = re.sub(
-            r"</item>\s*$",
-            f"{om_des_tag}\n</item>",
-            item_xml,
-            flags=re.IGNORECASE | re.DOTALL
-        )
-
-    # Añadir/reemplazar om:sec si sec_id presente
-    if sec_id:
-        if re.search(r"<om:sec\b", item_xml, flags=re.IGNORECASE):
-            item_xml = re.sub(
-                r"<om:sec\b[^>]*>.*?</om:sec>",
-                f"<om:sec>{sec_id}</om:sec>",
-                item_xml,
-                flags=re.IGNORECASE | re.DOTALL
-            )
-        else:
-            item_xml = re.sub(
-                r"</item>\s*$",
-                f"<om:sec>{sec_id}</om:sec>\n</item>",
-                item_xml,
-                flags=re.IGNORECASE | re.DOTALL
-            )
-
-    # Respetamos cualquier <content:encoded> que ya exista en item_xml (no lo tocamos)
-
-    return item_xml
-
-# -------------- generación de om:sec --------------
-
-def extract_unique_sec_id(item_xml: str, dest_xml: str, fallback_counter: int) -> str:
-    # 0. Respetar si ya existe om:sec en el ítem de origen
-    existing_sec = strip_cdata(find_tag_text(item_xml, "om:sec"))
-    if existing_sec:
-        candidate = existing_sec
-    else:
-        # 1. Usar season y episode si existen
-        season = strip_cdata(find_tag_text(item_xml, "itunes:season"))
-        episode = strip_cdata(find_tag_text(item_xml, "itunes:episode"))
-        if season and episode:
-            candidate = f"s{season}e{episode}"
-        else:
-            # 2. Buscar número en título o descripción (solo el número)
-            title = strip_cdata(find_tag_text(item_xml, "title"))
-            desc = strip_cdata(find_tag_text(item_xml, "description"))
-            m = re.search(r"\d+", title or "") or re.search(r"\d+", desc or "")
-            candidate = m.group(0) if m else str(fallback_counter)
-
-    # 3. Evitar colisiones (con otros om:sec ya en dest_xml)
-    existing_secs = set(re.findall(r"<om:sec>(.*?)</om:sec>", dest_xml, flags=re.IGNORECASE))
-    while candidate in existing_secs:
-        if candidate.isdigit():
-            candidate = str(int(candidate) + 1)
-        else:
-            candidate = candidate + "_x"
-
-    return candidate
-
-# -------------------- utilidades de feed --------------------
+def normalize_inner(t: str) -> str:
+    t = strip_cdata(t or "")
+    return re.sub(r"\s+", " ", t).strip().lower()
 
 def item_key_from_xml(item_xml: str) -> str:
-    guid = strip_cdata(find_tag_text(item_xml, "guid"))
-    if guid:
-        return "guid:" + guid
-    link = strip_cdata(find_tag_text(item_xml, "link"))
-    if link:
-        return "link:" + link
-    title = strip_cdata(find_tag_text(item_xml, "title"))
-    pub = strip_cdata(find_tag_text(item_xml, "pubDate"))
+    guid = normalize_inner(find_tag_text(item_xml, "guid"))
+    if guid: return "guid:" + guid
+    link = normalize_inner(find_tag_text(item_xml, "link"))
+    if link: return "link:" + link
+    title = normalize_inner(find_tag_text(item_xml, "title"))
+    pub = normalize_inner(find_tag_text(item_xml, "pubDate"))
     return "tp:" + title + "|" + pub
 
 def existing_keys_from_feed(xml: str) -> set:
-    return {item_key_from_xml(x) for x in findall_items(xml)}
+    return {item_key_from_xml(it) for it in findall_items(xml)}
 
 def fetch_source_items(url: str) -> list:
     r = requests.get(url, timeout=20, headers={"User-Agent": "FeedbuenoUpdater/1.0"})
     r.raise_for_status()
     return findall_items(r.text)
 
-# -------------- actualización por carpeta (usa source.txt / feed.xml) --------------
+# -------------- generación de om:sec --------------
+
+def extract_unique_sec_id(item_xml: str, dest_xml: str, fallback_counter: int) -> str:
+    season = strip_cdata(find_tag_text(item_xml, "itunes:season"))
+    episode = strip_cdata(find_tag_text(item_xml, "itunes:episode"))
+    if season and episode:
+        candidate = f"s{season}e{episode}"
+    else:
+        title = strip_cdata(find_tag_text(item_xml, "title"))
+        desc = strip_cdata(find_tag_text(item_xml, "description"))
+        m = re.search(r"\d+", title or "") or re.search(r"\d+", desc or "")
+        candidate = m.group(0) if m else None
+
+    if not candidate:
+        candidate = str(fallback_counter)
+
+    existing_secs = set(re.findall(r"<om:sec>(.*?)</om:sec>", dest_xml, flags=re.IGNORECASE))
+    while candidate in existing_secs:
+        candidate = str(int(candidate) + 1) if candidate.isdigit() else candidate + "_x"
+
+    return candidate
+
+# -------------- actualización --------------
 
 def update_feed_dir(feed_dir: str):
     source_file = os.path.join(feed_dir, "source.txt")
     dest_file   = os.path.join(feed_dir, "feed.xml")
 
     if not (os.path.exists(source_file) and os.path.exists(dest_file)):
-        print(f"⏭️  Omitido {feed_dir}: falta source.txt o feed.xml")
-        return
+        print(f"⏭️  Omitido {feed_dir}: falta source.txt o feed.xml"); return
 
     with open(source_file, "r", encoding="utf-8") as f:
         source_urls = [ln.strip() for ln in f if ln.strip()]
@@ -364,6 +308,9 @@ def update_feed_dir(feed_dir: str):
         dest_xml = f.read()
 
     atom_link = find_attr(dest_xml, "atom:link", "href") or ""
+    feed_img  = find_attr(dest_xml, "itunes:image", "href") or ""
+    op3_prefix = find_tag_text(dest_xml, "op3")
+
     existing = existing_keys_from_feed(dest_xml)
     new_items, sec_counter = [], 1
 
@@ -372,14 +319,35 @@ def update_feed_dir(feed_dir: str):
             for raw_item in fetch_source_items(url):
                 key = item_key_from_xml(raw_item)
                 if key in existing: continue
+                title_inner = find_tag_text(raw_item, "title")
+                link_inner  = find_tag_text(raw_item, "link")
+                img = find_attr(raw_item, "itunes:image", "href") or find_attr(raw_item, "media:thumbnail", "url") or ""
+                desc_inner  = find_tag_text(raw_item, "description")
+                new_desc = process_description_block(
+                    strip_cdata(title_inner),
+                    strip_cdata(link_inner),
+                    img,
+                    desc_inner,
+                    feed_img
+                )
+
                 sec_id = extract_unique_sec_id(raw_item, dest_xml, sec_counter)
-                sec_counter += 1
-                # no llamamos a process_description_block aquí; quien llame (update_iniciativas)
-                # puede hacerlo y pasar new_desc a replace_description. Para el flujo normal
-                # usamos la descripción original del item.
-                new_item = replace_description(raw_item, sec_id, atom_link)
+                new_item = replace_description(raw_item, new_desc, sec_id, atom_link)
+
+                # Prefix OP3
+                if op3_prefix:
+                    m = re.search(r'<enclosure\b([^>]*)url="([^"]+)"([^>]*)/>', new_item, flags=re.IGNORECASE)
+                    if m:
+                        new_url = op3_prefix.strip() + m.group(2)
+                        new_item = re.sub(
+                            r'(<enclosure\b[^>]*url=")[^"]+(")',
+                            rf'\1{new_url}\2',
+                            new_item, flags=re.IGNORECASE
+                        )
+
                 new_items.append(new_item)
                 existing.add(key)
+                sec_counter += 1
         except Exception as e:
             print(f"⚠️  Error leyendo {url}: {e}")
 
@@ -400,9 +368,7 @@ def update_feed_dir(feed_dir: str):
 
 def main():
     base = os.path.join(os.getcwd(), "public")
-    if not os.path.isdir(base):
-        print("❌ No existe la carpeta 'public'")
-        return
+    if not os.path.isdir(base): print("❌ No existe la carpeta 'public'"); return
     for name in os.listdir(base):
         path = os.path.join(base, name)
         if os.path.isdir(path): update_feed_dir(path)
