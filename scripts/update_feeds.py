@@ -31,40 +31,34 @@ def find_attr(xml: str, tag: str, attr: str):
     m = re.search(rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"[^>]*/?>", xml, flags=re.IGNORECASE | re.DOTALL)
     return m.group(1) if m else ""
 
-# -------------- utilidades para om:des --------------
+# -------------- utilidades para content:encoded --------------
 
-def escape_text_but_keep_tags(s: str) -> str:
-    """Escapa solo el carácter &, dejando < y > tal cual (aunque no estén en etiquetas)."""
-    def repl(m):
-        return m.group(0).replace("&", "&amp;")
-    return re.sub(r"([^<]+)(?=(?:[^<]*<|$))", lambda m: repl(m), s or "")
-
-def build_om_des(description_html: str) -> str:
-    """
-    Extrae contenido desde el <hr .../> en adelante y lo mete en <om:des><div>...</div></om:des>.
-    """
-    inner = strip_cdata(description_html or "")
-    parts = inner.split('<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />', 1)
-    after_hr = parts[1] if len(parts) == 2 else inner
-    escaped = escape_text_but_keep_tags(after_hr.strip())
-    return f"<om:des><div>{escaped}</div></om:des>"
+def escape_for_xml(s: str) -> str:
+    """Escapa &, <, > para poner HTML dentro de XML sin CDATA"""
+    if s is None: return ""
+    return (
+        s.replace("&", "&amp;")
+         .replace("<", "&lt;")
+         .replace(">", "&gt;")
+    )
 
 # -------------- modificación de replace_description --------------
 
-def replace_description(item_xml: str, new_desc_html: str, sec_id: str, atom_link: str) -> str:
+def replace_description(item_xml: str, new_desc_html_cdata: str, sec_id: str, atom_link: str) -> str:
     """
-    Reemplaza <description>, copia <content:encoded> si existe, añade/actualiza <om:des> y <om:sec>.
+    Reemplaza <description> con CDATA y <content:encoded> con HTML escapado (sin CDATA).
+    También añade <om:sec> y el aviso 'Si no ves las imágenes...'.
     """
     link = f"{atom_link}#{sec_id}" if atom_link else f"#{sec_id}"
-
-    # Añadir aviso en HTML puro
-    inner_html_with_aviso = new_desc_html.replace(
+    inner_html = strip_cdata(new_desc_html_cdata)
+    # Aviso antes del <hr>
+    inner_html_with_aviso = inner_html.replace(
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />',
         f'<p>Si no ves las imágenes, entra en <a href="{link}">{link}</a></p>\n'
         '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
     )
 
-    # --- description con CDATA, sin escapar nada ---
+    # description con CDATA
     desc_cdata = enc_cdata(inner_html_with_aviso)
     if re.search(r"<description\b", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
@@ -81,45 +75,26 @@ def replace_description(item_xml: str, new_desc_html: str, sec_id: str, atom_lin
             flags=re.IGNORECASE | re.DOTALL
         )
 
-    # --- content:encoded ---
-    orig_content = find_tag_text(item_xml, "content:encoded")
-    if orig_content:
-        # conservar tal cual
-        pass
-    else:
+    # content:encoded con HTML escapado (sin CDATA)
+    content_text = escape_for_xml(inner_html_with_aviso)
+    content_tag = f'<content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/">{content_text}</content:encoded>'
+    if re.search(r"<content:encoded\b", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
             r"<content:encoded\b[^>]*>.*?</content:encoded>",
-            "",
-            item_xml,
-            flags=re.IGNORECASE | re.DOTALL
-        )
-
-    # --- om:des ---
-    om_des = build_om_des(inner_html_with_aviso)
-    if re.search(r"<om:des>", item_xml, flags=re.IGNORECASE):
-        item_xml = re.sub(
-            r"<om:des\b[^>]*>.*?</om:des>",
-            om_des,
+            content_tag,
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
     else:
         item_xml = re.sub(
             r"</item>\s*$",
-            f"{om_des}\n</item>",
+            f"{content_tag}\n</item>",
             item_xml,
             flags=re.IGNORECASE | re.DOTALL
         )
 
-    # --- om:sec ---
-    if re.search(r"<om:sec>", item_xml, flags=re.IGNORECASE):
-        item_xml = re.sub(
-            r"<om:sec\b[^>]*>.*?</om:sec>",
-            f"<om:sec>{sec_id}</om:sec>",
-            item_xml,
-            flags=re.IGNORECASE | re.DOTALL
-        )
-    else:
+    # añadir om:sec si no existe
+    if not re.search(r"<om:sec>", item_xml, flags=re.IGNORECASE):
         item_xml = re.sub(
             r"</item>\s*$",
             f"<om:sec>{sec_id}</om:sec>\n</item>",
@@ -168,8 +143,10 @@ EMAIL_RE = re.compile(
 
 def transform_inline(text: str) -> str:
     text = EMAIL_RE.sub(r'<a href="mailto:\1">\1</a>', text)
-    text = IMG_URL_RE.sub(lambda m: f'<a href="{m.group(1)}"><img src="{m.group(1)}" /></a>', text)
-    text = LINK_URL_RE.sub(lambda m: f'<a href="{m.group(1)}">{m.group(1)}</a>', text)
+    def repl_image(m): return f'<a href="{m.group(1)}"><img src="{m.group(1)}" /></a>'
+    text = IMG_URL_RE.sub(repl_image, text)
+    def repl_link(m): return f'<a href="{m.group(1)}">{m.group(1)}</a>'
+    text = LINK_URL_RE.sub(repl_link, text)
     return text
 
 # -------------- listas --------------
@@ -217,7 +194,7 @@ def process_description_block(title_txt: str, link_txt: str, image_url: str,
                               description_inner: str, feed_img: str) -> str:
     """
     Devuelve el HTML combinado (header + body) como cadena sin CDATA,
-    para que replace_description se encargue de generar description y om:des.
+    para que replace_description se encargue de generar description y content:encoded.
     """
     header = ""
     if title_txt: header += f"<h3>{title_txt}</h3>\n"
@@ -263,19 +240,23 @@ def fetch_source_items(url: str) -> list:
 # -------------- generación de om:sec --------------
 
 def extract_unique_sec_id(item_xml: str, dest_xml: str, fallback_counter: int) -> str:
+    # 1. Si hay season y episode
     season = strip_cdata(find_tag_text(item_xml, "itunes:season"))
     episode = strip_cdata(find_tag_text(item_xml, "itunes:episode"))
     if season and episode:
         candidate = f"s{season}e{episode}"
     else:
+        # 2. Buscar número en título o descripción
         title = strip_cdata(find_tag_text(item_xml, "title"))
         desc = strip_cdata(find_tag_text(item_xml, "description"))
         m = re.search(r"\d+", title or "") or re.search(r"\d+", desc or "")
         candidate = m.group(0) if m else None
 
+    # 3. Si no hay nada, inventar número
     if not candidate:
         candidate = str(fallback_counter)
 
+    # Evitar colisiones con otros <om:sec>
     existing_secs = set(re.findall(r"<om:sec>(.*?)</om:sec>", dest_xml, flags=re.IGNORECASE))
     while candidate in existing_secs:
         candidate = str(int(candidate) + 1) if candidate.isdigit() else candidate + "_x"
