@@ -232,3 +232,99 @@ def main():
 
 if __name__ == '__main__':
     main()
+    # =========================================================
+# Capa de compatibilidad para scripts antiguos como
+# update_iniciativas.py
+# =========================================================
+
+def strip_cdata(text: str) -> str:
+    if not text:
+        return ""
+    return text.replace("<![CDATA[", "").replace("]]>", "")
+
+def find_tag_text(xml_or_str, tag: str) -> str:
+    """Devuelve el texto de la primera etiqueta <tag> encontrada."""
+    if isinstance(xml_or_str, str):
+        try:
+            root = parse_xml(xml_or_str.encode("utf-8"))
+        except Exception:
+            return ""
+    else:
+        root = xml_or_str
+    elem = root.find(f".//{tag}", namespaces=NS)
+    return elem.text if elem is not None else ""
+
+def find_attr(xml_or_str, tag: str, attr: str) -> str:
+    """Devuelve el valor de un atributo en un tag."""
+    if isinstance(xml_or_str, str):
+        try:
+            root = parse_xml(xml_or_str.encode("utf-8"))
+        except Exception:
+            return ""
+    else:
+        root = xml_or_str
+    elem = root.find(f".//{tag}", namespaces=NS)
+    return elem.get(attr) if elem is not None and elem.get(attr) else ""
+
+def existing_keys_from_feed(xml_str: str):
+    """Extrae las GUIDs o links de items ya presentes en un feed destino."""
+    try:
+        root = parse_xml(xml_str.encode("utf-8"))
+    except Exception:
+        return set()
+    keys = set()
+    for it in root.findall(".//item"):
+        guid = it.findtext("guid") or it.findtext("link") or ""
+        if guid:
+            keys.add(guid)
+    return keys
+
+def item_key_from_xml(item_xml: str):
+    """Devuelve la key única (guid o link) de un item XML en string."""
+    try:
+        root = parse_xml(item_xml.encode("utf-8"))
+    except Exception:
+        return ""
+    guid = root.findtext(".//guid") or root.findtext(".//link") or ""
+    return guid
+
+def fetch_source_items(url: str):
+    """Descarga un feed y devuelve la lista de items en bruto (XML string)."""
+    xml_bytes = fetch_feed(url)
+    root = parse_xml(xml_bytes)
+    items = []
+    for it in root.findall(".//item"):
+        items.append(etree.tostring(it, encoding="unicode"))
+    return items
+
+def process_description_block(title, link, image, desc, feed_image="", atom_link="", sec_id=""):
+    """
+    Crea un nuevo bloque description según reglas.
+    Compatibilidad para update_iniciativas.py
+    """
+    dummy_item = etree.Element("item")
+    etree.SubElement(dummy_item, "title").text = title
+    etree.SubElement(dummy_item, "link").text = link
+    etree.SubElement(dummy_item, "description").text = desc
+
+    return make_description(
+        dummy_item,
+        None,
+        desc,
+        feed_image,
+        atom_link,
+        sec_id
+    )
+
+def replace_description(item_xml: str, new_desc: str, sec_id="", atom_link=""):
+    """
+    Sustituye la description en un item XML (string).
+    Compatibilidad para update_iniciativas.py
+    """
+    try:
+        root = parse_xml(item_xml.encode("utf-8"))
+    except Exception:
+        return item_xml
+    desc_elem = root.find("description")
+    if desc_elem is None:
+        desc_elem = etree.Element("
