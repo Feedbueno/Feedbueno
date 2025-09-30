@@ -20,15 +20,17 @@ import re
 from lxml import etree
 from pathlib import Path
 from html import escape, unescape
-from bs4 import BeautifulSoup, NavigableString, Tag
+from bs4 import BeautifulSoup, NavigableString
 
 NS = {
     'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd',
     'atom': 'http://www.w3.org/2005/Atom',
-    'om': 'http://example.org/om',  # ⚠️ cambia si tienes namespace real
+    'om': 'http://example.org/om',  # ⚠️ Cambia si tienes namespace real
 }
 
 HR_HTML = '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
+
+# ======================== Funciones principales ========================
 
 def find_feeds(base='public'):
     return [p for p in glob.glob(f'{base}/**/feeds.xml', recursive=True)]
@@ -97,6 +99,8 @@ def strip_op3(url):
     m = re.search(r'https?://', url)
     return url[m.start():] if m else url
 
+# ---------------- Description processing ----------------
+
 def process_description_body(text):
     """Convierte texto plano a HTML respetando HTML existente."""
     if not text:
@@ -105,7 +109,6 @@ def process_description_body(text):
     soup = BeautifulSoup(text, "html.parser")
     for node in soup.descendants:
         if isinstance(node, NavigableString):
-            parent = node.parent
             raw = str(node)
             if not raw.strip():
                 continue
@@ -158,6 +161,8 @@ def add_om_des(item_elem, description_html):
     div.text = escape(description_html, quote=False)
     new.append(div)
     item_elem.append(new)
+
+# ---------------- Feed processing ----------------
 
 def process_feed(destination_path, source_list):
     dest_bytes = Path(destination_path).read_bytes()
@@ -230,12 +235,7 @@ def main():
             continue
         process_feed(t, srcs)
 
-if __name__ == '__main__':
-    main()
-    # =========================================================
-# Capa de compatibilidad para scripts antiguos como
-# update_iniciativas.py
-# =========================================================
+# ======================== Capa de compatibilidad ========================
 
 def strip_cdata(text: str) -> str:
     if not text:
@@ -243,7 +243,6 @@ def strip_cdata(text: str) -> str:
     return text.replace("<![CDATA[", "").replace("]]>", "")
 
 def find_tag_text(xml_or_str, tag: str) -> str:
-    """Devuelve el texto de la primera etiqueta <tag> encontrada."""
     if isinstance(xml_or_str, str):
         try:
             root = parse_xml(xml_or_str.encode("utf-8"))
@@ -255,7 +254,6 @@ def find_tag_text(xml_or_str, tag: str) -> str:
     return elem.text if elem is not None else ""
 
 def find_attr(xml_or_str, tag: str, attr: str) -> str:
-    """Devuelve el valor de un atributo en un tag."""
     if isinstance(xml_or_str, str):
         try:
             root = parse_xml(xml_or_str.encode("utf-8"))
@@ -267,7 +265,6 @@ def find_attr(xml_or_str, tag: str, attr: str) -> str:
     return elem.get(attr) if elem is not None and elem.get(attr) else ""
 
 def existing_keys_from_feed(xml_str: str):
-    """Extrae las GUIDs o links de items ya presentes en un feed destino."""
     try:
         root = parse_xml(xml_str.encode("utf-8"))
     except Exception:
@@ -280,7 +277,6 @@ def existing_keys_from_feed(xml_str: str):
     return keys
 
 def item_key_from_xml(item_xml: str):
-    """Devuelve la key única (guid o link) de un item XML en string."""
     try:
         root = parse_xml(item_xml.encode("utf-8"))
     except Exception:
@@ -289,7 +285,6 @@ def item_key_from_xml(item_xml: str):
     return guid
 
 def fetch_source_items(url: str):
-    """Descarga un feed y devuelve la lista de items en bruto (XML string)."""
     xml_bytes = fetch_feed(url)
     root = parse_xml(xml_bytes)
     items = []
@@ -298,15 +293,10 @@ def fetch_source_items(url: str):
     return items
 
 def process_description_block(title, link, image, desc, feed_image="", atom_link="", sec_id=""):
-    """
-    Crea un nuevo bloque description según reglas.
-    Compatibilidad para update_iniciativas.py
-    """
     dummy_item = etree.Element("item")
     etree.SubElement(dummy_item, "title").text = title
     etree.SubElement(dummy_item, "link").text = link
     etree.SubElement(dummy_item, "description").text = desc
-
     return make_description(
         dummy_item,
         None,
@@ -317,14 +307,18 @@ def process_description_block(title, link, image, desc, feed_image="", atom_link
     )
 
 def replace_description(item_xml: str, new_desc: str, sec_id="", atom_link=""):
-    """
-    Sustituye la description en un item XML (string).
-    Compatibilidad para update_iniciativas.py
-    """
     try:
         root = parse_xml(item_xml.encode("utf-8"))
     except Exception:
         return item_xml
     desc_elem = root.find("description")
     if desc_elem is None:
-        desc_elem = etree.Element("
+        desc_elem = etree.Element("description")
+        root.append(desc_elem)
+    desc_elem.text = etree.CDATA(new_desc)
+    return etree.tostring(root, encoding="unicode")
+
+# ======================== Ejecutable ========================
+
+if __name__ == '__main__':
+    main()
