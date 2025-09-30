@@ -10,6 +10,7 @@ Procesa feeds locales en public/**/feeds.xml según reglas:
 - Añade om:sec único.
 - Reescribe description según reglas (con BeautifulSoup para respetar HTML ya existente).
 - Añade om:des desde la parte de description tras el <hr/>.
+- Imprime logs detallados de cada item.
 """
 
 import sys
@@ -189,22 +190,32 @@ def process_feed(destination_path, source_list):
         src_channel = src_root.find('channel')
         if src_channel is None:
             continue
-        for item in src_channel.findall('item'):
+
+        for item_idx, item in enumerate(src_channel.findall('item'), start=1):
             guid = item.findtext('guid') or item.findtext('link') or ''
             if channel.find(f".//item[guid='{guid}']") is not None:
+                print(f"[{src}] Item {item_idx}: '{item.findtext('title')}' → ya existe en destino (guid/link)")
                 continue
+
             new_item = etree.fromstring(etree.tostring(item))
             if op3_val:
                 prefix_enclosure_with_op3(new_item, op3_val)
+
             season = new_item.findtext('{%s}season' % NS['itunes']) or new_item.findtext('season')
             episode = new_item.findtext('{%s}episode' % NS['itunes']) or new_item.findtext('episode')
             title = new_item.findtext('title') or ''
             descr = canonical_text(new_item.find('description')) or ''
             candidate = generate_om_sec(season, episode, used_omsecs, title, descr)
             unique = ensure_unique_omsec(used_omsecs, candidate)
+
+            if not unique:
+                print(f"[{src}] Item {item_idx}: '{title}' → no se pudo generar om:sec único, saltando")
+                continue
+
             om_sec_elem = etree.Element('{%s}sec' % NS['om'])
             om_sec_elem.text = unique
             new_item.append(om_sec_elem)
+
             orig_desc = new_item.findtext('description') or ''
             new_desc_cdata = make_description(new_item, channel, orig_desc, itunes_href, atom_href, unique)
             desc_elem = new_item.find('description')
@@ -212,28 +223,19 @@ def process_feed(destination_path, source_list):
                 desc_elem = etree.Element('description')
                 new_item.append(desc_elem)
             desc_elem.text = new_desc_cdata
+
             tail = orig_desc.split(HR_HTML, 1)[1] if HR_HTML in orig_desc else orig_desc
             add_om_des(new_item, tail)
+
             new_items.append(new_item)
+            print(f"[{src}] Item {item_idx}: '{title}' → añadido con om:sec={unique}")
 
     for new_item in reversed(new_items):
         channel.insert(insert_index, new_item)
+
     out = etree.tostring(dest_root, encoding='utf-8', pretty_print=True, xml_declaration=True)
     Path(destination_path).write_bytes(out)
-    print(f'Updated {destination_path} with {len(new_items)} new items.')
-
-def main():
-    args = sys.argv[1:]
-    if not args or args[0] == '--all':
-        targets = find_feeds()
-    else:
-        targets = [args[0]]
-    for t in targets:
-        srcs = read_source_list(Path(t).parent)
-        if not srcs:
-            print(f'No source.txt for {t}', file=sys.stderr)
-            continue
-        process_feed(t, srcs)
+    print(f'✅ Updated {destination_path} with {len(new_items)} new items.')
 
 # ======================== Capa de compatibilidad ========================
 
@@ -319,6 +321,19 @@ def replace_description(item_xml: str, new_desc: str, sec_id="", atom_link=""):
     return etree.tostring(root, encoding="unicode")
 
 # ======================== Ejecutable ========================
+
+def main():
+    args = sys.argv[1:]
+    if not args or args[0] == '--all':
+        targets = find_feeds()
+    else:
+        targets = [args[0]]
+    for t in targets:
+        srcs = read_source_list(Path(t).parent)
+        if not srcs:
+            print(f'No source.txt for {t}', file=sys.stderr)
+            continue
+        process_feed(t, srcs)
 
 if __name__ == '__main__':
     main()
