@@ -1,4 +1,11 @@
+# HTTP requests para descargar feeds remotos
 requests
-feedparser
-beautifulsoup4
+
+# Manejo robusto de XML
 lxml
+
+# Procesado granular de HTML en descriptions
+beautifulsoup4
+
+# Expresiones regulares extendidas y utilidades
+regex
