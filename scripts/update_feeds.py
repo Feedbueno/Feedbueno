@@ -1,248 +1,226 @@
 #!/usr/bin/env python3
 """
-update_feeds.py
+scripts/update_feeds.py
 
-Procesa feeds locales en public/**/feed.xml:
-
-- Lee source.txt en la misma carpeta para obtener feeds de origen.
-- Añade items nuevos arriba del feed, con prefijo op3 si existe.
-- Añade etiquetas om:sec y om:des únicas.
-- Procesa description respetando HTML existente y añade enlaces/imágenes.
-- Logs detallados para depuración en GitHub Actions.
+Actualiza feeds RSS a partir de un source.txt en cada carpeta.
+Cada carpeta dentro de /public puede contener:
+ - feed.xml (feed destino a actualizar)
+ - source.txt (lista de feeds origen a fusionar)
 """
 
 import os
 import sys
-import re
 import requests
 from pathlib import Path
 from lxml import etree
-from html import escape, unescape
-from bs4 import BeautifulSoup, NavigableString
 
-# ======================== Config ========================
+# --- Namespaces ---
 NS = {
-    'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd',
-    'atom': 'http://www.w3.org/2005/Atom',
-    'om': 'http://example.org/om',  # ⚠️ Cambiar si tienes namespace real
+    "itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd",
+    "atom": "http://www.w3.org/2005/Atom",
+    "media": "http://search.yahoo.com/mrss/",
 }
-HR_HTML = '<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />'
 
-# ======================== Funciones auxiliares ========================
+# --- Utilidades XML ---
+def parse_xml(text: str):
+    """Parsear XML en árbol con lxml."""
+    return etree.fromstring(text.encode("utf-8"))
 
-def find_feeds(base='public'):
-    return [p for p in Path(base).rglob('feed.xml')]
-
-def read_source_list(folder: Path):
-    source_file = folder / 'source.txt'
-    if not source_file.exists():
-        return []
-    return [line.strip() for line in source_file.read_text(encoding='utf-8').splitlines() if line.strip()]
-
-def fetch_feed(url_or_path):
-    if url_or_path.startswith(('http://', 'https://')):
-        r = requests.get(url_or_path, timeout=20)
-        r.raise_for_status()
-        return r.content
-    else:
-        return Path(url_or_path).read_bytes()
-
-def parse_xml(content):
-    parser = etree.XMLParser(remove_blank_text=True, recover=True)
-    return etree.fromstring(content, parser=parser)
-
-def first_item(elem):
-    return elem.find('.//item')
-
-def canonical_text(node):
-    return ''.join(node.itertext()) if node is not None else ''
-
-def get_existing_omsecs(channel_elem):
-    return set([el.text for el in channel_elem.findall('.//{*}sec') if el is not None and el.text])
-
-def prefix_enclosure_with_op3(item_elem, op3_value):
-    enc = item_elem.find('enclosure')
-    if enc is not None and 'url' in enc.attrib and op3_value:
-        enc.set('url', op3_value + enc.get('url'))
-
-def generate_om_sec(season, episode, used_set, title, description):
-    if season and episode:
-        candidate = f's{season}e{episode}'
-        if candidate not in used_set:
-            return candidate
-    for text in (title, description):
-        if not text:
-            continue
-        nums = re.findall(r'\b(\d{1,4})\b', text)
-        for n in nums:
-            if n not in used_set:
-                return n
-    base = 1
-    while str(base) in used_set:
-        base += 1
-    return str(base)
-
-def ensure_unique_omsec(used_set, candidate):
-    if candidate not in used_set:
-        used_set.add(candidate)
-        return candidate
-    i = 1
-    while f'{candidate}-{i}' in used_set:
-        i += 1
-    final = f'{candidate}-{i}'
-    used_set.add(final)
-    return final
-
-def strip_op3(url):
-    m = re.search(r'https?://', url)
-    return url[m.start():] if m else url
-
-# ---------------- Description ----------------
-
-def process_description_body(text):
+def strip_cdata(text: str | None) -> str:
+    """Elimina marcas CDATA de texto."""
     if not text:
         return ""
-    text = unescape(text)
-    soup = BeautifulSoup(text, "html.parser")
-    for node in soup.descendants:
-        if isinstance(node, NavigableString):
-            raw = str(node)
-            if not raw.strip():
-                continue
-            new_html = convert_inline_text(raw)
-            if new_html != raw:
-                frag = BeautifulSoup(new_html, "html.parser")
-                node.replace_with(frag)
-    return str(soup)
+    return text.replace("<![CDATA[", "").replace("]]>", "").strip()
 
-def convert_inline_text(text):
-    text = re.sub(r'([\w\.-]+@[\w\.-]+\.\w+)', r'<a href="mailto:\1">\1</a>', text)
-    def url_repl(m):
-        url = m.group(0)
-        if re.search(r'\.(jpg|jpeg|png|gif|webp|svg)(\?|$)', url, re.I):
-            return f'<a href="{url}"><img src="{url}" /></a>'
-        else:
-            return f'<a href="{url}">{url}</a>'
-    text = re.sub(r'(https?://[^\s<>"]+)', url_repl, text)
-    return text
+def existing_keys_from_feed(feed_text: str) -> set[str]:
+    """Devuelve los GUID o links de los ítems ya presentes en el feed destino."""
+    try:
+        root = parse_xml(feed_text)
+    except Exception:
+        return set()
+    keys = set()
+    for item in root.findall(".//item"):
+        guid = item.findtext("guid")
+        link = item.findtext("link")
+        if guid:
+            keys.add(guid.strip())
+        elif link:
+            keys.add(link.strip())
+    return keys
 
-def make_description(item_elem, channel_elem, orig_desc, itunes_image_href, atom_link_href, om_sec_value):
-    has_hr = HR_HTML in orig_desc
-    lines = []
-    title = item_elem.findtext('title') or ''
-    lines.append(escape(title))
-    if not has_hr:
-        if itunes_image_href:
-            lines.append(f'<a href="{itunes_image_href}"><img src="{itunes_image_href}" /></a>')
-        if atom_link_href:
-            link = f'{atom_link_href}#{om_sec_value}'
-            lines.append(f'Si no ves las imágenes entra en <a href="{link}">{link}</a>')
-        lines.append(HR_HTML)
-    body = process_description_body(orig_desc)
-    lines.append(body)
-    enc = item_elem.find('enclosure')
-    if enc is not None and 'url' in enc.attrib:
-        lines.append(f'<a href="{enc.get("url")}">{strip_op3(enc.get("url"))}</a>')
-    return etree.CDATA("\n".join(lines))
+def item_key_from_xml(item_xml: str) -> str:
+    """Devuelve clave única de un ítem (guid o link)."""
+    try:
+        elem = parse_xml(item_xml)
+    except Exception:
+        return item_xml[:50]
+    guid = elem.findtext("guid")
+    link = elem.findtext("link")
+    if guid:
+        return guid.strip()
+    if link:
+        return link.strip()
+    return etree.tostring(elem, encoding="unicode")[:50]
 
-def add_om_des(item_elem, description_html):
-    om_des = item_elem.find('{%s}des' % NS['om'])
-    if om_des is not None:
-        item_elem.remove(om_des)
-    new = etree.Element('{%s}des' % NS['om'])
-    div = etree.Element('div')
-    div.text = escape(description_html, quote=False)
-    new.append(div)
-    item_elem.append(new)
+# --- Fetch remoto ---
+def fetch_source_items(url: str) -> list[str]:
+    """Descarga un feed y devuelve lista de ítems XML como string."""
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+    xml = r.text
+    root = parse_xml(xml)
+    return [etree.tostring(it, encoding="unicode") for it in root.findall(".//item")]
 
-# ---------------- Feed processing ----------------
+# --- Procesamiento description ---
+def process_description_block(title, link, img, desc, feed_img="", atom_link="", sec_id=""):
+    """
+    Reconstruye el bloque description para un ítem.
+    Respeta etiquetas <img> o <a> ya existentes, no las duplica.
+    """
+    desc = strip_cdata(desc or "")
+    title = strip_cdata(title or "")
+    link = strip_cdata(link or "")
+    img = strip_cdata(img or "")
+    feed_img = strip_cdata(feed_img or "")
 
-def process_feed(destination_path, source_list):
-    print(f"Processing feed: {destination_path}, sources: {source_list}")
-    dest_bytes = Path(destination_path).read_bytes()
-    dest_root = parse_xml(dest_bytes)
-    channel = dest_root.find('channel')
+    block = desc
+
+    # Si ya contiene <img> o <a>, no añadir de nuevo
+    if ("<img" not in desc) and ("<a " not in desc):
+        if img:
+            block = f'<p><img src="{img}" /></p>\n' + block
+        elif feed_img:
+            block = f'<p><img src="{feed_img}" /></p>\n' + block
+
+    if link and ("<a " not in desc):
+        block += f'\n<p><a href="{link}">Más información</a></p>'
+
+    return block
+
+def replace_description(item_xml: str, new_desc: str, sec_id="", atom_link="") -> str:
+    """
+    Sustituye el contenido de <description> en un ítem XML.
+    """
+    try:
+        root = parse_xml(item_xml)
+    except Exception:
+        return item_xml
+
+    desc_elem = root.find("description")
+    if desc_elem is None:
+        desc_elem = etree.Element("description")
+        root.append(desc_elem)
+
+    desc_elem.text = etree.CDATA(new_desc)
+    return etree.tostring(root, encoding="unicode")
+
+# --- Procesar un feed destino ---
+def process_feed(feed_file: Path, source_urls: list[str]):
+    print(f"Processing feed: {feed_file}, sources: {source_urls}")
+
+    feed_xml = feed_file.read_text(encoding="utf-8")
+    root = parse_xml(feed_xml)
+
+    channel = root.find("channel")
     if channel is None:
-        print("⚠️ No se encontró <channel>")
+        print(f"❌ No <channel> en {feed_file}")
         return
-    op3_elem = channel.find('op3')
-    op3_val = op3_elem.text if op3_elem is not None else ''
-    atom_link = channel.find('{%s}link' % NS['atom'])
-    atom_href = atom_link.get('href') if atom_link is not None else None
-    itunes_img = channel.find('itunes:image')
-    itunes_href = itunes_img.get('href') if itunes_img is not None else None
-    used_omsecs = get_existing_omsecs(channel)
-    first_item_elem = first_item(channel)
-    insert_index = list(channel).index(first_item_elem) if first_item_elem is not None else len(channel)
+
+    # Extraer datos del feed destino
+    atom_link_el = channel.find("atom:link", namespaces=NS)
+    atom_link = atom_link_el.get("href") if atom_link_el is not None else ""
+    itunes_img_el = channel.find("itunes:image", namespaces=NS)
+    feed_image = itunes_img_el.get("href") if itunes_img_el is not None else ""
+
+    existing = existing_keys_from_feed(feed_xml)
+    print(f" - Items existentes: {len(existing)}")
 
     new_items = []
-    for src in source_list:
+
+    for src in source_urls:
         try:
-            src_bytes = fetch_feed(src)
+            raw_items = fetch_source_items(src)
         except Exception as e:
-            print(f'Warning: failed to fetch {src}: {e}')
+            print(f"⚠️ Error obteniendo {src}: {e}")
             continue
-        src_root = parse_xml(src_bytes)
-        src_channel = src_root.find('channel')
-        if src_channel is None:
-            continue
-        for item_idx, item in enumerate(src_channel.findall('item'), start=1):
-            guid = item.findtext('guid') or item.findtext('link') or ''
-            if channel.find(f".//item[guid='{guid}']") is not None:
-                print(f"[{src}] Item {item_idx}: '{item.findtext('title')}' → ya existe en destino (guid/link)")
+
+        print(f" - {src}: {len(raw_items)} items")
+
+        for raw in raw_items:
+            key = item_key_from_xml(raw)
+            if key in existing:
                 continue
-            new_item = etree.fromstring(etree.tostring(item))
-            if op3_val:
-                prefix_enclosure_with_op3(new_item, op3_val)
-            season = new_item.findtext('{%s}season' % NS['itunes']) or new_item.findtext('season')
-            episode = new_item.findtext('{%s}episode' % NS['itunes']) or new_item.findtext('episode')
-            title = new_item.findtext('title') or ''
-            descr = canonical_text(new_item.find('description')) or ''
-            candidate = generate_om_sec(season, episode, used_omsecs, title, descr)
-            unique = ensure_unique_omsec(used_omsecs, candidate)
-            om_sec_elem = etree.Element('{%s}sec' % NS['om'])
-            om_sec_elem.text = unique
-            new_item.append(om_sec_elem)
-            orig_desc = new_item.findtext('description') or ''
-            new_desc_cdata = make_description(new_item, channel, orig_desc, itunes_href, atom_href, unique)
-            desc_elem = new_item.find('description')
-            if desc_elem is None:
-                desc_elem = etree.Element('description')
-                new_item.append(desc_elem)
-            desc_elem.text = new_desc_cdata
-            tail = orig_desc.split(HR_HTML, 1)[1] if HR_HTML in orig_desc else orig_desc
-            add_om_des(new_item, tail)
-            new_items.append(new_item)
-            print(f"[{src}] Item {item_idx}: '{title}' → añadido con om:sec={unique}")
 
-    for new_item in reversed(new_items):
-        channel.insert(insert_index, new_item)
+            # Extraer datos mínimos del item
+            try:
+                item_elem = parse_xml(raw)
+            except Exception:
+                continue
 
-    out = etree.tostring(dest_root, encoding='utf-8', pretty_print=True, xml_declaration=True)
-    Path(destination_path).write_bytes(out)
-    print(f'✅ Updated {destination_path} with {len(new_items)} new items.')
+            title = item_elem.findtext("title") or ""
+            link = item_elem.findtext("link") or ""
+            img = None
+            img_el = item_elem.find("itunes:image", namespaces=NS)
+            if img_el is not None:
+                img = img_el.get("href")
+            thumb_el = item_elem.find("media:thumbnail", namespaces=NS)
+            if thumb_el is not None:
+                img = img or thumb_el.get("url")
+            desc = item_elem.findtext("description") or ""
 
-# ======================== Ejecutable ========================
+            # Construir nueva descripción
+            new_desc = process_description_block(title, link, img, desc, feed_image, atom_link, "1")
+            replaced = replace_description(raw, new_desc)
 
-def main():
-    sys.stdout.reconfigure(line_buffering=True)
-    base = Path('public')
-    if not base.exists():
-        print("❌ No existe la carpeta 'public'")
+            new_items.append(replaced)
+            existing.add(key)
+
+    if not new_items:
+        print("No se añadieron episodios nuevos.")
         return
-    for folder in base.iterdir():
-        if folder.is_dir():
-            feed_file = folder / "feed.xml"
-            source_file = folder / "source.txt"
-            print(f"Procesando carpeta: {folder}")
-            print(f" - feed.xml existe: {feed_file.exists()}")
-            print(f" - source.txt existe: {source_file.exists()}")
-            if feed_file.exists() and source_file.exists():
-                srcs = read_source_list(folder)
-                print(f" - URLs en source.txt: {srcs}")
-                process_feed(feed_file, srcs)
-            else:
-                print(f" - Se omite carpeta (faltan archivos necesarios)")
 
-if __name__ == '__main__':
+    # Insertar nuevos ítems antes del primer <item>
+    insertion_block = "\n".join(new_items)
+    xml_str = etree.tostring(root, encoding="unicode")
+
+    first_item = xml_str.find("<item")
+    if first_item != -1:
+        updated_xml = xml_str[:first_item] + insertion_block + "\n" + xml_str[first_item:]
+    else:
+        updated_xml = xml_str.replace("</channel>", insertion_block + "\n</channel>")
+
+    feed_file.write_text(updated_xml, encoding="utf-8")
+    print(f"✅ {feed_file}: añadidos {len(new_items)} nuevos items")
+
+# --- Main ---
+def main():
+    base = Path("public")
+    if not base.exists():
+        print("❌ No existe carpeta public/")
+        sys.exit(1)
+
+    for folder in base.iterdir():
+        if not folder.is_dir():
+            continue
+
+        feed_file = folder / "feed.xml"
+        src_file = folder / "source.txt"
+
+        print(f"Procesando carpeta: {folder}")
+        print(f" - feed.xml existe: {feed_file.exists()}")
+        print(f" - source.txt existe: {src_file.exists()}")
+
+        if not feed_file.exists() or not src_file.exists():
+            print(" - Se omite carpeta (faltan archivos necesarios)")
+            continue
+
+        srcs = [ln.strip() for ln in src_file.read_text(encoding="utf-8").splitlines() if ln.strip()]
+        print(f" - URLs en source.txt: {srcs}")
+        if not srcs:
+            print(" - source.txt vacío")
+            continue
+
+        process_feed(feed_file, srcs)
+
+if __name__ == "__main__":
     main()
