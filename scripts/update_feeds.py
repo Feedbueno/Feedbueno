@@ -14,15 +14,12 @@ NSMAP = {
 
 
 def parse_xml(text: str):
-    """Parse XML robustamente."""
     parser = etree.XMLParser(recover=True)
     return etree.fromstring(text.encode("utf-8"), parser=parser)
 
 
 def sanitize_html_keep_tags(raw_html: str) -> str:
-    """
-    Escapa solo el texto plano dentro del HTML, conservando las etiquetas.
-    """
+    """Escapa solo el texto plano dentro del HTML, conservando etiquetas."""
     soup = BeautifulSoup(raw_html, "html.parser")
     for t in soup.find_all(text=True):
         if t.parent.name not in ["script", "style"]:
@@ -31,10 +28,7 @@ def sanitize_html_keep_tags(raw_html: str) -> str:
 
 
 def build_om_des(description: str) -> str:
-    """
-    Construye <om:des> escapando solo el texto plano,
-    no las etiquetas HTML.
-    """
+    """Construye <om:des> escapando solo el texto plano, no las etiquetas."""
     if "<hr" in description:
         parts = description.split('<hr', 1)
         after_hr = "<hr" + parts[1]
@@ -44,9 +38,7 @@ def build_om_des(description: str) -> str:
 
 
 def generate_sec_id(item, existing_ids):
-    """
-    Genera un ID único para om:sec.
-    """
+    """Genera un ID único para om:sec."""
     season = item.findtext("itunes:season", namespaces=NSMAP)
     episode = item.findtext("itunes:episode", namespaces=NSMAP)
     if season and episode:
@@ -68,14 +60,86 @@ def generate_sec_id(item, existing_ids):
         i += 1
 
 
+def format_text_with_rules(text: str) -> str:
+    """Aplica reglas de formato al texto plano."""
+    lines = text.splitlines()
+    out = []
+    list_buffer = []
+    list_type = None
+    num_start = None
+
+    def flush_list():
+        nonlocal out, list_buffer, list_type, num_start
+        if list_buffer:
+            if list_type == "ol":
+                out.append(f'<ol start="{num_start}">')
+                out.extend(f"<li>{x}</li>" for x in list_buffer)
+                out.append("</ol>")
+            elif list_type == "ul":
+                out.append("<ul>")
+                out.extend(f"<li>{x}</li>" for x in list_buffer)
+                out.append("</ul>")
+        list_buffer, list_type, num_start = [], None, None
+
+    for line in lines:
+        line = line.strip()
+        if not line:
+            flush_list()
+            continue
+
+        m = re.match(r"^(\d+)[\.\-\)]?\s*(.*)", line)
+        if m:
+            num = int(m.group(1))
+            content = m.group(2)
+            if list_type not in ("ol", None):
+                flush_list()
+            list_type = "ol"
+            if num_start is None:
+                num_start = num
+            list_buffer.append(content)
+            continue
+
+        if re.match(r"^[-*]\s+(.*)", line):
+            content = re.sub(r"^[-*]\s+", "", line)
+            if list_type not in ("ul", None):
+                flush_list()
+            list_type = "ul"
+            list_buffer.append(content)
+            continue
+
+        flush_list()
+        # Convert emails
+        line = re.sub(
+            r"([\w\.-]+@[\w\.-]+\.\w+)",
+            lambda m: f'<a href="mailto:{m.group(1)}">{m.group(1)}</a>',
+            line,
+        )
+        # Convert links
+        line = re.sub(
+            r"(https?://[^\s]+)",
+            lambda m: f'<a href="{m.group(1)}">{m.group(1)}</a>',
+            line,
+        )
+        # Convert image links
+        line = re.sub(
+            r'<a href="(https?://[^\s]+?\.(jpg|jpeg|png|gif))">.*?</a>',
+            lambda m: f'<a href="{m.group(1)}"><img src="{m.group(1)}" /></a>',
+            line,
+        )
+        # Bold heuristic: words all uppercase longer than 3 chars
+        line = re.sub(r"\b([A-Z]{4,})\b", r"<b>\1</b>", line)
+        out.append(f"<p>{line}</p>")
+
+    flush_list()
+    return "\n".join(out)
+
+
 def enhance_description(item, atom_link, sec_id, itunes_img_href, op3_prefix):
-    """
-    Genera una nueva description con las reglas pedidas.
-    """
+    """Genera una nueva description con las reglas pedidas."""
     title = item.findtext("title", "")
     desc = item.findtext("description", "")
     desc = desc or ""
-    desc = BeautifulSoup(desc, "html.parser").get_text("\n")
+    desc_plain = BeautifulSoup(desc, "html.parser").get_text("\n")
 
     new_lines = []
     if title:
@@ -93,33 +157,28 @@ def enhance_description(item, atom_link, sec_id, itunes_img_href, op3_prefix):
 
     new_lines.append('<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />')
 
-    if new_lines[-1] not in desc:
-        decorated_desc = "\n".join(new_lines) + "\n" + desc
-    else:
-        decorated_desc = desc
+    body = format_text_with_rules(desc_plain)
+
+    decorated_desc = "\n".join(new_lines) + "\n" + body
 
     # Añadir enlace al enclosure
     enclosure = item.find("enclosure")
     if enclosure is not None:
         url = enclosure.get("url")
         prefixed_url = (op3_prefix or "") + url
-        decorated_desc += (
-            f'\n<a href="{prefixed_url}">{url}</a>'
-        )
+        decorated_desc += f'\n<a href="{prefixed_url}">{url}</a>'
 
     return etree.CDATA(decorated_desc)
 
 
 def process_feed(feed_path, source_urls):
-    """
-    Procesa un feed destino y añade ítems de los sources.
-    """
+    """Procesa un feed destino y añade ítems de los sources."""
     with open(feed_path, "r", encoding="utf-8") as f:
         original_text = f.read()
 
     root = parse_xml(original_text)
-
     channel = root.find("channel")
+
     atom_link = channel.find("atom:link", namespaces=NSMAP)
     atom_href = atom_link.get("href") if atom_link is not None else ""
 
@@ -131,7 +190,6 @@ def process_feed(feed_path, source_urls):
 
     existing_ids = set(e.text for e in channel.findall("om:sec", namespaces=NSMAP))
 
-    # Guardamos items nuevos en texto para insertar manualmente
     new_items_text = ""
 
     for url in source_urls:
@@ -167,7 +225,6 @@ def process_feed(feed_path, source_urls):
                     item.remove(old)
                 item.append(etree.fromstring(om_des))
 
-            # Serializamos el item
             item_xml = etree.tostring(item, encoding="unicode")
             new_items_text += "\n" + item_xml + "\n"
 
@@ -175,7 +232,6 @@ def process_feed(feed_path, source_urls):
         print(f"✅ {feed_path}: sin cambios")
         return
 
-    # Insertamos los nuevos items justo antes del primer <item>
     updated_text = re.sub(
         r"(<item>)",
         new_items_text + r"\1",
