@@ -169,16 +169,35 @@ def generate_unique_sec(existing_secs, season=None, episode=None, title=None, de
     existing_secs.add(sec)
     return sec
 
+
 def build_om_des(desc):
-    """Construye el bloque <om:des> escapando el texto pero manteniendo etiquetas."""
+    """
+    Construye el bloque <om:des> escapando el contenido de texto y atributos,
+    pero manteniendo las etiquetas intactas.
+    Ejemplo: & → &amp;, < dentro del texto → &lt;, pero <a href=""> se mantiene.
+    """
     if not desc:
         return "<om:des><div></div></om:des>"
+
+    # Escapar ampersands en atributos (por ejemplo, ?w=400&h=350 → ?w=400&amp;h=350)
+    def escape_attr_amp(match):
+        tag = match.group(0)
+        tag = re.sub(r'&(?=[^;]*?["\'])', '&amp;', tag)
+        return tag
+
+    desc = re.sub(r"<[^>]+>", escape_attr_amp, desc)
+
+    # Escapar el texto entre etiquetas, pero no las etiquetas
     parts = []
-    for part in re.split(r"(<[^>]+>)", desc):
-        if part.startswith("<") and part.endswith(">"):
-            parts.append(part)
+    tokens = re.split(r"(<[^>]+>)", desc)
+    for t in tokens:
+        if not t:
+            continue
+        if t.startswith("<") and t.endswith(">"):
+            parts.append(t)
         else:
-            parts.append(escape(part))
+            parts.append(escape(t))
+
     return f"<om:des><div>{''.join(parts)}</div></om:des>"
 
 # ===============================================================
