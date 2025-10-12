@@ -14,6 +14,42 @@ import requests
 import hashlib
 from html import escape
 
+
+
+# ============================================================
+# 🔧 UTILIDADES BÁSICAS REQUERIDAS POR update_iniciativas.py
+# ============================================================
+
+def find_tag_text(xml: str, tag: str) -> str:
+    """Devuelve el contenido interno (sin etiquetas) del primer <tag> encontrado."""
+    m = re.search(rf"<{tag}\b[^>]*>(.*?)</{tag}>", xml, flags=re.IGNORECASE | re.DOTALL)
+    return m.group(1).strip() if m else ""
+
+def find_attr(xml: str, tag: str, attr: str) -> str:
+    """Devuelve el valor de un atributo dentro de la primera coincidencia del tag."""
+    m = re.search(rf"<{tag}\b[^>]*\b{attr}=\"([^\"]+)\"", xml, flags=re.IGNORECASE)
+    return m.group(1).strip() if m else ""
+
+def strip_cdata(text: str) -> str:
+    """Elimina CDATA si existe en el texto."""
+    return re.sub(r"^<!\[CDATA\[|\]\]>$", "", text.strip(), flags=re.IGNORECASE)
+
+def item_key_from_xml(item_xml: str) -> str:
+    """Genera un hash único de un item según su GUID o título."""
+    guid = find_tag_text(item_xml, "guid") or find_tag_text(item_xml, "link") or find_tag_text(item_xml, "title")
+    return hashlib.md5(guid.encode("utf-8")).hexdigest() if guid else ""
+
+def existing_keys_from_feed(feed_xml: str) -> set:
+    """Devuelve los identificadores (hashes) de los items existentes en un feed XML."""
+    items = re.findall(r"<item\b[^>]*>.*?</item>", feed_xml, flags=re.IGNORECASE | re.DOTALL)
+    return {item_key_from_xml(i) for i in items}
+
+def fetch_source_items(source_url: str) -> list:
+    """Descarga y devuelve la lista de <item> del feed fuente (como strings XML)."""
+    r = requests.get(source_url, timeout=20)
+    r.raise_for_status()
+    xml = r.text
+    return re.findall(r"<item\b[^>]*>.*?</item>", xml, flags=re.IGNORECASE | re.DOTALL)
 # ===============================================================
 # Utilidades generales
 # ===============================================================
