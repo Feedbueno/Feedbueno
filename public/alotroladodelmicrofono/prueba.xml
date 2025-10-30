@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="../estilos/concentrado.xsl"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" 
+xmlns:anchor="https://anchor.fm/xmlns"
+xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
+xmlns:media="http://search.yahoo.com/mrss/" 
+xmlns:om="https://omrey86.neocities.org/"
+	 xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	 xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	 xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	 xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
+	 xmlns:podcast="https://podcastindex.org/namespace/1.0"
+ version="2.0"> 
+<channel>
+	         <title><![CDATA[Al otro lado del micrófono]]></title>
+	<om:name>alotroladodelmicrofono</om:name>
+<om:cfb1>#E6F0FA</om:cfb1>
+	<om:cfb2>#14273D</om:cfb2>
+	<om:cfi>#E6F0FA</om:cfi>
+	<om:ch1>#FF6B35</om:ch1>
+	<om:ct>#5FA8D3</om:ct>
+	<om:autor>Eove Productora</om:autor>
+<om:suscripciones>
+	<om:ivoox>https://www.ivoox.com/podcast-al-otro-lado-del-microfono_sq_f1756373_1.html</om:ivoox>
+	<om:apple>https://podcasts.apple.com/podcast/id1478239610</om:apple>
+	<om:spotify>https://open.spotify.com/show/3QmCkWpy6LO7OfIcZ4deTo</om:spotify>
+	<om:youtube>https://www.youtube.com/channel/UC6TMdZfgMgaYOt_beU5emUA</om:youtube>
+	<om:pocketcasts>https://pca.st/uIqypL</om:pocketcasts>
+	<om:index></om:index>
+	<om:opml></om:opml>
+	<om:addict>https://podcastaddict.com/podcast/al-otro-lado-del-microfono/2459191 </om:addict>
+	<om:rss>https://www.spreaker.com/show/3681678/episodes/feed</om:rss>
+</om:suscripciones>
+<om:like></om:like>
+    <om:x>https://twitter.com/eove</om:x>
+	<om:facebook></om:facebook>
+	<om:instagram></om:instagram>
+	<om:bluesky></om:bluesky>
+	<om:whatsapp></om:whatsapp>
+	<om:telegram>https://t.me/alotroladodelmicrofono</om:telegram>
+	<om:discord></om:discord>
+	<category>Technology</category>
+<itunes:author>Jorge Marín Nieto</itunes:author>
+    <copyright>Eove Productora</copyright>
+<link>https://feedbueno.es/alotroladodelmicrofono</link>
+<language>es</language>
+<description><![CDATA[¿Buscas metapodcasting en pequeñas dosis? Pasa Al otro lado del micrófono y conoce este programa diario dedicado a impulsar el podcasting reseñando noticias, eventos, herramientas o experiencias personales relacionadas con este medio.]]></description>
+<generator>FEEDBUENO</generator>
+       <image><url>https://alotroladodelmicrofono.com/wp-content/uploads/2023/12/03c5729783c936595c8e3c3d78229c4b.jpg</url>
+        <title><![CDATA[Al otro lado del micrófono]]></title>
+<link>https://feedbueno.es/alotroladodelmicrofono/</link>
+</image>
+<atom:link href="https://feedbueno.es/alotroladodelmicrofono" rel="self" type="application/rss+xml"/>
+<itunes:explicit>clean</itunes:explicit>
+        <itunes:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2023/12/03c5729783c936595c8e3c3d78229c4b.jpg"/>
+<itunes:type>episodic</itunes:type>
+         <itunes:keywords>videojuegos, series,peliculas,radio,cine,tv</itunes:keywords>
+    <itunes:category text="Technology"/>
+    <itunes:category text="News">
+      <itunes:category text="Tech News"/>
+    </itunes:category>
+    <itunes:category text="Business">
+      <itunes:category text="Marketing"/>
+    </itunes:category>
+    <itunes:owner>
+      <itunes:name>Eove Productora</itunes:name>
+      <itunes:email>podcast@eove.es</itunes:email>
+    </itunes:owner>
+<op3></op3>
+
+
+
+
+
+<item>
+	<title>Feedback de octubre 2025: aprendizajes, debates y agradecimientos</title>
+<om:sec>1249</om:sec>
+	<link>https://alotroladodelmicrofono.com/feedback-octubre-2025/</link>
+	<pubDate>Thu, 30 Oct 2025 09:15:50 +0000</pubDate>
+	<dc:creator><![CDATA[Jorge Marín Nieto]]></dc:creator>
+	<guid isPermaLink="false">https://alotroladodelmicrofono.com/?p=11782</guid>
+	<description><![CDATA[<p>Feedback de octubre 2025: aprendizajes, debates y agradecimientos</p>
+<p>Si no ves la imagen entra en <a href="https://feedbueno.es/alotroladodelmicrofono#1249">https://feedbueno.es/alotroladodelmicrofono#1249</a></p>
+<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<img src="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1249.png"/>
+<p>1249. Ay el feedback&#8230; Esa palabra que tantas veces repetimos los podcasters y que, en mi caso, da lugar a un episodio mensual como este. Hoy me toca cerrar octubre leyendo, comentando y agradeciendo todos esos mensajes que me habéis dejado a lo largo del mes. Porque sí, aunque a veces lleguen por privado, en canales abiertos o incluso en medio de un tirón de orejas, cada uno de ellos me ayuda a seguir mejorando, corrigiendo y aprendiendo. Arranco este capítulo con un agradecimiento enorme a Galiana, por un mensaje privado que me dejó sin palabras. No lo voy a leer porque fue algo personal, pero sí quiero reconocer lo importante que fue para mí. Poder formar parte, aunque sea unos minutos al día, del día a día de alguien que además comparte mis episodios casi a diario… es algo que no puedo más que agradecer profundamente. Así que, Galiana, un abrazo para ti y para tu hijo. También ha habido avisos técnicos, de esos que lejos de molestarme, me hacen sentirme muy arropado. Rubén, Toni y Fercatodic me avisaron —muy prontito por la mañana— de un error en el episodio de la agenda de octubre. Efectivamente, se me coló un audio duplicado. Fui rápido en corregirlo, pero me quedo con la tranquilidad de saber que estáis ahí, atentos y dispuestos a avisar cuando algo falla. Gracias de verdad, porque esos pequeños gestos valen oro. En el terreno del debate, ha habido comentarios tras el episodio de Podwoman y el de la “familia correcta”. Toñi, por ejemplo, reivindicaba el trabajo de muchas mujeres podcasters ignoradas por las plataformas. Y aunque no todo el mundo estaba de acuerdo —como Borja, que me escribió defendiendo que el acceso al podcasting es igual para todos—, creo que es importante poder debatir estas cosas con respeto. Yo mismo he compartido mi punto de vista, especialmente cuando creo que hay una desigualdad estructural que merece ser visibilizada. También ha habido cierta polémica por tocar temas políticos. Fran me escribió por privado diciendo que le parecía una pena que me posicionara políticamente en el podcast, porque lo consideraba un espacio neutral. Incluso me comentó que tenía pensado anunciarse en el podcast. Yo, sinceramente, entiendo que no todo el mundo comparta mi visión, pero también reivindico que este proyecto es personal, y si en más de 1.200 episodios solo en uno o dos he opinado sobre algo político, creo que no es para rasgarse las vestiduras. No busco adoctrinar a nadie, solo compartir lo que me mueve. Por suerte, también hubo comentarios positivos al respecto, como el de David Marzal, que me animó a seguir hablando desde la honestidad. O el de David Mota, que valoró especialmente que no me autocensure. Incluso surgieron más comentarios en redes que ampliaron el debate sobre religión, política y libertad de expresión. No faltaron mensajes sobre otros episodios del mes: el de los tres libros de podcasters que me han motivado a volver a leer, el de la herramienta De-Esser en el glosario podcastero, o la historia del nombre del podcast “Somos Hijos de la Pandemia”. También hubo agradecimientos de oyentes como Elena, Toni o Agirl, que comentaron sobre el uso de las sibilancias y los efectos del sonido subconsciente. Así que, una vez más, gracias por seguir ahí, por escribir, por corregirme cuando me equivoco, por debatir aunque no estemos de acuerdo, por recomendarme lecturas y por mantener viva esta conversación constante que es el feedback. El mes que viene volveré con más comentarios, y como siempre, estaré encantado de leeros, responderos y, sobre todo, seguir creciendo desde este lado del micrófono.</p>
+<p>_____________</p>
+<p>Consigue tu entrada para el directo de &#8216;Estamos al mando&#8217; el 14 de noviembre en las Podnights Madrid a través de Eventbrite<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+<p>_____________ ¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a> Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a> La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.  &#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p>]]></description>
+	<itunes:subtitle><![CDATA[1249. Ay el feedback&#8230; Esa palabra que tantas veces repetimos los podcasters y que, en mi caso, da lugar a un episodio mensual como este. Hoy me toca cerrar octubre leyendo, comentando y agradeciendo todos esos mensajes que me habéis dejado a lo lar]]></itunes:subtitle>
+	<content:encoded><![CDATA[<p>1249. Ay el feedback&#8230; Esa palabra que tantas veces repetimos los podcasters y que, en mi caso, da lugar a un episodio mensual como este. Hoy me toca cerrar octubre leyendo, comentando y agradeciendo todos esos mensajes que me habéis dejado a lo largo del mes. Porque sí, aunque a veces lleguen por privado, en canales abiertos o incluso en medio de un tirón de orejas, cada uno de ellos me ayuda a seguir mejorando, corrigiendo y aprendiendo. Arranco este capítulo con un agradecimiento enorme a Galiana, por un mensaje privado que me dejó sin palabras. No lo voy a leer porque fue algo personal, pero sí quiero reconocer lo importante que fue para mí. Poder formar parte, aunque sea unos minutos al día, del día a día de alguien que además comparte mis episodios casi a diario… es algo que no puedo más que agradecer profundamente. Así que, Galiana, un abrazo para ti y para tu hijo. También ha habido avisos técnicos, de esos que lejos de molestarme, me hacen sentirme muy arropado. Rubén, Toni y Fercatodic me avisaron —muy prontito por la mañana— de un error en el episodio de la agenda de octubre. Efectivamente, se me coló un audio duplicado. Fui rápido en corregirlo, pero me quedo con la tranquilidad de saber que estáis ahí, atentos y dispuestos a avisar cuando algo falla. Gracias de verdad, porque esos pequeños gestos valen oro. En el terreno del debate, ha habido comentarios tras el episodio de Podwoman y el de la “familia correcta”. Toñi, por ejemplo, reivindicaba el trabajo de muchas mujeres podcasters ignoradas por las plataformas. Y aunque no todo el mundo estaba de acuerdo —como Borja, que me escribió defendiendo que el acceso al podcasting es igual para todos—, creo que es importante poder debatir estas cosas con respeto. Yo mismo he compartido mi punto de vista, especialmente cuando creo que hay una desigualdad estructural que merece ser visibilizada. También ha habido cierta polémica por tocar temas políticos. Fran me escribió por privado diciendo que le parecía una pena que me posicionara políticamente en el podcast, porque lo consideraba un espacio neutral. Incluso me comentó que tenía pensado anunciarse en el podcast. Yo, sinceramente, entiendo que no todo el mundo comparta mi visión, pero también reivindico que este proyecto es personal, y si en más de 1.200 episodios solo en uno o dos he opinado sobre algo político, creo que no es para rasgarse las vestiduras. No busco adoctrinar a nadie, solo compartir lo que me mueve. Por suerte, también hubo comentarios positivos al respecto, como el de David Marzal, que me animó a seguir hablando desde la honestidad. O el de David Mota, que valoró especialmente que no me autocensure. Incluso surgieron más comentarios en redes que ampliaron el debate sobre religión, política y libertad de expresión. No faltaron mensajes sobre otros episodios del mes: el de los tres libros de podcasters que me han motivado a volver a leer, el de la herramienta De-Esser en el glosario podcastero, o la historia del nombre del podcast “Somos Hijos de la Pandemia”. También hubo agradecimientos de oyentes como Elena, Toni o Agirl, que comentaron sobre el uso de las sibilancias y los efectos del sonido subconsciente. Así que, una vez más, gracias por seguir ahí, por escribir, por corregirme cuando me equivoco, por debatir aunque no estemos de acuerdo, por recomendarme lecturas y por mantener viva esta conversación constante que es el feedback. El mes que viene volveré con más comentarios, y como siempre, estaré encantado de leeros, responderos y, sobre todo, seguir creciendo desde este lado del micrófono.</p>
+<p>_____________</p>
+<p>Consigue tu entrada para el directo de &#8216;Estamos al mando&#8217; el 14 de noviembre en las Podnights Madrid a través de Eventbrite<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+<p>_____________ ¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a> Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a> La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.  &#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p>]]></content:encoded>
+	<enclosure url="https://api.spreaker.com/download/episode/68267790/1249.mp3" length="17.63" type="audio/mpeg"></enclosure>
+	<itunes:summary><![CDATA[1249. Ay el feedback&#8230; Esa palabra que tantas veces repetimos los podcasters y que, en mi caso, da lugar a un episodio mensual como este. Hoy me toca cerrar octubre leyendo, comentando y agradeciendo todos esos mensajes que me habéis dejado a lo largo del mes. Porque sí, aunque a veces lleguen por privado, en canales abiertos o incluso en medio de un tirón de orejas, cada uno de ellos me ayuda a seguir mejorando, corrigiendo y aprendiendo. Arranco este capítulo con un agradecimiento enorme a Galiana, por un mensaje privado que me dejó sin palabras. No lo voy a leer porque fue algo personal, pero sí quiero reconocer lo importante que fue para mí. Poder formar parte, aunque sea unos minutos al día, del día a día de alguien que además comparte mis episodios casi a diario… es algo que no puedo más que agradecer profundamente. Así que, Galiana, un abrazo para ti y para tu hijo. También ha habido avisos técnicos, de esos que lejos de molestarme, me hacen sentirme muy arropado. Rubén, Toni y Fercatodic me avisaron —muy prontito por la mañana— de un error en el episodio de la agenda de octubre. Efectivamente, se me coló un audio duplicado. Fui rápido en corregirlo, pero me quedo con la tranquilidad de saber que estáis ahí, atentos y dispuestos a avisar cuando algo falla. Gracias de verdad, porque esos pequeños gestos valen oro. En el terreno del debate, ha habido comentarios tras el episodio de Podwoman y el de la “familia correcta”. Toñi, por ejemplo, reivindicaba el trabajo de muchas mujeres podcasters ignoradas por las plataformas. Y aunque no todo el mundo estaba de acuerdo —como Borja, que me escribió defendiendo que el acceso al podcasting es igual para todos—, creo que es importante poder debatir estas cosas con respeto. Yo mismo he compartido mi punto de vista, especialmente cuando creo que hay una desigualdad estructural que merece ser visibilizada. También ha habido cierta polémica por tocar temas políticos. Fran me escribió por privado diciendo que le parecía una pena que me posicionara políticamente en el podcast, porque lo consideraba un espacio neutral. Incluso me comentó que tenía pensado anunciarse en el podcast. Yo, sinceramente, entiendo que no todo el mundo comparta mi visión, pero también reivindico que este proyecto es personal, y si en más de 1.200 episodios solo en uno o dos he opinado sobre algo político, creo que no es para rasgarse las vestiduras. No busco adoctrinar a nadie, solo compartir lo que me mueve. Por suerte, también hubo comentarios positivos al respecto, como el de David Marzal, que me animó a seguir hablando desde la honestidad. O el de David Mota, que valoró especialmente que no me autocensure. Incluso surgieron más comentarios en redes que ampliaron el debate sobre religión, política y libertad de expresión. No faltaron mensajes sobre otros episodios del mes: el de los tres libros de podcasters que me han motivado a volver a leer, el de la herramienta De-Esser en el glosario podcastero, o la historia del nombre del podcast “Somos Hijos de la Pandemia”. También hubo agradecimientos de oyentes como Elena, Toni o Agirl, que comentaron sobre el uso de las sibilancias y los efectos del sonido subconsciente. Así que, una vez más, gracias por seguir ahí, por escribir, por corregirme cuando me equivoco, por debatir aunque no estemos de acuerdo, por recomendarme lecturas y por mantener viva esta conversación constante que es el feedback. El mes que viene volveré con más comentarios, y como siempre, estaré encantado de leeros, responderos y, sobre todo, seguir creciendo desde este lado del micrófono.
+_____________
+Consigue tu entrada para el directo de &#8216;Estamos al mando&#8217; el 14 de noviembre en las Podnights Madrid a través de Eventbritehttps://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator
+_____________ ¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir ]]></itunes:summary>
+	<itunes:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2023/12/03c5729783c936595c8e3c3d78229c4b.jpg"></itunes:image>
+	<image>
+		<url>https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1249.png</url>
+		<title>Feedback de octubre 2025: aprendizajes, debates y agradecimientos</title>
+	</image>
+	<itunes:explicit>false</itunes:explicit>
+	<itunes:block>no</itunes:block>
+	<itunes:duration>00:19:15</itunes:duration>
+	<itunes:author><![CDATA[Jorge Marín Nieto]]></itunes:author>	<googleplay:description><![CDATA[1249. Ay el feedback&#8230; Esa palabra que tantas veces repetimos los podcasters y que, en mi caso, da lugar a un episodio mensual como este. Hoy me toca cerrar octubre leyendo, comentando y agradeciendo todos esos mensajes que me habéis dejado a lo largo del mes. Porque sí, aunque a veces lleguen por privado, en canales abiertos o incluso en medio de un tirón de orejas, cada uno de ellos me ayuda a seguir mejorando, corrigiendo y aprendiendo. Arranco este capítulo con un agradecimiento enorme a Galiana, por un mensaje privado que me dejó sin palabras. No lo voy a leer porque fue algo personal, pero sí quiero reconocer lo importante que fue para mí. Poder formar parte, aunque sea unos minutos al día, del día a día de alguien que además comparte mis episodios casi a diario… es algo que no puedo más que agradecer profundamente. Así que, Galiana, un abrazo para ti y para tu hijo. También ha habido avisos técnicos, de esos que lejos de molestarme, me hacen sentirme muy arropado. Rubén, T]]></googleplay:description>
+	<googleplay:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1249.png"></googleplay:image>
+	<googleplay:explicit>No</googleplay:explicit>
+	<googleplay:block>no</googleplay:block>
+<om:des><div><img src="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1249.png"/>
+<p>1249. Ay el feedback&#8230; Esa palabra que tantas veces repetimos los podcasters y que, en mi caso, da lugar a un episodio mensual como este. Hoy me toca cerrar octubre leyendo, comentando y agradeciendo todos esos mensajes que me habéis dejado a lo largo del mes. Porque sí, aunque a veces lleguen por privado, en canales abiertos o incluso en medio de un tirón de orejas, cada uno de ellos me ayuda a seguir mejorando, corrigiendo y aprendiendo. Arranco este capítulo con un agradecimiento enorme a Galiana, por un mensaje privado que me dejó sin palabras. No lo voy a leer porque fue algo personal, pero sí quiero reconocer lo importante que fue para mí. Poder formar parte, aunque sea unos minutos al día, del día a día de alguien que además comparte mis episodios casi a diario… es algo que no puedo más que agradecer profundamente. Así que, Galiana, un abrazo para ti y para tu hijo. También ha habido avisos técnicos, de esos que lejos de molestarme, me hacen sentirme muy arropado. Rubén, Toni y Fercatodic me avisaron —muy prontito por la mañana— de un error en el episodio de la agenda de octubre. Efectivamente, se me coló un audio duplicado. Fui rápido en corregirlo, pero me quedo con la tranquilidad de saber que estáis ahí, atentos y dispuestos a avisar cuando algo falla. Gracias de verdad, porque esos pequeños gestos valen oro. En el terreno del debate, ha habido comentarios tras el episodio de Podwoman y el de la “familia correcta”. Toñi, por ejemplo, reivindicaba el trabajo de muchas mujeres podcasters ignoradas por las plataformas. Y aunque no todo el mundo estaba de acuerdo —como Borja, que me escribió defendiendo que el acceso al podcasting es igual para todos—, creo que es importante poder debatir estas cosas con respeto. Yo mismo he compartido mi punto de vista, especialmente cuando creo que hay una desigualdad estructural que merece ser visibilizada. También ha habido cierta polémica por tocar temas políticos. Fran me escribió por privado diciendo que le parecía una pena que me posicionara políticamente en el podcast, porque lo consideraba un espacio neutral. Incluso me comentó que tenía pensado anunciarse en el podcast. Yo, sinceramente, entiendo que no todo el mundo comparta mi visión, pero también reivindico que este proyecto es personal, y si en más de 1.200 episodios solo en uno o dos he opinado sobre algo político, creo que no es para rasgarse las vestiduras. No busco adoctrinar a nadie, solo compartir lo que me mueve. Por suerte, también hubo comentarios positivos al respecto, como el de David Marzal, que me animó a seguir hablando desde la honestidad. O el de David Mota, que valoró especialmente que no me autocensure. Incluso surgieron más comentarios en redes que ampliaron el debate sobre religión, política y libertad de expresión. No faltaron mensajes sobre otros episodios del mes: el de los tres libros de podcasters que me han motivado a volver a leer, el de la herramienta De-Esser en el glosario podcastero, o la historia del nombre del podcast “Somos Hijos de la Pandemia”. También hubo agradecimientos de oyentes como Elena, Toni o Agirl, que comentaron sobre el uso de las sibilancias y los efectos del sonido subconsciente. Así que, una vez más, gracias por seguir ahí, por escribir, por corregirme cuando me equivoco, por debatir aunque no estemos de acuerdo, por recomendarme lecturas y por mantener viva esta conversación constante que es el feedback. El mes que viene volveré con más comentarios, y como siempre, estaré encantado de leeros, responderos y, sobre todo, seguir creciendo desde este lado del micrófono.</p>
+<p>_____________</p>
+<p>Consigue tu entrada para el directo de &#8216;Estamos al mando&#8217; el 14 de noviembre en las Podnights Madrid a través de Eventbrite<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+<p>_____________ ¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a> Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a> La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.  &#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p></div></om:des></item>
+
+
+<item>
+	<title>Tres invitaciones para seguir cruzando micrófonos y fronteras</title>
+<om:sec>1248</om:sec>
+	<link>https://alotroladodelmicrofono.com/invitaciones-microfonos-fronteras/</link>
+	<pubDate>Wed, 29 Oct 2025 06:39:40 +0000</pubDate>
+	<dc:creator><![CDATA[Jorge Marín Nieto]]></dc:creator>
+	<guid isPermaLink="false">https://alotroladodelmicrofono.com/?p=11780</guid>
+	<description><![CDATA[<p>Tres invitaciones para seguir cruzando micrófonos y fronteras</p>
+<p>Si no ves la imagen entra en <a href="https://feedbueno.es/alotroladodelmicrofono#1248">https://feedbueno.es/alotroladodelmicrofono#1248</a></p>
+<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<img src="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1248.png"/>
+<p>1248. Micrófonos cruzados, compartidos y encendidos al otro lado del mundo. Hoy me he propuesto un reto diferente: grabar el episodio más breve posible sin dejar fuera las últimas aventuras que me han tenido saltando de un lado a otro (a veces literalmente, otras por ondas). Y sí, este capítulo es de esos en los que el cronómetro manda, pero no por ello iba a dejar pasar la oportunidad de contarte tres experiencias muy especiales que he vivido recientemente como invitado en otros proyectos sonoros. La primera parada me lleva al universo de los videojuegos, gracias a &#8216;Estamos al mando&#8217;, un podcast que vendrá de visita a la próxima edición de Podnights Madrid. En su séptima entrega de la octava temporada me invitaron a hablar sobre el FOMO, esa sensación de estar siempre perdiéndonos algo. Una serie de moda, una novedad tecnológica, un nuevo juego o incluso una simple conversación. Y sí, reconozco que el tema da para mucho, sobre todo en una sociedad tan saturada de estímulos como la nuestra. Me lo pasé genial hablando con ellos y calentando motores para el directo que haremos en noviembre. </p>
+<p>Te invito a escuchar el episodio &#8216;Debate- El Fomo y consumismo de los videojuegos con Jorge Marin&#8217; de &#8216;Estamos al mando&#8217; a través de tu app o plataforma de podcast favorita:<a href="https://pod.link/1499606148/episode/aHR0cHM6Ly93d3cuaXZvb3guY29tLzE1ODE5MTI1Mg" target="_blank" rel="noreferrer noopener">https://pod.link/1499606148/episode/aHR0cHM6Ly93d3cuaXZvb3guY29tLzE1ODE5MTI1Mg</a> </p>
+<p>La segunda parada fue una conversación más introspectiva. Jesús Marrone, desde su podcast &#8216;¿De qué va tu trabajo?&#8217;, me abrió las puertas para hablar sobre mi recorrido profesional, sobre EOVE Productora, y también sobre productividad, herramientas y hacia dónde va este oficio de contar historias con voz propia. Jesús acaba de empezar este proyecto, apenas seis episodios lleva, pero ya se nota que tiene ganas de hacer las cosas bien. De hecho, fruto de esa conversación y de algunos consejos que surgieron durante la grabación, ha confiado en mí para ayudarle con la distribución del programa. Detalles así son los que hacen que este oficio merezca tanto la pena. </p>
+<p>El sexto episodio de &#8216;¿De qué va tu trabajo?&#8217; donde Jesús Carbone me entrevisto se encuentra en las siguientes plataformas de podcast: <a href="https://pod.link/1845362833/episode/MTliMzJkYTgtYWJhNC00MWE2LTlmMGEtOWY4YWVkNWRkZjVl" target="_blank" rel="noreferrer noopener">https://pod.link/1845362833/episode/MTliMzJkYTgtYWJhNC00MWE2LTlmMGEtOWY4YWVkNWRkZjVl</a></p>
+<p>Y la tercera invitación llegó desde el otro lado del charco, concretamente desde Córdoba, en Argentina. Participé en una charla virtual organizada por el Centro de Innovación Tecnológica de La Falda, dentro de su &#8216;Curso de podcasting y oratoria&#8217;. Fue gracias a Cristian Encurto, compañero de SinOficina, que me recomendó como ponente para compartir mi experiencia. Y no sabes lo emocionante que fue ver cómo algo que empecé hace años, con muchas dudas y pocos medios, ahora sirve de ejemplo e inspiración para quienes están comenzando. No pude evitar emocionarme al ver el interés de quienes asistieron y el cariño con el que me recibieron, aunque fuese a través de una pantalla.</p>
+<p>Aquí puedes descubrir el curso sobre podcasting y oratoria al que asistí como invitado: <a href="https://citlafalda.gob.ar/2025/10/16/la-oratoria-y-el-podcasting-no-se-hacen-esperar/" target="_blank" rel="noreferrer noopener">https://citlafalda.gob.ar/2025/10/16/la-oratoria-y-el-podcasting-no-se-hacen-esperar/</a> Así que eso, tres micrófonos diferentes, tres formas de contar y compartir, y muchas ganas de seguir cruzando fronteras —reales y simbólicas— con cada grabación.</p>
+<p>_____________</p>
+<p>Consigue tu entrada para el directo de &#8216;Estamos al mando&#8217; el 14 de noviembre en las Podnights Madrid a través de Eventbrite<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+<p>_____________ ¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a> Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a> La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.  &#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p>]]></description>
+	<itunes:subtitle><![CDATA[1248. Micrófonos cruzados, compartidos y encendidos al otro lado del mundo. Hoy me he propuesto un reto diferente: grabar el episodio más breve posible sin dejar fuera las últimas aventuras que me han tenido saltando de un lado a otro (a veces literalmen]]></itunes:subtitle>
+	<content:encoded><![CDATA[<p>1248. Micrófonos cruzados, compartidos y encendidos al otro lado del mundo. Hoy me he propuesto un reto diferente: grabar el episodio más breve posible sin dejar fuera las últimas aventuras que me han tenido saltando de un lado a otro (a veces literalmente, otras por ondas). Y sí, este capítulo es de esos en los que el cronómetro manda, pero no por ello iba a dejar pasar la oportunidad de contarte tres experiencias muy especiales que he vivido recientemente como invitado en otros proyectos sonoros. La primera parada me lleva al universo de los videojuegos, gracias a &#8216;Estamos al mando&#8217;, un podcast que vendrá de visita a la próxima edición de Podnights Madrid. En su séptima entrega de la octava temporada me invitaron a hablar sobre el FOMO, esa sensación de estar siempre perdiéndonos algo. Una serie de moda, una novedad tecnológica, un nuevo juego o incluso una simple conversación. Y sí, reconozco que el tema da para mucho, sobre todo en una sociedad tan saturada de estímulos como la nuestra. Me lo pasé genial hablando con ellos y calentando motores para el directo que haremos en noviembre. </p>
+<p>Te invito a escuchar el episodio &#8216;Debate- El Fomo y consumismo de los videojuegos con Jorge Marin&#8217; de &#8216;Estamos al mando&#8217; a través de tu app o plataforma de podcast favorita:<a href="https://pod.link/1499606148/episode/aHR0cHM6Ly93d3cuaXZvb3guY29tLzE1ODE5MTI1Mg" target="_blank" rel="noreferrer noopener">https://pod.link/1499606148/episode/aHR0cHM6Ly93d3cuaXZvb3guY29tLzE1ODE5MTI1Mg</a> </p>
+<p>La segunda parada fue una conversación más introspectiva. Jesús Marrone, desde su podcast &#8216;¿De qué va tu trabajo?&#8217;, me abrió las puertas para hablar sobre mi recorrido profesional, sobre EOVE Productora, y también sobre productividad, herramientas y hacia dónde va este oficio de contar historias con voz propia. Jesús acaba de empezar este proyecto, apenas seis episodios lleva, pero ya se nota que tiene ganas de hacer las cosas bien. De hecho, fruto de esa conversación y de algunos consejos que surgieron durante la grabación, ha confiado en mí para ayudarle con la distribución del programa. Detalles así son los que hacen que este oficio merezca tanto la pena. </p>
+<p>El sexto episodio de &#8216;¿De qué va tu trabajo?&#8217; donde Jesús Carbone me entrevisto se encuentra en las siguientes plataformas de podcast: <a href="https://pod.link/1845362833/episode/MTliMzJkYTgtYWJhNC00MWE2LTlmMGEtOWY4YWVkNWRkZjVl" target="_blank" rel="noreferrer noopener">https://pod.link/1845362833/episode/MTliMzJkYTgtYWJhNC00MWE2LTlmMGEtOWY4YWVkNWRkZjVl</a></p>
+<p>Y la tercera invitación llegó desde el otro lado del charco, concretamente desde Córdoba, en Argentina. Participé en una charla virtual organizada por el Centro de Innovación Tecnológica de La Falda, dentro de su &#8216;Curso de podcasting y oratoria&#8217;. Fue gracias a Cristian Encurto, compañero de SinOficina, que me recomendó como ponente para compartir mi experiencia. Y no sabes lo emocionante que fue ver cómo algo que empecé hace años, con muchas dudas y pocos medios, ahora sirve de ejemplo e inspiración para quienes están comenzando. No pude evitar emocionarme al ver el interés de quienes asistieron y el cariño con el que me recibieron, aunque fuese a través de una pantalla.</p>
+<p>Aquí puedes descubrir el curso sobre podcasting y oratoria al que asistí como invitado: <a href="https://citlafalda.gob.ar/2025/10/16/la-oratoria-y-el-podcasting-no-se-hacen-esperar/" target="_blank" rel="noreferrer noopener">https://citlafalda.gob.ar/2025/10/16/la-oratoria-y-el-podcasting-no-se-hacen-esperar/</a> Así que eso, tres micrófonos diferentes, tres formas de contar y compartir, y muchas ganas de seguir cruzando fronteras —reales y simbólicas— con cada grabación.</p>
+<p>_____________</p>
+<p>Consigue tu entrada para el directo de &#8216;Estamos al mando&#8217; el 14 de noviembre en las Podnights Madrid a través de Eventbrite<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+<p>_____________ ¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a> Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a> La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.  &#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p>]]></content:encoded>
+	<enclosure url="https://api.spreaker.com/download/episode/68267789/1248.mp3" length="3.74" type="audio/mpeg"></enclosure>
+	<itunes:summary><![CDATA[1248. Micrófonos cruzados, compartidos y encendidos al otro lado del mundo. Hoy me he propuesto un reto diferente: grabar el episodio más breve posible sin dejar fuera las últimas aventuras que me han tenido saltando de un lado a otro (a veces literalmente, otras por ondas). Y sí, este capítulo es de esos en los que el cronómetro manda, pero no por ello iba a dejar pasar la oportunidad de contarte tres experiencias muy especiales que he vivido recientemente como invitado en otros proyectos sonoros. La primera parada me lleva al universo de los videojuegos, gracias a &#8216;Estamos al mando&#8217;, un podcast que vendrá de visita a la próxima edición de Podnights Madrid. En su séptima entrega de la octava temporada me invitaron a hablar sobre el FOMO, esa sensación de estar siempre perdiéndonos algo. Una serie de moda, una novedad tecnológica, un nuevo juego o incluso una simple conversación. Y sí, reconozco que el tema da para mucho, sobre todo en una sociedad tan saturada de estímulos como la nuestra. Me lo pasé genial hablando con ellos y calentando motores para el directo que haremos en noviembre. 
+Te invito a escuchar el episodio &#8216;Debate- El Fomo y consumismo de los videojuegos con Jorge Marin&#8217; de &#8216;Estamos al mando&#8217; a través de tu app o plataforma de podcast favorita:https://pod.link/1499606148/episode/aHR0cHM6Ly93d3cuaXZvb3guY29tLzE1ODE5MTI1Mg 
+La segunda parada fue una conversación más introspectiva. Jesús Marrone, desde su podcast &#8216;¿De qué va tu trabajo?&#8217;, me abrió las puertas para hablar sobre mi recorrido profesional, sobre EOVE Productora, y también sobre productividad, herramientas y hacia dónde va este oficio de contar historias con voz propia. Jesús acaba de empezar este proyecto, apenas seis episodios lleva, pero ya se nota que tiene ganas de hacer las cosas bien. De hecho, fruto de esa conversación y de algunos consejos que surgieron durante la grabación, ha confiado en mí para ayudarle con la distribución del programa. Detalles así son los que hacen que este oficio merezca tanto la pena. 
+El sexto episodio de &#8216;¿De qué va tu trabajo?&#8217; donde Jesús Carbone me entrevisto se encuentra en las siguientes plataformas de podcast: https://pod.link/1845362833/episode/MTliMzJkYTgtYWJhNC00MWE2LTlmMGEtOWY4YWVkNWRkZjVl
+Y la tercera invitación llegó desde el otro lado del charco, concretamente desde Córdoba, en Argentina. Participé en una charla virtual organizada por el Centro de Innovación Tecnológica de La Falda, dentro de su &#8216;Curso de podcasting y oratoria&#8217;. Fue gracias a Cristian Encurto, compañero de SinOficina, que me recomendó como ponente para compartir mi experiencia. Y no sabes lo emocionante que fue ver cómo algo que empecé hace años, con muchas dudas y pocos medios, ahora sirve de ejemplo e inspiración para quienes están comenzando. No pude evitar emocionarme al ver el interés de quienes asistieron y el cariño con el que me recibieron, aunque fuese a través de una pantalla.
+Aquí puedes descubrir el curso sobre podcasting y oratoria al que asistí como invitado: https://citlafalda.gob.ar/2025/10/16/la-oratoria-y-el-podcasting-no-se-hacen-esperar/ Así que eso, tres micrófonos diferentes, tres formas de contar y compartir, y muchas ganas de seguir cruzando fronteras —reales y simbólicas— con cada grabación.
+_____________
+Consigue tu entrada para el directo de &#8216;Estamos al mando&#8217; el 14 de noviembre en las Podnights Madrid a través de Eventbritehttps://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator
+_____________ ¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar https://alotroladodelmicrofono.com/unete Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensua]]></itunes:summary>
+	<itunes:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2023/12/03c5729783c936595c8e3c3d78229c4b.jpg"></itunes:image>
+	<image>
+		<url>https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1248.png</url>
+		<title>Tres invitaciones para seguir cruzando micrófonos y fronteras</title>
+	</image>
+	<itunes:explicit>false</itunes:explicit>
+	<itunes:block>no</itunes:block>
+	<itunes:duration>00:04:05</itunes:duration>
+	<itunes:author><![CDATA[Jorge Marín Nieto]]></itunes:author>	<googleplay:description><![CDATA[1248. Micrófonos cruzados, compartidos y encendidos al otro lado del mundo. Hoy me he propuesto un reto diferente: grabar el episodio más breve posible sin dejar fuera las últimas aventuras que me han tenido saltando de un lado a otro (a veces literalmente, otras por ondas). Y sí, este capítulo es de esos en los que el cronómetro manda, pero no por ello iba a dejar pasar la oportunidad de contarte tres experiencias muy especiales que he vivido recientemente como invitado en otros proyectos sonoros. La primera parada me lleva al universo de los videojuegos, gracias a &#8216;Estamos al mando&#8217;, un podcast que vendrá de visita a la próxima edición de Podnights Madrid. En su séptima entrega de la octava temporada me invitaron a hablar sobre el FOMO, esa sensación de estar siempre perdiéndonos algo. Una serie de moda, una novedad tecnológica, un nuevo juego o incluso una simple conversación. Y sí, reconozco que el tema da para mucho, sobre todo en una sociedad tan saturada de estímulo]]></googleplay:description>
+	<googleplay:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1248.png"></googleplay:image>
+	<googleplay:explicit>No</googleplay:explicit>
+	<googleplay:block>no</googleplay:block>
+<om:des><div><img src="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1248.png"/>
+<p>1248. Micrófonos cruzados, compartidos y encendidos al otro lado del mundo. Hoy me he propuesto un reto diferente: grabar el episodio más breve posible sin dejar fuera las últimas aventuras que me han tenido saltando de un lado a otro (a veces literalmente, otras por ondas). Y sí, este capítulo es de esos en los que el cronómetro manda, pero no por ello iba a dejar pasar la oportunidad de contarte tres experiencias muy especiales que he vivido recientemente como invitado en otros proyectos sonoros. La primera parada me lleva al universo de los videojuegos, gracias a &#8216;Estamos al mando&#8217;, un podcast que vendrá de visita a la próxima edición de Podnights Madrid. En su séptima entrega de la octava temporada me invitaron a hablar sobre el FOMO, esa sensación de estar siempre perdiéndonos algo. Una serie de moda, una novedad tecnológica, un nuevo juego o incluso una simple conversación. Y sí, reconozco que el tema da para mucho, sobre todo en una sociedad tan saturada de estímulos como la nuestra. Me lo pasé genial hablando con ellos y calentando motores para el directo que haremos en noviembre. </p>
+<p>Te invito a escuchar el episodio &#8216;Debate- El Fomo y consumismo de los videojuegos con Jorge Marin&#8217; de &#8216;Estamos al mando&#8217; a través de tu app o plataforma de podcast favorita:<a href="https://pod.link/1499606148/episode/aHR0cHM6Ly93d3cuaXZvb3guY29tLzE1ODE5MTI1Mg" target="_blank" rel="noreferrer noopener">https://pod.link/1499606148/episode/aHR0cHM6Ly93d3cuaXZvb3guY29tLzE1ODE5MTI1Mg</a> </p>
+<p>La segunda parada fue una conversación más introspectiva. Jesús Marrone, desde su podcast &#8216;¿De qué va tu trabajo?&#8217;, me abrió las puertas para hablar sobre mi recorrido profesional, sobre EOVE Productora, y también sobre productividad, herramientas y hacia dónde va este oficio de contar historias con voz propia. Jesús acaba de empezar este proyecto, apenas seis episodios lleva, pero ya se nota que tiene ganas de hacer las cosas bien. De hecho, fruto de esa conversación y de algunos consejos que surgieron durante la grabación, ha confiado en mí para ayudarle con la distribución del programa. Detalles así son los que hacen que este oficio merezca tanto la pena. </p>
+<p>El sexto episodio de &#8216;¿De qué va tu trabajo?&#8217; donde Jesús Carbone me entrevisto se encuentra en las siguientes plataformas de podcast: <a href="https://pod.link/1845362833/episode/MTliMzJkYTgtYWJhNC00MWE2LTlmMGEtOWY4YWVkNWRkZjVl" target="_blank" rel="noreferrer noopener">https://pod.link/1845362833/episode/MTliMzJkYTgtYWJhNC00MWE2LTlmMGEtOWY4YWVkNWRkZjVl</a></p>
+<p>Y la tercera invitación llegó desde el otro lado del charco, concretamente desde Córdoba, en Argentina. Participé en una charla virtual organizada por el Centro de Innovación Tecnológica de La Falda, dentro de su &#8216;Curso de podcasting y oratoria&#8217;. Fue gracias a Cristian Encurto, compañero de SinOficina, que me recomendó como ponente para compartir mi experiencia. Y no sabes lo emocionante que fue ver cómo algo que empecé hace años, con muchas dudas y pocos medios, ahora sirve de ejemplo e inspiración para quienes están comenzando. No pude evitar emocionarme al ver el interés de quienes asistieron y el cariño con el que me recibieron, aunque fuese a través de una pantalla.</p>
+<p>Aquí puedes descubrir el curso sobre podcasting y oratoria al que asistí como invitado: <a href="https://citlafalda.gob.ar/2025/10/16/la-oratoria-y-el-podcasting-no-se-hacen-esperar/" target="_blank" rel="noreferrer noopener">https://citlafalda.gob.ar/2025/10/16/la-oratoria-y-el-podcasting-no-se-hacen-esperar/</a> Así que eso, tres micrófonos diferentes, tres formas de contar y compartir, y muchas ganas de seguir cruzando fronteras —reales y simbólicas— con cada grabación.</p>
+<p>_____________</p>
+<p>Consigue tu entrada para el directo de &#8216;Estamos al mando&#8217; el 14 de noviembre en las Podnights Madrid a través de Eventbrite<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+<p>_____________ ¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a> Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a> La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.  &#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p></div></om:des></item>
+
+
+<item>
+	<title>Producción sonora al detalle: dos aprendizajes desde la observación</title>
+<om:sec>1247</om:sec>
+	<link>https://alotroladodelmicrofono.com/produccion-sonora-detalle-aprendizajes/</link>
+	<pubDate>Tue, 28 Oct 2025 07:33:01 +0000</pubDate>
+	<dc:creator><![CDATA[Jorge Marín Nieto]]></dc:creator>
+	<guid isPermaLink="false">https://alotroladodelmicrofono.com/?p=11775</guid>
+	<description><![CDATA[<p>Producción sonora al detalle: dos aprendizajes desde la observación</p>
+<p>Si no ves la imagen entra en <a href="https://feedbueno.es/alotroladodelmicrofono#1247">https://feedbueno.es/alotroladodelmicrofono#1247</a></p>
+<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<img src="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1247-1.png"/>
+<p>1247. La producción sonora es algo que, más allá de ser mi trabajo, se ha convertido en una obsesión cotidiana. Ya no puedo ver un vídeo, asistir a un evento o ponerme un videoclip de fondo sin que mi cerebro entre en modo “modo técnico”. Me fijo en todo: en los cables, en cómo está colocada la mesa de mezclas, en qué micrófonos usan, en el plano, en la iluminación… Y no es que lo haga por postureo técnico, es que no lo puedo evitar. Me gusta observar cómo trabajan otros profesionales y, sobre todo, aprender de cada uno de esos detalles.</p>
+
+
+
+<p>En el episodio de hoy me apetecía compartir dos momentos recientes en los que esta obsesión —llamémosla así— me ha servido para aprender y también para inspirarme. El primero viene de una final europea de League of Legends en la que el equipo KOI se proclamó campeón. Estaba viendo la repetición del directo, y justo cuando estaban celebrando el título entre gritos y abrazos, los streamers pegaron un tirón a la mesa de sonido. En medio de todo el jaleo, casi echan por tierra una Rodecaster Pro II que estaba funcionando como mesa principal.</p>
+
+
+
+<p>¿Y qué pasa? Que era exactamente el mismo modelo que uso en EOVE Productora. Lo reconocí al vuelo. Marta, productora de KOI, tuvo que hacer un salto ninja desde detrás de cámara para evitar la tragedia. Fue un segundo, pero para mí fue toda una lección. No solo por lo que aprendí del uso del equipo en entornos de euforia y riesgo, sino por el subidón que me dio ver ese mismo equipo en una producción de tanta envergadura. Detalles que te conectan con lo que haces y te refuerzan en lo técnico.</p>
+
+
+
+<p>KOI ganadores de la LEC:</p>
+
+
+
+<p> <a href="https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616" data-type="link" data-id="https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616">https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616</a></p>
+
+
+
+<p>El segundo momento lo viví en uno de esos ratos de trabajo en los que me pongo música de fondo para tareas administrativas. Di con un videoclip del tema Serie Telemática - Alma de Oro, de Xoel López con Ede. Un vídeo muy sencillo visualmente, pero muy bien cuidado. Lo que más me llamó la atención —y por eso lo traigo aquí— fue ver que Ede llevaba un micrófono de solapa en la parte trasera del tirante de su vestido. Sí, en la espalda. Y ahí me explotó la cabeza. Porque claro, como estaban cantando uno a la espalda del otro, ese posicionamiento tenía todo el sentido del mundo.</p>
+
+
+
+<p>Me pareció un ejemplo precioso de cómo adaptarse a lo que la escena requiere. Podrían haber optado por un micro de pértiga, podrían haber hecho playback y sobreponer el audio en postproducción, pero eligieron capturar la magia en directo, aunque eso implicase esconder micrófonos en lugares poco habituales.</p>
+
+
+
+<p>Xoel López - Serie Telemática (Alma de oro) ft. Ede:
+<a href="https://www.youtube.com/watch?v=PC9dKVS93qQ&amp;list=PLXl9q53Jut6mkIZJ9M_5OBvXheyUI7FCz&amp;index=288" target="_blank" rel="noreferrer noopener">https://www.youtube.com/watch?v=PC9dKVS93qQ&amp;list=PLXl9q53Jut6mkIZJ9M_5OBvXheyUI7FCz&amp;index=288</a></p>
+
+
+
+<p>Lo mejor de todo es que ese tipo de observaciones me ayudan a anticipar cosas que quizás tenga que enfrentar algún día. ¿Me toca grabar un podcast entre dos personas abrazadas? Pues ya sé que tendré que poner los micros en la espalda. ¿Voy a cubrir un evento donde puede haber celebraciones caóticas? Pues a replantear cómo aseguro el equipo. Cada escena técnica se convierte en una clase práctica si sabes mirar con detalle.</p>
+
+
+
+<p>Así que nada, este episodio va dedicado a todos los que, como yo, ven una retransmisión y no pueden evitar fijarse en todo lo que hay alrededor. A quienes la producción sonora les roba la atención más que el contenido principal. Y a quienes saben que siempre se puede aprender algo… si se observa bien.</p>
+
+
+
+<p>_____________</p>
+
+
+
+<p>Consigue tu entrada para el directo de 'Estamos al mando' el 14 de noviembre en las Podnights Madrid a través de Eventbrite
+<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+
+
+
+<p>_____________
+&nbsp;
+¡Gracias por pasarte 'Al otro lado del micrófono' un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a></p>
+
+
+
+<p>Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en:&nbsp;<a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>.&nbsp;También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados&nbsp;<a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a></p>
+
+
+
+<p>La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.&nbsp;</p>
+
+
+
+<p>'Al otro lado del micrófono' es una creación de EOVE Productora.</p>]]></description>
+	<itunes:subtitle><![CDATA[1247. La producción sonora es algo que, más allá de ser mi trabajo, se ha convertido en una obsesión cotidiana. Ya no puedo ver un vídeo, asistir a un evento o ponerme un videoclip de fondo sin que mi cerebro entre en modo “modo técnico”. Me fijo en todo]]></itunes:subtitle>
+	<content:encoded><![CDATA[<p>1247. La producción sonora es algo que, más allá de ser mi trabajo, se ha convertido en una obsesión cotidiana. Ya no puedo ver un vídeo, asistir a un evento o ponerme un videoclip de fondo sin que mi cerebro entre en modo “modo técnico”. Me fijo en todo: en los cables, en cómo está colocada la mesa de mezclas, en qué micrófonos usan, en el plano, en la iluminación… Y no es que lo haga por postureo técnico, es que no lo puedo evitar. Me gusta observar cómo trabajan otros profesionales y, sobre todo, aprender de cada uno de esos detalles.</p>
+
+
+
+<p>En el episodio de hoy me apetecía compartir dos momentos recientes en los que esta obsesión —llamémosla así— me ha servido para aprender y también para inspirarme. El primero viene de una final europea de League of Legends en la que el equipo KOI se proclamó campeón. Estaba viendo la repetición del directo, y justo cuando estaban celebrando el título entre gritos y abrazos, los streamers pegaron un tirón a la mesa de sonido. En medio de todo el jaleo, casi echan por tierra una Rodecaster Pro II que estaba funcionando como mesa principal.</p>
+
+
+
+<p>¿Y qué pasa? Que era exactamente el mismo modelo que uso en EOVE Productora. Lo reconocí al vuelo. Marta, productora de KOI, tuvo que hacer un salto ninja desde detrás de cámara para evitar la tragedia. Fue un segundo, pero para mí fue toda una lección. No solo por lo que aprendí del uso del equipo en entornos de euforia y riesgo, sino por el subidón que me dio ver ese mismo equipo en una producción de tanta envergadura. Detalles que te conectan con lo que haces y te refuerzan en lo técnico.</p>
+
+
+
+<p>KOI ganadores de la LEC:</p>
+
+
+
+<p> <a href="https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616" data-type="link" data-id="https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616">https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616</a></p>
+
+
+
+<p>El segundo momento lo viví en uno de esos ratos de trabajo en los que me pongo música de fondo para tareas administrativas. Di con un videoclip del tema Serie Telemática - Alma de Oro, de Xoel López con Ede. Un vídeo muy sencillo visualmente, pero muy bien cuidado. Lo que más me llamó la atención —y por eso lo traigo aquí— fue ver que Ede llevaba un micrófono de solapa en la parte trasera del tirante de su vestido. Sí, en la espalda. Y ahí me explotó la cabeza. Porque claro, como estaban cantando uno a la espalda del otro, ese posicionamiento tenía todo el sentido del mundo.</p>
+
+
+
+<p>Me pareció un ejemplo precioso de cómo adaptarse a lo que la escena requiere. Podrían haber optado por un micro de pértiga, podrían haber hecho playback y sobreponer el audio en postproducción, pero eligieron capturar la magia en directo, aunque eso implicase esconder micrófonos en lugares poco habituales.</p>
+
+
+
+<p>Xoel López - Serie Telemática (Alma de oro) ft. Ede:
+<a href="https://www.youtube.com/watch?v=PC9dKVS93qQ&amp;list=PLXl9q53Jut6mkIZJ9M_5OBvXheyUI7FCz&amp;index=288" target="_blank" rel="noreferrer noopener">https://www.youtube.com/watch?v=PC9dKVS93qQ&amp;list=PLXl9q53Jut6mkIZJ9M_5OBvXheyUI7FCz&amp;index=288</a></p>
+
+
+
+<p>Lo mejor de todo es que ese tipo de observaciones me ayudan a anticipar cosas que quizás tenga que enfrentar algún día. ¿Me toca grabar un podcast entre dos personas abrazadas? Pues ya sé que tendré que poner los micros en la espalda. ¿Voy a cubrir un evento donde puede haber celebraciones caóticas? Pues a replantear cómo aseguro el equipo. Cada escena técnica se convierte en una clase práctica si sabes mirar con detalle.</p>
+
+
+
+<p>Así que nada, este episodio va dedicado a todos los que, como yo, ven una retransmisión y no pueden evitar fijarse en todo lo que hay alrededor. A quienes la producción sonora les roba la atención más que el contenido principal. Y a quienes saben que siempre se puede aprender algo… si se observa bien.</p>
+
+
+
+<p>_____________</p>
+
+
+
+<p>Consigue tu entrada para el directo de 'Estamos al mando' el 14 de noviembre en las Podnights Madrid a través de Eventbrite
+<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+
+
+
+<p>_____________
+&nbsp;
+¡Gracias por pasarte 'Al otro lado del micrófono' un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a></p>
+
+
+
+<p>Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en:&nbsp;<a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>.&nbsp;También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados&nbsp;<a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a></p>
+
+
+
+<p>La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.&nbsp;</p>
+
+
+
+<p>'Al otro lado del micrófono' es una creación de EOVE Productora.</p>]]></content:encoded>
+	<enclosure url="https://api.spreaker.com/download/episode/68267791/1247.mp3" length="14.38" type="audio/mpeg"></enclosure>
+	<itunes:summary><![CDATA[1247. La producción sonora es algo que, más allá de ser mi trabajo, se ha convertido en una obsesión cotidiana. Ya no puedo ver un vídeo, asistir a un evento o ponerme un videoclip de fondo sin que mi cerebro entre en modo “modo técnico”. Me fijo en todo: en los cables, en cómo está colocada la mesa de mezclas, en qué micrófonos usan, en el plano, en la iluminación… Y no es que lo haga por postureo técnico, es que no lo puedo evitar. Me gusta observar cómo trabajan otros profesionales y, sobre todo, aprender de cada uno de esos detalles.
+
+
+
+En el episodio de hoy me apetecía compartir dos momentos recientes en los que esta obsesión —llamémosla así— me ha servido para aprender y también para inspirarme. El primero viene de una final europea de League of Legends en la que el equipo KOI se proclamó campeón. Estaba viendo la repetición del directo, y justo cuando estaban celebrando el título entre gritos y abrazos, los streamers pegaron un tirón a la mesa de sonido. En medio de todo el jaleo, casi echan por tierra una Rodecaster Pro II que estaba funcionando como mesa principal.
+
+
+
+¿Y qué pasa? Que era exactamente el mismo modelo que uso en EOVE Productora. Lo reconocí al vuelo. Marta, productora de KOI, tuvo que hacer un salto ninja desde detrás de cámara para evitar la tragedia. Fue un segundo, pero para mí fue toda una lección. No solo por lo que aprendí del uso del equipo en entornos de euforia y riesgo, sino por el subidón que me dio ver ese mismo equipo en una producción de tanta envergadura. Detalles que te conectan con lo que haces y te refuerzan en lo técnico.
+
+
+
+KOI ganadores de la LEC:
+
+
+
+ https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616
+
+
+
+El segundo momento lo viví en uno de esos ratos de trabajo en los que me pongo música de fondo para tareas administrativas. Di con un videoclip del tema Serie Telemática - Alma de Oro, de Xoel López con Ede. Un vídeo muy sencillo visualmente, pero muy bien cuidado. Lo que más me llamó la atención —y por eso lo traigo aquí— fue ver que Ede llevaba un micrófono de solapa en la parte trasera del tirante de su vestido. Sí, en la espalda. Y ahí me explotó la cabeza. Porque claro, como estaban cantando uno a la espalda del otro, ese posicionamiento tenía todo el sentido del mundo.
+
+
+
+Me pareció un ejemplo precioso de cómo adaptarse a lo que la escena requiere. Podrían haber optado por un micro de pértiga, podrían haber hecho playback y sobreponer el audio en postproducción, pero eligieron capturar la magia en directo, aunque eso implicase esconder micrófonos en lugares poco habituales.
+
+
+
+Xoel López - Serie Telemática (Alma de oro) ft. Ede:
+https://www.youtube.com/watch?v=PC9dKVS93qQ&amp;list=PLXl9q53Jut6mkIZJ9M_5OBvXheyUI7FCz&amp;index=288
+
+
+
+Lo mejor de todo es que ese tipo de observaciones me ayudan a anticipar cosas que quizás tenga que enfrentar algún día. ¿Me toca grabar un podcast entre dos personas abrazadas? Pues ya sé que tendré que poner los micros en la espalda. ¿Voy a cubrir un evento donde puede haber celebraciones caóticas? Pues a replantear cómo aseguro el equipo. Cada escena técnica se convierte en una clase práctica si sabes mirar con detalle.
+
+
+
+Así que nada, este episodio va dedicado a todos los que, como yo, ven una retransmisión y no pueden evitar fijarse en todo lo que hay alrededor. A quienes la producción sonora les roba la atención más que el contenido principal. Y a quienes saben que siempre se puede aprender algo… si se observa bien.
+
+
+
+_____________
+
+
+
+Consigue tu entrada para el directo de 'Estamos al mando' el 14 de noviembre en las Podnights Madrid a través de Eventbrite
+https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator
+
+
+
+_____________
+&nbsp;
+¡Gracias por pasarte 'Al otro lado del micrófono' un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar https://alotro]]></itunes:summary>
+	<itunes:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2023/12/03c5729783c936595c8e3c3d78229c4b.jpg"></itunes:image>
+	<image>
+		<url>https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1247-1.png</url>
+		<title>Producción sonora al detalle: dos aprendizajes desde la observación</title>
+	</image>
+	<itunes:explicit>false</itunes:explicit>
+	<itunes:block>no</itunes:block>
+	<itunes:duration>00:15:42</itunes:duration>
+	<itunes:author><![CDATA[Jorge Marín Nieto]]></itunes:author>	<googleplay:description><![CDATA[1247. La producción sonora es algo que, más allá de ser mi trabajo, se ha convertido en una obsesión cotidiana. Ya no puedo ver un vídeo, asistir a un evento o ponerme un videoclip de fondo sin que mi cerebro entre en modo “modo técnico”. Me fijo en todo: en los cables, en cómo está colocada la mesa de mezclas, en qué micrófonos usan, en el plano, en la iluminación… Y no es que lo haga por postureo técnico, es que no lo puedo evitar. Me gusta observar cómo trabajan otros profesionales y, sobre todo, aprender de cada uno de esos detalles.
+
+
+
+En el episodio de hoy me apetecía compartir dos momentos recientes en los que esta obsesión —llamémosla así— me ha servido para aprender y también para inspirarme. El primero viene de una final europea de League of Legends en la que el equipo KOI se proclamó campeón. Estaba viendo la repetición del directo, y justo cuando estaban celebrando el título entre gritos y abrazos, los streamers pegaron un tirón a la mesa de sonido. En medio de todo el jal]]></googleplay:description>
+	<googleplay:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1247-1.png"></googleplay:image>
+	<googleplay:explicit>No</googleplay:explicit>
+	<googleplay:block>no</googleplay:block>
+<om:des><div><img src="https://alotroladodelmicrofono.com/wp-content/uploads/2025/10/1247-1.png"/>
+<p>1247. La producción sonora es algo que, más allá de ser mi trabajo, se ha convertido en una obsesión cotidiana. Ya no puedo ver un vídeo, asistir a un evento o ponerme un videoclip de fondo sin que mi cerebro entre en modo “modo técnico”. Me fijo en todo: en los cables, en cómo está colocada la mesa de mezclas, en qué micrófonos usan, en el plano, en la iluminación… Y no es que lo haga por postureo técnico, es que no lo puedo evitar. Me gusta observar cómo trabajan otros profesionales y, sobre todo, aprender de cada uno de esos detalles.</p>
+
+
+
+<p>En el episodio de hoy me apetecía compartir dos momentos recientes en los que esta obsesión —llamémosla así— me ha servido para aprender y también para inspirarme. El primero viene de una final europea de League of Legends en la que el equipo KOI se proclamó campeón. Estaba viendo la repetición del directo, y justo cuando estaban celebrando el título entre gritos y abrazos, los streamers pegaron un tirón a la mesa de sonido. En medio de todo el jaleo, casi echan por tierra una Rodecaster Pro II que estaba funcionando como mesa principal.</p>
+
+
+
+<p>¿Y qué pasa? Que era exactamente el mismo modelo que uso en EOVE Productora. Lo reconocí al vuelo. Marta, productora de KOI, tuvo que hacer un salto ninja desde detrás de cámara para evitar la tragedia. Fue un segundo, pero para mí fue toda una lección. No solo por lo que aprendí del uso del equipo en entornos de euforia y riesgo, sino por el subidón que me dio ver ese mismo equipo en una producción de tanta envergadura. Detalles que te conectan con lo que haces y te refuerzan en lo técnico.</p>
+
+
+
+<p>KOI ganadores de la LEC:</p>
+
+
+
+<p> <a href="https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616" data-type="link" data-id="https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616">https://youtu.be/LjHSErZKEnY?si=h-VAnrfucGcSD-6z&amp;t=1616</a></p>
+
+
+
+<p>El segundo momento lo viví en uno de esos ratos de trabajo en los que me pongo música de fondo para tareas administrativas. Di con un videoclip del tema Serie Telemática - Alma de Oro, de Xoel López con Ede. Un vídeo muy sencillo visualmente, pero muy bien cuidado. Lo que más me llamó la atención —y por eso lo traigo aquí— fue ver que Ede llevaba un micrófono de solapa en la parte trasera del tirante de su vestido. Sí, en la espalda. Y ahí me explotó la cabeza. Porque claro, como estaban cantando uno a la espalda del otro, ese posicionamiento tenía todo el sentido del mundo.</p>
+
+
+
+<p>Me pareció un ejemplo precioso de cómo adaptarse a lo que la escena requiere. Podrían haber optado por un micro de pértiga, podrían haber hecho playback y sobreponer el audio en postproducción, pero eligieron capturar la magia en directo, aunque eso implicase esconder micrófonos en lugares poco habituales.</p>
+
+
+
+<p>Xoel López - Serie Telemática (Alma de oro) ft. Ede:
+<a href="https://www.youtube.com/watch?v=PC9dKVS93qQ&amp;list=PLXl9q53Jut6mkIZJ9M_5OBvXheyUI7FCz&amp;index=288" target="_blank" rel="noreferrer noopener">https://www.youtube.com/watch?v=PC9dKVS93qQ&amp;list=PLXl9q53Jut6mkIZJ9M_5OBvXheyUI7FCz&amp;index=288</a></p>
+
+
+
+<p>Lo mejor de todo es que ese tipo de observaciones me ayudan a anticipar cosas que quizás tenga que enfrentar algún día. ¿Me toca grabar un podcast entre dos personas abrazadas? Pues ya sé que tendré que poner los micros en la espalda. ¿Voy a cubrir un evento donde puede haber celebraciones caóticas? Pues a replantear cómo aseguro el equipo. Cada escena técnica se convierte en una clase práctica si sabes mirar con detalle.</p>
+
+
+
+<p>Así que nada, este episodio va dedicado a todos los que, como yo, ven una retransmisión y no pueden evitar fijarse en todo lo que hay alrededor. A quienes la producción sonora les roba la atención más que el contenido principal. Y a quienes saben que siempre se puede aprender algo… si se observa bien.</p>
+
+
+
+<p>_____________</p>
+
+
+
+<p>Consigue tu entrada para el directo de 'Estamos al mando' el 14 de noviembre en las Podnights Madrid a través de Eventbrite
+<a href="https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator" target="_blank" rel="noreferrer noopener">https://www.eventbrite.es/e/entradas-estamos-al-mando-en-podnights-madrid-1547995098009?aff=oddtdtcreator</a></p>
+
+
+
+<p>_____________
+&nbsp;
+¡Gracias por pasarte 'Al otro lado del micrófono' un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a></p>
+
+
+
+<p>Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en:&nbsp;<a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>.&nbsp;También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados&nbsp;<a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a></p>
+
+
+
+<p>La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.&nbsp;</p>
+
+
+
+<p>'Al otro lado del micrófono' es una creación de EOVE Productora.</p></div></om:des></item>
+
+
+
+</channel>
+</rss>
