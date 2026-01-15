@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<?xml-stylesheet type="text/xsl" href="../estilos/prueba.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../estilos/centrado.xsl"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" 
 xmlns:anchor="https://anchor.fm/xmlns"
 xmlns:content="http://purl.org/rss/1.0/modules/content/" 
@@ -9,13 +9,26 @@ xmlns:media="http://search.yahoo.com/mrss/"
 xmlns:om="https://omrey86.neocities.org/"
 version="2.0"> 
 <channel>
-	         <title><![CDATA[Iniciativa Residente Evil]]></title>
+	         <title><![CDATA[Iniciativa Resident Evil]]></title>
 	<om:name>ire</om:name>
-<om:cfb1></om:cfb1>
-	<om:cfb2></om:cfb2>
-	<om:cfi></om:cfi>
+	
+<om:notas>body {
+  background-color: #0B0B0B;
+  color: #E6E6E6;
+}
+
+.section-danger {
+  background-color: #8B0000;
+  color: #F5F5F5;
+}
+</om:notas>
+
+<om:cfb1>#0B0B0B</om:cfb1>
+	<om:cfb2>#111C1A </om:cfb2>
+	<om:cfi>#8B0000</om:cfi>
 	<om:ch1></om:ch1>
-	<om:cti></om:cti>
+	<om:ct>#E6E6E6</om:ct>
+	<om:cti>#F5F5F5</om:cti>
 	<om:autor></om:autor>
 <om:suscripciones>
 	<om:ivoox></om:ivoox>
@@ -42,7 +55,7 @@ version="2.0">
 <description><![CDATA[DESCRIPCIÓN]]></description>
 <generator>FEEDBUENO</generator>
        <image><url>https://feedbueno.es/ire/logo.jpeg</url>
-        <title><![CDATA[Iniciativa Residente Evil]]></title>
+        <title><![CDATA[Iniciativa Resident Evil]]></title>
 <link>https://feedbueno.es/ire/feed.xml</link>
 </image>
 <atom:link href="https://feedbueno.es/ire/feed.xml" rel="self" type="application/rss+xml"/>
@@ -60,9 +73,9 @@ version="2.0">
 
 <item>
 <om:sec>trailer1</om:sec>
-<title><![CDATA[Capítulo de prueba]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-intro-audios-mp3_rf_154999198_1.html</link>
+<title><![CDATA[Iniciativa Resident Evil - Prueba]]></title><link>https://www.ivoox.com/iniciativa-metal-gear-intro-audios-mp3_rf_154999198_1.html</link>
 <enclosure url="https://op3.dev/e,pg=3edf0fae-0d87-567a-ae3c-d66bbf7bcfb7/https://www.ivoox.com/iniciativa-metal-gear-intro_mf_154999198_feed_1.mp3" type="audio/mpeg"  length="826723"/>
-<description><![CDATA[Iniciativa Metal Gear - Intro
+<description><![CDATA[Iniciativa Resident Evil - Prueba
 <img src="https://feedbueno.es/ire/trailer.jpeg" />
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
 <p> Si no ves las imágenes accede a <a href="https://feedbueno.es/ire/feed.xml#s1e1">https://feedbueno.es/ire/feed.xml#s1e1</a> o a <a href="https://feedbueno.es/ire/feed.xml#trailer1">https://feedbueno.es/ire/feed.xml#trailer1</a></p>
@@ -72,12 +85,7 @@ version="2.0">
 <itunes:episode>1</itunes:episode> 
 <itunes:episodeType>trailer</itunes:episodeType><guid>https://www.ivoox.com/154999198</guid>
 <itunes:image href="https://feedbueno.es/ire/trailer.jpeg"/>
-<om:des>Iniciativa Metal Gear - Intro
-<img src="https://feedbueno.es/ire/trailer.jpeg" />
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
-<p> Si no ves las imágenes accede a <a href="https://feedbueno.es/ire/feed.xml#s1e1">https://feedbueno.es/ire/feed.xml#s1e1</a> o a <a href="https://feedbueno.es/ire/feed.xml#trailer1">https://feedbueno.es/ire/feed.xml#trailer1</a></p>
-<hr/>
-<p> 🎙 Este es un episodio de prueba. </p> </om:des></item>
+</item>
 
 
 </channel>
