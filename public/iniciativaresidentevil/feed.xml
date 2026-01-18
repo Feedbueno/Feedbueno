@@ -24,7 +24,7 @@ version="2.0">
 </om:notas>
 
 <om:cfb1>#0B0B0B</om:cfb1>
-	<om:cfb2>#1C1F26 </om:cfb2>
+	<om:cfb2>#344537</om:cfb2>
 	<om:cfi>#8B0000</om:cfi>
 	<om:ch1></om:ch1>
 	<om:ct>#E6E6E6</om:ct>
@@ -89,4 +89,5 @@ version="2.0">
 
 
 </channel>
+
 </rss>
