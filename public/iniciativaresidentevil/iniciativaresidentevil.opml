@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Iniciativa Resident Evil</title>
+  </head>
+  <body>
+    <outline text="Iniciativa Resident Evil" title="Iniciativa Resident Evil">
+      <outline text="La Regla del Tres" title="La Regla del Tres" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f11327342_filtro_1.xml"/>
+      <outline text="Con 2 Botones" title="Con 2 Botones" type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f11277062_filtro_1.xml"/>
+      <outline text="Cassette Dreams" title="Cassette Dreams" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f12772543_filtro_1.xml"/>
+      <outline text="Criterio Cero" title="Criterio Cero" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f11355645_filtro_1.xml"/>
+      <outline text="GAMELX" title="GAMELX" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f150922_filtro_1.xml"/>
+      <outline text="ILT Juegos" title="ILT Juegos" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f1446764_filtro_1.xml"/>
+      <outline text="Un café con Nintendo" title="Un café con Nintendo" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f1461123_filtro_1.xml"/>
+      <outline text="the input lag" title="the input lag" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f12261100_filtro_1.xml"/>
+      <outline text="4Players" title="4Players" type="rss" xmlUrl="https://www.ivoox.com/feed_fg_f159110_filtro_1.xml"/>
+      <outline text="Topalgames" title="Topalgames" type="rss" xmlUrl="https://feeds.feedburner.com/TopalGames"/>
+      <outline text="Friki Huérfanos" title="Friki Huérfanos" type="rss" xmlUrl="https://feeds.feedburner.com/frikihuerfanos"/>
+      <outline text="Ukeleke Trombón" title="Ukeleke Trombón" type="rss" xmlUrl="https://anchor.fm/s/102332dd8/podcast/rss"/>
+      <outline text="SieteBITS" title="SieteBITS" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f1587235_filtro_1.xml"/>
+      <outline text="Rocquimendaciones" title="Rocquimendaciones" type="rss" xmlUrl="https://feeds.feedburner.com/rocquimendaciones"/>
+      <outline text="Ocio 2.0" title="Ocio 2.0" type="rss" xmlUrl="https://feeds.feedburner.com/ocio20"/>
+      <outline text="Sayonara Baby" title="Sayonara Baby" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f11591648_filtro_1.xml"/>
+      <outline text="El Podcast de VR" title="El Podcast de VR" type="rss" xmlUrl="https://feeds.ivoox.com/feed_fg_f1884563_filtro_1.xml"/>
+    </outline>
+  </body>
+</opml>

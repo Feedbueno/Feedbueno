@@ -11,25 +11,13 @@ version="2.0">
 <channel>
 	         <title><![CDATA[Iniciativa Resident Evil]]></title>
 	<om:name>iniciativaresidentevil</om:name>
-	
-<om:notas>body {
-  background-color: #0B0B0B;
-  color: #E6E6E6;
-}
-
-.section-danger {
-  background-color: #8B0000;
-  color: #F5F5F5;
-}
-</om:notas>
-
-<om:cfb1>#0B0B0B</om:cfb1>
-	<om:cfb2>#869e62</om:cfb2>
+<om:cfb1>#344537</om:cfb1>
+	<om:cfb2>#869e62 </om:cfb2>
 	<om:cfi>#8B0000</om:cfi>
 	<om:ch1></om:ch1>
 	<om:ct>#E6E6E6</om:ct>
 	<om:cti>#F5F5F5</om:cti>
-	<om:autor></om:autor>
+	<om:autor>Iniciativa Podgaming</om:autor>
 <om:suscripciones>
 	<om:ivoox></om:ivoox>
 	<om:apple></om:apple>
@@ -38,7 +26,7 @@ version="2.0">
 	<om:pocketcasts></om:pocketcasts>
 	<om:amazon></om:amazon>
 	<om:index></om:index>
-	<om:opml></om:opml>
+	<om:opml>https://www.feedbueno.es/iniciativaresidentevil/iniciativaresidentevil.opml</om:opml>
 </om:suscripciones>
 <om:like></om:like>
     <om:x></om:x>
@@ -89,6 +77,4 @@ version="2.0">
 
 
 </channel>
-
 </rss>
-
