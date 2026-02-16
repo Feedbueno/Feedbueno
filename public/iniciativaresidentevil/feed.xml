@@ -61,9 +61,9 @@ version="2.0">
 
 <item>
 <om:sec>promo</om:sec>
-<title><![CDATA[PRÓXIMAMENTE - Mirar Descripción - Sin Audio]]></title>
+<title><![CDATA[PRÓXIMAMENTE - Mirar Descripción]]></title>
 <enclosure url="https://archive.org/download/danaps_202503/promoiniciativaresidentevil.mp3" type="audio/mpeg" length="756213"/>
-<description><![CDATA[<p>PRÓXIMAMENTE - Mirar Descripción - Sin Audio</p>
+<description><![CDATA[<p>PRÓXIMAMENTE - Mirar Descripción</p>
 <hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
 <img src="https://feedbueno.es/iniciativaresidentevil/trailerire.jpg" />
 <p>Próximamente varios podcast de la Iniciativa Podgaming se unirán para grabar episodios sobre la saga Resident Evil.</p>
@@ -73,7 +73,7 @@ version="2.0">
 ]]> 
 </description>
 <pubDate>Mon, 16 Feb 2026 07:00:00 +0200</pubDate>
-<guid>promo</guid>
+<guid>promoaudio</guid>
 <itunes:duration>00:00:30</itunes:duration>
 <itunes:season>1</itunes:season>
 <itunes:episodeType>trailer</itunes:episodeType>
