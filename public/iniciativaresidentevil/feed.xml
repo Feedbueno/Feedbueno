@@ -22,7 +22,7 @@ version="2.0">
 	<om:ivoox>https://go.ivoox.com/rf/168879357</om:ivoox>
 	<om:apple></om:apple>
 	<om:spotify>https://open.spotify.com/playlist/06h5l69UUN0YdbKDYWbg8v?si=EW6m8nmEQRSyhhNpG6TVsA</om:spotify>
-
+<om:youtube>https://youtube.com/playlist?list=PLuuSWmpMzKJUzk01bJphAURTTG06VYtq7&si=bxcxgxvqWvzsPaKE</om:youtube>
 	<om:pocketcasts></om:pocketcasts>
 	<om:amazon></om:amazon>
 	<om:index>https://podcastindex.org/podcast/7715654</om:index>
@@ -40,7 +40,38 @@ version="2.0">
 <copyright>Iniciativa Podgaming</copyright>
 <link>https://feedbueno.es/iniciativaresidentevil/feed.xml</link>
 <language>es</language>
-<description><![CDATA[Varios podcast de la Iniciativa Podgaming se unen para grabar episodios sobre la saga Resident Evil]]></description>
+<description><![CDATA[<p>En esta iniciativa participan:</p>
+<ul>
+<li>La Regla del Tres</li>
+<li>Con 2 Botones</li>
+<li>Cassette Dreams</li>
+<li>Criterio Cero</li>
+<li>GAMELX</li>
+<li>ILT Juegos</li>
+<li>Un Café con Nintendo</li>
+<li>The Input Lag</li>
+<li>4Players</li>
+<li>Topalgames</li>
+<li>Friki Huérfanos</li>
+<li>Ukelele Trombón</li>
+<li>SieteBITS</li>
+<li>Rocquimendaciones</li>
+<li>Ocio 2.0</li>
+<li>Sayonara Baby</li>
+<li>El Podcast de VR</li>
+</ul>
+
+<p>Durante estos días, cada programa aportará su visión y análisis sobre distintos títulos y aspectos de la franquicia.</p>
+
+<ul>
+<li>Feed: <a href="https://www.feedbueno.es/iniciativaresidentevil/feed.xml">https://www.feedbueno.es/iniciativaresidentevil/feed.xml</a></li>
+<li>Lista de iVoox: <a href="https://go.ivoox.com/rf/168879357">https://go.ivoox.com/rf/168879357</a></li>
+<li>Lista de Spotify: <a href="https://open.spotify.com/playlist/06h5l69UUN0YdbKDYWbg8v?si=EW6m8nmEQRSyhhNpG6TVsA">https://open.spotify.com/playlist/06h5l69UUN0YdbKDYWbg8v?si=EW6m8nmEQRSyhhNpG6TVsA</a></li>
+<li>Lista de YouTube: <a href="https://youtube.com/playlist?list=PLuuSWmpMzKJUzk01bJphAURTTG06VYtq7&si=bxcxgxvqWvzsPaKE">https://youtube.com/playlist?list=PLuuSWmpMzKJUzk01bJphAURTTG06VYtq7&si=bxcxgxvqWvzsPaKE</a></li>
+<li>Lista de YouTube Music: <a href="https://music.youtube.com/playlist?list=PLuuSWmpMzKJVpnpLscRCwoalRKeuyMa0N&si=E7w0q65Z_Eb3Ujrv">https://music.youtube.com/playlist?list=PLuuSWmpMzKJVpnpLscRCwoalRKeuyMa0N&si=E7w0q65Z_Eb3Ujrv</a></li>
+<li>Busca "Iniciativa Resident Evil" o descarga el archivo de <a href="https://feedbueno.es/iniciativaresidentevil/iniciativaresidentevil.opml">https://feedbueno.es/iniciativaresidentevil/iniciativaresidentevil.opml</a> y ábrelo en tu aplicación de podcast.</li>
+</ul>
+<p> Varios podcast de la Iniciativa Podgaming se unen para grabar episodios sobre la saga Resident Evil </p>]]></description>
 <generator>FEEDBUENO</generator>
        <image><url>https://feedbueno.es/iniciativaresidentevil/logo.jpeg</url>
         <title><![CDATA[Iniciativa Resident Evil]]></title>
@@ -67,7 +98,6 @@ version="2.0">
 <description><![CDATA[
 <p><strong>Iniciativa Resident Evil #04 // Criterio Cero - Resident Evil 2</strong></p>
 <p><a href="https://www.ivoox.com/iniciativa-resident-evil-04-criterio-cero-audios-mp3_rf_168565777_1.html"><img src="https://static-2.ivoox.com/audios/7/9/f/8/79f8d8dd5701567e412eb2c4a3d5d138_XXL.jpg" alt="Iniciativa Resident Evil 04"></a></p>
-<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
 <p>En esta iniciativa participan:</p>
 <ul>
 <li>La Regla del Tres</li>
@@ -99,8 +129,8 @@ version="2.0">
 <li>Lista de YouTube Music: <a href="https://music.youtube.com/playlist?list=PLuuSWmpMzKJVpnpLscRCwoalRKeuyMa0N&si=E7w0q65Z_Eb3Ujrv">https://music.youtube.com/playlist?list=PLuuSWmpMzKJVpnpLscRCwoalRKeuyMa0N&si=E7w0q65Z_Eb3Ujrv</a></li>
 <li>Busca "Iniciativa Resident Evil" o descarga el archivo de <a href="https://feedbueno.es/iniciativaresidentevil/iniciativaresidentevil.opml">https://feedbueno.es/iniciativaresidentevil/iniciativaresidentevil.opml</a> y ábrelo en tu aplicación de podcast.</li>
 </ul>
+<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
 
-<hr> </hr> 
 <p>Volvemos a 1998. A Raccoon City. A las noches sin dormir.<br>
 A las puertas que se abrían lentamente… y al sonido de unos pasos que no querías escuchar.</p>
 
