@@ -23,7 +23,7 @@ version="2.0">
 	<om:ivoox>https://go.ivoox.com/rf/168879357</om:ivoox>
 	<om:apple></om:apple>
 	<om:spotify>https://open.spotify.com/playlist/06h5l69UUN0YdbKDYWbg8v?si=EW6m8nmEQRSyhhNpG6TVsA</om:spotify>
-<om:youtube>https://youtube.com/playlist?list=PLuuSWmpMzKJUzk01bJphAURTTG06VYtq7&si=cNUe4SycvTeCQMLe</om:youtube>
+<om:youtube><![CDATA[https://youtube.com/playlist?list=PLuuSWmpMzKJUzk01bJphAURTTG06VYtq7&si=cNUe4SycvTeCQMLe]]></om:youtube>
 	<om:pocketcasts></om:pocketcasts>
 	<om:amazon></om:amazon>
 	<om:index>https://podcastindex.org/podcast/7715654</om:index>
