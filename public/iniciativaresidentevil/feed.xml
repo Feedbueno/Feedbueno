@@ -9,6 +9,7 @@ xmlns:media="http://search.yahoo.com/mrss/"
 xmlns:om="https://omrey86.neocities.org/"
 version="2.0"> 
 <channel>
+	<itunes:block>no</itunes:block>
 	         <title><![CDATA[Iniciativa Resident Evil]]></title>
 	<om:name>iniciativaresidentevil</om:name>
 <om:cfb1>#344537</om:cfb1>
