@@ -363,7 +363,7 @@ Width="80%"/>
 <details>
   <summary><span style="font-weight: bold;">Descripción: </span>
     <span class="resumen">
-      <xsl:value-of disable-output-escaping="yes" select="substring(/rss/channel/description, 1, 80)"/>...
+      <xsl:value-of disable-output-escaping="yes" select="substring(/rss/channel/description, 1, 80)"/>... <b>VER MÁS</b>
     </span>
   </summary>
   <p>
