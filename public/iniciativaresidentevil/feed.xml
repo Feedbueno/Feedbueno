@@ -24,7 +24,7 @@ version="2.0">
 	<om:apple>https://podcasts.apple.com/us/podcast/iniciativa-resident-evil/id1879231784</om:apple>
 	<om:spotify>https://open.spotify.com/playlist/06h5l69UUN0YdbKDYWbg8v?si=EW6m8nmEQRSyhhNpG6TVsA</om:spotify>
 <om:youtube><![CDATA[https://youtube.com/playlist?list=PLuuSWmpMzKJUzk01bJphAURTTG06VYtq7&si=cNUe4SycvTeCQMLe]]></om:youtube>
-	<om:pocketcasts></om:pocketcasts>
+	<om:pocketcasts>https://pca.st/4dmcizl4</om:pocketcasts>
 	<om:amazon></om:amazon>
 	<om:index>https://podcastindex.org/podcast/7715654</om:index>
 	<om:opml>https://www.feedbueno.es/iniciativaresidentevil/iniciativaresidentevil.opml</om:opml>
@@ -92,6 +92,68 @@ version="2.0">
 
 
 
+
+
+
+<item>
+<title>
+<![CDATA[Iniciativa Resident Evil #17 // El Podcast de VR - Resident Evil en Realidad Virtual]]>
+</title>
+<link>https://www.ivoox.com/iniciativa-resident-evil-17-el-podcast-de-audios-mp3_rf_169304188_1.html</link>
+<enclosure url="https://op3.dev/e,pg=37d35fea-15db-5117-b1e1-2c6e6ef29db4/https://www.ivoox.com/iniciativa-resident-evil-17-el-podcast-de_mf_169304188_feed_1.mp3" type="audio/mpeg"  length="95937097"/>
+<description>
+<![CDATA[
+Iniciativa Resident Evil #17 // El Podcast de VR - Resident Evil en Realidad Virtual
+<a href="https://www.ivoox.com/iniciativa-resident-evil-17-el-podcast-de-audios-mp3_rf_169304188_1.html">
+<img src="https://static-1.ivoox.com/audios/b/7/7/2/b772561721c2671eca0453e921612b83_XXL.jpg" />
+</a>
+<p>En esta iniciativa participan:</p>
+<ul>
+<li>La Regla del Tres</li>
+<li>Con 2 Botones</li>
+<li>Cassette Dreams</li>
+<li>Criterio Cero</li>
+<li>GAMELX</li>
+<li>ILT Juegos</li>
+<li>Un Café con Nintendo</li>
+<li>The Input Lag</li>
+<li>4Players</li>
+<li>Topalgames</li>
+<li>Friki Huérfanos</li>
+<li>Ukelele Trombón</li>
+<li>SieteBITS</li>
+<li>Rocquimendaciones</li>
+<li>Ocio 2.0</li>
+<li>Sayonara Baby</li>
+<li>El Podcast de VR</li>
+</ul>
+
+<p>Durante estos días, cada programa aportará su visión y análisis sobre distintos títulos y aspectos de la franquicia.</p>
+
+<ul>
+<li>Feed: <a href="https://www.feedbueno.es/iniciativaresidentevil">https://www.feedbueno.es/iniciativaresidentevil</a></li>
+<li>Lista de iVoox: <a href="https://go.ivoox.com/rf/168879357">https://go.ivoox.com/rf/168879357</a></li>
+<li>Lista de Spotify: <a href="https://open.spotify.com/playlist/06h5l69UUN0YdbKDYWbg8v?si=EW6m8nmEQRSyhhNpG6TVsA">https://open.spotify.com/playlist/06h5l69UUN0YdbKDYWbg8v?si=EW6m8nmEQRSyhhNpG6TVsA</a></li>
+<li>Lista de YouTube: <a href="https://youtube.com/playlist?list=PLuuSWmpMzKJUzk01bJphAURTTG06VYtq7&si=bxcxgxvqWvzsPaKE">https://youtube.com/playlist?list=PLuuSWmpMzKJUzk01bJphAURTTG06VYtq7&si=bxcxgxvqWvzsPaKE</a></li>
+<li>Lista de YouTube Music: <a href="https://music.youtube.com/playlist?list=PLuuSWmpMzKJVpnpLscRCwoalRKeuyMa0N&si=E7w0q65Z_Eb3Ujrv">https://music.youtube.com/playlist?list=PLuuSWmpMzKJVpnpLscRCwoalRKeuyMa0N&si=E7w0q65Z_Eb3Ujrv</a></li>
+<li>Busca "Iniciativa Resident Evil" o descarga el archivo de <a href="https://feedbueno.es/iniciativaresidentevil/iniciativaresidentevil.opml">https://feedbueno.es/iniciativaresidentevil/iniciativaresidentevil.opml</a> y ábrelo en tu aplicación de podcast.</li>
+</ul>
+
+<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+
+<p>Hola a Todos.</p>
+<p>Volvemos con otra iniciativa super interesante como es la que nos hablara de Resident Evil, con todas sus formas en VR.</p>
+<p>un saludo.</p>
+]]>
+</description>
+<pubDate>Sun, 01 Mar 2026 20:54:34 +0100</pubDate>
+<itunes:duration>01:39:56</itunes:duration>
+<itunes:season>1</itunes:season>
+<itunes:episode>17</itunes:episode>
+<itunes:episodeType>full</itunes:episodeType>
+<guid>https://www.ivoox.com/169304188</guid>
+<itunes:image href="https://static-1.ivoox.com/audios/b/7/7/2/b772561721c2671eca0453e921612b83_XXL.jpg"/>
+</item>
 
 
 <item>
