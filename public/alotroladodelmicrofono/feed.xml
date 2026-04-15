@@ -175,6 +175,118 @@ xmlns:om="https://omrey86.neocities.org/"
 
 
 
+
+<item>
+	<title>Plugin OP3 para WordPress: estadísticas de podcast dentro de tu web</title>
+<om:sec>5Z</om:sec>
+	<link>https://alotroladodelmicrofono.com/plugin-op3-wordpress-estadisticas/</link>
+	<pubDate>Wed, 15 Apr 2026 05:18:07 +0000</pubDate>
+	<dc:creator><![CDATA[Jorge Marín Nieto]]></dc:creator>
+	<guid isPermaLink="false">https://alotroladodelmicrofono.com/?p=12243</guid>
+	<description><![CDATA[<p>Plugin OP3 para WordPress: estadísticas de podcast dentro de tu web</p>
+<p>Si no ves la imagen entra en <a href="https://feedbueno.es/alotroladodelmicrofono#5Z">https://feedbueno.es/alotroladodelmicrofono#5Z</a></p>
+<hr style="border:0;border-top:1px dashed #ccc;margin:20px 0;" />
+<img src="https://alotroladodelmicrofono.com/wp-content/uploads/2026/04/1352.png"/>
+<h5>1352. Si usas WordPress para la web de tu podcast, estás de enhorabuena ya que hoy traigo un plugin para las estadísticas OP3, una especie de continuación natural de aquel capítulo en el que os conté qué era Open Podcast Prefix Project y por qué me parecía una de esas soluciones interesantes dentro del mundo del podcasting cuando hablamos de estadísticas abiertas, privacidad de los oyentes y control de nuestros propios datos.</h5>
+<p>Porque si recordáis aquel episodio, OP3 es un sistema de prefijos que permite monitorizar las descargas de un podcast de forma abierta, transparente y además completamente gratuita. Un servicio que me gusta describir como un BBB, o mejor dicho BBG: bueno, bonito y gratis.</p>
+<p>Pues bien, hoy quiero dar un pequeño paso más en esa misma línea, porque existe un complemento que permite integrar esas estadísticas directamente en nuestra propia web si utilizamos WordPress para alojar o gestionar nuestro podcast.</p>
+<p>Y aquí es donde entra en escena el plugin del que quiero hablaros hoy, llamado Podcast Analytics for OP3, desarrollado por alguien bastante conocido dentro del podcasting independiente: Miguel Ángel Terrón, más conocido como Materron.</p>
+<p>Materron es el creador del podcast Entératec, impulsor de iniciativas como las Podnights y un auténtico veterano dentro de este mundillo. Hace unos días me escribió por Telegram para enseñarme este nuevo desarrollo que había creado prácticamente por iniciativa propia.</p>
+<p>La idea del plugin es bastante sencilla de entender, pero al mismo tiempo muy útil para ciertos casos. Cuando hablamos de OP3 normalmente necesitamos que nuestro hosting de podcast nos permita añadir un prefijo a nuestro feed RSS para poder recopilar esas estadísticas. El problema aparece cuando el podcast está autoalojado en una web propia.</p>
+<p>Es decir, si alguien publica su podcast directamente desde WordPress o gestiona su feed desde allí, añadir ese prefijo puede no ser tan sencillo.</p>
+<p>Y precisamente ahí es donde entra este plugin.</p>
+<h3>Lo que hace Podcast Analytics for OP3 es detectar cualquier feed RSS que tenga la etiqueta enclosure (la que utilizan los podcast para indicar el archivo de audio) y añadir automáticamente el prefijo necesario para que OP3 pueda empezar a recoger estadísticas.</h3>
+<p>Una vez configurado el plugin y conectado con OP3 mediante un token, el sistema empieza a funcionar prácticamente solo. El prefijo se añade al feed, OP3 comienza a recopilar datos y además esas estadísticas se pueden consultar directamente desde el propio panel de WordPress.</p>
+<p>Esto tiene una ventaja bastante clara: en lugar de tener que entrar en la web de OP3 para consultar los datos, se pueden revisar rápidamente desde la administración de la propia web.</p>
+<p>De momento el plugin muestra información bastante básica, como el número total de descargas por episodio durante las últimas 24 horas, los últimos 7 días o el último mes. También permite exportar esos datos en PDF.</p>
+<p>Es cierto que todavía es un proyecto joven y que seguramente irá creciendo con el tiempo, pero precisamente por eso me parecía interesante traerlo al podcast.</p>
+<p>Este tipo de iniciativas demuestran algo que repito muchas veces cuando hablo de podcasting: si alguien detecta una necesidad dentro del ecosistema, muchas veces es la propia comunidad la que termina creando la solución.</p>
+<p>Descubre Podcast Analytics for OP3By Miguel Angel Terrón en el repositorio de WordPress entrando en este enlace: <a href="https://wordpress.org/plugins/podcast-analytics-for-op3/" target="_blank" rel="noreferrer noopener">https://wordpress.org/plugins/podcast-analytics-for-op3/</a></p>
+<p>_____________
+
+¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a></p>
+<p>Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a></p>
+<p>La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.</p>
+<p>&#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p>]]></description>
+	<itunes:subtitle><![CDATA[1352. Si usas WordPress para la web de tu podcast, estás de enhorabuena ya que hoy traigo un plugin para las estadísticas OP3, una especie de continuación natural de aquel capítulo en el que os conté qué era Open Podcast Prefix Project y por qué me parec]]></itunes:subtitle>
+	<content:encoded><![CDATA[<h5>1352. Si usas WordPress para la web de tu podcast, estás de enhorabuena ya que hoy traigo un plugin para las estadísticas OP3, una especie de continuación natural de aquel capítulo en el que os conté qué era Open Podcast Prefix Project y por qué me parecía una de esas soluciones interesantes dentro del mundo del podcasting cuando hablamos de estadísticas abiertas, privacidad de los oyentes y control de nuestros propios datos.</h5>
+<p>Porque si recordáis aquel episodio, OP3 es un sistema de prefijos que permite monitorizar las descargas de un podcast de forma abierta, transparente y además completamente gratuita. Un servicio que me gusta describir como un BBB, o mejor dicho BBG: bueno, bonito y gratis.</p>
+<p>Pues bien, hoy quiero dar un pequeño paso más en esa misma línea, porque existe un complemento que permite integrar esas estadísticas directamente en nuestra propia web si utilizamos WordPress para alojar o gestionar nuestro podcast.</p>
+<p>Y aquí es donde entra en escena el plugin del que quiero hablaros hoy, llamado Podcast Analytics for OP3, desarrollado por alguien bastante conocido dentro del podcasting independiente: Miguel Ángel Terrón, más conocido como Materron.</p>
+<p>Materron es el creador del podcast Entératec, impulsor de iniciativas como las Podnights y un auténtico veterano dentro de este mundillo. Hace unos días me escribió por Telegram para enseñarme este nuevo desarrollo que había creado prácticamente por iniciativa propia.</p>
+<p>La idea del plugin es bastante sencilla de entender, pero al mismo tiempo muy útil para ciertos casos. Cuando hablamos de OP3 normalmente necesitamos que nuestro hosting de podcast nos permita añadir un prefijo a nuestro feed RSS para poder recopilar esas estadísticas. El problema aparece cuando el podcast está autoalojado en una web propia.</p>
+<p>Es decir, si alguien publica su podcast directamente desde WordPress o gestiona su feed desde allí, añadir ese prefijo puede no ser tan sencillo.</p>
+<p>Y precisamente ahí es donde entra este plugin.</p>
+<h3>Lo que hace Podcast Analytics for OP3 es detectar cualquier feed RSS que tenga la etiqueta enclosure (la que utilizan los podcast para indicar el archivo de audio) y añadir automáticamente el prefijo necesario para que OP3 pueda empezar a recoger estadísticas.</h3>
+<p>Una vez configurado el plugin y conectado con OP3 mediante un token, el sistema empieza a funcionar prácticamente solo. El prefijo se añade al feed, OP3 comienza a recopilar datos y además esas estadísticas se pueden consultar directamente desde el propio panel de WordPress.</p>
+<p>Esto tiene una ventaja bastante clara: en lugar de tener que entrar en la web de OP3 para consultar los datos, se pueden revisar rápidamente desde la administración de la propia web.</p>
+<p>De momento el plugin muestra información bastante básica, como el número total de descargas por episodio durante las últimas 24 horas, los últimos 7 días o el último mes. También permite exportar esos datos en PDF.</p>
+<p>Es cierto que todavía es un proyecto joven y que seguramente irá creciendo con el tiempo, pero precisamente por eso me parecía interesante traerlo al podcast.</p>
+<p>Este tipo de iniciativas demuestran algo que repito muchas veces cuando hablo de podcasting: si alguien detecta una necesidad dentro del ecosistema, muchas veces es la propia comunidad la que termina creando la solución.</p>
+<p>Descubre Podcast Analytics for OP3By Miguel Angel Terrón en el repositorio de WordPress entrando en este enlace: <a href="https://wordpress.org/plugins/podcast-analytics-for-op3/" target="_blank" rel="noreferrer noopener">https://wordpress.org/plugins/podcast-analytics-for-op3/</a></p>
+<p>_____________
+
+¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a></p>
+<p>Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a></p>
+<p>La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.</p>
+<p>&#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p>]]></content:encoded>
+	<enclosure url="https://op3.dev/e/api.spreaker.com/download/episode/71319598/1352.mp3" length="11932794" type="audio/mpeg"></enclosure>
+	<itunes:summary><![CDATA[1352. Si usas WordPress para la web de tu podcast, estás de enhorabuena ya que hoy traigo un plugin para las estadísticas OP3, una especie de continuación natural de aquel capítulo en el que os conté qué era Open Podcast Prefix Project y por qué me parecía una de esas soluciones interesantes dentro del mundo del podcasting cuando hablamos de estadísticas abiertas, privacidad de los oyentes y control de nuestros propios datos.
+Porque si recordáis aquel episodio, OP3 es un sistema de prefijos que permite monitorizar las descargas de un podcast de forma abierta, transparente y además completamente gratuita. Un servicio que me gusta describir como un BBB, o mejor dicho BBG: bueno, bonito y gratis.
+Pues bien, hoy quiero dar un pequeño paso más en esa misma línea, porque existe un complemento que permite integrar esas estadísticas directamente en nuestra propia web si utilizamos WordPress para alojar o gestionar nuestro podcast.
+Y aquí es donde entra en escena el plugin del que quiero hablaros hoy, llamado Podcast Analytics for OP3, desarrollado por alguien bastante conocido dentro del podcasting independiente: Miguel Ángel Terrón, más conocido como Materron.
+Materron es el creador del podcast Entératec, impulsor de iniciativas como las Podnights y un auténtico veterano dentro de este mundillo. Hace unos días me escribió por Telegram para enseñarme este nuevo desarrollo que había creado prácticamente por iniciativa propia.
+La idea del plugin es bastante sencilla de entender, pero al mismo tiempo muy útil para ciertos casos. Cuando hablamos de OP3 normalmente necesitamos que nuestro hosting de podcast nos permita añadir un prefijo a nuestro feed RSS para poder recopilar esas estadísticas. El problema aparece cuando el podcast está autoalojado en una web propia.
+Es decir, si alguien publica su podcast directamente desde WordPress o gestiona su feed desde allí, añadir ese prefijo puede no ser tan sencillo.
+Y precisamente ahí es donde entra este plugin.
+Lo que hace Podcast Analytics for OP3 es detectar cualquier feed RSS que tenga la etiqueta enclosure (la que utilizan los podcast para indicar el archivo de audio) y añadir automáticamente el prefijo necesario para que OP3 pueda empezar a recoger estadísticas.
+Una vez configurado el plugin y conectado con OP3 mediante un token, el sistema empieza a funcionar prácticamente solo. El prefijo se añade al feed, OP3 comienza a recopilar datos y además esas estadísticas se pueden consultar directamente desde el propio panel de WordPress.
+Esto tiene una ventaja bastante clara: en lugar de tener que entrar en la web de OP3 para consultar los datos, se pueden revisar rápidamente desde la administración de la propia web.
+De momento el plugin muestra información bastante básica, como el número total de descargas por episodio durante las últimas 24 horas, los últimos 7 días o el último mes. También permite exportar esos datos en PDF.
+Es cierto que todavía es un proyecto joven y que seguramente irá creciendo con el tiempo, pero precisamente por eso me parecía interesante traerlo al podcast.
+Este tipo de iniciativas demuestran algo que repito muchas veces cuando hablo de podcasting: si alguien detecta una necesidad dentro del ecosistema, muchas veces es la propia comunidad la que termina creando la solución.
+Descubre Podcast Analytics for OP3By Miguel Angel Terrón en el repositorio de WordPress entrando en este enlace: https://wordpress.org/plugins/podcast-analytics-for-op3/
+_____________
+
+¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar https://alotroladodelmicrofono.com/unete
+Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: https://alotroladodelmicrofono.com/cafe. También puede]]></itunes:summary>
+	<itunes:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2023/12/03c5729783c936595c8e3c3d78229c4b.jpg"></itunes:image>
+	<image>
+		<url>https://alotroladodelmicrofono.com/wp-content/uploads/2026/04/1352.png</url>
+		<title>Plugin OP3 para WordPress: estadísticas de podcast dentro de tu web</title>
+	</image>
+	<itunes:explicit>false</itunes:explicit>
+	<itunes:block>no</itunes:block>
+	<itunes:duration>00:09:56</itunes:duration>
+	<itunes:author><![CDATA[Jorge Marín Nieto]]></itunes:author>	<googleplay:description><![CDATA[1352. Si usas WordPress para la web de tu podcast, estás de enhorabuena ya que hoy traigo un plugin para las estadísticas OP3, una especie de continuación natural de aquel capítulo en el que os conté qué era Open Podcast Prefix Project y por qué me parecía una de esas soluciones interesantes dentro del mundo del podcasting cuando hablamos de estadísticas abiertas, privacidad de los oyentes y control de nuestros propios datos.
+Porque si recordáis aquel episodio, OP3 es un sistema de prefijos que permite monitorizar las descargas de un podcast de forma abierta, transparente y además completamente gratuita. Un servicio que me gusta describir como un BBB, o mejor dicho BBG: bueno, bonito y gratis.
+Pues bien, hoy quiero dar un pequeño paso más en esa misma línea, porque existe un complemento que permite integrar esas estadísticas directamente en nuestra propia web si utilizamos WordPress para alojar o gestionar nuestro podcast.
+Y aquí es donde entra en escena el plugin del que quiero habla]]></googleplay:description>
+	<googleplay:image href="https://alotroladodelmicrofono.com/wp-content/uploads/2026/04/1352.png"></googleplay:image>
+	<googleplay:explicit>No</googleplay:explicit>
+	<googleplay:block>no</googleplay:block>
+<om:des><div><img src="https://alotroladodelmicrofono.com/wp-content/uploads/2026/04/1352.png"/>
+<h5>1352. Si usas WordPress para la web de tu podcast, estás de enhorabuena ya que hoy traigo un plugin para las estadísticas OP3, una especie de continuación natural de aquel capítulo en el que os conté qué era Open Podcast Prefix Project y por qué me parecía una de esas soluciones interesantes dentro del mundo del podcasting cuando hablamos de estadísticas abiertas, privacidad de los oyentes y control de nuestros propios datos.</h5>
+<p>Porque si recordáis aquel episodio, OP3 es un sistema de prefijos que permite monitorizar las descargas de un podcast de forma abierta, transparente y además completamente gratuita. Un servicio que me gusta describir como un BBB, o mejor dicho BBG: bueno, bonito y gratis.</p>
+<p>Pues bien, hoy quiero dar un pequeño paso más en esa misma línea, porque existe un complemento que permite integrar esas estadísticas directamente en nuestra propia web si utilizamos WordPress para alojar o gestionar nuestro podcast.</p>
+<p>Y aquí es donde entra en escena el plugin del que quiero hablaros hoy, llamado Podcast Analytics for OP3, desarrollado por alguien bastante conocido dentro del podcasting independiente: Miguel Ángel Terrón, más conocido como Materron.</p>
+<p>Materron es el creador del podcast Entératec, impulsor de iniciativas como las Podnights y un auténtico veterano dentro de este mundillo. Hace unos días me escribió por Telegram para enseñarme este nuevo desarrollo que había creado prácticamente por iniciativa propia.</p>
+<p>La idea del plugin es bastante sencilla de entender, pero al mismo tiempo muy útil para ciertos casos. Cuando hablamos de OP3 normalmente necesitamos que nuestro hosting de podcast nos permita añadir un prefijo a nuestro feed RSS para poder recopilar esas estadísticas. El problema aparece cuando el podcast está autoalojado en una web propia.</p>
+<p>Es decir, si alguien publica su podcast directamente desde WordPress o gestiona su feed desde allí, añadir ese prefijo puede no ser tan sencillo.</p>
+<p>Y precisamente ahí es donde entra este plugin.</p>
+<h3>Lo que hace Podcast Analytics for OP3 es detectar cualquier feed RSS que tenga la etiqueta enclosure (la que utilizan los podcast para indicar el archivo de audio) y añadir automáticamente el prefijo necesario para que OP3 pueda empezar a recoger estadísticas.</h3>
+<p>Una vez configurado el plugin y conectado con OP3 mediante un token, el sistema empieza a funcionar prácticamente solo. El prefijo se añade al feed, OP3 comienza a recopilar datos y además esas estadísticas se pueden consultar directamente desde el propio panel de WordPress.</p>
+<p>Esto tiene una ventaja bastante clara: en lugar de tener que entrar en la web de OP3 para consultar los datos, se pueden revisar rápidamente desde la administración de la propia web.</p>
+<p>De momento el plugin muestra información bastante básica, como el número total de descargas por episodio durante las últimas 24 horas, los últimos 7 días o el último mes. También permite exportar esos datos en PDF.</p>
+<p>Es cierto que todavía es un proyecto joven y que seguramente irá creciendo con el tiempo, pero precisamente por eso me parecía interesante traerlo al podcast.</p>
+<p>Este tipo de iniciativas demuestran algo que repito muchas veces cuando hablo de podcasting: si alguien detecta una necesidad dentro del ecosistema, muchas veces es la propia comunidad la que termina creando la solución.</p>
+<p>Descubre Podcast Analytics for OP3By Miguel Angel Terrón en el repositorio de WordPress entrando en este enlace: <a href="https://wordpress.org/plugins/podcast-analytics-for-op3/" target="_blank" rel="noreferrer noopener">https://wordpress.org/plugins/podcast-analytics-for-op3/</a></p>
+<p>_____________
+
+¡Gracias por pasarte &#8216;Al otro lado del micrófono&#8217; un día más para seguir aprendiendo sobre podcasting! Si quieres descubrir cómo puedes unirte a la comunidad o a los diferentes canales donde está presente este podcast, te invito a visitar <a href="https://alotroladodelmicrofono.com/unete" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/unete</a></p>
+<p>Además, puedes apoyar el proyecto mediante un pequeño impulso mensual, desde un granito de café mensual hasta un brunch digital. Descubre las diferentes opciones entrando en: <a href="https://alotroladodelmicrofono.com/cafe" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/cafe</a>. También puedes apoyar el proyecto a través de tus compras en Amazon mediante mi enlace de afiliados <a href="https://alotroladodelmicrofono.com/amazon" target="_blank" rel="noreferrer noopener">https://alotroladodelmicrofono.com/amazon</a></p>
+<p>La voz que puedes escuchar en la intro del podcast es de Juan Navarro Torelló (PoniendoVoces) y el diseño visual es de Antonio Poveda. La dirección, grabación y locución corre a cargo de Jorge Marín. La sintonía que puedes escuchar en cada capítulo ha sido creada por Jason Show y se titula: 2 Above Zero.</p>
+<p>&#8216;Al otro lado del micrófono&#8217; es una creación de EOVE Productora.</p></div></om:des></item>
 <item>
 	<title>SpeakPipe: recibir audio comentarios en tu podcast</title>
 <om:sec>5Y</om:sec>
